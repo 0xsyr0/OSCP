@@ -18,7 +18,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 ### Vulnerability Analysis
 | Tool | URL |
 | --- | --- |
-| nmap | https://github.com/nmap/nmap |
+| Nmap | https://github.com/nmap/nmap |
 | Nuclei | https://github.com/projectdiscovery/nuclei |
 
 ### Web Application Analysis
@@ -69,6 +69,8 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | --- | --- |
 
 ### Exploiting
+| Tool | URL |
+| --- | --- |
 | PwnTools | https://github.com/Gallopsled/pwntools |
 | mona | https://github.com/corelan/mona |
 | Buffer Overflow | https://github.com/gh0x0st/Buffer_Overflow |
@@ -79,7 +81,6 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | SecLists | https://github.com/danielmiessler/SecLists |
 
 ### Social Media Resources
-| Name | URL |
 | --- | --- |
 | IppSec (YouTube) | https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA |
 | IppSec.rocks | https://ippsec.rocks/?# |
@@ -93,12 +94,25 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 ### Basics
 #### vi
 ```c
-
+:w !sudo tee %    # save file with evelated privileges without exiting
 ```
 
 #### tmux
 ```c
-
+ctrl b + w    # navigate
+```
+Copy & Paste
+```c
+1. ctrl b + [
+2. ctrl space
+3. alt w
+4. ctrl b + ]
+```
+Search
+```c
+ctrl b + [    # enter copy
+ctrl + s      # enter search from copy mode
+ctrl + r      # reverse search
 ```
 
 ### Information Gathering
@@ -106,6 +120,18 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 ##### Reverse DNS
 ```c
 host <remote_ip> <remote_ip>
-dig axfr @<remote_ip> <domain>           // zone transfer - needs tcp DNS - port 53
+dig axfr @<remote_ip> <domain>           # zone transfer - needs tcp DNS - port 53
 host -l <domain> <remote_ip>
 ```
+Nmap:
+
+
+
+
+
+
+
+
+
+
+
