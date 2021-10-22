@@ -8,6 +8,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | --- | --- |
 | Impacket | https://github.com/SecureAuthCorp/impacket |
 | Swaks | https://github.com/jetmore/swaks |
+| CyberChef | https://gchq.github.io/CyberChef/ |
 
 ### Information Gathering
 | Tool | URL |
@@ -30,6 +31,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | --- | --- |
 | PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | ysoserial | https://github.com/frohoff/ysoserial |
+| JSON Web Tokens | https://jwt.io/ |
 | httpx | https://github.com/projectdiscovery/httpx |
 | Hakrawler | https://github.com/hakluke/hakrawler |
 | Gobuster | https://github.com/OJ/gobuster |
