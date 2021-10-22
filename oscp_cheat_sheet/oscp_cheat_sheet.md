@@ -81,6 +81,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | SecLists | https://github.com/danielmiessler/SecLists |
 
 ### Social Media Resources
+|||
 | --- | --- |
 | IppSec (YouTube) | https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA |
 | IppSec.rocks | https://ippsec.rocks/?# |
