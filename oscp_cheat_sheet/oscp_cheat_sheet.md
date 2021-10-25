@@ -214,20 +214,24 @@ ssh -L 80:localhost:80 <remote_ip>
 ```
 #### tmux
 ```c
-ctrl b + w    # navigate
+ctrl b + w    # show windows
+ctrl + "      # split window horizontal
+ctrl + %      # split window vertical
+ctrl + ,      # rename window
 ```
 Copy & Paste
 ```c
 1. ctrl b + [
-2. ctrl space
+2. space
 3. alt w
 4. ctrl b + ]
 ```
 Search
 ```c
 ctrl b + [    # enter copy
-ctrl + s      # enter search from copy mode
-ctrl + r      # reverse search
+ctrl + /      # enter search while within copy mode for vi mode
+n             # search
+shift + n     # reverse search
 ```
 #### Upgrading Shells
 ```c
