@@ -261,7 +261,7 @@ echo "<command>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 whois <domain>
 host <remote_ip> <remote_ip>
 host -l <domain> <remote_ip>
-dig @<domain> -x <domain>
+dig @<remote_ip> -x <domain>
 dig {a|txt|ns|mx} <domain>
 dig {a|txt|ns|mx} <domain> @ns1.<domain>
 dig axfr @<remote_ip> <domain>           # zone transfer - needs tcp DNS - port 53
