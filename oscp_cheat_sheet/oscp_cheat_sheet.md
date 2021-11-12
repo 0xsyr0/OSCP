@@ -93,12 +93,12 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | pypykatz | https://github.com/skelsec/pypykatz |
 | Rubeus | https://github.com/GhostPack/Rubeus |
 | unicorn | https://github.com/trustedsec/unicorn |
-| Ping Castle | https://github.com/vletoux/pingcastle |
 | printspoofer | https://github.com/dievus/printspoofer |
 | GenericPotato | https://github.com/micahvandeusen/GenericPotato |
 | Juicy Potato | https://github.com/ohpe/juicy-potato |
 | Rotten Potato | https://github.com/breenmachine/RottenPotatoNG |
 | JAWS | https://github.com/411Hall/JAWS |
+| Ping Castle | https://github.com/vletoux/pingcastle |
 | Active Directory Kill Chain Attack & Defense | https://github.com/infosecn1nja/AD-Attack-Defense |
 | Windows-privesc-check | https://github.com/pentestmonkey/windows-privesc-check |
 | Windows Privilege Escalation | https://github.com/frizb/Windows-Privilege-Escalation |
