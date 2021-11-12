@@ -93,6 +93,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | pypykatz | https://github.com/skelsec/pypykatz |
 | Rubeus | https://github.com/GhostPack/Rubeus |
 | unicorn | https://github.com/trustedsec/unicorn |
+| Ping Castle | https://github.com/vletoux/pingcastle |
 | printspoofer | https://github.com/dievus/printspoofer |
 | GenericPotato | https://github.com/micahvandeusen/GenericPotato |
 | Juicy Potato | https://github.com/ohpe/juicy-potato |
