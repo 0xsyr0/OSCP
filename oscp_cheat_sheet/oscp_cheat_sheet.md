@@ -248,7 +248,7 @@ export XTERM=xterm
 ```
 #### vi
 ```c
-:w !sudo tee %    # save file with evelated privileges without exiting
+:w !sudo tee %    # save file with elevated privileges without exiting
 ```
 #### Windows Command Formatting
 ```c
