@@ -1,3 +1,7 @@
+<p align="center">
+  <img width="300" height="300" src="https://github.com/0xsyr0/OSCP/blob/master/oscp.png">
+</p>
+
 # OSCP Cheat Sheet
 Commands, Payloads and Resources for the Offensive Security Certified Professional Certification.
 
