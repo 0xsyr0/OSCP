@@ -291,7 +291,7 @@ enum4linux -a <remote_ip>
 ```c
 sslyze --heartbleed <remote_ip>
 ```
-#### Nmap:
+#### Nmap
 ```c
 sudo nmap -A -T4 -p- -sS -sV -oN initial --script discovery <remote_ip>    # discovery scan
 sudo nmap -A -T4 -sC -sV --script vuln <remote_ip>    # vulnerability scan
@@ -831,7 +831,6 @@ hydra <remote_ip> http-form-post "/otrs/index.pl:Action=Login&RequestedURL=Actio
 
 hydra -l admin -P /usr/share/wordlists/rockyou.txt <remote_ip> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
 ```
-
 #### John
 ```c
 /usr/share/john/ssh2john.py id_rsa > hash
