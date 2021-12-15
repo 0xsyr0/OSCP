@@ -111,6 +111,8 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Pre-compiled Windows Exploits | https://github.com/abatchy17/WindowsExploits |
 | static-binaries | https://github.com/andrew-d/static-binaries |
 | SeBackupPrivilege | https://github.com/giuliano108/SeBackupPrivilege |
+| AMSI.fail | http://amsi.fail/ |
+| Raikia's Hub | https://raikia.com/tool-powershell-encoder/ |
 
 ### CVEs
 | CVE | URL |
