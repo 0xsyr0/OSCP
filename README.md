@@ -17,7 +17,6 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Tool | URL |
 | --- | --- |
 | Amass | https://github.com/OWASP/Amass |
-| AutoRecon | https://github.com/Tib3rius/AutoRecon |
 | Sparta | https://github.com/SECFORCE/sparta |
 | enum4linux | https://github.com/CiscoCXSecurity/enum4linux |
 
@@ -49,10 +48,12 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 ### Password Attacks
 | Tool | URL |
 | --- | --- |
+| Hydra | https://github.com/vanhauser-thc/thc-hydra |
+| Patator | https://github.com/lanjelot/patator |
+| Kerbrute | https://github.com/ropnop/kerbrute |
 | CrackMapExec | https://github.com/byt3bl33d3r/CrackMapExec |
 | SprayingToolkit | https://github.com/byt3bl33d3r/SprayingToolkit |
 | RsaCtfTool | https://github.com/Ganapati/RsaCtfTool |
-| Kerbrute | https://github.com/ropnop/kerbrute |
 | Default Credentials Cheat Sheet | https://github.com/ihebski/DefaultCreds-cheat-sheet |
 
 ### Reverse Engineering
@@ -127,12 +128,18 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | CVE-2020-1472 | https://github.com/risksense/zerologon |
 | CVE-2020-8165 | https://github.com/masahiro331/CVE-2020-8165 |
 | CVE-2021-1675 | https://github.com/calebstewart/CVE-2021-1675 |
-| CVE-2021-26084 | https://github.com/Phuong39/CVE-2021-26085 |
 | CVE-2021-3129 | https://github.com/nth347/CVE-2021-3129_exploit |
 | CVE-2021-3490 | https://github.com/rapid7/metasploit-framework/pull/15567 |
+| CVE-2021-22204 | https://github.com/CsEnox/Gitlab-Exiftool-RCE |
+| CVE-2021-26084 | https://github.com/Phuong39/CVE-2021-26085 |
+| CVE-2021-36934 | https://github.com/GossiTheDog/HiveNightmare |
 | CVE-2021-40444 | https://xret2pwn.github.io/CVE-2021-40444-Analysis-and-Exploit/ |
 | CVE-2020-1751, CVE-2021-41773,42013 | https://github.com/MrCl0wnLab/SimplesApachePathTraversal |
-| CVE-2021-36934 | https://github.com/GossiTheDog/HiveNightmare |
+| CVE-2021-42287 | https://github.com/WazeHell/sam-the-admin |
+| CVE-2021-42287, CVE-2021-42278 | https://github.com/cube0x0/noPac |
+| CVE-2021-43883 | https://github.com/klinix5/InstallerFileTakeOver |
+| CVE-2021-44228 | https://github.com/woodpecker-appstore/log4j-payload-generator |
+| CVE-2021-44228 | https://github.com/mbechler/marshalsec  |
 | SystemNightmare | https://github.com/GossiTheDog/SystemNightmare |
 | PetitPotam | https://github.com/topotam/PetitPotam |
 
