@@ -18,6 +18,8 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | --- | --- |
 | Nmap | https://github.com/nmap/nmap |
 | Amass | https://github.com/OWASP/Amass |
+| BloodHound | https://github.com/BloodHoundAD/BloodHound |
+| BloodHound Python | https://github.com/fox-it/BloodHound.py |
 | enum4linux | https://github.com/CiscoCXSecurity/enum4linux |
 
 ### Vulnerability Analysis
@@ -25,7 +27,6 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | --- | --- |
 | Nuclei | https://github.com/projectdiscovery/nuclei |
 | Sparta | https://github.com/SECFORCE/sparta |
-| BloodHound | https://github.com/BloodHoundAD/BloodHound |
 
 ### Web Application Analysis
 | Tool | URL |
@@ -302,6 +303,10 @@ ldapsearch -x -D "cn=admin,dc=<target_domain>,dc=local" -s sub "cn=*" -h <remote
 ldapsearch -D "cn=admin,dc=acme,dc=com" "(objectClass=*)" -w ldapadmin -h ldap.acme.com
 ldapsearch -x -h <remote_ip> -D "<user>"  -b "dc=<target_domain>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
 ```
+#### sslyze
+```c
+sslyze --heartbleed <remote_ip>
+```
 #### SMB / NetBIOS
 ```c
 nbtscan <remote_ip>
@@ -312,10 +317,6 @@ enum4linux -a <remote_ip>
 #### finger
 ```c
 ./finger-user-enum.pl -U /usr/share/seclists/Usernames/Names/names.txt -t <remote_ip>
-```
-#### Heartbleed
-```c
-sslyze --heartbleed <remote_ip>
 ```
 #### Nuclei
 ```c
