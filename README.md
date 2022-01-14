@@ -16,16 +16,15 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 ### Information Gathering
 | Tool | URL |
 | --- | --- |
+| Nmap | https://github.com/nmap/nmap |
 | Amass | https://github.com/OWASP/Amass |
-| Sparta | https://github.com/SECFORCE/sparta |
 | enum4linux | https://github.com/CiscoCXSecurity/enum4linux |
 
 ### Vulnerability Analysis
 | Tool | URL |
 | --- | --- |
-| Nmap | https://github.com/nmap/nmap |
 | Nuclei | https://github.com/projectdiscovery/nuclei |
-| WPScan | https://github.com/wpscanteam/wpscan |
+| Sparta | https://github.com/SECFORCE/sparta |
 | BloodHound | https://github.com/BloodHoundAD/BloodHound |
 
 ### Web Application Analysis
@@ -39,6 +38,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Gobuster | https://github.com/OJ/gobuster |
 | ffuf | https://github.com/ffuf/ffuf |
 | Wfuzz | https://github.com/xmendez/wfuzz |
+| WPScan | https://github.com/wpscanteam/wpscan |
 
 ### Database Assessment
 | Tool | URL |
@@ -232,6 +232,9 @@ ctrl b + w    # show windows
 ctrl + "      # split window horizontal
 ctrl + %      # split window vertical
 ctrl + ,      # rename window
+ctrl + {      # flip window
+ctrl + }      # flip window
+ctrl + spacebar    # switch pane layout
 ```
 Copy & Paste
 ```c
@@ -244,7 +247,7 @@ Search
 ```c
 ctrl b + [    # enter copy
 ctrl + /      # enter search while within copy mode for vi mode
-n             # search
+n             # search next
 shift + n     # reverse search
 ```
 #### Upgrading Shells
@@ -269,6 +272,16 @@ echo "<command>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 ```
 
 ### Information Gathering
+#### Nmap
+```c
+sudo nmap -A -T4 -p- -sS -sV -oN initial --script discovery <remote_ip>    # discovery scan
+sudo nmap -A -T4 -sC -sV --script vuln <remote_ip>    # vulnerability scan
+sudo nmap -sU <remote_ip>    # udp scan
+sudo nmap -sC -sV -p- --scan-delay 5s <remote_ip>    # delayed scan
+sudo nmap $TARGET -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='test' <remote_ip>    # kerberos enumeration
+ls -lh /usr/share/nmap/scripts/*ssh*
+locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|version\|safe' | grep smb
+```
 #### DNS
 ##### Reverse DNS
 ```c
@@ -304,28 +317,11 @@ enum4linux -a <remote_ip>
 ```c
 sslyze --heartbleed <remote_ip>
 ```
-#### Nmap
-```c
-sudo nmap -A -T4 -p- -sS -sV -oN initial --script discovery <remote_ip>    # discovery scan
-sudo nmap -A -T4 -sC -sV --script vuln <remote_ip>    # vulnerability scan
-sudo nmap -sU <remote_ip>    # udp scan
-sudo nmap -sC -sV -p- --scan-delay 5s <remote_ip>    # delayed scan
-sudo nmap $TARGET -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='test' <remote_ip>    # kerberos enumeration
-ls -lh /usr/share/nmap/scripts/*ssh*
-locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|version\|safe' | grep smb
-```
 #### Nuclei
 ```c
 ./nuclei -target https://<target_url> -t nuclei-templates    # basic syntax with path to templates
 ./nuclei -target https://<target_url> -t nuclei-templates -rate-limit 5    # rate limiting
 ./nuclei -target https://<target_url> -t nuclei-templates -header 'User-Agent: Pentesting -H 'X-OSCP-EXAM: oscp_exam'    # set headers
-```
-#### WPScan
-```c
-wpscan --url https://<remote_ip> --disable-tls-checks
-wpscan --url https://<remote_ip> --disable-tls-checks --enumerate u
-target=<remote_ip>; wpscan --url http://$target:80 --enumerate u,t,p | tee $target-wpscan-enum
-wpscan --url http://<remote_ip> -U <user> -P passwords.txt -t 50
 ```
 
 ### Web Application Analysis
@@ -742,6 +738,13 @@ wfuzz -c -z file,/usr/share/wordlists/seclists/Fuzzing/SQLi/Generic-SQLi.txt -d 
 wfuzz -c -w /usr/share/wordlists/secLists/Discovery/DNS/subdomains-top1million-110000.txt --hc 400,403,404 -H "Host: FUZZ.<target_domain>" -u http://<target_domain> --hw <value> -t 100
 
 wfuzz -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt --hw 31 http://10.13.37.11/backups/backup_2021052315FUZZ.zip
+```
+#### WPScan
+```c
+wpscan --url https://<remote_ip> --disable-tls-checks
+wpscan --url https://<remote_ip> --disable-tls-checks --enumerate u
+target=<remote_ip>; wpscan --url http://$target:80 --enumerate u,t,p | tee $target-wpscan-enum
+wpscan --url http://<remote_ip> -U <user> -P passwords.txt -t 50
 ```
 #### ysoserial
 ```c
