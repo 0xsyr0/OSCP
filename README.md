@@ -149,7 +149,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Buffer Overflow | https://github.com/gh0x0st/Buffer_Overflow |
 
 ### Payloads
-| Resource | URL |
+| Tool / Resource | URL |
 | --- | --- |
 | PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | Payload Box | https://github.com/payloadbox |
