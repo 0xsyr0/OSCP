@@ -88,6 +88,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | pth-toolkit | https://github.com/byt3bl33d3r/pth-toolkit |
 | Evil-WinRM | https://github.com/Hackplayers/evil-winrm |
 | Metasploit | https://github.com/rapid7/metasploit-framework |
+| SharpCollection | https://github.com/Flangvik/SharpCollection |
 
 ### Post Exploitation
 | Tool | URL |
