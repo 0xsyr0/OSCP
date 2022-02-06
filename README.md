@@ -127,6 +127,8 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | CVE-2021-1675 | https://github.com/calebstewart/CVE-2021-1675 |
 | CVE-2021-3129 | https://github.com/nth347/CVE-2021-3129_exploit |
 | CVE-2021-3490 | https://github.com/rapid7/metasploit-framework/pull/15567 |
+| CVE-2021-3560 | https://github.com/Almorabea/Polkit-exploit |
+| CVE-2021-3560 | https://github.com/hakivvi/CVE-2021-3560 |
 | CVE-2021-4034 | https://github.com/dzonerzy/poc-cve-2021-4034 |
 | CVE-2021-4034 | https://github.com/arthepsy/CVE-2021-4034 |
 | CVE-2021-4034 | https://github.com/nikaiw/CVE-2021-4034 |
