@@ -8,13 +8,13 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 ## Resources
 
 ### Basics
-| Tool | URL |
+| Name | URL |
 | --- | --- |
 | Swaks | https://github.com/jetmore/swaks |
 | CyberChef | https://gchq.github.io/CyberChef/ |
 
 ### Information Gathering
-| Tool | URL |
+| Name | URL |
 | --- | --- |
 | Nmap | https://github.com/nmap/nmap |
 | Amass | https://github.com/OWASP/Amass |
@@ -24,14 +24,14 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | BloodHound Python | https://github.com/fox-it/BloodHound.py |
 
 ### Vulnerability Analysis
-| Tool | URL |
+| Name | URL |
 | --- | --- |
 | Nuclei | https://github.com/projectdiscovery/nuclei |
 | Sparta | https://github.com/SECFORCE/sparta |
 | nikto | https://github.com/sullo/nikto |
 
 ### Web Application Analysis
-| Tool | URL |
+| Name | URL |
 | --- | --- |
 | PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | ysoserial | https://github.com/frohoff/ysoserial |
@@ -44,13 +44,13 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | WPScan | https://github.com/wpscanteam/wpscan |
 
 ### Database Assessment
-| Tool | URL |
+| Name | URL |
 | --- | --- |
 | NoSQLMap | https://github.com/codingo/NoSQLMap |
 | sqlmap | https://github.com/sqlmapproject/sqlmap |
 
 ### Password Attacks
-| Tool | URL |
+| Name | URL |
 | --- | --- |
 | Hydra | https://github.com/vanhauser-thc/thc-hydra |
 | Patator | https://github.com/lanjelot/patator |
@@ -66,7 +66,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Default Credentials Cheat Sheet | https://github.com/ihebski/DefaultCreds-cheat-sheet |
 
 ### Reverse Engineering
-| Tool | URL |
+| Name | URL |
 | --- | --- |
 | dnSpy | https://github.com/dnSpy/dnSpy |
 | AvalonialLSpy | https://github.com/icsharpcode/AvaloniaILSpy |
@@ -79,7 +79,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | JD-GUI | https://github.com/java-decompiler/jd-gui |
 
 ### Exploitation Tools
-| Tool | URL |
+| Name | URL |
 | --- | --- |
 | Impacket | https://github.com/SecureAuthCorp/impacket |
 | lsassy | https://github.com/Hackndo/lsassy |
@@ -91,7 +91,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | SharpCollection | https://github.com/Flangvik/SharpCollection |
 
 ### Post Exploitation
-| Tool | URL |
+| Name | URL |
 | --- | --- |
 | PEASS-ng | https://github.com/carlospolop/PEASS-ng |
 | LinEnum | https://github.com/rebootuser/LinEnum |
@@ -146,7 +146,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | PetitPotam | https://github.com/topotam/PetitPotam |
 
 ### Exploiting
-| Tool | URL |
+| Name | URL |
 | --- | --- |
 | PwnTools | https://github.com/Gallopsled/pwntools |
 | checksec | https://github.com/slimm609/checksec.sh |
@@ -155,7 +155,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Buffer Overflow | https://github.com/gh0x0st/Buffer_Overflow |
 
 ### Payloads
-| Tool / Resource | URL |
+| Name | URL |
 | --- | --- |
 | PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | Payload Box | https://github.com/payloadbox |
@@ -176,7 +176,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | PHP-Reverse-Shell | https://github.com/ivan-sincek/php-reverse-shell|
 
 ### Wordlists
-| Tool | URL |
+| Name | URL |
 | --- | --- |
 | SecLists | https://github.com/danielmiessler/SecLists |
 | CeWL | https://github.com/digininja/cewl |
