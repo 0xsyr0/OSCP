@@ -110,11 +110,13 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Windows-privesc-check | https://github.com/pentestmonkey/windows-privesc-check |
 | Windows Privilege Escalation | https://github.com/frizb/Windows-Privilege-Escalation |
 | Windows Privilege Escalation Fundamentals | https://www.fuzzysecurity.com/tutorials/16.html |
+| Priv2Admin | https://github.com/gtworek/Priv2Admin |
 | SeBackupPrivilege | https://github.com/giuliano108/SeBackupPrivilege |
 
 ### CVEs
 | CVE | URL |
 | --- | --- |
+| CVE POCs | https://github.com/trickest/cve |
 | CVE-2017-0199 | https://github.com/bhdresh/CVE-2017-0199 |
 | CVE-2018-16509 | https://github.com/farisv/PIL-RCE-Ghostscript-CVE-2018-16509 |
 | CVE-2019-18634 | https://github.com/saleemrashid/sudo-cve-2019-18634 |
