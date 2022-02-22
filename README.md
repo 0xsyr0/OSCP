@@ -183,6 +183,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | SecLists | https://github.com/danielmiessler/SecLists |
 | CeWL | https://github.com/digininja/cewl |
 | CUPP | https://github.com/Mebus/cupp |
+| COOK | https://github.com/giteshnxtlvl/cook |
 
 ### Social Media Resources
 | Name | URL |
