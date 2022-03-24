@@ -128,6 +128,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | CVE-2020-8165 | https://github.com/masahiro331/CVE-2020-8165 |
 | CVE-2021-1675 | https://github.com/calebstewart/CVE-2021-1675 |
 | CVE-2021-3129 | https://github.com/nth347/CVE-2021-3129_exploit |
+| CVE-2021-3156 | https://github.com/mohinparamasivam/Sudo-1.8.31-Root-Exploit |
 | CVE-2021-3490 | https://github.com/rapid7/metasploit-framework/pull/15567 |
 | CVE-2021-3560 | https://github.com/Almorabea/Polkit-exploit |
 | CVE-2021-3560 | https://github.com/hakivvi/CVE-2021-3560 |
