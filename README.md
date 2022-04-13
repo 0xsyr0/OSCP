@@ -267,9 +267,11 @@ ctrl + spacebar    # switch pane layout
 ```
 Copy & Paste
 ```c
+:setw -g mode-keys vi
+
 1. ctrl b + [
 2. space
-3. alt w
+3. enter
 4. ctrl b + ]
 ```
 Search
