@@ -147,6 +147,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | CVE-2021-44228 | https://github.com/mbechler/marshalsec  |
 | CVE-2022-0847 | https://dirtypipe.cm4all.com |
 | CVE-2022-0847 | https://github.com/AlexisAhmed/CVE-2022-0847-DirtyPipe-Exploits |
+| RoquePotato | https://github.com/antonioCoco/RoguePotato |
 | SystemNightmare | https://github.com/GossiTheDog/SystemNightmare |
 | PetitPotam | https://github.com/topotam/PetitPotam |
 
