@@ -114,43 +114,65 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | SeBackupPrivilege | https://github.com/giuliano108/SeBackupPrivilege |
 
 ### CVEs
-| CVE | URL |
-| --- | --- |
-| CVE POCs | https://github.com/trickest/cve |
-| CVE-2017-0199 | https://github.com/bhdresh/CVE-2017-0199 |
-| CVE-2018-16509 | https://github.com/farisv/PIL-RCE-Ghostscript-CVE-2018-16509 |
-| CVE-2019-18634 | https://github.com/saleemrashid/sudo-cve-2019-18634 |
-| CVE-2019-20933 | https://github.com/LorenzoTullini/InfluxDB-Exploit-CVE-2019-20933 |
-| CVE-2019-5736 | https://github.com/Frichetten/CVE-2019-5736-PoC |
-| dirty_sock | https://github.com/initstring/dirty_sock |
-| CVE-2020-1472 | https://github.com/SecuraBV/CVE-2020-1472 |
-| CVE-2020-1472 | https://github.com/risksense/zerologon |
-| CVE-2020-8165 | https://github.com/masahiro331/CVE-2020-8165 |
-| CVE-2021-1675 | https://github.com/calebstewart/CVE-2021-1675 |
-| CVE-2021-3129 | https://github.com/nth347/CVE-2021-3129_exploit |
-| CVE-2021-3156 | https://github.com/mohinparamasivam/Sudo-1.8.31-Root-Exploit |
-| CVE-2021-3490 | https://github.com/rapid7/metasploit-framework/pull/15567 |
-| CVE-2021-3560 | https://github.com/Almorabea/Polkit-exploit |
-| CVE-2021-3560 | https://github.com/hakivvi/CVE-2021-3560 |
-| CVE-2021-4034 | https://github.com/dzonerzy/poc-cve-2021-4034 |
-| CVE-2021-4034 | https://github.com/arthepsy/CVE-2021-4034 |
-| CVE-2021-4034 | https://github.com/nikaiw/CVE-2021-4034 |
-| CVE-2021-22204 | https://github.com/CsEnox/Gitlab-Exiftool-RCE |
-| CVE-2021-26084 | https://github.com/Phuong39/CVE-2021-26085 |
-| CVE-2021-36934 | https://github.com/GossiTheDog/HiveNightmare |
-| CVE-2021-40444 | https://xret2pwn.github.io/CVE-2021-40444-Analysis-and-Exploit/ |
-| CVE-2020-1751, CVE-2021-41773,42013 | https://github.com/MrCl0wnLab/SimplesApachePathTraversal |
-| CVE-2021-42287 | https://github.com/WazeHell/sam-the-admin |
-| CVE-2021-42287, CVE-2021-42278 | https://github.com/cube0x0/noPac |
-| CVE-2021-43883 | https://github.com/klinix5/InstallerFileTakeOver |
-| CVE-2021-44228 | https://github.com/woodpecker-appstore/log4j-payload-generator |
-| CVE-2021-44228 | https://github.com/mbechler/marshalsec  |
-| CVE-2022-0847 | https://dirtypipe.cm4all.com |
-| CVE-2022-0847 | https://github.com/AlexisAhmed/CVE-2022-0847-DirtyPipe-Exploits |
-| CVE-2022-26134 | https://github.com/redhuntlabs/ConfluentPwn |
-| RoquePotato | https://github.com/antonioCoco/RoguePotato |
-| SystemNightmare | https://github.com/GossiTheDog/SystemNightmare |
-| PetitPotam | https://github.com/topotam/PetitPotam |
+| CVE | Descritpion | URL |
+| --- | --- | --- |
+| CVE-2014-6271 | Shellshock PoC | https://github.com/zalalov/CVE-2014-6271 |
+| CVE-2016-5195 | Dirty COW | https://github.com/firefart/dirtycow |
+| CVE-2017-0199 | RTF Dynamite | https://github.com/bhdresh/CVE-2017-0199 |
+| CVE-2018-10933 | libSSH Authentication Bypass | https://github.com/blacknbunny/CVE-2018-10933 |
+| CVE-2018-16509 | Ghostscript | https://github.com/farisv/PIL-RCE-Ghostscript-CVE-2018-16509 |
+| CVE-2019-18634 | sudo | https://github.com/saleemrashid/sudo-cve-2019-18634 |
+| CVE-2019-5736 | Exploiting RunC | https://github.com/Frichetten/CVE-2019-5736-PoC |
+| CVE-2019-6447 | ES File Explorer Open Port Vulnerability | https://github.com/fs0c131y/ESFileExplorerOpenPortVuln |
+| CVE-2019-7304 | dirty_sock | https://github.com/initstring/dirty_sock |
+| CVE-2020-1472 | ZeroLogon Testing Script | https://github.com/SecuraBV/CVE-2020-1472 |
+| CVE-2020-1472 | ZeroLogon Exploitation Script | https://github.com/risksense/zerologon |
+| CVE-2021-1675,CVE-2021-34527 | PrintNightmare | https://github.com/nemo-wq/PrintNightmare-CVE-2021-34527 |
+| CVE-2021-1675 | PrintNightmare LPE (PowerShell) | https://github.com/calebstewart/CVE-2021-1675 |
+| CVE-2021-21972 | vCenter RCE | https://github.com/horizon3ai/CVE-2021-21972 |
+| CVE-2021-22204 | GitLab Exiftool RCE | https://github.com/CsEnox/Gitlab-Exiftool-RCE |
+| CVE-2021-22204 | GitLab Exiftool RCE Python Implementation | https://github.com/convisolabs/CVE-2021-22204-exiftool |
+| CVE-2021-26085 | Confluence Server RCE | https://github.com/Phuong39/CVE-2021-26085 |
+| CVE-2021-27928 | MariaDB/MySQL-'wsrep provider' | https://github.com/Al1ex/CVE-2021-27928 |
+| CVE-2021-3129 | Laravel Framework RCE | https://github.com/nth347/CVE-2021-3129_exploit |
+| CVE-2021-3156 | Sudo 1.8.31 Root Exploit | https://github.com/mohinparamasivam/Sudo-1.8.31-Root-Exploit |
+| CVE-2021-3560 | PwnKit C Implementation | https://github.com/hakivvi/CVE-2021-3560 |
+| CVE-2021-3560 | polkit Privilege Escalation | https://github.com/Almorabea/Polkit-exploit |
+| CVE-2021-3560 | polkit Privilege Esclation PoC | https://github.com/secnigma/CVE-2021-3560-Polkit-Privilege-Esclation |
+| CVE-2021-36934 | HiveNightmare | https://github.com/GossiTheDog/HiveNightmare |
+| CVE-2021-4034 | Pkexec Self-contained Exploit | https://github.com/ly4k/PwnKit |
+| CVE-2021-4034 | PoC for PwnKit (1) | https://github.com/dzonerzy/poc-cve-2021-4034 |
+| CVE-2021-4034 | PoC for PwnKit (2) | https://github.com/arthepsy/CVE-2021-4034 |
+| CVE-2021-4034 | PoC for PwnKit (3) | https://github.com/nikaiw/CVE-2021-4034 |
+| CVE-2021-40444 | MSHTML builders | https://github.com/aslitsecurity/CVE-2021-40444_builders |
+| CVE-2021-40444 | MSHTML Exploit | https://xret2pwn.github.io/CVE-2021-40444-Analysis-and-Exploit/ |
+| CVE-2021-40444 | MSHTML PoC | https://github.com/lockedbyte/CVE-2021-40444 |
+| CVE-2021-41379 | InstallerFileTakeOver | https://github.com/klinix5/InstallerFileTakeOver |
+| CVE-2021-41773,CVE-2021-42013, CVE-2020-17519 | SimplesApachePathTraversal | https://github.com/MrCl0wnLab/SimplesApachePathTraversal |
+| CVE-2021-42278,CVE-2021-42287 | sam-the-admin | https://github.com/WazeHell/sam-the-admin |
+| CVE-2021-42278 | sam-the-admin Python Implementation | https://github.com/ly4k/Pachine |
+| CVE-2021-42287,CVE-2021-42278 | noPac | https://github.com/cube0x0/noPac |
+| CVE-2021-42321 | Microsoft Exchange Server RCE | https://gist.github.com/testanull/0188c1ae847f37a70fe536123d14f398 |
+| CVE-2021-44228 | Log4Shell | https://github.com/kozmer/log4j-shell-poc |
+| CVE-2021-44228 | LogMePwn | https://github.com/0xInfection/LogMePwn |
+| CVE-2022-0847 | DirtyPipe-Exploits | https://github.com/AlexisAhmed/CVE-2022-0847-DirtyPipe-Exploits |
+| CVE-2022-22963 | Spring4Shell | https://github.com/tweedge/springcore-0day-en |
+| CVE-2022-23119,CVE-2022-23120 | Trend Micro Deep Security Agent for Linux Arbitrary File Read | https://github.com/modzero/MZ-21-02-Trendmicro |
+| CVE-2022-26134 | ConfluentPwn | https://github.com/redhuntlabs/ConfluentPwn |
+| CVE-2022-30190 | MS-MSDT Follina Attach Vector | https://github.com/JohnHammond/msdt-follina |
+| CVE-2022-30190 | MS-MSDT Follina Exploit PoC | https://github.com/onecloudemoji/CVE-2022-30190 |
+| CVE-2022-30190 | MS-MSDT Follina Exploit Python Implementation | https://github.com/chvancooten/follina.py |
+| CVE-2022-34918 | LPE Netfilter Kernel Exploit | https://github.com/randorisec/CVE-2022-34918-LPE-PoC |
+| n/a | RoguePotato | https://github.com/antonioCoco/RoguePotato |
+| n/a | RottenPotatoNG | https://github.com/breenmachine/RottenPotatoNG |
+| n/a | GenericPotato | https://github.com/micahvandeusen/GenericPotato |
+| n/a | JuicyPotato | https://github.com/ohpe/juicy-potato |
+| n/a | MultiPotato | https://github.com/S3cur3Th1sSh1t/MultiPotato |
+| n/a | Shocker (1) | https://github.com/gabrtv/shocker |
+| n/a | Shocker (2) | https://github.com/nccgroup/shocker |
+| n/a | SystemNightmare | https://github.com/GossiTheDog/SystemNightmare |
+| n/a | PetitPotam | https://github.com/topotam/PetitPotam |
+| n/a | DFSCoerce MS-DFSNM Exploit | https://github.com/Wh04m1001/DFSCoerce |
 
 ### Exploiting
 | Name | URL |
