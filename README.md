@@ -6,7 +6,28 @@
 
 Commands, Payloads and Resources for the Offensive Security Certified Professional Certification.
 
-## Resources
+## Table of Contents
+
+- [Basics](https://github.com/0xsyr0/OSCP#basics)
+- [Information Gathering](https://github.com/0xsyr0/OSCP#information-gathering)
+- [Vulnerability Analysis](https://github.com/0xsyr0/OSCP#vulnerability-analysis)
+- [Web Application Analysis](https://github.com/0xsyr0/OSCP#web-application-analysis)
+- [Database Assessment](https://github.com/0xsyr0/OSCP#database-assessment)
+- [Password Attacks](https://github.com/0xsyr0/OSCP#password-attacks)
+- [Reverse Engineering](https://github.com/0xsyr0/OSCP#reverse-engineering)
+- [Exploitation Tools](https://github.com/0xsyr0/OSCP#exploitation-tools)
+- [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation)
+- [CVEs](https://github.com/0xsyr0/OSCP#cves)
+- [Exploiting](https://github.com/0xsyr0/OSCP#exploiting)
+- [Payloads](https://github.com/0xsyr0/OSCP#payloads)
+- [Wordlists](https://github.com/0xsyr0/OSCP#wordlists)
+- [Social Media Resources](https://github.com/0xsyr0/OSCP#social-media-resources)
+- [Commands](https://github.com/0xsyr0/OSCP#commands)
+	- [Basics](https://github.com/0xsyr0/OSCP#basics-1)
+		- [CentOS](https://github.com/0xsyr0/OSCP#centos)
+		- [Certutil](https://github.com/0xsyr0/OSCP#certutil)
+		- [Chisel](https://github.com/0xsyr0/OSCP#chisel)
+		- [gcc](https://github.com/0xsyr0/OSCP#gcc)
 
 ### Basics
 
