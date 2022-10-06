@@ -382,7 +382,7 @@ ping -n 1 <RHOST>
 
 ```c
 sudo python -m SimpleHTTPServer 80
-sudo pyhton3 -m http.server 80
+sudo python3 -m http.server 80
 ```
 
 #### RDP
