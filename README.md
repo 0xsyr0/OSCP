@@ -1579,7 +1579,7 @@ $ impacket-ticketer -nthash C1929E1263DDFF6A2BCC6E053E705F78 -domain-sid S-1-5-2
 
 ##### Fixing [-] exceptions must derive from BaseException
 
-###### Issue
+###### Issue:
 
 ```c
 $ ./GetUserSPNs.py <TARGET_DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <DOMAIN_CONTROLLER>.<TARGET_DOMAIN> -no-pass -request
@@ -1588,7 +1588,7 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 [-] exceptions must derive from BaseException
 ```
 
-###### To fix it:
+###### How to fix it:
 
 ```c
 241         if self.__doKerberos:
