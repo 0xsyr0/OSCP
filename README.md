@@ -2285,8 +2285,6 @@ Connection: close
 
 #### XSS
 
-> https://github.com/payloadbox/xss-payload-list
-
 ##### Basic Payloads
 
 ```c
