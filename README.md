@@ -641,15 +641,54 @@ ffuf -w /opt/seclists/Discovery/Web-Content/directory-list-1.0.txt -u http://<RH
 #### Gobuster
 
 ```c
-gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<RHOST>/
+-e    // extended mode that renders the full url
+-k    // skip ssl certificate validation
+-r    // follow cedirects
+-s    // status codes
+-b    // exclude status codes
+-k            // ignore certificates
+--wildcard    // set wildcard option
 
-gobuster dir -w /usr/share/seclists/Discovery/Web-Content/big.txt -u http://<RHOST> -x php
+$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<RHOST>/
+$ gobuster dir -w /usr/share/seclists/Discovery/Web-Content/big.txt -u http://<RHOST>/ -x php
+$ gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://<RHOST>/ -x php,txt,html,js -e -s 200
+$ gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -u https://<RHOST>:<RPORT>/ -b 200 -k --wildcard
+```
 
-gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://<RHOST> -x php,txt,html,js -e -s 200
+##### Common File Extensions
 
-gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -u https://<RHOST>:<RPORT>/ -b 200 -k --wildcard
+```c
+txt,bak,php,html,js,asp,aspx
+```
 
+##### Common Picture Extensions
+
+```c
+png,jpg,jpeg,gif,bmp
+```
+
+##### POST Requests
+
+```c
+gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -u http://<RHOST>/api/ -e -s 200
+```
+
+##### DNS Recon
+
+```c
 gobuster dns -d <RHOST> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+```
+
+##### VHost Discovery
+
+```c
+gobuster vhost -u <RHOST> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+```
+
+##### Specifiy User Agent
+
+```c
+gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<RHOST>/ -a Linux
 ```
 
 #### Local File Inclusion (LFI)
@@ -1121,10 +1160,10 @@ wpscan --url http://<RHOST> -U <USERNAME> -P passwords.txt -t 50
 
 ```c
 show databases;
-use <db>;
+use <DATABASE>;
 show tables;
 SELECT * FROM *;
-mysql -u <USERNAME> -h <host> -p
+mysql -u <USERNAME> -h <RHOST> -p
 ```
 
 #### SQL Injection
