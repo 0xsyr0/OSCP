@@ -28,6 +28,74 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 		- [Certutil](https://github.com/0xsyr0/OSCP#certutil)
 		- [Chisel](https://github.com/0xsyr0/OSCP#chisel)
 		- [gcc](https://github.com/0xsyr0/OSCP#gcc)
+		- [Netcat](https://github.com/0xsyr0/OSCP#netcat)
+		- [PHP Webserver](https://github.com/0xsyr0/OSCP#php-webserver)
+		- [Ping](https://github.com/0xsyr0/OSCP#ping)
+		- [Python Webserver](https://github.com/0xsyr0/OSCP#python-webserver)
+		- [RDP](https://github.com/0xsyr0/OSCP#rdp)
+		- [SSH](https://github.com/0xsyr0/OSCP#ssh)
+		- [tmux](https://github.com/0xsyr0/OSCP#tmux)
+		- [Upgrading Shells](https://github.com/0xsyr0/OSCP#upgrading-shells)
+		- [vi](https://github.com/0xsyr0/OSCP#vi)
+		- [Windows Command Formatting](https://github.com/0xsyr0/OSCP#windows-command-formatting)
+	- [Information Gathering](https://github.com/0xsyr0/OSCP#information-gathering-1)
+		- [Nmap](https://github.com/0xsyr0/OSCP#nmap)
+		- [DNS](https://github.com/0xsyr0/OSCP#dns)
+		- [ldapsearch](https://github.com/0xsyr0/OSCP#ldapsearch)
+		- [sslyze](https://github.com/0xsyr0/OSCP#sslyze)
+		- [SMB / NetBIOS](https://github.com/0xsyr0/OSCP#smb--netbios)
+		- [JAWS](https://github.com/0xsyr0/OSCP#jaws)
+	- [Vulnerability Analysis](https://github.com/0xsyr0/OSCP#vulnerability-analysis-1)
+		- [finger](https://github.com/0xsyr0/OSCP#finger)
+		- [Nuclei](https://github.com/0xsyr0/OSCP#nuclei)
+	- [Web Application Analysis](https://github.com/0xsyr0/OSCP#web-application-analysis-1)
+		- [Asset Discovery](https://github.com/0xsyr0/OSCP#asset-discovery)
+		- [ffuf](https://github.com/0xsyr0/OSCP#ffuf)
+		- [Gobuster](https://github.com/0xsyr0/OSCP#gobuster)
+		- [Hakrawler](https://github.com/0xsyr0/OSCP#hakrawler)
+		- [Local File Inclusion LFI()](https://github.com/0xsyr0/OSCP#local-file-inclusion-lfi)
+		- [wfuzz](https://github.com/0xsyr0/OSCP#wfuzz)
+		- [WPScan](https://github.com/0xsyr0/OSCP#wpscan)
+	- [Database Analysis](https://github.com/0xsyr0/OSCP#database-analysis)
+		- [Basic Commands](https://github.com/0xsyr0/OSCP#basic-commands)
+		- [SQL Injection](https://github.com/0xsyr0/OSCP#sql-injection)
+		- [sqlmap](https://github.com/0xsyr0/OSCP#sqlmap)
+		- [sqsh](https://github.com/0xsyr0/OSCP#sqsh)
+		- [SQL Truncation Attack](https://github.com/0xsyr0/OSCP#sql-truncation-attack)
+		- [xpath Injection](https://github.com/0xsyr0/OSCP#xpath-injection)
+	- [Password Attacks](https://github.com/0xsyr0/OSCP#password-attacks-1)
+		- [fcrack](https://github.com/0xsyr0/OSCP#fcrack)
+		- [LaZagne](https://github.com/0xsyr0/OSCP#lazagne)
+		- [Hydra](https://github.com/0xsyr0/OSCP#hydra)
+		- [John](https://github.com/0xsyr0/OSCP#john)
+	- [Exploitation Tools](https://github.com/0xsyr0/OSCP#exploitation-tools-1)
+		- [ImageTragick Polyglot Attack](https://github.com/0xsyr0/OSCP#imagetragick-polyglot-attack)
+		- [Impacket](https://github.com/0xsyr0/OSCP#impacket)
+		- [ShellShock](https://github.com/0xsyr0/OSCP#shellshock)
+	- [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation-1)
+		- [AppLocker Bypass List](https://github.com/0xsyr0/OSCP#applocker-bypass-list)
+		- [autologon](https://github.com/0xsyr0/OSCP#autologon)
+		- [Bash Privilege Escalation](https://github.com/0xsyr0/OSCP#bash-privilege-escalation)
+		- [Basic Linux Enumeration](https://github.com/0xsyr0/OSCP#basic-linux-enumeration)
+		- [Basic Windows Enumeration](https://github.com/0xsyr0/OSCP#basic-windows-enumeration)
+		- [Evil-WinRM](https://github.com/0xsyr0/OSCP#evil-winrm)
+		- [find Commands](https://github.com/0xsyr0/OSCP#find-commands)
+		- [grep for Passwords](https://github.com/0xsyr0/OSCP#grep-for-passwords)
+		- [Juicy Potato](https://github.com/0xsyr0/OSCP#juicy-potato)
+		- [PowerShell & Powercat](https://github.com/0xsyr0/OSCP#powershell--powercat)
+		- [Windows Tasks & Services](https://github.com/0xsyr0/OSCP#windows-tasks--services)
+		- [Writeable Directories in Linux](https://github.com/0xsyr0/OSCP#writeable-directories-in-linux)
+	- [Payloads](https://github.com/0xsyr0/OSCP#payloads-1)
+		- [Reverse Shells](https://github.com/0xsyr0/OSCP#reverse-shells)
+		- [Web Shells](https://github.com/0xsyr0/OSCP#web-shells)
+		- [nishang](https://github.com/0xsyr0/OSCP#nishang)
+		- [Shikata Ga Nai](https://github.com/0xsyr0/OSCP#shikata-ga-nai)
+		- [ysoserial](https://github.com/0xsyr0/OSCP#ysoserial)
+	- [Templates](https://github.com/0xsyr0/OSCP#templates)
+		- [ASPX Web Shell](https://github.com/0xsyr0/OSCP#aspx-web-shell)
+		- [Bad YAML](https://github.com/0xsyr0/OSCP#bad-yaml)
+		- [Exploit Skeleton Python Script](https://github.com/0xsyr0/OSCP#exploit-skeleton-python-script)
+		- [JSON POST Rrequest](https://github.com/0xsyr0/OSCP#json-post-request)
 
 ### Basics
 
@@ -514,7 +582,7 @@ hakrawler -url <RHOST> -depth 3 -plain
 hakrawler -url <RHOST> -depth 3 -plain | httpx -http-proxy http://127.0.0.1:8080
 ```
 
-#### Local File Inclusion Vulnerability
+#### Local File Inclusion (LFI)
 
 ```c
 http://<TARGET_DOMAIN>/<FILE>.php?file=
@@ -933,7 +1001,7 @@ SELECT * FROM *;
 mysql -u <USERNAME> -h <host> -p
 ```
 
-#### SQLInjection
+#### SQL Injection
 
 ##### Master List
 
@@ -1309,7 +1377,7 @@ msf6 exploit(multi/handler) > run
 .\exploit.exe
 ```
 
-#### Powershell & Powercat
+#### PowerShell & Powercat
 
 ```c
 Set-ExecutionPolicy Unrestricted
