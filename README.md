@@ -202,9 +202,6 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | Impacket | https://github.com/SecureAuthCorp/impacket |
 | powercat | https://github.com/besimorhino/powercat |
 | PowerView | https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1 |
-| GenericPotato | https://github.com/micahvandeusen/GenericPotato |
-| Juicy Potato | https://github.com/ohpe/juicy-potato |
-| Rotten Potato | https://github.com/breenmachine/RottenPotatoNG |
 | Windows-privesc-check | https://github.com/pentestmonkey/windows-privesc-check |
 | Windows Privilege Escalation | https://github.com/frizb/Windows-Privilege-Escalation |
 | Windows Privilege Escalation Fundamentals | https://www.fuzzysecurity.com/tutorials/16.html |
@@ -268,6 +265,7 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 | n/a | RottenPotatoNG | https://github.com/breenmachine/RottenPotatoNG |
 | n/a | GenericPotato | https://github.com/micahvandeusen/GenericPotato |
 | n/a | JuicyPotato | https://github.com/ohpe/juicy-potato |
+| n/a | JuicyPotatoNG | https://github.com/antonioCoco/JuicyPotatoNG |
 | n/a | MultiPotato | https://github.com/S3cur3Th1sSh1t/MultiPotato |
 | n/a | PrintSpoofer (1) | https://github.com/dievus/printspoofer |
 | n/a | PrintSpoofer (2) | https://github.com/itm4n/PrintSpoofer |
