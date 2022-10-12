@@ -18,7 +18,6 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 - [Information Gathering](https://github.com/0xsyr0/OSCP#information-gathering)
 - [Vulnerability Analysis](https://github.com/0xsyr0/OSCP#vulnerability-analysis)
 - [Web Application Analysis](https://github.com/0xsyr0/OSCP#web-application-analysis)
-- [Database Assessment](https://github.com/0xsyr0/OSCP#database-assessment)
 - [Password Attacks](https://github.com/0xsyr0/OSCP#password-attacks)
 - [Reverse Engineering](https://github.com/0xsyr0/OSCP#reverse-engineering)
 - [Exploitation Tools](https://github.com/0xsyr0/OSCP#exploitation-tools)
