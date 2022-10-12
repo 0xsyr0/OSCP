@@ -140,13 +140,6 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | Wfuzz | https://github.com/xmendez/wfuzz |
 | WPScan | https://github.com/wpscanteam/wpscan |
 
-### Database Assessment
-
-| Name | URL |
-| --- | --- |
-| NoSQLMap | https://github.com/codingo/NoSQLMap |
-| sqlmap | https://github.com/sqlmapproject/sqlmap |
-
 ### Password Attacks
 
 | Name | URL |
