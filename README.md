@@ -70,7 +70,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [SQL Injection](https://github.com/0xsyr0/OSCP#sql-injection)
 		- [sqsh](https://github.com/0xsyr0/OSCP#sqsh)
 		- [SQL Truncation Attack](https://github.com/0xsyr0/OSCP#sql-truncation-attack)
-		- [xpath Injection](https://github.com/0xsyr0/OSCP#xpath-injection)
+		- [XPATH Injection](https://github.com/0xsyr0/OSCP#xpath-injection)
 	- [Password Attacks](https://github.com/0xsyr0/OSCP#password-attacks-1)
 		- [fcrack](https://github.com/0xsyr0/OSCP#fcrack)
 		- [LaZagne](https://github.com/0xsyr0/OSCP#lazagne)
@@ -1306,7 +1306,7 @@ sqsh -S <RHOST> -U <USERNAME>
 'admin@<FQDN>' = 'admin@<FQDN>++++++++++++++++++++++++++++++++++++++htb'
 ```
 
-#### xpath Injection
+#### XPATH Injection
 
 ```c
 test' or 1=1 or 'a'='a
