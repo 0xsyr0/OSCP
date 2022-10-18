@@ -268,6 +268,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | n/a | JuicyPotato | https://github.com/ohpe/juicy-potato |
 | n/a | JuicyPotatoNG | https://github.com/antonioCoco/JuicyPotatoNG |
 | n/a | MultiPotato | https://github.com/S3cur3Th1sSh1t/MultiPotato |
+| n/a | SharpEfsPotato | https://github.com/bugch3ck/SharpEfsPotato |
 | n/a | PrintSpoofer (1) | https://github.com/dievus/printspoofer |
 | n/a | PrintSpoofer (2) | https://github.com/itm4n/PrintSpoofer |
 | n/a | Shocker (1) | https://github.com/gabrtv/shocker |
