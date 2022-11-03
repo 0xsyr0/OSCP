@@ -135,6 +135,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | Name | URL |
 | --- | --- |
 | PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
+| Leaky Paths | https://github.com/ayoubfathi/leaky-paths |
 | ysoserial | https://github.com/frohoff/ysoserial |
 | JSON Web Tokens | https://jwt.io/ |
 | httpx | https://github.com/projectdiscovery/httpx |
