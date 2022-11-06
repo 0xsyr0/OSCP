@@ -199,6 +199,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | WESNG | https://github.com/bitsadmin/wesng
 | Sherlock | https://github.com/rasta-mouse/Sherlock |
 | scavenger | https://github.com/SpiderLabs/scavenger |
+| RunasCs | https://github.com/antonioCoco/RunasCs |
 | WADComs | https://wadcoms.github.io |
 | GTFOBins | https://gtfobins.github.io/ |
 | LOLBAS | https://lolbas-project.github.io/ |
