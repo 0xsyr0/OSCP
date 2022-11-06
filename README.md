@@ -306,6 +306,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | marshalsec | https://github.com/mbechler/marshalsec |
 | AMSI.fail | http://amsi.fail |
 | Raikia's Hub | https://raikia.com/tool-powershell-encoder/ |
+| webshell | https://github.com/tennc/webshell |
 | Web-Shells | https://github.com/TheBinitGhimire/Web-Shells |
 | PHP-Reverse-Shell | https://github.com/ivan-sincek/php-reverse-shell|
 
