@@ -91,6 +91,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [grep for Passwords](https://github.com/0xsyr0/OSCP#grep-for-passwords)
 		- [Impacket](https://github.com/0xsyr0/OSCP#impacket)
 		- [Juicy Potato](https://github.com/0xsyr0/OSCP#juicy-potato)
+		- [SharpEfsPotato](https://github.com/0xsyr0/OSCP#sharpefspotato)
 		- [PowerShell](https://github.com/0xsyr0/OSCP#powershell)
 		- [Windows Tasks & Services](https://github.com/0xsyr0/OSCP#windows-tasks--services)
 		- [Writeable Directories in Linux](https://github.com/0xsyr0/OSCP#writeable-directories-in-linux)
