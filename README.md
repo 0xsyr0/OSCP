@@ -207,7 +207,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | WADComs | https://wadcoms.github.io |
 | GTFOBins | https://gtfobins.github.io/ |
 | LOLBAS | https://lolbas-project.github.io/ |
-| Impacket | https://github.com/SecureAuthCorp/impacket |
+| Impacket | https://github.com/fortra/impacket |
 | powercat | https://github.com/besimorhino/powercat |
 | PowerView | https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1 |
 | Windows-privesc-check | https://github.com/pentestmonkey/windows-privesc-check |
