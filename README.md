@@ -72,7 +72,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Burp Suite](https://github.com/0xsyr0/OSCP#burp-suite)
 		- [ffuf](https://github.com/0xsyr0/OSCP#ffuf)
 		- [Gobuster](https://github.com/0xsyr0/OSCP#gobuster)
-    		- [GitTools](https://github.com/0xsyr0/OSCP#gittools)
+		- [GitTools](https://github.com/0xsyr0/OSCP#gittools)
 		- [Local File Inclusion (LFI)](https://github.com/0xsyr0/OSCP#local-file-inclusion-lfi)
 		- [PDF PHP Inclusion](https://github.com/0xsyr0/OSCP#pdf-php-inclusion)
 		- [PHP Upload Filter Bypasses](https://github.com/0xsyr0/OSCP#php-upload-filter-bypasses)
