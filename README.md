@@ -46,7 +46,6 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Ping](https://github.com/0xsyr0/OSCP#ping)
 		- [Python Webserver](https://github.com/0xsyr0/OSCP#python-webserver)
 		- [RDP](https://github.com/0xsyr0/OSCP#rdp)
-		- [regedit](https://github.com/0xsyr0/OSCP#regedit)
 		- [showmount](https://github.com/0xsyr0/OSCP#showmount)
 		- [smbclient](https://github.com/0xsyr0/OSCP#smbclient)
 		- [socat](https://github.com/0xsyr0/OSCP#socat)
