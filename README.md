@@ -869,7 +869,7 @@ bloodhound-python -u <USERNAME> -p '<PASSWORD>' -ns <RHOST> -d <DOMAIN> -c All
 #### enum4linux-ng
 
 ```c
-enum4linux-ng -a <RHOST>
+enum4linux-ng -A <RHOST>
 ```
 
 #### ldapsearch
