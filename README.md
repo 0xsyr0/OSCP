@@ -2331,9 +2331,11 @@ cp /tmp/poc.svg /var/www/html/convert_images/
 #### Metasploit
 
 ```c
-sudo msfdb run                   // start database
-sudo msfdb init                  // database initialization
-msfdb status                     // database status
+$ sudo msfdb run                   // start database
+$ sudo msfdb init                  // database initialization
+$ msfdb --use-defaults delete      // delete existing databases
+$ msfdb --use-defaults init        // database initialization
+$ msfdb status                     // database status
 msf6> workspace                    // metasploit workspaces
 msf6> workspace -a <WORKSPACE>     // add a workspace
 msf6> workspace -r <WORKSPACE>     // rename a workspace
