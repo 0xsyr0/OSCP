@@ -41,6 +41,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [File Transfer](https://github.com/0xsyr0/OSCP#file-transfer)
 		- [gcc](https://github.com/0xsyr0/OSCP#gcc)
 		- [getfacl](https://github.com/0xsyr0/OSCP#getfacl)
+		- [iconv](https://github.com/0xsyr0/OSCP#iconv)
 		- [Kerberos](https://github.com/0xsyr0/OSCP#kerberos)
 		- [PHP Webserver](https://github.com/0xsyr0/OSCP#php-webserver)
 		- [Ping](https://github.com/0xsyr0/OSCP#ping)
@@ -594,6 +595,13 @@ x86_64-w64-mingw32-gcc -o main64.exe main.c
 
 ```c
 getfacl <LOCAL_DIRECTORY>
+```
+
+#### iconv
+
+```c
+echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
+iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
 ```
 
 #### Kerberos
