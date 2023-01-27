@@ -123,7 +123,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Impacket](https://github.com/0xsyr0/OSCP#impacket)
 		- [Internet Information Service (IIS)](https://github.com/0xsyr0/OSCP#internet-information-service-iis)
 		- [JAWS](https://github.com/0xsyr0/OSCP#jaws)
-		- [Kerberos](https://github.com/0xsyr0/OSCP#kerberos)
+		- [Kerberos](https://github.com/0xsyr0/OSCP#kerberos-1)
 		- [LD_Preload](https://github.com/0xsyr0/OSCP#ld_preload)
 		- [Linux Wildcards](https://github.com/0xsyr0/OSCP#linux-wildcards)
 		- [logrotten](https://github.com/0xsyr0/OSCP#logrotten)
