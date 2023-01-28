@@ -2562,7 +2562,7 @@ driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'St
 > https://github.com/ly4k/BloodHound/
 
 ```c
-certipy find -dc-ip <LHOST> -u <USERNAME>@<DOMAIN> -p <PASSWORD>
+certipy find -dc-ip <RHOST> -u <USERNAME>@<DOMAIN> -p <PASSWORD>
 ```
 
 ```c
