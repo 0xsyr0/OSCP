@@ -117,6 +117,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Bash Privilege Escalation](https://github.com/0xsyr0/OSCP#bash-privilege-escalation)
 		- [Basic Linux Enumeration](https://github.com/0xsyr0/OSCP#basic-linux-enumeration)
 		- [Basic Windows Enumeration](https://github.com/0xsyr0/OSCP#basic-windows-enumeration)
+		- [Certipy](https://github.com/0xsyr0/OSCP#certipy)
 		- [Credential Files](https://github.com/0xsyr0/OSCP#credential-files)
 		- [Evil-WinRM](https://github.com/0xsyr0/OSCP#evil-winrm)
 		- [find Commands](https://github.com/0xsyr0/OSCP#find-commands)
@@ -2552,6 +2553,20 @@ dir /s *pass* == *cred* == *vnc* == *.config*
 accesschk.exe -uws "Everyone" "C:\Program Files"
 wmic qfe get Caption,Description,HotFixID,InstalledOn
 driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
+```
+
+#### Certipy
+
+> https://github.com/ly4k/Certipy
+
+> https://github.com/ly4k/BloodHound/
+
+```c
+certipy find -dc-ip <LHOST> -u <USERNAME>@<DOMAIN> -p <PASSWORD>
+```
+
+```c
+./BloodHound --disable-gpu-sandbox
 ```
 
 #### Credential Files
