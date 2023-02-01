@@ -118,7 +118,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Bash Privilege Escalation](https://github.com/0xsyr0/OSCP#bash-privilege-escalation)
 		- [Basic Linux Enumeration](https://github.com/0xsyr0/OSCP#basic-linux-enumeration)
 		- [Basic Windows Enumeration](https://github.com/0xsyr0/OSCP#basic-windows-enumeration)
-		- [Certify](https://github.com/0xsyr0/OSCP#certify)
+		- [Certify](https://github.com/0xsyr0/OSCP#certify-1)
 		- [Certipy](https://github.com/0xsyr0/OSCP#certipy)
 		- [Credential Files](https://github.com/0xsyr0/OSCP#credential-files)
 		- [Evil-WinRM](https://github.com/0xsyr0/OSCP#evil-winrm)
