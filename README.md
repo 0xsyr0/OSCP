@@ -298,6 +298,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | powercat | https://github.com/besimorhino/powercat |
 | PowerUp | https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1 |
 | PowerView | https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1 |
+| SharpView | https://github.com/tevora-threat/SharpView |
 | SharpCollection | https://github.com/Flangvik/SharpCollection |
 | PowerSharpPack | https://github.com/S3cur3Th1sSh1t/PowerSharpPack |
 | Windows-privesc-check | https://github.com/pentestmonkey/windows-privesc-check |
