@@ -355,7 +355,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | CVE-2022-22963 | Spring4Shell | https://github.com/tweedge/springcore-0day-en |
 | CVE-2022-23119,CVE-2022-23120 | Trend Micro Deep Security Agent for Linux Arbitrary File Read | https://github.com/modzero/MZ-21-02-Trendmicro |
 | CVE-2022-26134 | ConfluentPwn | https://github.com/redhuntlabs/ConfluentPwn |
-| CVE-2022-30190 | MS-MSDT Follina Attach Vector | https://github.com/JohnHammond/msdt-follina |
+| CVE-2022-30190 | MS-MSDT Follina Attack Vector | https://github.com/JohnHammond/msdt-follina |
 | CVE-2022-30190 | MS-MSDT Follina Exploit PoC | https://github.com/onecloudemoji/CVE-2022-30190 |
 | CVE-2022-30190 | MS-MSDT Follina Exploit Python Implementation | https://github.com/chvancooten/follina.py |
 | CVE-2022-34918 | LPE Netfilter Kernel Exploit | https://github.com/randorisec/CVE-2022-34918-LPE-PoC |
