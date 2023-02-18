@@ -151,7 +151,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Dirty Pipe (CVE-2022-0847)](https://github.com/0xsyr0/OSCP#dirty-pipe-cve-2022-0847)
 		- [Juicy Potato](https://github.com/0xsyr0/OSCP#juicy-potato)
 		- [Log4j / Log4Shell (CVE-2021-44228)](https://github.com/0xsyr0/OSCP#ms-msdt-follina)
-		- [MS-MSDT "Follina"](https://github.com/0xsyr0/OSCP#log4j--log4shell-cve2021-44228)
+		- [MS-MSDT "Follina"](https://github.com/0xsyr0/OSCP#ms-msdt-follina)
 		- [SharpEfsPotato](https://github.com/0xsyr0/OSCP#sharpefspotato)
 		- [ShellShock](https://github.com/0xsyr0/OSCP#shellshock)
 		- [Shocker](https://github.com/0xsyr0/OSCP#shocker)
