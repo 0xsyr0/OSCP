@@ -868,7 +868,7 @@ systemctl start neo4j
 ```
 
 ```c
-sudo neo4j start console
+sudo neo4j start
 sudo bloodhound --no-sandbox
 ```
 
