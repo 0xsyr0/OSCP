@@ -669,13 +669,17 @@ chown root:root sid-shell; chmod +s sid-shell
 #### smbclient
 
 ```c
+smbclient -L \\<RHOST>\ -N
+smbclient -L //<RHOST>/ -N
 smbclient -L ////<RHOST>/ -N
-smbclient //<RHOST>/<FOLDER> -N
-smbclient \\\\<RHOST>/<FOLDER> -N
 smbclient -U "<USERNAME>" -L \\\\<RHOST>\\
 smbclient -L //<RHOST>// -U <USERNAME>%<PASSWORD>
 smbclient //<RHOST>/SYSVOL -U <USERNAME>%<PASSWORD>
+smbclient "\\\\<RHOST>\<SHARE>"
 smbclient \\\\<RHOST>\\<SHARE> -U '<USERNAME>' --socket-options='TCP_NODELAY IPTOS_LOWDELAY SO_KEEPALIVE SO_RCVBUF=131072 SO_SNDBUF=131072' -t 40000
+smbclient --no-pass //<RHOST>/<SHARE>
+mount.cifs //<RHOST>/<SHARE> /mnt/remote
+guestmount --add '/<MOUNTPOINT>/<DIRECTORY/FILE>' --inspector --ro /mnt/<MOUNT> -v
 ```
 
 ##### Download multiple files at once
