@@ -742,6 +742,7 @@ sudo systemctl disable --now chronyd
 ```c
 sudo net time -c <RHOST>
 sudo net time set -S <RHOST>
+sudo ntpdate -s <RHOST>
 sudo ntpdate -b -u <RHOST>
 sudo timedatectl set-timezone UTC
 sudo timedatectl list-timezones
