@@ -294,6 +294,9 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | Whisker | https://github.com/eladshamir/Whisker |
 | PyWhisker | https://github.com/ShutdownRepo/pywhisker |
 | Rubeus | https://github.com/GhostPack/Rubeus |
+| KrbRelay | https://github.com/cube0x0/KrbRelay |
+| KrbRelayUp | https://github.com/Dec0ne/KrbRelayUp |
+| Krbrelayx | https://github.com/dirkjanm/krbrelayx |
 | pth-toolkit | https://github.com/byt3bl33d3r/pth-toolkit |
 | Impacket | https://github.com/fortra/impacket |
 | RunasCs | https://github.com/antonioCoco/RunasCs |
