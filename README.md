@@ -3388,6 +3388,15 @@ Enter-PSSession $offsec_session
 ##### Execute Command as another User
 
 ```c
+PS C:\> $SecurePassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
+PS C:\> $Cred = New-Object System.Management.Automation.PSCredential('<USERNAME>', $SecurePassword)
+PS C:\> $Session = New-PSSession -Credential $Cred
+PS C:\> Invoke-Command -Session $session -scriptblock { whoami }
+```
+
+or
+
+```c
 $username = '<USERNAME>'
 $password = '<PASSWORD>'
 $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
