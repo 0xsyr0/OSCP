@@ -67,6 +67,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [ldapsearch](https://github.com/0xsyr0/OSCP#ldapsearch)
 		- [memcached](https://github.com/0xsyr0/OSCP#memcached)
 		- [NetBIOS](https://github.com/0xsyr0/OSCP#netbios)
+		- [Port Scanning](https://github.com/0xsyr0/OSCP#port-scanning)
 		- [rpcclient](https://github.com/0xsyr0/OSCP#rpcclient)
 	- [Web Application Analysis](https://github.com/0xsyr0/OSCP#web-application-analysis-1)
 		- [Burp Suite](https://github.com/0xsyr0/OSCP#burp-suite)
@@ -954,6 +955,16 @@ get password
 ```c
 nbtscan <RHOST>
 nmblookup -A <RHOST>
+```
+
+#### Port Scanning
+
+```c
+for p in {1..65535}; do nc -vn <RHOST> $p -w 1 -z & done 2> <FILE>.txt
+```
+
+```c
+export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/tcp/$ip/$port && echo The port $port is open || echo The Port $port is closed > /dev/null" 2>/dev/null || echo Connection Timeout > /dev/null; done
 ```
 
 #### rpclient
