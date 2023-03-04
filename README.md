@@ -284,6 +284,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | Sherlock | https://github.com/rasta-mouse/Sherlock |
 | scavenger | https://github.com/SpiderLabs/scavenger |
 | WADComs | https://wadcoms.github.io |
+| Ghostpack-CompiledBinaries | https://github.com/r3motecontrol/Ghostpack-CompiledBinaries |
 | GTFOBins | https://gtfobins.github.io |
 | LOLBAS | https://lolbas-project.github.io |
 | lsassy | https://github.com/Hackndo/lsassy |
@@ -301,6 +302,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | Krbrelayx | https://github.com/dirkjanm/krbrelayx |
 | pth-toolkit | https://github.com/byt3bl33d3r/pth-toolkit |
 | Impacket | https://github.com/fortra/impacket |
+| Impacket Static Binaries | https://github.com/ropnop/impacket_static_binaries |
 | RunasCs | https://github.com/antonioCoco/RunasCs |
 | Villain | https://github.com/t3l3machus/Villain |
 | powercat | https://github.com/besimorhino/powercat |
