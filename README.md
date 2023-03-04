@@ -918,6 +918,7 @@ ldapsearch -x -b "dc=<RHOST>,dc=local" "*" -h <RHOST> | awk '/dn: / {print $2}'
 ldapsearch -x -D "cn=admin,dc=<RHOST>,dc=local" -s sub "cn=*" -h <RHOST> | awk '/uid: /{print $2}' | nl
 ldapsearch -D "cn=admin,dc=acme,dc=com" "(objectClass=*)" -w ldapadmin -h ldap.acme.com
 ldapsearch -x -h <RHOST> -D "<USERNAME>"  -b "dc=<RHOST>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
+ldapsearch -H ldap://<DOMAIN> -b "DC=<DOMAIN>,DC=local" > <FILE>.txt
 ```
 
 #### memcached
