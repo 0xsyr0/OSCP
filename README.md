@@ -160,7 +160,6 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Juicy Potato LPE](https://github.com/0xsyr0/OSCP#juicy-potato-lpe)
 		- [SharpEfsPotato LPE](https://github.com/0xsyr0/OSCP#sharpefspotato-lpe)
 		- [Shocker Container Escape](https://github.com/0xsyr0/OSCP#shocker-container-escape)
-		- [ZeroLogon (CVE-2020-1472)](https://github.com/0xsyr0/OSCP#zerologon-cve-2020-1472)
 	- [Payloads](https://github.com/0xsyr0/OSCP#payloads-1)
 		- [Donut](https://github.com/0xsyr0/OSCP#donut)
 		- [Exiftool](https://github.com/0xsyr0/OSCP#exiftool)
