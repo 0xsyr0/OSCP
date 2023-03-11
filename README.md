@@ -153,7 +153,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [CVE-2014-6271: Shellshock RCE PoC](https://github.com/0xsyr0/OSCP#cve-2014-6271-shellshock-rce-poc)
 		- [CVE-2019-14287: Sudo Bypass](https://github.com/0xsyr0/OSCP#ccve-2019-14287-sudo-bypass)
 		- [CVE-2020-1472: ZeroLogon PE](https://github.com/0xsyr0/OSCP#cve-2020-1472-zerologon-pe)
-		- [CVE-2021–3156: Sudo / sudoedit LPE](https://github.com/0xsyr0/OSCP#ccve-2021–3156-sudo--sudoedit-lpe)
+		- [CVE-2021–3156: Sudo / sudoedit LPE](https://github.com/0xsyr0/OSCP#cve-2021-3156-sudo--sudoedit-lpe)
 		- [CVE-2021-44228: Log4Shell RCE (0-day)](https://github.com/0xsyr0/OSCP#cve-2021-44228-log4shell-rce-0-day)
 		- [CVE-2022-0847: Dirty Pipe LPE](https://github.com/0xsyr0/OSCP#cve-2022-0847-dirty-pipe-lpe)
 		- [CVE-2022-30190: MS-MSDT Follina RCE](https://github.com/0xsyr0/OSCP#cve-2022-30190-ms-msdt-follina-rce)
