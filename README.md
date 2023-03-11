@@ -636,6 +636,10 @@ iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
 #### Kerberos
 
 ```c
+sudo apt-get install krb5-kdc
+```
+
+```c
 /etc/krb5.conf                   // kerberos configuration file location
 kinit <USERNAME>                 // creating ticket request
 klist                            // show available kerberos tickets
