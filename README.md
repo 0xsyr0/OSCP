@@ -27,7 +27,6 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 - [Exploitation Tools](https://github.com/0xsyr0/OSCP#exploitation-tools)
 - [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation)
 - [CVEs](https://github.com/0xsyr0/OSCP#cves)
-- [Exploiting](https://github.com/0xsyr0/OSCP#exploiting)
 - [Payloads](https://github.com/0xsyr0/OSCP#payloads)
 - [Wordlists](https://github.com/0xsyr0/OSCP#wordlists)
 - [Social Media Resources](https://github.com/0xsyr0/OSCP#social-media-resources)
@@ -406,16 +405,6 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | n/a | Kernelhub | https://github.com/Ascotbe/Kernelhub |
 | n/a | Windows Exploits | https://github.com/SecWiki/windows-kernel-exploits |
 | n/a | Pre-compiled Windows Exploits | https://github.com/abatchy17/WindowsExploits |
-
-### Exploiting
-
-| Name | URL |
-| --- | --- |
-| PwnTools | https://github.com/Gallopsled/pwntools |
-| checksec | https://github.com/slimm609/checksec.sh |
-| mona | https://github.com/corelan/mona |
-| Ropper | https://github.com/sashs/Ropper |
-| Buffer Overflow | https://github.com/gh0x0st/Buffer_Overflow |
 
 ### Payloads
 
