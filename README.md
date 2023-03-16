@@ -3351,7 +3351,7 @@ type <FILE> | findstr /l <STRING>
 ##### Allow Script Execution
 
 ```c
-set-executionpolicy remotesigned
+Set-ExecutionPolicy remotesigned
 Set-ExecutionPolicy unrestricted
 ```
 
