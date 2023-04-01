@@ -26,6 +26,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 - [Reverse Engineering](https://github.com/0xsyr0/OSCP#reverse-engineering)
 - [Exploitation Tools](https://github.com/0xsyr0/OSCP#exploitation-tools)
 - [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation)
+- [Exploit Databases](https://github.com/0xsyr0/OSCP#exploit-databases)
 - [CVEs](https://github.com/0xsyr0/OSCP#cves)
 - [Payloads](https://github.com/0xsyr0/OSCP#payloads)
 - [Wordlists](https://github.com/0xsyr0/OSCP#wordlists)
@@ -294,6 +295,15 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | Windows Privilege Escalation | https://github.com/frizb/Windows-Privilege-Escalation |
 | Windows Privilege Escalation Fundamentals | https://www.fuzzysecurity.com/tutorials/16.html |
 | Priv2Admin | https://github.com/gtworek/Priv2Admin |
+
+### Exploit Databases
+
+| Database | URL |
+| --- | --- |
+| Exploit Database | https://www.exploit-db.com |
+| Sploitus | https://sploitus.com |
+| Packet Storm | https://packetstormsecurity.com |
+| 0day.today Exploit Database | https://0day.today |
 
 ### CVEs
 
