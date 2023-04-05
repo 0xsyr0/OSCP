@@ -274,6 +274,8 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | LAPSDumper | https://github.com/n00py/LAPSDumper |
 | Certify | https://github.com/GhostPack/Certify |
 | Certipy | https://github.com/ly4k/Certipy |
+| ADCSTemplate | https://github.com/GoateePFE/ADCSTemplate |
+| PSPKIAudit | https://github.com/GhostPack/PSPKIAudit |
 | PKINITtools | https://github.com/dirkjanm/PKINITtools |
 | Whisker | https://github.com/eladshamir/Whisker |
 | PyWhisker | https://github.com/ShutdownRepo/pywhisker |
@@ -289,8 +291,6 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | powercat | https://github.com/besimorhino/powercat |
 | PowerUp | https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1 |
 | PowerView | https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1 |
-| ADCSTemplate | https://github.com/GoateePFE/ADCSTemplate |
-| PSPKIAudit | https://github.com/GhostPack/PSPKIAudit |
 | SharpView | https://github.com/tevora-threat/SharpView |
 | SharpCollection | https://github.com/Flangvik/SharpCollection |
 | PowerSharpPack | https://github.com/S3cur3Th1sSh1t/PowerSharpPack |
