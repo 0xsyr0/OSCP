@@ -2553,7 +2553,7 @@ New-ADCSTemplate -DisplayName TopCA -JSON (Export-ADCSTemplate -DisplayName 'Sub
 > https://github.com/GhostPack/Certify
 
 ```c
-PS: C:\> Certify find
+PS: C:\> Certify find /vulnerable
 ```
 
 #### Certipy
