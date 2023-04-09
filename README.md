@@ -105,7 +105,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [ADCSTemplate](https://github.com/0xsyr0/OSCP#adcstemplate)
 		- [BloodHound](https://github.com/0xsyr0/OSCP#bloodhound)
 		- [BloodHound Python](https://github.com/0xsyr0/OSCP#bloodhound-python)
-		- [Certify](https://github.com/0xsyr0/OSCP#certify-1)
+		- [Certify](https://github.com/0xsyr0/OSCP#certify)
 		- [Certipy](https://github.com/0xsyr0/OSCP#certipy)
 		- [enum4linux-ng](https://github.com/0xsyr0/OSCP#enum4linux-ng)
 		- [Evil-WinRM](https://github.com/0xsyr0/OSCP#evil-winrm)
