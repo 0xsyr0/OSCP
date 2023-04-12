@@ -48,7 +48,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [socat](https://github.com/0xsyr0/OSCP#socat)
 		- [SSH](https://github.com/0xsyr0/OSCP#ssh)
 		- [Time and Date](https://github.com/0xsyr0/OSCP#time-and-date)
-		- [tmux](https://github.com/0xsyr0/OSCP#tmux)
+		- [Tmux](https://github.com/0xsyr0/OSCP#tmux)
 		- [Upgrading Shells](https://github.com/0xsyr0/OSCP#upgrading-shells)
 		- [VirtualBox](https://github.com/0xsyr0/OSCP#virtualbox)
 		- [virtualenv](https://github.com/0xsyr0/OSCP#virtualenv)
@@ -788,7 +788,7 @@ sudo timedatectl set-local-rtc 1
 while [ 1 ]; do sudo ntpdate <RHOST>;done
 ```
 
-#### tmux
+#### Tmux
 
 ```c
 ctrl b + w    # show windows
@@ -803,11 +803,10 @@ ctrl + spacebar    # switch pane layout
 Copy & Paste
 ```c
 :setw -g mode-keys vi
-
-1. ctrl b + [
-2. space
-3. enter
-4. ctrl b + ]
+ctrl b + [
+space
+enter
+ctrl b + ]
 ```
 
 Search
@@ -816,6 +815,20 @@ ctrl b + [    # enter copy
 ctrl + /      # enter search while within copy mode for vi mode
 n             # search next
 shift + n     # reverse search
+```
+
+Logging
+```c
+ctrl b
+shift + P    # start / stop
+```
+
+Save Output
+```c
+ctrl b + :
+capture-pane -S -
+ctrl b + :
+save-buffer <FILE>.txt
 ```
 
 #### Upgrading Shells
