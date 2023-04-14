@@ -976,6 +976,8 @@ export HTTPS_PROXY=https://localhost:8080
 #### ffuf
 
 ```c
+ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ --fs <NUMBER> -mc all
+ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ --fw <NUMBER> -mc all
 ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ -mc 200,204,301,302,307,401 -o results.txt
 ffuf -c -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u http://<RHOST>/ -H "Host: FUZZ.<RHOST>" -fs 185
 ffuf -c -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt -u http://<RHOST>/backups/backup_2020070416FUZZ.zip
@@ -1813,12 +1815,13 @@ mysql -u <USERNAME> -h <RHOST> -p
 ```
 
 ```c
-> show databases;
-> use <DATABASE>;
-> show tables;
-> describe <TABLE>;
-> SELECT * FROM Users;
-> SELECT Username,Password FROM Users;
+mysql> show databases;
+mysql> use <DATABASE>;
+mysql> show tables;
+mysql> describe <TABLE>;
+mysql> SELECT * FROM Users;
+mysql> SELECT * FROM users \G;
+mysql> SELECT Username,Password FROM Users;
 ```
 
 ##### Update User Password
