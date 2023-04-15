@@ -3459,6 +3459,13 @@ net group "Exchange Windows Permissions" /add <USERNAME>
 net localgroup "Remote Management Users" /add <USERNAME>
 ```
 
+##### Enable Remote Desktop (RDP)
+
+```c
+reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
+netsh advfirewall firewall set rule group="remote desktop" new enable=yes
+```
+
 ##### Privileges and Permissions
 
 ###### AlwaysInstallElevated
