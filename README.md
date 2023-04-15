@@ -3605,8 +3605,8 @@ runas /savecred /user:<USERNAME> cmd.exe
 ###### Search the Registry for Passwords
 
 ```c
-req query HKLM /f password /t REG_SZ /s
-req query HKCU /f password /t REG_SZ /s
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
 ```
 
 ###### Dumping Credentials
