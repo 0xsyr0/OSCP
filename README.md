@@ -2560,6 +2560,15 @@ sudo bloodhound --no-sandbox
 
 >  http://localhost:7474/browser/
 
+
+##### Database Password Reset
+
+>  http://localhost:7474/browser/
+
+```c
+ALTER USER neo4j SET PASSWORD '<PASSWORD>'
+```
+
 #### BloodHound Python
 
 ```c
