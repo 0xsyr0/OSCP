@@ -2395,14 +2395,14 @@ $ sudo msfdb init                  // database initialization
 $ msfdb --use-defaults delete      // delete existing databases
 $ msfdb --use-defaults init        // database initialization
 $ msfdb status                     // database status
-msf6> workspace                    // metasploit workspaces
-msf6> workspace -a <WORKSPACE>     // add a workspace
-msf6> workspace -r <WORKSPACE>     // rename a workspace
-msf6> workspace -d <WORKSPACE>     // delete a workspace
-msf6> workspace -D                 // delete all workspaces
-msf6> db_nmap <OPTIONS>            // execute nmap and add output to database
-msf6> hosts                        // reads hosts from database
-msf6> services                     // reads services from database
+msf6 > workspace                   // metasploit workspaces
+msf6 > workspace -a <WORKSPACE>    // add a workspace
+msf6 > workspace -r <WORKSPACE>    // rename a workspace
+msf6 > workspace -d <WORKSPACE>    // delete a workspace
+msf6 > workspace -D                // delete all workspaces
+msf6 > db_nmap <OPTIONS>           // execute nmap and add output to database
+msf6 > hosts                       // reads hosts from database
+msf6 > services                    // reads services from database
 msf6 > vulns                       // displaying vulnerabilities
 msf6 > search                      // search within metasploit
 msf6 > set RHOST <RHOST>           // set remote host
@@ -2450,9 +2450,9 @@ meterpreter > powershell_execute                 // execute command
 meterpreter > powershell_import                  // import module
 meterpreter > powershell_shell                   // shell
 meterpreter > powershell_session_remove          // remove
-meterpreter > powershell_execute 'Get-NetNeighbor | Where-Object -Property State -NE "Unreachable" | Select-Object -Property IPAddress'                            // network discovery
+meterpreter > powershell_execute 'Get-NetNeighbor | Where-Object -Property State -NE "Unreachable" | Select-Object -Property IPAddress'                                // network discovery
 meterpreter > powershell_execute '1..254 | foreach { "<XXX.XXX.XXX>.${_}: $(Test-Connection -TimeoutSeconds 1 -Count 1 -ComputerName <XXX.XXX.XXX>.${_} -Quiet)" }'    // network scan
-meterpreter > powershell_execute 'Test-NetConnection -ComputerName <RHOST> -Port 80 | Select-Object -Property RemotePort, TcpTestSucceeded'                 // port scan
+meterpreter > powershell_execute 'Test-NetConnection -ComputerName <RHOST> -Port 80 | Select-Object -Property RemotePort, TcpTestSucceeded'                            // port scan
 meterpreter > load kiwi                          // load mimikatz
 meterpreter > help kiwi                          // mimikatz help
 meterpreter > kiwi_cmd                           // execute mimikatz native command
@@ -3694,7 +3694,7 @@ sc start <SERVICE>
 ##### Service Handling
 
 ```c
-sc.exe create <SERVICE_NAME>
+sc create <SERVICE_NAME>
 sc start <SERVICE_NAME>
 sc qc <SERVICE_NAME>
 ```
@@ -3714,9 +3714,9 @@ Search for `Unquoted Service Paths` by using `sc qc`.
 
 ```c
 sc qc
-sc qc WindowsScheduler
-sc stop WindowsScheduler
-sc start WindowsScheduler
+sc qc <SERVICE>
+sc stop <SERVICE>
+sc start <SERVICE>
 ```
 
 ```c
