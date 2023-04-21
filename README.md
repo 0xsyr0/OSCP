@@ -117,6 +117,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [Linux](https://github.com/0xsyr0/OSCP#linux-1)
 		- [Microsoft Windows](https://github.com/0xsyr0/OSCP#microsoft-windows-1)
 		- [PKINITtools](https://github.com/0xsyr0/OSCP#pkinittools)
+		- [Port Scanning](https://github.com/0xsyr0/OSCP#port-scanning)
 		- [powercat](https://github.com/0xsyr0/OSCP#powercat)
 		- [PowerShell](https://github.com/0xsyr0/OSCP#powershell)
 		- [pwncat](https://github.com/0xsyr0/OSCP#pwncat)
@@ -3749,6 +3750,12 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP
 python3 gettgtpkinit.py -cert-pfx <USERNAME>.pfx -dc-ip <RHOST> <DOMAIN>/<USERNAME> <USERNAME>.ccache
 export KRB5CCNAME=<USERNAME>.ccache
 python3 getnthash.py <DOMAIN>/<USERNAME> -key 6617cde50b7ee63faeb6790e84981c746efa66f68a1cc3a394bbd27dceaf0554
+```
+
+#### Port Scanning
+
+```c
+$ export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/tcp/$ip/$port && echo The port $port is open || echo The Port $port is closed > /dev/null" 2>/dev/null || echo Connection Timeout > /dev/null; done
 ```
 
 #### powercat
