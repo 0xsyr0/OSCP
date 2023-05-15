@@ -1969,6 +1969,10 @@ postgres=# \c  <DATABASE>
 > CONFIG GET *
 > SELECT <NUMBER>
 > KEYS *
+> HSET       // set value if a field within a hash data structure
+> HGET       // retrieves a field and his value from a hash data structure
+> HKEYS      // retrieves all field names from a hash data structure
+> HGETALL    // retrieves all fields and values from a hash data structure
 > GET PHPREDIS_SESSION:2a9mbvnjgd6i2qeqcubgdv8n4b
 > SET PHPREDIS_SESSION:2a9mbvnjgd6i2qeqcubgdv8n4b "username|s:8:\"<USERNAME>\";role|s:5:\"admin\";auth|s:4:\"True\";" # the value "s:8" has to match the length of the username
 ```
@@ -2139,9 +2143,13 @@ admin") or "1"="1"/*
 #### sqlite3
 
 ```c
-sqlite3 <DATABASE>.db
+sqlite3 <FILE>.db
+```
+
+```c
 sqlite> .tables
-sqlite> select * from users;
+sqlite> PRAGMA table_info(<TABLE>);
+sqlite> SELECT * FROM <TABLE>;
 ```
 
 #### sqsh
