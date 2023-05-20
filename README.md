@@ -250,6 +250,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 
 | Name | URL |
 | --- | --- |
+| ADCSKiller - An ADCS Exploitation Automation Tool | https://github.com/grimlockx/ADCSKiller |
 | ADCSTemplate | https://github.com/GoateePFE/ADCSTemplate |
 | BloodHound Docker | https://github.com/belane/docker-bloodhound |
 | BloodHound | https://github.com/BloodHoundAD/BloodHound |
@@ -271,6 +272,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | LOLBAS | https://lolbas-project.github.io |
 | lsassy | https://github.com/Hackndo/lsassy |
 | nanodump | https://github.com/helpsystems/nanodump |
+| PassTheCert | https://github.com/AlmondOffSec/PassTheCert |
 | PEASS-ng | https://github.com/carlospolop/PEASS-ng |
 | PKINITtools | https://github.com/dirkjanm/PKINITtools |
 | powercat | https://github.com/besimorhino/powercat |
