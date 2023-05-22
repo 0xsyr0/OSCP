@@ -690,6 +690,7 @@ getfacl <LOCAL_DIRECTORY>
 ##### iconv
 
 ```c
+echo "<COMMAND>" | iconv -t UTF-16LE | base64 -w 0
 echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
 ```
