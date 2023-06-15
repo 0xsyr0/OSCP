@@ -905,6 +905,13 @@ Enter
 export XTERM=xterm
 ```
 
+Alternatively:
+
+```c
+script -q /dev/null -c bash
+/usr/bin/script -qc /bin/bash /dev/null
+```
+
 #### VirtualBox
 
 ```c
