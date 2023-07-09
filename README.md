@@ -915,6 +915,18 @@ script -q /dev/null -c bash
 /usr/bin/script -qc /bin/bash /dev/null
 ```
 
+#### Fixing Staircase Effect
+
+```c
+env reset
+```
+
+or
+
+```c
+stty onlcr
+```
+
 #### VirtualBox
 
 ```c
