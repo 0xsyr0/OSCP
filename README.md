@@ -824,6 +824,12 @@ sudo nmap -sU -p 123 --script ntp-info <RHOST>
 sudo /etc/init.d/virtualbox-guest-utils stop
 ```
 
+##### Stop systemd-timesyncd to sync Time manually
+
+```c
+sudo systemctl stop systemd-timesyncd
+```
+
 ##### Disable automatic Sync
 
 ```c
