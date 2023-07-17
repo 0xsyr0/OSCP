@@ -744,8 +744,8 @@ sudo python3 -m http.server 80
 #### RDP
 
 ```c
-xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +clipboard
-xfreerdp /v:<RHOST> /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /h:1010 /w:1920
+xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /dynamic-resolution +clipboard
+xfreerdp /v:<RHOST> /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /dynamic-resolution +clipboard
 rdesktop <RHOST>
 ```
 
