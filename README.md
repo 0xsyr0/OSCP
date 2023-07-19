@@ -211,7 +211,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 
 | Name | URL |
 | --- | --- |
-| CrackMapExec | https://github.com/byt3bl33d3r/CrackMapExec |
+| CrackMapExec | https://github.com/Porchetta-Industries/CrackMapExec |
 | Default Credentials Cheat Sheet | https://github.com/ihebski/DefaultCreds-cheat-sheet |
 | hashcat | https://hashcat.net/hashcat |
 | Hydra | https://github.com/vanhauser-thc/thc-hydra |
