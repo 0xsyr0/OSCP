@@ -2207,6 +2207,14 @@ sqsh -S <RHOST> -U <USERNAME>
 #### CrackMapExec
 
 ```c
+crackmapexec ldap -L
+crackmapexec mysql -L
+crackmapexec smb -L
+crackmapexec ssh -L
+crackmapexec winrm -L
+```
+
+```c
 crackmapexec smb <RHOST> -u " " -p "" --shares
 crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus
 crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o READ_ONLY=false
