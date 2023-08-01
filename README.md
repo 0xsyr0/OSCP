@@ -272,6 +272,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | KrbRelayUp | https://github.com/Dec0ne/KrbRelayUp |
 | Krbrelayx | https://github.com/dirkjanm/krbrelayx |
 | LAPSDumper | https://github.com/n00py/LAPSDumper |
+| LES | https://github.com/The-Z-Labs/linux-exploit-suggester |
 | LinEnum | https://github.com/rebootuser/LinEnum |
 | LOLBAS | https://lolbas-project.github.io |
 | lsassy | https://github.com/Hackndo/lsassy |
