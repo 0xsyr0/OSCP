@@ -3260,7 +3260,7 @@ find ./ -type f -exec grep --color=always -i -I 'password' {} \;
 ###### Group Permissions
 
 ```c
-find / -group <group> 2>/dev/null
+find / -group <GROUP> 2>/dev/null
 ```
 
 ###### User specific Files
