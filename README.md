@@ -2645,6 +2645,11 @@ sudo bloodhound --no-sandbox
 
 >  http://localhost:7474/browser/
 
+###### Docker Container
+
+```c
+docker run -itd -p 7687:7687 -p 7474:7474 --env NEO4J_AUTH=neo4j/<PASSWORD> -v $(pwd)/neo4j:/data neo4j:4.4-community
+```
 
 ##### Database Password Reset
 
