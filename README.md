@@ -116,11 +116,11 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [ldapsearch](https://github.com/0xsyr0/OSCP#ldapsearch)
 		- [Linux](https://github.com/0xsyr0/OSCP#linux-1)
 		- [Microsoft Windows](https://github.com/0xsyr0/OSCP#microsoft-windows-1)
-        - [PassTheCert](https://github.com/0xsyr0/OSCP#passthecert)
+    - [PassTheCert](https://github.com/0xsyr0/OSCP#passthecert)
 		- [PKINITtools](https://github.com/0xsyr0/OSCP#pkinittools)
 		- [Port Scanning](https://github.com/0xsyr0/OSCP#port-scanning)
 		- [powercat](https://github.com/0xsyr0/OSCP#powercat)
-        - [Powermad](https://github.com/0xsyr0/OSCP#powermad)
+    - [Powermad](https://github.com/0xsyr0/OSCP#powermad)
 		- [PowerShell](https://github.com/0xsyr0/OSCP#powershell)
 		- [pwncat](https://github.com/0xsyr0/OSCP#pwncat)
 		- [rpcclient](https://github.com/0xsyr0/OSCP#rpcclient)
@@ -445,6 +445,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | woodpecker | https://github.com/woodpecker-appstore/log4j-payload-generator |
 | ysoserial | https://github.com/frohoff/ysoserial |
 | ysoserial.net | https://github.com/pwntester/ysoserial.net |
+
 ### Wordlists
 
 | Name | URL |
@@ -3250,49 +3251,16 @@ ls -la /opt
 
 ##### find Commands
 
-###### Specific Size
-
 ```c
-find / -size 50M    // find files with a size of 50MB
-```
-
-###### Modified Files
-
-```c
-find / -mtime 10    // find modified files in the last 10 days
-find / -atime 10    // find accessed files in the last 10 days
-find / -cmin -60    // find files changed within the last 60 minutes
-find / -amin -60    // find files accesses within the last 60 minutes
-```
-
-###### Passwords
-
-```c
-find ./ -type f -exec grep --color=always -i -I 'password' {} \;
-```
-
-###### Group Permissions
-
-```c
-find / -group <GROUP> 2>/dev/null
-```
-
-###### User specific Files
-
-```c
-find / -user <USERNAME> 2>/dev/null
 find / -user <USERNAME> -ls 2>/dev/null
-find / -user <USERNAME> 2>/dev/null | grep -v proc 2>/dev/null
 find / -user <USERNAME> -ls 2>/dev/null | grep -v proc 2>/dev/null
-```
-
-###### SUID and SGID Files
-
-```c
-find / -perm -4000 2>/dev/null
+find / -group <GROUP> 2>/dev/null
 find / -perm -4000 2>/dev/null | xargs ls -la
 find / -type f -user root -perm -4000 2>/dev/null
 find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
+find / -cmin -60    // find files changed within the last 60 minutes
+find / -amin -60    // find files accesses within the last 60 minutes
+find ./ -type f -exec grep --color=always -i -I 'password' {} \;    // search for passwords
 ```
 
 ##### grep for Passwords
