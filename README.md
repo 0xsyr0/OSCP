@@ -1807,9 +1807,10 @@ wfuzz -u 'http://backdoor.htb/wp-content/plugins/ebook-download/filedownload.php
 #### WPScan
 
 ```c
+wpscan --url https://<RHOST> --enumerate u,t,p
+wpscan --url https://<RHOST> --plugins-detection aggressive
 wpscan --url https://<RHOST> --disable-tls-checks
-wpscan --url https://<RHOST> --disable-tls-checks --enumerate u
-target=<RHOST>; wpscan --url http://$target:80 --enumerate u,t,p | tee $target-wpscan-enum
+wpscan --url https://<RHOST> --disable-tls-checks --enumerate u,t,p
 wpscan --url http://<RHOST> -U <USERNAME> -P passwords.txt -t 50
 ```
 
