@@ -3501,7 +3501,7 @@ driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'St
 Bypass List (Windows 10 Build 1803):
 C:\Windows\Tasks
 C:\Windows\Temp
-C:\windows\tracing
+C:\Windows\tracing
 C:\Windows\Registration\CRMLog
 C:\Windows\System32\FxsTmp
 C:\Windows\System32\com\dmp
