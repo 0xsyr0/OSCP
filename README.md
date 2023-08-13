@@ -219,6 +219,8 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | hashcat | https://hashcat.net/hashcat |
 | Hydra | https://github.com/vanhauser-thc/thc-hydra |
 | John | https://github.com/openwall/john |
+| keepass-dump-masterkey | https://github.com/CMEPW/keepass-dump-masterkey |
+| KeePwn | https://github.com/Orange-Cyberdefense/KeePwn |
 | Kerbrute | https://github.com/ropnop/kerbrute |
 | LaZagne | https://github.com/AlessandroZ/LaZagne |
 | mimikatz | https://github.com/gentilkiwi/mimikatz |
