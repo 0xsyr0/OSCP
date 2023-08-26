@@ -127,7 +127,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [rpcclient](https://github.com/0xsyr0/OSCP#rpcclient)
 		- [Rubeus](https://github.com/0xsyr0/OSCP#rubeus)
 		- [RunasCs](https://github.com/0xsyr0/OSCP#runascs)
-    - [smbpasswd](https://github.com/0xsyr0/OSCP#smbpasswd)
+		- [smbpasswd](https://github.com/0xsyr0/OSCP#smbpasswd)
 		- [winexe](https://github.com/0xsyr0/OSCP#winexe)
 	- [CVE](https://github.com/0xsyr0/OSCP#cve)
 		- [CVE-2014-6271: Shellshock RCE PoC](https://github.com/0xsyr0/OSCP#cve-2014-6271-shellshock-rce-poc)
