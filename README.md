@@ -2449,6 +2449,7 @@ dir \\<RHOST>\c$ /user:<USERNAME> mimikatz
 
 ```c
 pypykatz lsa minidump lsass.dmp
+pypykatz registry --sam sam system
 ```
 
 ### Exploitation Tools
