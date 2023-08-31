@@ -405,6 +405,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
+| n/a | DCOMPotato LPE | https://github.com/zcgonvh/DCOMPotato |
 | n/a | GenericPotato LPE | https://github.com/micahvandeusen/GenericPotato |
 | n/a | GodPotato LPE | https://github.com/BeichenDream/GodPotato |
 | n/a | JuicyPotato LPE | https://github.com/ohpe/juicy-potato |
@@ -415,6 +416,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | n/a | RottenPotatoNG LPE | https://github.com/breenmachine/RottenPotatoNG |
 | n/a | SharpEfsPotato LPE | https://github.com/bugch3ck/SharpEfsPotato |
 | n/a | SweetPotato LPE | https://github.com/CCob/SweetPotato |
+| n/a | S4UTomato LPE | https://github.com/wh0amitz/S4UTomato |
 | n/a | PrintSpoofer LPE (1) | https://github.com/dievus/printspoofer |
 | n/a | PrintSpoofer LPE (2) | https://github.com/itm4n/PrintSpoofer |
 | n/a | Shocker Container Escape | https://github.com/gabrtv/shocker |
