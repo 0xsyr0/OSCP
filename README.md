@@ -196,15 +196,13 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | ffuf | https://github.com/ffuf/ffuf |
 | fpmvuln | https://github.com/hannob/fpmvuln |
 | Gobuster | https://github.com/OJ/gobuster |
-| httpx | https://github.com/projectdiscovery/httpx |
 | JSON Web Tokens | https://jwt.io |
 | JWT_Tool | https://github.com/ticarpi/jwt_tool |
 | Leaky Paths | https://github.com/ayoubfathi/leaky-paths |
 | PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | PHP Filter Chain Generator | https://github.com/synacktiv/php_filter_chain_generator |
 | PHPGGC | https://github.com/ambionics/phpggc |
-| SSRF testing resources | https://github.com/cujanovic/SSRF-Testing |
-| Weird Proxies | https://github.com/GrrrDog/weird_proxies |
+| Spose | https://github.com/aancw/spose |
 | Wfuzz | https://github.com/xmendez/wfuzz |
 | WhatWeb | https://github.com/urbanadventurer/WhatWeb |
 | WPScan | https://github.com/wpscanteam/wpscan |
