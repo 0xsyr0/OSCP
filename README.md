@@ -805,6 +805,14 @@ prompt OFF
 mget *
 ```
 
+##### Upload multiple Files at once
+
+```c
+recurse ON
+prompt OFF
+mput *
+```
+
 #### socat
 
 ```c
@@ -2247,6 +2255,10 @@ crackmapexec smb <RHOST> -u '' -p '' --shares -M spider_plus -o READ_ONLY=false
 crackmapexec smb <RHOST> -u " " -p "" --shares
 crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus
 crackmapexec smb <RHOST> -u " " -p "" --shares -M spider_plus -o READ_ONLY=false
+crackmapexec smb <RHOST> -u guest -p '' --shares --rid-brute
+crackmapexec smb <RHOST> -u guest -p '' --shares --rid-brute 100000
+crackmapexec smb <RHOST> -u "guest" -p "" --shares --rid-brute
+crackmapexec smb <RHOST> -u "guest" -p "" --shares --rid-brute 100000
 crackmapexec ldap <RHOST> -u '' -p '' -M get-desc-users
 crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --shares
 crackmapexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --lsa
@@ -4096,26 +4108,30 @@ $ rpcclient -U "" <RHOST>
 ```
 
 ```c
-srvinfo
-netshareenum
-netshareenumall
-netsharegetinfo
-netfileenum
-netsessenum
-netdiskenum
-netconnenum
-getanydcname
-getdcname
 dsr_getdcname
 dsr_getdcnameex
 dsr_getdcnameex2
 dsr_getsitename
-enumdomusers
 enumdata
+enumdomgroups
+enumdomusers
 enumjobs
 enumports
 enumprivs
+getanydcname
+getdcname
+lookupsids
+lsaenumsid <SID>
+lsaquery
+netconnenum
+netdiskenum
+netfileenum
+netsessenum
+netshareenum
+netshareenumall
+netsharegetinfo
 queryuser <USERNAME>
+srvinfo
 ```
 
 #### Rubeus
