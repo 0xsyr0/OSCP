@@ -418,6 +418,7 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 | n/a | RottenPotatoNG LPE | https://github.com/breenmachine/RottenPotatoNG |
 | n/a | SharpEfsPotato LPE | https://github.com/bugch3ck/SharpEfsPotato |
 | n/a | SweetPotato LPE | https://github.com/CCob/SweetPotato |
+| n/a | SweetPotato LPE | https://github.com/uknowsec/SweetPotato |
 | n/a | S4UTomato LPE | https://github.com/wh0amitz/S4UTomato |
 | n/a | PrintSpoofer LPE (1) | https://github.com/dievus/printspoofer |
 | n/a | PrintSpoofer LPE (2) | https://github.com/itm4n/PrintSpoofer |
