@@ -624,6 +624,12 @@ sudo apt-get install krb5-kdc
 ```
 
 ```c
+impacket-getTGT <DOMAIN>/<USERNAME>:'<PASSWORD>'
+export KRB5CCNAME=<FILE>.ccache
+export KRB5CCNAME='realpath <FILE>.ccache'
+```
+
+```c
 /etc/krb5.conf                   // kerberos configuration file location
 kinit <USERNAME>                 // creating ticket request
 klist                            // show available kerberos tickets
