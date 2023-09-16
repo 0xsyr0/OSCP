@@ -4,6 +4,8 @@
 
 # OSCP Cheat Sheet
 
+![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/0xsyr0/OSCP) ![GitHub contributors](https://img.shields.io/github/contributors/0xsyr0/OSCP)
+
 Commands, Payloads and Resources for the OffSec Certified Professional Certification (OSCP).
 
 Since this little project get's more and more attention, I decided to update it as often as possible to focus more helpful and absolutely necessary commands for the exam. Feel free to submit a pull request or reach out to me on [Twitter](https://twitter.com/syr0_) for suggestions.
