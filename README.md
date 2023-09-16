@@ -26,7 +26,11 @@ Here are the link to the [OSCP Exam Guide](https://help.offensive-security.com/h
 
 **END NOTE**: This repository will also try to cover as much as possible of the tools required for the proving grounds boxes.
 
+---
+
 Thank you for reading.
+
+<br>
 
 ## Table of Contents
 
