@@ -1,5 +1,5 @@
 <p align="center">
-  <img width="300" height="300" src="https://github.com/0xsyr0/OSCP/blob/main/files/kali_logo.svg">
+  <img width="300" height="300" src="https://github.com/0xsyr0/OSCP/blob/main/images/kali-linux.svg">
 </p>
 
 # OSCP Cheat Sheet
