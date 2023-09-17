@@ -78,6 +78,7 @@ Thank you for reading.
 		- [snmpwalk](https://github.com/0xsyr0/OSCP#snmpwalk)
 	- [Web Application Analysis](https://github.com/0xsyr0/OSCP#web-application-analysis-1)
 		- [Burp Suite](https://github.com/0xsyr0/OSCP#burp-suite)
+  		- [cadaver](https://github.com/0xsyr0/OSCP#cadaver)
 		- [Cross-Site Scripting (XSS)](https://github.com/0xsyr0/OSCP#cross-site-scripting-xss)
 		- [ffuf](https://github.com/0xsyr0/OSCP#ffuf)
 		- [Gobuster](https://github.com/0xsyr0/OSCP#gobuster)
@@ -424,6 +425,7 @@ Thank you for reading.
 | CVE-2023-32233 | Use-After-Free in Netfilter nf_tables LPE | https://github.com/Liuk3r/CVE-2023-32233 |
 | CVE-2023-32629, CVE-2023-2640 | GameOverlay Ubuntu Kernel Exploit LPE (0-day) | https://twitter.com/liadeliyahu/status/1684841527959273472?s=09 |
 | CVE-2023-36874 | Windows Error Reporting Service LPE (0-day) | https://github.com/Wh04m1001/CVE-2023-36874 |
+| CVE-2023-38146 | ThemeBleed | https://github.com/gabe-k/themebleed |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
@@ -1113,6 +1115,22 @@ Ctrl+Shift+u    // URL decoding
 ```c
 export HTTP_PROXY=http://localhost:8080
 export HTTPS_PROXY=https://localhost:8080
+```
+
+#### cadaver
+
+##### General Usage
+
+```c
+$ cadaver http://<RHOST>/<WEBDAV_DIRECTORY>/
+```
+
+##### Basic Commands
+
+```c
+dav:/<WEBDAV_DIRECTORY>/> cd C
+dav:/<WEBDAV_DIRECTORY>/C/> ls
+dav:/<WEBDAV_DIRECTORY>/C/> put <FILE>
 ```
 
 #### Cross-Site Scripting (XSS)
