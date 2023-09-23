@@ -4208,7 +4208,7 @@ srvinfo
 ##### Overpass the Hash
 
 ```c
-Rubeus.exe kerberoast /user:<USERNAME>
+.\Rubeus.exe kerberoast /user:<USERNAME>
 ```
 
 ##### Pass the Hash
