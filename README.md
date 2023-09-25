@@ -233,7 +233,7 @@ Thank you for reading.
 
 | Name | URL |
 | --- | --- |
-| CrackMapExec | https://github.com/Porchetta-Industries/CrackMapExec |
+| CrackMapExec | https://github.com/byt3bl33d3r/CrackMapExec |
 | Default Credentials Cheat Sheet | https://github.com/ihebski/DefaultCreds-cheat-sheet |
 | Firefox Decrypt | https://github.com/unode/firefox_decrypt |
 | hashcat | https://hashcat.net/hashcat |
