@@ -3528,8 +3528,6 @@ export PATH=$(pwd):$PATH
 
 ##### relayd
 
-###### Prerequisites
-
 The binary need to have the `SUID` bit set.
 
 ```c
