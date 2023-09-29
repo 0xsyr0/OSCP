@@ -1119,13 +1119,9 @@ export HTTPS_PROXY=https://localhost:8080
 
 #### cadaver
 
-##### General Usage
-
 ```c
 cadaver http://<RHOST>/<WEBDAV_DIRECTORY>/
 ```
-
-##### Basic Commands
 
 ```c
 dav:/<WEBDAV_DIRECTORY>/> cd C
