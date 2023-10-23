@@ -2280,6 +2280,14 @@ sqlite> SELECT * FROM <TABLE>;
 
 ```c
 sqsh -S <RHOST> -U <USERNAME>
+sqsh -S '<RHOST>' -U '<USERNAME>' -P '<PASSWORD>'
+sqsh -S '<RHOST>' -U '.\<USERNAME>' -P '<PASSWORD>'
+```
+
+##### List Files and Folders with xp_dirtree
+
+```c
+EXEC master.sys.xp_dirtree N'C:\inetpub\wwwroot\',1,1;
 ```
 
 ### Password Attacks
