@@ -3465,6 +3465,7 @@ ldapsearch -H ldap://<RHOST> -D <USERNAME> -w "<PASSWORD>" -b "CN=Users,DC=<RHOS
 id
 sudo -l
 uname -a
+env
 cat /etc/hosts
 cat /etc/fstab
 cat /etc/passwd
