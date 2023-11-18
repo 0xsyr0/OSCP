@@ -2127,6 +2127,7 @@ OK
 
 ```c
 sqlcmd -S <RHOST> -U <USERNAME>
+sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 ```
 
 #### SQL Injection
