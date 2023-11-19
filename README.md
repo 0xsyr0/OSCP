@@ -102,7 +102,6 @@ Thank you for reading.
 		- [NoSQL Injection](https://github.com/0xsyr0/OSCP#nosql-injection)
 		- [PostgreSQL](https://github.com/0xsyr0/OSCP#postgresql)
 		- [Redis](https://github.com/0xsyr0/OSCP#redis)
-		- [sqlcmd](https://github.com/0xsyr0/OSCP#sqlcmd)
 		- [SQL Injection](https://github.com/0xsyr0/OSCP#sql-injection)
 		- [SQL Truncation Attack](https://github.com/0xsyr0/OSCP#sql-truncation-attack)
 		- [sqlite3](https://github.com/0xsyr0/OSCP#sqlite3)
@@ -1979,6 +1978,13 @@ mongo "mongodb://localhost:27017"
 
 #### MSSQL
 
+##### Connection
+
+```c
+sqlcmd -S <RHOST> -U <USERNAME>
+sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
+```
+
 ##### Show Database Content
 
 ```c
@@ -2152,13 +2158,6 @@ OK
 2) "authorized_keys"
 <RHOST>:6379> save
 OK
-```
-
-#### sqlcmd
-
-```c
-sqlcmd -S <RHOST> -U <USERNAME>
-sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 ```
 
 #### SQL Injection
