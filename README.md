@@ -38,6 +38,7 @@ Thank you for reading.
 - [Information Gathering](https://github.com/0xsyr0/OSCP#information-gathering)
 - [Vulnerability Analysis](https://github.com/0xsyr0/OSCP#vulnerability-analysis)
 - [Web Application Analysis](https://github.com/0xsyr0/OSCP#web-application-analysis)
+- [Database Assessment](https://github.com/0xsyr0/OSCP#database-assessment)
 - [Password Attacks](https://github.com/0xsyr0/OSCP#password-attacks)
 - [Reverse Engineering](https://github.com/0xsyr0/OSCP#reverse-engineering)
 - [Exploitation Tools](https://github.com/0xsyr0/OSCP#exploitation-tools)
@@ -231,6 +232,12 @@ Thank you for reading.
 | WhatWeb | https://github.com/urbanadventurer/WhatWeb |
 | WPScan | https://github.com/wpscanteam/wpscan |
 | ysoserial | https://github.com/frohoff/ysoserial |
+
+### Database Assessment
+
+| RedisModules-ExecuteCommand | https://github.com/n0b0dyCN/RedisModules-ExecuteCommand |
+| Redis RCE | https://github.com/Ridter/redis-rce |
+| Redis Rogue Server | https://github.com/n0b0dyCN/redis-rogue-server |
 
 ### Password Attacks
 
