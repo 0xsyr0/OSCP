@@ -296,7 +296,7 @@ Thank you for reading.
 | BloodHound Docker | https://github.com/belane/docker-bloodhound |
 | BloodHound | https://github.com/BloodHoundAD/BloodHound |
 | BloodHound | https://github.com/ly4k/BloodHound |
-| BloodHound Python | https://github.com/fox-it/BloodHound.py |
+| BloodHound Python | https://github.com/dirkjanm/BloodHound.py |
 | Certify | https://github.com/GhostPack/Certify |
 | Certipy | https://github.com/ly4k/Certipy |
 | enum4linux-ng | https://github.com/cddmp/enum4linux-ng |
