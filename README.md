@@ -737,6 +737,9 @@ echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 ##### dir
 
 ```c
+dir /a
+dir /a:d
+dir /a:h
 dir flag* /s /p
 dir /s /b *.log
 ```
