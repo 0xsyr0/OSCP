@@ -163,6 +163,7 @@ Thank you for reading.
 		- [CVE-2023-23397: Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation)](https://github.com/0xsyr0/OSCP#cve-2023-23397-microsoft-outlook-click-to-run-pe-0-day-powershell-implementation)
 		- [CVE-2023-32629, CVE-2023-2640: GameOverlay Ubuntu Kernel Exploit LPE (0-day)](https://github.com/0xsyr0/OSCP#cve-2023-32629-cve-2023-2640-gameoverlay-ubuntu-kernel-exploit-lpe-0-day)
   		- [CVE-2023-4911: Looney Tunables LPE](https://github.com/0xsyr0/OSCP#cve-2023-4911-looney-tunables-lpe)
+    		- [CVE-2023-7028: GitLab Account Takeover](https://github.com/0xsyr0/OSCP#cve-2023-7028-gitlab-account-takeover)
   		- [GodPotato LPE](https://github.com/0xsyr0/OSCP#godpotato-lpe)
 		- [Juicy Potato LPE](https://github.com/0xsyr0/OSCP#juicy-potato-lpe)
   		- [JuicyPotatoNG LPE](https://github.com/0xsyr0/OSCP#juicypotatong-lpe)
