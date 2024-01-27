@@ -3474,6 +3474,7 @@ ps -auxf
 ls -lahv
 ls -R /home
 ls -la /opt
+capsh --print
 ```
 
 ##### find Commands
