@@ -244,10 +244,7 @@ Thank you for reading.
 | mimikatz | https://github.com/gentilkiwi/mimikatz |
 | NetExec | https://github.com/Pennyw0rth/NetExec |
 | ntlm.pw | https://ntlm.pw |
-| Patator | https://github.com/lanjelot/patator |
 | pypykatz | https://github.com/skelsec/pypykatz |
-| RsaCtfTool | https://github.com/Ganapati/RsaCtfTool |
-| SprayingToolkit | https://github.com/byt3bl33d3r/SprayingToolkit |
 
 ### Exploitation Tools
 
@@ -280,7 +277,6 @@ Thank you for reading.
 | LAPSDumper | https://github.com/n00py/LAPSDumper |
 | LES | https://github.com/The-Z-Labs/linux-exploit-suggester |
 | LinEnum | https://github.com/rebootuser/LinEnum |
-| LOLBAS | https://lolbas-project.github.io |
 | lsassy | https://github.com/Hackndo/lsassy |
 | nanodump | https://github.com/helpsystems/nanodump |
 | PassTheCert | https://github.com/AlmondOffSec/PassTheCert |
@@ -304,6 +300,7 @@ Thank you for reading.
 | scavenger | https://github.com/SpiderLabs/scavenger |
 | SharpADWS | https://github.com/wh0amitz/SharpADWS |
 | SharpCollection | https://github.com/Flangvik/SharpCollection |
+| SharpChromium | https://github.com/djhohnstein/SharpChromium |
 | SharpHound | https://github.com/BloodHoundAD/SharpHound |
 | SharpView | https://github.com/tevora-threat/SharpView |
 | Sherlock | https://github.com/rasta-mouse/Sherlock |
@@ -371,9 +368,6 @@ Thank you for reading.
 | CVE-2021-4034 | PwnKit Pkexec LPE PoC (1) | https://github.com/dzonerzy/poc-cve-2021-4034 |
 | CVE-2021-4034 | PwnKit Pkexec LPE PoC (2) | https://github.com/arthepsy/CVE-2021-4034 |
 | CVE-2021-4034 | PwnKit Pkexec LPE PoC (3) | https://github.com/nikaiw/CVE-2021-4034 |
-| CVE-2021-40444 | MSHTML builders RCE | https://github.com/aslitsecurity/CVE-2021-40444_builders |
-| CVE-2021-40444 | MSHTML Exploit RCE | https://xret2pwn.github.io/CVE-2021-40444-Analysis-and-Exploit/ |
-| CVE-2021-40444 | MSHTML RCE PoC | https://github.com/lockedbyte/CVE-2021-40444 |
 | CVE-2021-41379 | InstallerFileTakeOver LPE (0-day) (Archive) | https://github.com/klinix5/InstallerFileTakeOver |
 | CVE-2021-41379 | InstallerFileTakeOver LPE (0-day) (Fork) | https://github.com/waltlin/CVE-2021-41379-With-Public-Exploit-Lets-You-Become-An-Admin-InstallerFileTakeOver |
 | CVE-2021-41773,CVE-2021-42013, CVE-2020-17519 | Simples Apache Path Traversal (0-day) | https://github.com/MrCl0wnLab/SimplesApachePathTraversal |
@@ -390,21 +384,14 @@ Thank you for reading.
 | CVE-2022-23119,CVE-2022-23120 | Trend Micro Deep Security Agent for Linux Arbitrary File Read | https://github.com/modzero/MZ-21-02-Trendmicro |
 | CVE-2022-24715 | Icinga Web 2 Authenticated Remote Code Execution RCE | https://github.com/JacobEbben/CVE-2022-24715 |
 | CVE-2022-26134 | ConfluentPwn RCE (0-day) | https://github.com/redhuntlabs/ConfluentPwn |
-| CVE-2022-30190 | MS-MSDT Follina Attack Vector RCE | https://github.com/JohnHammond/msdt-follina |
-| CVE-2022-30190 | MS-MSDT Follina RCE PoC | https://github.com/onecloudemoji/CVE-2022-30190 |
-| CVE-2022-30190 | MS-MSDT Follina RCE (Python Implementation) | https://github.com/chvancooten/follina.py |
 | CVE-2022-31214 | Firejail / Firejoin LPE | https://seclists.org/oss-sec/2022/q2/188 |
 | CVE-2022-31214 | Firejail / Firejoin LPE | https://www.openwall.com/lists/oss-security/2022/06/08/10 |
 | CVE-2022-34918 | Netfilter Kernel Exploit LPE | https://github.com/randorisec/CVE-2022-34918-LPE-PoC |
 | CVE-2022-46169 | Cacti Authentication Bypass RCE | https://github.com/ariyaadinatha/cacti-cve-2022-46169-exploit |
-| CVE-2023-21716 | CVE-2023-21716: Microsoft Word RTF Font Table Heap Corruption RCE PoC (Python Implementation) | https://github.com/Xnuvers007/CVE-2023-21716 |
 | CVE-2023-21746 | Windows NTLM EoP LocalPotato LPE | https://github.com/decoder-it/LocalPotato |
 | CVE-2023-21768 | Windows Ancillary Function Driver for WinSock LPE POC | https://github.com/chompie1337/Windows_LPE_AFD_CVE-2023-21768 |
 | CVE-2023-21817 | Kerberos Unlock LPE PoC | https://gist.github.com/monoxgas/f615514fb51ebb55a7229f3cf79cf95b |
 | CVE-2023-22809 | sudoedit LPE | https://github.com/n3m1dotsys/CVE-2023-22809-sudoedit-privesc |
-| CVE-2023-23397 | Microsoft Outlook (Click-to-Run) PE (0-day) | https://github.com/sqrtZeroKnowledge/CVE-2023-23397_EXPLOIT_0DAY |
-| CVE-2023-23397 | Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation) | https://github.com/api0cradle/CVE-2023-23397-POC-Powershell |
-| CVE-2023-23397 | Microsoft Outlook (Click-to-Run) PE (0-day) (Python Implementation) | https://github.com/Trackflaw/CVE-2023-23397 |
 | CVE-2023-25690 | Apache mod_proxy HTTP Request Smuggling PoC | https://github.com/dhmosfunk/CVE-2023-25690-POC |
 | CVE-2023-28879 | Shell in the Ghost: Ghostscript RCE PoC | https://github.com/AlmondOffSec/PoCs/tree/master/Ghostscript_rce |
 | CVE-2023-32233 | Use-After-Free in Netfilter nf_tables LPE | https://github.com/Liuk3r/CVE-2023-32233 |
@@ -449,7 +436,6 @@ Thank you for reading.
 | PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | phpgcc | https://github.com/ambionics/phpggc |
 | PHP-Reverse-Shell | https://github.com/ivan-sincek/php-reverse-shell|
-| PowerLine | https://github.com/fullmetalcache/powerline |
 | webshell | https://github.com/tennc/webshell |
 | Web-Shells | https://github.com/TheBinitGhimire/Web-Shells |
 
