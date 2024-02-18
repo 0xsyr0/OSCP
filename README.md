@@ -2879,6 +2879,7 @@ New-ADCSTemplate -DisplayName TopCA -JSON (Export-ADCSTemplate -DisplayName 'Sub
 #### BloodHound
 
 ```c
+sudo apt-get install openjdk-11-jdk
 pip install bloodhound
 sudo apt-get install neo4j
 sudo apt-get install bloodhound
@@ -2893,11 +2894,7 @@ sudo apt-get update
 sudo apt-get install apt-transport-https
 sudo apt-get install neo4j
 systemctl start neo4j
-```
-
-```c
-sudo neo4j start console
-sudo bloodhound --no-sandbox
+./bloodhound --no-sandbox
 ```
 
 >  http://localhost:7474/browser/
