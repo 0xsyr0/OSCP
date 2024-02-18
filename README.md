@@ -449,6 +449,7 @@ Thank you for reading.
 | CUPP | https://github.com/Mebus/cupp |
 | Kerberos Username Enumeration | https://github.com/attackdebris/kerberos_enum_userlists |
 | SecLists | https://github.com/danielmiessler/SecLists |
+| Username Anarchy | https://github.com/urbanadventurer/username-anarchy |
 
 ### Social Media Resources
 
