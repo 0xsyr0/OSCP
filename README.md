@@ -405,6 +405,7 @@ Thank you for reading.
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
 | n/a | ADCSCoercePotato | https://github.com/decoder-it/ADCSCoercePotato |
+| n/a | CoercedPotato LPE | https://github.com/Prepouce/CoercedPotato |
 | n/a | DCOMPotato LPE | https://github.com/zcgonvh/DCOMPotato |
 | n/a | GenericPotato LPE | https://github.com/micahvandeusen/GenericPotato |
 | n/a | GodPotato LPE | https://github.com/BeichenDream/GodPotato |
