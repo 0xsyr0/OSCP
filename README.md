@@ -4083,7 +4083,7 @@ sc.exe stop VSS
 sc.exe start VSS
 ```
 
-###### SeTakeOwnership Privilege
+###### SeTakeOwnershipPrivilege
 
 ```c
 takeown /f C:\Windows\System32\Utilman.exe
