@@ -4180,6 +4180,12 @@ runas /savecred /user:<USERNAME> cmd.exe
 reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
 ```
 
+###### Local Administrator Password Solution (LAPS)
+
+```c
+PS C:\> Get-ADComputer <RHOST> -property 'ms-mcs-admpwd'
+```
+
 ###### Search the Registry for Passwords
 
 ```c
