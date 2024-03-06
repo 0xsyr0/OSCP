@@ -2371,6 +2371,7 @@ python3 gpp-decrypt.py -c edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQb
 
 ```c
 hashcat --example-hashes
+hashcat --help | grep -i "ntlm"
 ```
 
 ```c
