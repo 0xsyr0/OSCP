@@ -4200,6 +4200,12 @@ reg.exe save hklm\security c:\temp\security.save
 reg.exe save hklm\system c:\temp\system.save
 ```
 
+###### Find KeePass Databases
+
+```c
+Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
+```
+
 ###### Internet Information Service (IIS)
 
 ```c
