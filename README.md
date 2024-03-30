@@ -1900,6 +1900,7 @@ enum_impersonate
 ```c
 impacket-mssqlclient <USERNAME>@<RHOST>
 impacket-mssqlclient <USERNAME>@<RHOST> -windows-auth
+impacket-mssqlclient -k -no-pass <RHOST>
 sudo mssqlclient.py <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
 ```
 
