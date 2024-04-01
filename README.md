@@ -612,11 +612,15 @@ wget -r ftp://anonymous:anonymous@<RHOST>
 sudo apt-get install krb5-kdc
 ```
 
+##### Ticket Handling
+
 ```c
 impacket-getTGT <DOMAIN>/<USERNAME>:'<PASSWORD>'
 export KRB5CCNAME=<FILE>.ccache
 export KRB5CCNAME='realpath <FILE>.ccache'
 ```
+
+##### Kerberos related Files
 
 ```c
 /etc/krb5.conf                   // kerberos configuration file location
@@ -630,6 +634,23 @@ add_principal <EMAIL>            // add a new user to a keytab file
 ksu                              // executes a command with kerberos authentication
 klist -k /etc/krb5.keytab        // lists keytab file
 kadmin -p kadmin/<EMAIL> -k -t /etc/krb5.keytab    // enables editing of the keytab file
+```
+
+##### Ticket Conversion
+
+###### kribi to ccache
+
+```c
+base64 -d <USERNAME>.kirbi.b64 > <USERNAME>.kirbi
+impacket-ticketConverter <USERNAME>.kirbi <USERNAME>.ccache
+export KRB5CCNAME=`realpath <USERNAME>.ccache`
+```
+
+###### ccache to kirbi
+
+```c
+impacket-ticketConverter <USERNAME>.ccache <USERNAME>.kirbi
+base64 -w0 <USERNAME>.kirbi > <USERNAME>.kirbi.base64
 ```
 
 #### Ligolo-ng
