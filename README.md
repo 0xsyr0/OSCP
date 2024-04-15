@@ -265,6 +265,7 @@ Thank you for reading.
 | BloodHound | https://github.com/BloodHoundAD/BloodHound |
 | BloodHound | https://github.com/ly4k/BloodHound |
 | BloodHound Python | https://github.com/dirkjanm/BloodHound.py |
+| bloodhound-quickwin | https://github.com/kaluche/bloodhound-quickwin |
 | Certify | https://github.com/GhostPack/Certify |
 | Certipy | https://github.com/ly4k/Certipy |
 | enum4linux-ng | https://github.com/cddmp/enum4linux-ng |
