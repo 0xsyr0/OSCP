@@ -44,6 +44,7 @@ Thank you for reading.
 - [CVEs](#cves)
 - [Payloads](#payloads)
 - [Wordlists](#wordlists)
+- [Reporting](#reporting)
 - [Social Media Resources](#social-media-resources)
 - [Commands](#commands)
 	- [Basics](#basics-1)
@@ -458,6 +459,14 @@ Thank you for reading.
 | Kerberos Username Enumeration | https://github.com/attackdebris/kerberos_enum_userlists |
 | SecLists | https://github.com/danielmiessler/SecLists |
 | Username Anarchy | https://github.com/urbanadventurer/username-anarchy |
+
+### Reporting
+
+| Name | URL |
+| --- | --- |
+| SysReptor | https://github.com/Syslifters/sysreptor |
+| SysReptor OffSec Reporting | https://github.com/Syslifters/OffSec-Reporting |
+| SysReptor Portal | https://oscp.sysreptor.com/oscp/signup/ |
 
 ### Social Media Resources
 
