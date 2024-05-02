@@ -277,6 +277,7 @@ Thank you for reading.
 | LES | https://github.com/The-Z-Labs/linux-exploit-suggester |
 | LinEnum | https://github.com/rebootuser/LinEnum |
 | lsassy | https://github.com/Hackndo/lsassy |
+| Moriaty | https://github.com/BC-SECURITY/Moriarty |
 | nanodump | https://github.com/helpsystems/nanodump |
 | PassTheCert | https://github.com/AlmondOffSec/PassTheCert |
 | PEASS-ng | https://github.com/carlospolop/PEASS-ng |
