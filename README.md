@@ -4027,6 +4027,7 @@ sc query
 sc qc <SERVICE>
 netsh firewall show state
 schtasks /query /fo LIST /v
+schtasks /query /v /fo LIST | findstr <USERNAME>
 findstr /si password *.xml *.ini *.txt
 dir /s *pass* == *cred* == *vnc* == *.config*
 accesschk.exe -uws "Everyone" "C:\Program Files\"
