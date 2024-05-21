@@ -257,6 +257,7 @@ Thank you for reading.
 | ADCSKiller - An ADCS Exploitation Automation Tool | https://github.com/grimlockx/ADCSKiller |
 | ADCSTemplate | https://github.com/GoateePFE/ADCSTemplate |
 | ADMiner | https://github.com/Mazars-Tech/AD_Miner |
+| adPEAS | https://github.com/ajm4n/adPEAS |
 | BloodHound Docker | https://github.com/belane/docker-bloodhound |
 | BloodHound | https://github.com/BloodHoundAD/BloodHound |
 | BloodHound | https://github.com/ly4k/BloodHound |
