@@ -1335,6 +1335,7 @@ Accept: ../../../../.././../../../../etc/passwd{%00{{
 ##### Linux Files
 
 ```c
+/app/etc/local.xml
 /etc/passwd
 /etc/shadow
 /etc/aliases
