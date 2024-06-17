@@ -18,6 +18,11 @@ Every contribution is appreciated!
 
 Here are the link to the [OSCP Exam Guide](https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide#exam-restrictions) and the discussion about [LinPEAS](https://www.offensive-security.com/offsec/understanding-pentest-tools-scripts/?hss_channel=tw-134994790). I hope this helps.
 
+Also here are two more important resources you should check out before you take the exam.
+
+- [https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide](https://help.offsec.com/hc/en-us/articles/360040165632-OSCP-Exam-Guide)
+- [https://help.offsec.com/hc/en-us/sections/360008126631-Proctored-Exams](https://help.offsec.com/hc/en-us/sections/360008126631-Proctored-Exams)
+
 > [!NOTE]
 > This repository will also try to cover as much as possible of the tools required for the proving grounds boxes.
 
