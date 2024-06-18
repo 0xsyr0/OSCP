@@ -480,10 +480,13 @@ Thank you for reading.
 | OSCP Guide 01/12 – My Exam Experience | https://www.youtube.com/watch?v=9mrf-WyzkpE&list=PLJnLaWkc9xRgOyupMhNiVFfgvxseWDH5x |
 | Rana Khalil | https://rana-khalil.gitbook.io/hack-the-box-oscp-preparation/ |
 | HackTricks | https://book.hacktricks.xyz/ |
+| HackTricks Local Windows Privilege Escalation Checklist | https://book.hacktricks.xyz/windows-hardening/checklist-windows-privilege-escalation |
 | Hacking Articles | https://www.hackingarticles.in/ |
+| Rednode Windows Privilege Escalation | https://rednode.com/privilege-escalation/windows-privilege-escalation-cheat-sheet/ |
+| OSCP-Tricks-2023 | https://github.com/rodolfomarianocy/OSCP-Tricks-2023 |
 | IppSec (YouTube) | https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA |
 | IppSec.rocks | https://ippsec.rocks/?# |
-| 0xdf | https://0xdf.gitlab.io/
+| 0xdf | https://0xdf.gitlab.io/ |
 
 ## Commands
 
