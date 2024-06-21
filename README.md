@@ -470,6 +470,7 @@ Thank you for reading.
 
 | Name | URL |
 | --- | --- |
+| OSCP-Note-Vault | https://github.com/0xsyr0/OSCP-Note-Vault |
 | SysReptor | https://github.com/Syslifters/sysreptor |
 | SysReptor OffSec Reporting | https://github.com/Syslifters/OffSec-Reporting |
 | SysReptor Portal | https://oscp.sysreptor.com/oscp/signup/ |
