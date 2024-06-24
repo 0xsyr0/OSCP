@@ -269,6 +269,7 @@ Thank you for reading.
 | BloodHound Docker | https://github.com/belane/docker-bloodhound |
 | BloodHound | https://github.com/BloodHoundAD/BloodHound |
 | BloodHound | https://github.com/ly4k/BloodHound |
+| BloodHound Collectors | https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors |
 | BloodHound Python | https://github.com/dirkjanm/BloodHound.py |
 | bloodhound-quickwin | https://github.com/kaluche/bloodhound-quickwin |
 | Certify | https://github.com/GhostPack/Certify |
