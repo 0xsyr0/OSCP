@@ -183,6 +183,12 @@ Thank you for reading.
 	- [Templates](#templates)
 		- [ASPX Web Shell](#aspx-web-shell)
 		- [Bad YAML](#bad-yaml)
+	- [Wordlists](#wordlists-1)
+		- [CeWL](#cewl)
+		- [CUPP](#cupp)
+		- [crunch](#crunch)
+  		- [JavaScript Quick Wordlist](#javascript-quick-wordlist)
+		- [Username Anarchy](#username-anarchy)
 
 ### Basics
 
@@ -5981,4 +5987,38 @@ Response.write(o)
   tasks:
     - name: badyml
       command: chmod +s /bin/bash
+```
+
+### Wordlists
+
+#### CeWL
+
+```c
+cewl -d 0 -m 5 -w <FILE> http://<RHOST>/index.php --lowercase
+cewl -d 5 -m 3 -w <FILE> http://<RHOST>/index.php --with-numbers
+```
+
+#### CUPP
+
+```c
+./cupp -i
+```
+
+#### crunch
+
+```c
+crunch 6 6 -t foobar%%% > wordlist
+crunch 5 5 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ -o <FILE>.txt
+```
+
+#### JavaScript Quick Wordlist
+
+```js
+javascript:(function(){const e=document.documentElement.innerText.match(/[a-zA-Z_\-]+/g),n=[...new Set(e)].sort();document.open(),document.write(n.join("<br>")),document.close();})();
+```
+
+#### Username Anarchy
+
+```c
+ruby username-anarchy -f first,first.last,last,flast -i <FILE> > <FILE>
 ```
