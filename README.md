@@ -117,7 +117,7 @@ Thank you for reading.
 		- [Kerbrute](#kerbrute)
 		- [LaZagne](#lazagne)
 		- [mimikatz](#mimikatz)
-  		- [NetExec](#NetExec)
+  		- [NetExec](#netexec)
 		- [pypykatz](#pypykatz)
 	- [Exploitation Tools](#exploitation-tools-1)
 		- [Metasploit](#metasploit)
@@ -141,7 +141,7 @@ Thank you for reading.
 		- [Microsoft Windows](#microsoft-windows-1)
 		- [PassTheCert](#passthecert)
 		- [PKINITtools](#pkinittools)
-		- [Port Scanning](#port-scanning)
+		- [Port Scanning](#port-scanning-1)
 		- [powercat](#powercat)
 		- [Powermad](#powermad)
 		- [PowerShell](#powershell)
@@ -4528,6 +4528,10 @@ python3 getnthash.py <DOMAIN>/<USERNAME> -key 6617cde50b7ee63faeb6790e84981c746e
 ```
 
 #### Port Scanning
+
+```c
+for i in $(seq 1 254); do nc -zv -w 1 <XXX.XXX.XXX>.$i <RPORT>; done
+```
 
 ```c
 export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/tcp/$ip/$port && echo The port $port is open || echo The Port $port is closed > /dev/null" 2>/dev/null || echo Connection Timeout > /dev/null; done
