@@ -184,6 +184,7 @@ Thank you for reading.
 		- [ASPX Web Shell](#aspx-web-shell)
 		- [Bad YAML](#bad-yaml)
 	- [Wordlists](#wordlists-1)
+		- [Bash](#bash)
 		- [CeWL](#cewl)
 		- [CUPP](#cupp)
 		- [crunch](#crunch)
@@ -6011,6 +6012,14 @@ Response.write(o)
 ```
 
 ### Wordlists
+
+#### Bash
+
+##### Add Numbers to Password Segment
+
+```c
+for i in {1..100}; do printf "Password@%d\n" $i >> <FILE>; done
+```
 
 #### CeWL
 
