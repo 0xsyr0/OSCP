@@ -4524,7 +4524,7 @@ Get-ModifiableServiceFile
 Install-ServiceBinary -Name '<SERVICE>'
 ```
 
-###### Service Execution Properties Enumeration
+##### Service Execution Properties Enumeration
 
 ```c
 $ModifiableFiles = echo 'C:\PATH\TO\BINARY\<BINARY>.exe' | Get-ModifiablePath -Literal
