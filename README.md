@@ -4641,14 +4641,15 @@ $entryPointMethod = $assembly.GetTypes().Where({ $_.Name -eq 'Program' }, 'First
 $entryPointMethod.Invoke($null, (, [string[]] ('find', '/<COMMAND>')))
 ```
 
-##### Start offsec Session
+##### Switching Sessions in PowerShell
 
 ```c
-$offsec_session = New-PSSession -ComputerName <RHOST> -Authentication Negotiate -Credential <USERNAME>
-Enter-PSSession $offsec_session
+$password = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential("<USERNAME>", $password)
+Enter-PSSession -ComputerName <RHOST> -Credential $cred
 ```
 
-##### Execute Command as another User
+or
 
 ```c
 $SecurePassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
