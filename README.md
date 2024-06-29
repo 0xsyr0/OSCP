@@ -7,9 +7,9 @@
 ![GitHub stars](https://img.shields.io/github/stars/0xsyr0/OSCP?logoColor=yellow) ![GitHub forks](https://img.shields.io/github/forks/0xsyr0/OSCP?logoColor=purple) ![GitHub watchers](https://img.shields.io/github/watchers/0xsyr0/OSCP?logoColor=green)</br>
 ![GitHub commit activity (branch)](https://img.shields.io/github/commit-activity/m/0xsyr0/OSCP) ![GitHub contributors](https://img.shields.io/github/contributors/0xsyr0/OSCP)
 
-Since this little project gets more and more attention, I decided to update it as often as possible to focus more helpful and absolutely necessary commands for the exam. Feel free to submit a pull request or reach out to me on [X](https://twitter.com/syr0_) for suggestions.
+Since this little project gets more and more attention, I decided to update it as often as possible to focus more helpful and absolutely necessary commands for the exam. At the moment the course seems not to cover `Active Directory Certificate Services (ADCS)` but I leave it the section about this topic in the cheat sheet. Maybe they add it to the course in the future.
 
-Every contribution is appreciated!
+Feel free to submit a pull request or reach out to me on [X](https://twitter.com/syr0_) for suggestions. Every contribution is appreciated!
 
 > [!IMPORTANT]
 > A guy on X got a point. Automatic exploitation tools like `sqlmap` are prohibited to use in the exam. The same goes for the automatic exploitation functionality of `LinPEAS`.
