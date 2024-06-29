@@ -2462,6 +2462,10 @@ hashcat --help | grep -i "ntlm"
 ```
 
 ```c
+/usr/share/hashcat/rules/best64.rule
+```
+
+```c
 hashcat -m 0 md5 /usr/share/wordlists/rockyou.txt
 hashcat -m 100 sha-1 /usr/share/wordlists/rockyou.txt
 hashcat -m 1400 sha256 /usr/share/wordlists/rockyou.txt
