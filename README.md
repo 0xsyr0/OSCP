@@ -2752,7 +2752,7 @@ hashcat --help | grep -i "ntlm"
 ###### Add a 1 to each Password
 
 ```c
-$ echo \$1 > <FILE>.rule
+echo \$1 > <FILE>.rule
 ```
 
 ###### Capitalize first character
@@ -2786,7 +2786,7 @@ $1 $2 $3 c $!
 ###### Rule Preview
 
 ```c
-$ hashcat -r <FILE>.rule --stdout <FILE>.txt
+hashcat -r <FILE>.rule --stdout <FILE>.txt
 ```
 
 ##### Cracking ASPREPRoast Password File
