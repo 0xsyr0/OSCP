@@ -4709,7 +4709,9 @@ rm ./'--checkpoint-action=exec=python script.sh'
 
 ```c
 whoami /all
+whoami /user
 systeminfo
+net accounts
 net user
 net user /domain
 net user <USERNAME>
