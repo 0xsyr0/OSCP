@@ -2724,15 +2724,6 @@ python3 gpp-decrypt.py -c edBSHOwhZLTjt/QS9FeIcJ83mjWA98gw9guKOhJOdcqh+ZGMeXOsQb
 > https://hashcat.net/wiki/doku.php?id=example_hashes
 
 ```c
-hashcat --example-hashes
-hashcat --help | grep -i "ntlm"
-```
-
-```c
-/usr/share/hashcat/rules/best64.rule
-```
-
-```c
 hashcat -m 0 md5 /usr/share/wordlists/rockyou.txt
 hashcat -m 100 sha-1 /usr/share/wordlists/rockyou.txt
 hashcat -m 1400 sha256 /usr/share/wordlists/rockyou.txt
@@ -2743,6 +2734,59 @@ hashcat -m 1800 sha512 /usr/share/wordlists/rockyou.txt
 hashcat -m 160 hmac-sha1 /usr/share/wordlists/rockyou.txt
 hashcat -a 0 -m 0 hash.txt SecLists/Passwords/xato-net-10-million-passwords-1000000.txt -O --force
 hashcat -O -m 500 -a 3 -1 ?l -2 ?d -3 ?u  --force hash.txt ?3?3?1?1?1?1?2?3
+```
+
+```c
+hashcat --example-hashes
+hashcat --help | grep -i "ntlm"
+```
+
+```c
+/usr/share/hashcat/rules/best64.rule
+```
+
+##### Custom Rules
+
+> https://hashcat.net/wiki/doku.php?id=rule_based_attack
+
+###### Add a 1 to each Password
+
+```c
+$ echo \$1 > <FILE>.rule
+```
+
+###### Capitalize first character
+
+```c
+$1
+c
+```
+
+###### Add nothing, a 1 or a ! to an existing Wordlist
+
+```c
+:
+$1
+$!
+```
+
+###### Rule for upper case Letter, numerical Value and special Character
+
+- $1 > appends a "1"
+- $2 > appends a "2"
+- $3 > appends a "3"
+- c > Capitalize the first character and lower case the rest
+
+```c
+$1 c $!
+$2 c $!
+$1 $2 $3 c $!
+```
+
+###### Rule Preview
+
+```c
+$ hashcat -r <FILE>.rule --stdout <FILE>.txt
 ```
 
 ##### Cracking ASPREPRoast Password File
