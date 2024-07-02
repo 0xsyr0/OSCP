@@ -4772,6 +4772,27 @@ wmic qfe get Caption,Description,HotFixID,InstalledOn
 driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'Start Mode', Path
 ```
 
+##### Access Control
+
+###### S-R-X-Y Example
+
+| Value | Info |
+| --- | --- |
+| S | SID |
+| R | Revision (always set to 1) |
+| X | Identifier Authority (5 is the most common one) |
+| Y | Sub Authority | 
+
+###### SID Table
+
+| SID | Value |
+| --- | --- |
+| S-1-0-0 | Nobody |
+| S-1-1-0 | Everybody |
+| S-1-5-11 | Authenticated Users |
+| S-1-5-18 | Local System |
+| S-1-5-domainidentifier-500 | Administrator |  
+
 ##### AppLocker Bypass List
 
 ```
