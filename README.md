@@ -1983,6 +1983,7 @@ wfuzz -u 'http://backdoor.htb/wp-content/plugins/ebook-download/filedownload.php
 #### WPScan
 
 ```c
+[*] wpscan --url http://<RHOST> --enumerate p --plugins-detection aggressive -o ./wpscan
 wpscan --url https://<RHOST> --enumerate u,t,p
 wpscan --url https://<RHOST> --plugins-detection aggressive
 wpscan --url https://<RHOST> --disable-tls-checks
