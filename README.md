@@ -298,7 +298,7 @@ Thank you for reading.
 | LinEnum | https://github.com/rebootuser/LinEnum |
 | lsassy | https://github.com/Hackndo/lsassy |
 | Moriaty | https://github.com/BC-SECURITY/Moriarty |
-| nanodump | https://github.com/helpsystems/nanodump |
+| nanodump | https://github.com/fortra/nanodump |
 | PassTheCert | https://github.com/AlmondOffSec/PassTheCert |
 | PEASS-ng | https://github.com/carlospolop/PEASS-ng |
 | PKINITtools | https://github.com/dirkjanm/PKINITtools |
