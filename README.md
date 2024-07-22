@@ -241,6 +241,7 @@ Thank you for reading.
 | RedisModules-ExecuteCommand | https://github.com/n0b0dyCN/RedisModules-ExecuteCommand |
 | Redis RCE | https://github.com/Ridter/redis-rce |
 | Redis Rogue Server | https://github.com/n0b0dyCN/redis-rogue-server |
+| SQL Injection Cheatsheet | https://tib3rius.com/sqli.html |
 
 ### Password Attacks
 
