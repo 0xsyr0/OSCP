@@ -834,8 +834,15 @@ ping -n 1 <RHOST>
 
 - LHOST > APPLICATION SERVER > NETWORK
 
+###### LHOST
+
 ```c
 ./chisel server -p 9002 -reverse -v
+```
+
+###### APPLICATION SERVER
+
+```c
 ./chisel client 192.168.50.10:9002 R:socks
 ```
 
