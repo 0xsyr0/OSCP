@@ -5498,6 +5498,10 @@ net accounts
 net user
 net user /domain
 net user <USERNAME>
+Get-LocalUser
+Get-LocalGroup
+Get LocalGroupMember <GROUP>
+Get-Process
 tree /f C:\Users\
 tasklist /SVC
 sc query
@@ -5529,28 +5533,6 @@ driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'St
 | S-1-5-18 | Local System |
 | S-1-5-domainidentifier-500 | Administrator |  
 
-##### AppLocker Bypass List
-
-```
-Bypass List (Windows 10 Build 1803):
-C:\Windows\Tasks
-C:\Windows\Temp
-C:\Windows\tracing
-C:\Windows\Registration\CRMLog
-C:\Windows\System32\FxsTmp
-C:\Windows\System32\com\dmp
-C:\Windows\System32\Microsoft\Crypto\RSA\MachineKeys
-C:\Windows\System32\spool\PRINTERS
-C:\Windows\System32\spool\SERVERS
-C:\Windows\System32\spool\drivers\color
-C:\Windows\System32\Tasks\Microsoft\Windows\SyncCenter
-C:\Windows\System32\Tasks_Migrated (after peforming a version upgrade of Windows 10)
-C:\Windows\SysWOW64\FxsTmp
-C:\Windows\SysWOW64\com\dmp
-C:\Windows\SysWOW64\Tasks\Microsoft\Windows\SyncCenter
-C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System
-```
-
 ##### accesschk
 
 ###### Checking File Permissions
@@ -5579,7 +5561,27 @@ C:\Windows\SysWOW64\Tasks\Microsoft\Windows\PLA\System
 .\accesschk.exe /accepteula -uvwqk <REGISTRY_KEY>
 ```
 
-##### Adding Users to Groups
+##### Show hidden Files and Folders
+
+```c
+dir /a      // show hidden folders
+dir /a:d    // show all hidden directories
+dir /a:h    // show all hidden files
+cmd /c dir /A      // show hidden folders
+cmd /c dir /A:D    // show all hidden directories
+cmd /c dir /A:H    // show all hidden files
+powershell ls -force    // show all hidden files
+```
+
+##### Show installed Applications
+
+```c
+PS C:\> Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
+```
+
+##### User Handling
+
+###### Adding Users to Groups
 
 ```c
 net user <USERNAME> <PASSWORD> /add /domain
@@ -5685,6 +5687,12 @@ C:\Windows\Panther\Unattend.xml
 C:\Windows\Panther\Unattend\Unattend.xml
 C:\Windows\system32\sysprep.inf
 C:\Windows\system32\sysprep\sysprep.xml
+```
+
+##### Enable WinRM
+
+```c
+winrm quickconfig
 ```
 
 ##### Enable Remote Desktop (RDP)
