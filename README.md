@@ -7816,5 +7816,5 @@ sed -i '/^1/d' <FILE>.txt
 #### Username Anarchy
 
 ```c
-ruby username-anarchy -f first,first.last,last,flast,f.last -i <FILE>
+./username-anarchy -f first,first.last,last,flast,f.last -i <FILE>
 ```
