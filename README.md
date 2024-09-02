@@ -4479,8 +4479,8 @@ bloodyAD -u <USERNAME> -p <PASSWORD> -d <DOMAIN> --host <RHOST> get dnsDump     
 > https://github.com/GhostPack/Certify
 
 ```c
-.\Certify find /vulnerable
-.\Certify.exe find /vulnerable /currentuser
+Certify.exe find /vulnerable
+Certify.exe find /vulnerable /currentuser
 ```
 
 #### Certipy
