@@ -2531,6 +2531,8 @@ mysql> SELECT * FROM Users;
 mysql> SELECT * FROM users \G;
 mysql> SELECT Username,Password FROM Users;
 musql> SELECT user, authentication_string FROM mysql.user WHERE user = '<USERNAME>';
+mysql> SELECT LOAD_FILE('/etc/passwd');
+mysql> SELECT LOAD_FILE('C:\\PATH\\TO\\FILE\\<FILE>');
 mysql> SHOW GRANTS FOR '<USERNAME>'@'localhost' \G;
 ```
 
