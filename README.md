@@ -3051,6 +3051,10 @@ hashcat --help | grep -i "ntlm"
 ```
 
 ```c
+hashcat --identify --user <FILE>
+```
+
+```c
 /usr/share/wordlists/fasttrack.txt
 /usr/share/hashcat/rules/best64.rule
 ```
