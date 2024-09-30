@@ -1233,6 +1233,7 @@ smbclient -L //<RHOST>/ -N
 smbclient -L ////<RHOST>/ -N
 smbclient -L //<RHOST>// -U <USERNAME>%<PASSWORD>
 smbclient -U "<USERNAME>" -L \\\\<RHOST>\\
+smbclient //<RHOST>/<SHARE>
 smbclient //<RHOST>/<SHARE> -U <USERNAME>
 smbclient //<RHOST>/SYSVOL -U <USERNAME>%<PASSWORD>
 smbclient "\\\\<RHOST>\<SHARE>"
