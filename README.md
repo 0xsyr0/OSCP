@@ -317,7 +317,7 @@ Thank you for reading.
 | pth-toolkit | https://github.com/byt3bl33d3r/pth-toolkit |
 | pwncat | https://github.com/calebstewart/pwncat |
 | pypykatz | https://github.com/skelsec/pypykatz |
-| PyWhisker | https://github.com/ShutdownRepo/pywhisker |
+| pyWhisker | https://github.com/ShutdownRepo/pywhisker |
 | Rubeus | https://github.com/GhostPack/Rubeus |
 | RunasCs | https://github.com/antonioCoco/RunasCs |
 | RustHound | https://github.com/OPENCYBER-FR/RustHound |
