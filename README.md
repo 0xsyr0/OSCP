@@ -1258,8 +1258,22 @@ mget *
 
 #### SSH
 
+##### Using outdated Algorithms
+
 ```c
 ssh user@<RHOST> -oKexAlgorithms=+diffie-hellman-group1-sha1
+```
+
+##### Fixing SSH Private Key
+
+```c
+dos2unix id_rsa
+vim --clean id_rsa
+chmod 600 id_rsa
+```
+
+```c
+dos2unix id_rsa; vim --clean -c 'wq' id_rsa; chmod 600 id_rsa
 ```
 
 #### Time and Date
