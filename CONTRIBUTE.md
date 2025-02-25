@@ -9,7 +9,7 @@ This notes should give you a guideline on how to contribute to the project.
 - [Styleguides](#styleguides)
     - [Hot to make a bug report](#how-to-make-a-bug-report)
     - [How to fix a bug](#how-to-fix-a-bug)
-    - [Coding conventions and style guide](#coding-conventions and style guide)
+    - [Coding conventions and style guide](#coding-conventions-and-style-guide)
 
 ## Resources
 
