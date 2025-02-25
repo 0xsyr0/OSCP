@@ -29,7 +29,7 @@ If you want to submit a bug like for example a typo please use the following str
 - Error message: Output or screenshot which shows the issue. Ideally in Markdown.
 - Labels: Typo/Bug/Outdated/Improvement
 
-### Hot to fix a bug
+### How to fix a bug
 
 For fixing a bug I highly recommend forking the repository and creating a pull request (PR) with the detailed description mentioned in the section above.
 
