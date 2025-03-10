@@ -9,7 +9,7 @@
 
 Since this little project gets more and more attention, I decided to update it as often as possible to focus more helpful and absolutely necessary commands for the exam. As OffSec published the `OffSec Certified Professional Plus` or `OSCP+` certification which is only valid for `3 years`, I now will add more advanced techniques like for example `Active Directory Certificate Services (ADCS) Abuse` and `Shadow Credentials Attacks` to cover as much course content as possible.
 
-Feel free to submit a pull request or contact me on [X](https://twitter.com/syr0_)---or preferably [Bluesky](https://bsky.app/profile/0xsyr0.bsky.social)---if you have any suggestions. Every contribution is appreciated!
+Feel free to submit a pull request or contact me on [X](https://twitter.com/syr0_)—or preferably [Bluesky](https://bsky.app/profile/0xsyr0.bsky.social)—if you have any suggestions. Every contribution is appreciated!
 
 > [!IMPORTANT]
 > A guy on X got a point. Automatic exploitation tools like `sqlmap` are prohibited to use in the exam. The same goes for the automatic exploitation functionality of `LinPEAS`.
