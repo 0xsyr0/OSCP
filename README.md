@@ -54,6 +54,7 @@ Thank you for reading.
 		- [Kerberos](#kerberos)
 		- [Linux](#linux)
 		- [Microsoft Windows](#microsoft-windows)
+		- [NFS](#nfs)
 		- [PHP Webserver](#php-webserver)
 		- [Ping](#ping)
 		- [Port Forwarding](#port-forwarding-1)
@@ -801,6 +802,12 @@ dir /a:d
 dir /a:h
 dir flag* /s /p
 dir /s /b *.log
+```
+
+#### NFS
+
+```shell
+sudo mount -t nfs -o vers=4,nolock <RHOST>:/<FOLDER> /PATH/TO/FOLDER/<FOLDER>
 ```
 
 #### PHP Webserver
