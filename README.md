@@ -287,6 +287,7 @@ Thank you for reading.
 | bloodhound-quickwin | https://github.com/kaluche/bloodhound-quickwin |
 | Certify | https://github.com/GhostPack/Certify |
 | Certipy | https://github.com/ly4k/Certipy |
+| certipy-merged | https://github.com/zimedev/certipy-merged |
 | Cheat Sheet - Attack Active Directory | https://github.com/drak3hft7/Cheat-Sheet---Active-Directory |
 | DonPAPI | https://github.com/login-securite/DonPAPI |
 | enum4linux-ng | https://github.com/cddmp/enum4linux-ng |
