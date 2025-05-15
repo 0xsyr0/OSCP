@@ -5335,6 +5335,7 @@ lsblk
 ls -lah /etc/cron*
 crontab -l
 sudo crontab -l
+crontab -u <USERNAME> -l
 grep "CRON" /var/log/syslog
 ss -tulpn
 ps -auxf
