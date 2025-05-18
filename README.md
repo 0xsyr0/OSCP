@@ -111,7 +111,7 @@ Thank you for reading.
   		- [Group Policy Preferences (GPP)](#group-policy-preferences-gpp)
 		- [hashcat](#hashcat)
 		- [Hydra](#hydra)
-		- [John](#john)
+		- [John the Ripper](#john-the-ripper)
 		- [Kerbrute](#kerbrute)
 		- [LaZagne](#lazagne)
 		- [mimikatz](#mimikatz)
@@ -254,7 +254,7 @@ Thank you for reading.
 | Firefox Decrypt | https://github.com/unode/firefox_decrypt |
 | hashcat | https://hashcat.net/hashcat |
 | Hydra | https://github.com/vanhauser-thc/thc-hydra |
-| John | https://github.com/openwall/john |
+| John the Ripper | https://github.com/openwall/john |
 | keepass-dump-masterkey | https://github.com/CMEPW/keepass-dump-masterkey |
 | KeePwn | https://github.com/Orange-Cyberdefense/KeePwn |
 | Kerbrute | https://github.com/ropnop/kerbrute |
@@ -3240,7 +3240,7 @@ hydra <RHOST> -l root@localhost -P otrs-cewl.txt http-form-post "/otrs/index.pl:
 hydra <RHOST> -l admin -P /PATH/TO/WORDLIST/<FILE> http-post-form "/Account/login.aspx?ReturnURL=/admin/:__VIEWSTATE=COOKIE_1&__EVENTVALIDATION=COOKIE_2&UserName=^USER^&Password=^PASS^&LoginButton=Log+in:Login failed"
 ```
 
-#### John
+#### John the Ripper
 
 ```shell
 keepass2john <FILE>
