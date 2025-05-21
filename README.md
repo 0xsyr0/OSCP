@@ -1440,7 +1440,13 @@ sudo pkill VBoxClient && VBoxClient --clipboard
 
 #### virtualenv
 
-```shell
+```console
+sudo apt-get install virtualenv
+python3 -m virtualenv venv
+. venv/bin/activate
+```
+
+```console
 sudo apt-get install virtualenv
 virtualenv -p python2.7 venv
 . venv/bin/activate
