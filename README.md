@@ -4575,6 +4575,51 @@ New-ADCSTemplate -DisplayName TopCA -JSON (Export-ADCSTemplate -DisplayName 'Sub
 AD-miner -u <USERNAME> -p <PASSWORD> -cf <NAME>
 ```
 
+#### BloodHound
+
+```shell
+sudo apt-get install bloodhound
+sudo bloodhound-setup
+```
+
+> http://localhost:7474/browser/
+
+```shell
+sudo vi /etc/bhapi/bhapi.json
+```
+
+```json
+{
+  "database": {
+    "addr": "localhost:5432",
+    "username": "_bloodhound",
+    "secret": "bloodhound",
+    "database": "bloodhound"
+  },
+  "neo4j": {
+    "addr": "localhost:7687",
+    "username": "neo4j",
+    "secret": "neo4j"
+  },
+  "default_admin": {
+    "principal_name": "admin",
+    "password": "admin",
+    "first_name": "Bloodhound",
+    "last_name": "Kali"
+  }
+}
+```
+
+```shell
+sudo bloodhound
+```
+
+> http://127.0.0.1:8080/
+
+| Email Address | Password |
+| --- | --- |
+| admin | admin |
+
 #### BloodHound-Legacy
 
 ```shell
