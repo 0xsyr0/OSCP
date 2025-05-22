@@ -127,6 +127,7 @@ Thank you for reading.
 		- [ADCSTemplate](#adcstemplate)
   		- [ADMiner](#adminer)
 		- [BloodHound](#bloodhound)
+		- [Bloodhound-Legacy](#bloodhound-legacy)
 		- [BloodHound Python](#bloodhound-python)
   		- [bloodyAD](#bloodyAD)
 		- [Certify](#certify)
@@ -280,9 +281,10 @@ Thank you for reading.
 | ADMiner | https://github.com/Mazars-Tech/AD_Miner |
 | adPEAS | https://github.com/ajm4n/adPEAS |
 | BloodHound Docker | https://github.com/belane/docker-bloodhound |
-| BloodHound | https://github.com/BloodHoundAD/BloodHound |
+| BloodHound | https://github.com/SpecterOps/BloodHound |
+| BloodHound-Legacy | https://github.com/SpecterOps/BloodHound-Legacy |
 | BloodHound | https://github.com/ly4k/BloodHound |
-| BloodHound Collectors | https://github.com/BloodHoundAD/BloodHound/tree/master/Collectors |
+| BloodHound-Legacy Collectors | https://github.com/SpecterOps/BloodHound-Legacy/tree/master/Collectors |
 | BloodHound Python | https://github.com/dirkjanm/BloodHound.py |
 | bloodhound-quickwin | https://github.com/kaluche/bloodhound-quickwin |
 | Certify | https://github.com/GhostPack/Certify |
@@ -4573,7 +4575,7 @@ New-ADCSTemplate -DisplayName TopCA -JSON (Export-ADCSTemplate -DisplayName 'Sub
 AD-miner -u <USERNAME> -p <PASSWORD> -cf <NAME>
 ```
 
-#### BloodHound
+#### BloodHound-Legacy
 
 ```shell
 sudo apt-get install openjdk-11-jdk
