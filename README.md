@@ -287,6 +287,8 @@ Thank you for reading.
 | BloodHound-Legacy Collectors | https://github.com/SpecterOps/BloodHound-Legacy/tree/master/Collectors |
 | BloodHound Python | https://github.com/dirkjanm/BloodHound.py |
 | bloodhound-quickwin | https://github.com/kaluche/bloodhound-quickwin |
+| bloodyAD | https://github.com/CravateRouge/bloodyAD |
+| Cable | https://github.com/logangoins/Cable |
 | Certify | https://github.com/GhostPack/Certify |
 | Certipy | https://github.com/ly4k/Certipy |
 | certipy-merged | https://github.com/zimedev/certipy-merged |
@@ -332,7 +334,8 @@ Thank you for reading.
 | SharpADWS | https://github.com/wh0amitz/SharpADWS |
 | SharpCollection | https://github.com/Flangvik/SharpCollection |
 | SharpChromium | https://github.com/djhohnstein/SharpChromium |
-| SharpHound | https://github.com/BloodHoundAD/SharpHound |
+| SharpHound | https://github.com/SpecterOps/SharpHound |
+| SharpSuccessor | https://github.com/logangoins/SharpSuccessor |
 | SharpView | https://github.com/tevora-threat/SharpView |
 | Sherlock | https://github.com/rasta-mouse/Sherlock |
 | WADComs | https://wadcoms.github.io |
