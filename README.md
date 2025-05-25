@@ -442,6 +442,7 @@ Thank you for reading.
 | CVE-2024-4577 | PHP-CGI Argument Injection Vulnerability RCE | https://github.com/watchtowrlabs/CVE-2024-4577 |
 | CVE-2024-30088 | Microsoft Windows LPE | https://github.com/tykawaii98/CVE-2024-30088 |
 | CVE-2024-49138 | Windows Common Log File System Driver LPE | https://github.com/MrAle98/CVE-2024-49138-POC |
+| CVE-2025-24071 | Windows File Explorer Spoofing Vulnerability | https://github.com/ThemeHackers/CVE-2025-24071 |
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (1) | https://github.com/iSee857/CVE-2025-24813-PoC |
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (2) | https://github.com/absholi7ly/POC-CVE-2025-24813 |
 | CVE-2025-29927 | Next.js Authentication Bypass | https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware |
