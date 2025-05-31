@@ -4559,7 +4559,7 @@ certipy-ad relay -target 'rpc://<CA>' -ca 'CA'
 certipy-ad auth -pfx administrator.pfx -domain '<DOMAIN>'
 ```
 
-##### ESC14: altSecurityIdentities
+##### ESC14: Weak Explicit Certificate Mapping
 
 ###### ESC14 Scenario B: Target with X509RFC822 (email)
 
