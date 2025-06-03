@@ -4190,7 +4190,7 @@ klist
 iwr -UseDefaultCredentials http://<RHOST>
 ```
 
-###### Domain Controller Syncronization (DCSync)
+###### Domain Controller Synchronization (DCSync)
 
 ###### Prerequisites
 
