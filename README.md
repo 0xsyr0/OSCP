@@ -2699,6 +2699,7 @@ or
 > CONFIG GET *
 > SELECT <NUMBER>
 > KEYS *
+> GET
 > HSET       // set value if a field within a hash data structure
 > HGET       // retrieves a field and his value from a hash data structure
 > HKEYS      // retrieves all field names from a hash data structure
