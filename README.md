@@ -5232,7 +5232,9 @@ certipy-ad template -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -temp
 #### enum4linux-ng
 
 ```shell
+enum4linux-ng <RHOST>
 enum4linux-ng -A <RHOST>
+enum4linux-ng -u '<USERNAME>' -p '<PASSWORD>' <RHOST>
 ```
 
 #### Evil-WinRM
