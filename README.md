@@ -230,6 +230,7 @@ Thank you for reading.
 | Gobuster | https://github.com/OJ/gobuster |
 | JSON Web Tokens | https://jwt.io |
 | JWT_Tool | https://github.com/ticarpi/jwt_tool |
+| JWTLens | https://jwtlens.netlify.app |
 | Leaky Paths | https://github.com/ayoubfathi/leaky-paths |
 | PayloadsAllTheThings | https://github.com/swisskyrepo/PayloadsAllTheThings |
 | PHP Filter Chain Generator | https://github.com/synacktiv/php_filter_chain_generator |
