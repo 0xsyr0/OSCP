@@ -5638,7 +5638,7 @@ python3 owneredit.py -k <DOMAIN>/<USERNAME>:<PASSWORD> -dc-ip <RHOST> -action wr
 ```shell
 pipenv shell
 git clone https://github.com/ThePorgs/impacket/
-pip3 install -r requirements.txt
+pip install -r requirements.txt
 sudo python3 setup.py install
 ```
 
@@ -7541,7 +7541,7 @@ End Sub
 ##### Installation of wsgidav
 
 ```shell
-pip3 install wsgidav
+pip install wsgidav
 wsgidav --host=0.0.0.0 --port=80 --auth=anonymous --root /PATH/TO/DIRECTORY/webdav/
 ```
 
