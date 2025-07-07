@@ -664,6 +664,7 @@ sudo apt-get install krb5-kdc
 impacket-getTGT <DOMAIN>/<USERNAME>:'<PASSWORD>'
 export KRB5CCNAME=<FILE>.ccache
 export KRB5CCNAME='realpath <FILE>.ccache'
+KRB5CCNAME=<FILE>.ccache <APPLICATION>
 ```
 
 ##### Kerberos related Files
