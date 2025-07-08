@@ -32,6 +32,7 @@ If you want to submit a bug like for example a typo please use the following str
 ### How to fix a bug
 
 For fixing a bug I highly recommend forking the repository and creating a pull request (PR) with the detailed description mentioned in the section above.
+Please notice that your commits need to be signed in ordert to merch your PR.
 
 ### Coding conventions and style guide
 
