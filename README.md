@@ -6363,7 +6363,7 @@ net user /domain
 net user <USERNAME>
 Get-LocalUser
 Get-LocalGroup
-Get LocalGroupMember <GROUP>
+Get-LocalGroupMember <GROUP>
 Get-Process
 tree /f C:\Users\
 tasklist /SVC
