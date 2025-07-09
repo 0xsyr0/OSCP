@@ -1236,7 +1236,7 @@ xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /cert-ignore
 xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> /d:<DOMAIN> /cert-ignore
 xfreerdp3 /v:<RHOST> /u:<USERNAME> /p:<PASSWORD> +dynamic-resolution +clipboard
 xfreerdp3 /v:<RHOST> /u:<USERNAME> /d:<DOMAIN> /pth:'<HASH>' +dynamic-resolution +clipboard
-xfreerdp3 /v:<RHOST> /dynamic-resolution +clipboard /tls:seclevel:0 /sec:nla:off
+xfreerdp3 /v:<RHOST> +dynamic-resolution +clipboard /tls:seclevel:0 /sec:nla:off
 rdesktop <RHOST>
 ```
 
