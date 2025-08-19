@@ -8883,7 +8883,7 @@ cewl -d 5 -m 3 -w <FILE> http://<RHOST>/index.php --with-numbers
 #### crunch
 
 ```shell
-crunch 6 6 -t foobar%%% > wordlist
+crunch 9 9 -t foobar%%% > wordlist.txt
 crunch 5 5 0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ -o <FILE>.txt
 ```
 
