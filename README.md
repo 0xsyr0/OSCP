@@ -5420,6 +5420,12 @@ impacket-dcomexec <RHOST> -object MMC20 -silentcommand -debug <DOMAIN>/<USERNAME
 impacket-dcomexec -dc-ip <RHOST> -object MMC20 -slientcommand <DOMAIN>/<USERNAME>@<RHOST> <COMMAND>
 ```
 
+##### impacket-describeTicket
+
+```console
+impacket-describeTicket <FILE>.ccache
+```
+
 ##### impacket-findDelegation
 
 ```shell
