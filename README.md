@@ -67,6 +67,7 @@ Thank you for reading.
 		- [Time and Date](#time-and-date)
 		- [Tmux](#tmux)
 		- [Upgrading Shells](#upgrading-shells)
+		- [uv](#uv)
 		- [VirtualBox](#virtualbox)
 		- [virtualenv](#virtualenv)
 	- [Information Gathering](#information-gathering-1)
@@ -1463,6 +1464,13 @@ or
 
 ```shell
 stty onlcr
+```
+
+#### uv
+
+```shell
+uv add --script <SCRIPT> -r requirements.txt
+uv run --script <SCRIPT>
 ```
 
 #### VirtualBox
