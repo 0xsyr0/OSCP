@@ -180,7 +180,7 @@ Thank you for reading.
    		- [CVE-2024-4577: PHP-CGI Argument Injection Vulnerability RCE](#cve-2024-4577-php-cgi-argument-injection-vulnerability-rce)
    		- [CVE-2025-29927: Next.js Authentication Bypass](#cve-2025-29927-nextjs-authentication-bypass)
    		- [CVE-2025-32463: chwoot sudo LPE](#cve-2025-32463-chwoot-sudo-lpe)
-  		- [BadSuccessor](#badsuccessor)
+  		- [BadSuccessor Delegated Managed Service Account (dMSA) LPE](#badsuccessor-delegated-managed-service-account-dmsa-lpe)
   		- [GodPotato LPE](#godpotato-lpe)
 		- [Juicy Potato LPE](#juicy-potato-lpe)
   		- [JuicyPotatoNG LPE](#juicypotatong-lpe)
