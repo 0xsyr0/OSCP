@@ -755,6 +755,12 @@ ligolo-ng » session
 sudo ip r add 172.16.1.0/24 dev ligolo
 ```
 
+or
+
+```shell
+sudo ip route add 240.0.0.1/32 dev ligolo
+```
+
 ```shell
 [Agent : user@target] » start
 ```
