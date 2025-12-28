@@ -449,6 +449,7 @@ Thank you for reading.
 | CVE-2024-4577 | PHP-CGI Argument Injection Vulnerability RCE | https://github.com/watchtowrlabs/CVE-2024-4577 |
 | CVE-2024-30088 | Microsoft Windows LPE | https://github.com/tykawaii98/CVE-2024-30088 |
 | CVE-2024-49138 | Windows Common Log File System Driver LPE | https://github.com/MrAle98/CVE-2024-49138-POC |
+| CVE-2025-14847 | MongoBleed MongoDB Unauthenticated Memory Leak Exploit RCE | https://github.com/joe-desimone/mongobleed |
 | CVE-2025-24071 | Windows File Explorer Spoofing Vulnerability (1) | https://github.com/ThemeHackers/CVE-2025-24071 |
 | CVE-2025-24071 | Windows File Explorer Spoofing Vulnerability (2) | https://github.com/0x6rss/CVE-2025-24071_PoC |
 | CVE-2025-24813 | Apache Tomcat Deserialization RCE (1) | https://github.com/iSee857/CVE-2025-24813-PoC |
