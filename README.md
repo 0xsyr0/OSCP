@@ -278,6 +278,7 @@ Thank you for reading.
 | --- | --- |
 | Evil-WinRM | https://github.com/Hackplayers/evil-winrm |
 | Metasploit | https://github.com/rapid7/metasploit-framework |
+| NullSec Linux | https://github.com/bad-antics/nullsec-linux |
 
 ### Post Exploitation
 
