@@ -181,6 +181,7 @@ Thank you for reading.
    		- [CVE-2025-29927: Next.js Authentication Bypass](#cve-2025-29927-nextjs-authentication-bypass)
    		- [CVE-2025-32463: chwoot sudo LPE](#cve-2025-32463-chwoot-sudo-lpe)
    		- [CVE-2025-55182: React2Shell RCE](#cve-2025-55182-react2shell-rce)
+   		- [CVE-2026-24061: GNU Inetutils telnetd RCE](#cve-2026-24061-gnu-inetutils-telnetd-rce)
   		- [BadSuccessor Delegated Managed Service Account (dMSA) LPE](#badsuccessor-delegated-managed-service-account-dmsa-lpe)
   		- [GodPotato LPE](#godpotato-lpe)
 		- [Juicy Potato LPE](#juicy-potato-lpe)
