@@ -1308,7 +1308,9 @@ mget *
 ssh user@<RHOST> -oKexAlgorithms=+diffie-hellman-group1-sha1
 ```
 
-##### Fixing SSH Private Key
+##### Error Handling
+
+###### Fixing SSH Private Key
 
 ```shell
 dos2unix id_rsa
