@@ -317,6 +317,7 @@ Thank you for reading.
 | lsassy | https://github.com/Hackndo/lsassy |
 | Moriaty | https://github.com/BC-SECURITY/Moriarty |
 | nanodump | https://github.com/fortra/nanodump |
+| Outpacket | https://github.com/n00py/Outpacket |
 | PassTheCert | https://github.com/AlmondOffSec/PassTheCert |
 | PEASS-ng | https://github.com/carlospolop/PEASS-ng |
 | Penelope | https://github.com/brightio/penelope |
