@@ -348,6 +348,7 @@ Thank you for reading.
 | SharpSuccessor | https://github.com/logangoins/SharpSuccessor |
 | SharpView | https://github.com/tevora-threat/SharpView |
 | Sherlock | https://github.com/rasta-mouse/Sherlock |
+| Titanis | https://github.com/trustedsec/Titanis |
 | WADComs | https://wadcoms.github.io |
 | Watson | https://github.com/rasta-mouse/Watson |
 | WESNG | https://github.com/bitsadmin/wesng
