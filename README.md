@@ -7779,6 +7779,14 @@ $entryPointMethod = $assembly.GetTypes().Where({ $_.Name -eq 'Program' }, 'First
 $entryPointMethod.Invoke($null, (, [string[]] ('find', '/<COMMAND>')))
 ```
 
+##### Set User Password via Active Directory Service Interfaces (ADSI)
+
+```cmd
+$user = [adsi]"LDAP://CN=<USERNAME>,CN=Users,DC=<DOMAIN>,DC=<DOMAIN>"
+$user.SetPassword('<PASSWORD>')
+$user.SetInfo()
+```
+
 ##### Switching Sessions in PowerShell
 
 ```cmd
