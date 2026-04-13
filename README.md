@@ -466,6 +466,8 @@ Thank you for reading.
 | CVE-2025-9074 | Docker Desktop (Windows) Container Escape - Host Write via Exposed Engine API | https://github.com/zenzue/CVE-2025-9074 |
 | CVE-2026-24061 | GNU Inetutils telnetd RCE | https://github.com/SafeBreach-Labs/CVE-2026-24061 |
 | n/a | BadSuccessor LPE | https://github.com/ibaiC/BadSuccessor |
+| n/a | Blue Hammer LPE (1) | https://github.com/Nightmare-Eclipse/BlueHammer |
+| n/a | Blue Hammer LPE (2) | https://github.com/0xjustBen/BlueHammer |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
