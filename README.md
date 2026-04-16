@@ -480,6 +480,7 @@ Thank you for reading.
 | n/a | JuicyPotato LPE | https://github.com/ohpe/juicy-potato |
 | n/a | Juice-PotatoNG LPE | https://github.com/antonioCoco/JuicyPotatoNG |
 | n/a | MultiPotato LPE | https://github.com/S3cur3Th1sSh1t/MultiPotato |
+| n/a | RedSun LPE | https://github.com/Nightmare-Eclipse/RedSun |
 | n/a | RemotePotato0 PE | https://github.com/antonioCoco/RemotePotato0 |
 | n/a | RoguePotato LPE | https://github.com/antonioCoco/RoguePotato |
 | n/a | RottenPotatoNG LPE | https://github.com/breenmachine/RottenPotatoNG |
