@@ -306,6 +306,7 @@ Thank you for reading.
 | enum4linux-ng | https://github.com/cddmp/enum4linux-ng |
 | Ghostpack-CompiledBinaries | https://github.com/r3motecontrol/Ghostpack-CompiledBinaries |
 | GTFOBins | https://gtfobins.github.io |
+| gopacket | https://github.com/mandiant/gopacket |
 | Impacket | https://github.com/fortra/impacket |
 | Impacket Static Binaries | https://github.com/ropnop/impacket_static_binaries |
 | JAWS | https://github.com/411Hall/JAWS |
