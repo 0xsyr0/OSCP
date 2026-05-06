@@ -467,6 +467,7 @@ Thank you for reading.
 | CVE-2025-62215 | Windows Kernel LPE | https://github.com/dexterm300/CVE-2025-62215-exploit-poc |
 | CVE-2025-9074 | Docker Desktop (Windows) Container Escape - Host Write via Exposed Engine API | https://github.com/zenzue/CVE-2025-9074 |
 | CVE-2026-24061 | GNU Inetutils telnetd RCE | https://github.com/SafeBreach-Labs/CVE-2026-24061 |
+| CVE-2026-26128 | Windows SMB Server Improper Authentication LPE | https://github.com/jarnovandenbrink/CVE-2026-26128 |
 | CVE-2026-31431 | Copy Fail LPE (1) | https://github.com/theori-io/copy-fail-CVE-2026-31431 |
 | CVE-2026-31431 | Copy Fail LPE (2) | https://github.com/painoob/Copy-Fail-Exploit-CVE-2026-31431 |
 | n/a | BadSuccessor LPE | https://github.com/ibaiC/BadSuccessor |
