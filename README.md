@@ -473,6 +473,7 @@ Thank you for reading.
 | n/a | BadSuccessor LPE | https://github.com/ibaiC/BadSuccessor |
 | n/a | Blue Hammer LPE (1) | https://github.com/Nightmare-Eclipse/BlueHammer |
 | n/a | Blue Hammer LPE (2) | https://github.com/0xjustBen/BlueHammer |
+| n/a | Dirty Frag Universal Linux LPE | https://github.com/V4bel/dirtyfrag |
 | n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
 | n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
