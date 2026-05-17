@@ -470,14 +470,32 @@ Thank you for reading.
 | CVE-2026-26128 | Windows SMB Server Improper Authentication LPE | https://github.com/jarnovandenbrink/CVE-2026-26128 |
 | CVE-2026-31431 | Copy Fail LPE (1) | https://github.com/theori-io/copy-fail-CVE-2026-31431 |
 | CVE-2026-31431 | Copy Fail LPE (2) | https://github.com/painoob/Copy-Fail-Exploit-CVE-2026-31431 |
+
+##### Miscellaneous Exploits
+
+| CVE | Descritpion | URL |
+| --- | --- | --- |
 | n/a | BadSuccessor LPE | https://github.com/ibaiC/BadSuccessor |
-| n/a | Blue Hammer LPE (1) | https://github.com/Nightmare-Eclipse/BlueHammer |
-| n/a | Blue Hammer LPE (2) | https://github.com/0xjustBen/BlueHammer |
+| n/a | BlueHammer LPE (1) | https://github.com/Nightmare-Eclipse/BlueHammer |
+| n/a | BlueHammer LPE (2) | https://github.com/0xjustBen/BlueHammer |
 | n/a | Dirty Frag Universal Linux LPE | https://github.com/V4bel/dirtyfrag |
-| n/a | dompdf RCE (0-day) | https://github.com/positive-security/dompdf-rce |
-| n/a | dompdf XSS to RCE (0-day) | https://positive.security/blog/dompdf-rce |
+| n/a | MiniPlasma CVE-2020-17103 partially patched cldflt.sys LPE | https://github.com/Nightmare-Eclipse/MiniPlasma |
+| n/a | NoFilter LPE | https://github.com/deepinstinct/NoFilter |
+| n/a | OfflineSAM LPE | https://github.com/gtworek/PSBits/tree/master/OfflineSAM |
+| n/a | OfflineAddAdmin2 LPE | https://github.com/gtworek/PSBits/tree/master/OfflineSAM/OfflineAddAdmin2 |
+| n/a | PrintSpoofer LPE (1) | https://github.com/dievus/printspoofer |
+| n/a | PrintSpoofer LPE (2) | https://github.com/itm4n/PrintSpoofer |
+| n/a | SharpSuccessor LPE | https://github.com/logangoins/SharpSuccessor |
+| n/a | Shocker Container Escape | https://github.com/gabrtv/shocker |
+| n/a | ssh-keysign-pwn | https://github.com/0xdeadbeefnetwork/ssh-keysign-pwn |
 | n/a | StorSvc LPE | https://github.com/blackarrowsec/redteam-research/tree/master/LPE%20via%20StorSvc |
-| n/a | ADCSCoercePotato | https://github.com/decoder-it/ADCSCoercePotato |
+| n/a | SystemNightmare LPE | https://github.com/GossiTheDog/SystemNightmare |
+
+##### Vegetable Exploits
+
+| CVE | Descritpion | URL |
+| --- | --- | --- |
+| n/a | ADCSCoercePotato LPE | https://github.com/decoder-it/ADCSCoercePotato |
 | n/a | CoercedPotato LPE | https://github.com/Prepouce/CoercedPotato |
 | n/a | DCOMPotato LPE | https://github.com/zcgonvh/DCOMPotato |
 | n/a | DeadPotato LPE | https://github.com/lypd0/DeadPotato |
@@ -486,28 +504,24 @@ Thank you for reading.
 | n/a | JuicyPotato LPE | https://github.com/ohpe/juicy-potato |
 | n/a | Juice-PotatoNG LPE | https://github.com/antonioCoco/JuicyPotatoNG |
 | n/a | MultiPotato LPE | https://github.com/S3cur3Th1sSh1t/MultiPotato |
-| n/a | RedSun LPE | https://github.com/Nightmare-Eclipse/RedSun |
-| n/a | RemotePotato0 PE | https://github.com/antonioCoco/RemotePotato0 |
+| n/a | RemotePotato0 LPE | https://github.com/antonioCoco/RemotePotato0 |
 | n/a | RoguePotato LPE | https://github.com/antonioCoco/RoguePotato |
 | n/a | RottenPotatoNG LPE | https://github.com/breenmachine/RottenPotatoNG |
 | n/a | RustPotato LPE | https://github.com/safedv/RustPotato |
+| n/a | S4UTomato LPE | https://github.com/wh0amitz/S4UTomato |
 | n/a | SharpEfsPotato LPE | https://github.com/bugch3ck/SharpEfsPotato |
 | n/a | SigmaPotato LPE | https://github.com/tylerdotrar/SigmaPotato |
 | n/a | SweetPotato LPE | https://github.com/CCob/SweetPotato |
 | n/a | SweetPotato LPE | https://github.com/uknowsec/SweetPotato |
-| n/a | S4UTomato LPE | https://github.com/wh0amitz/S4UTomato |
-| n/a | PrintSpoofer LPE (1) | https://github.com/dievus/printspoofer |
-| n/a | PrintSpoofer LPE (2) | https://github.com/itm4n/PrintSpoofer |
-| n/a | SharpSuccessor LPE | https://github.com/logangoins/SharpSuccessor |
-| n/a | Shocker Container Escape | https://github.com/gabrtv/shocker |
-| n/a | SystemNightmare PE | https://github.com/GossiTheDog/SystemNightmare |
-| n/a | NoFilter LPE | https://github.com/deepinstinct/NoFilter |
-| n/a | OfflineSAM LPE | https://github.com/gtworek/PSBits/tree/master/OfflineSAM |
-| n/a | OfflineAddAdmin2 LPE | https://github.com/gtworek/PSBits/tree/master/OfflineSAM/OfflineAddAdmin2 |
+
+##### Exploit Collections
+
+| CVE | Descritpion | URL |
+| --- | --- | --- |
 | n/a | bin-sploits | https://gitlab.com/exploit-database/exploitdb-bin-sploits |
 | n/a | Kernelhub | https://github.com/Ascotbe/Kernelhub |
-| n/a | Windows Exploits | https://github.com/SecWiki/windows-kernel-exploits |
 | n/a | Pre-compiled Windows Exploits | https://github.com/abatchy17/WindowsExploits |
+| n/a | Windows Exploits | https://github.com/SecWiki/windows-kernel-exploits |
 
 ### Payloads
 
