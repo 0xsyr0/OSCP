@@ -479,10 +479,10 @@ Thank you for reading.
 | CVE | Descritpion | URL |
 | --- | --- | --- |
 | n/a | BadSuccessor LPE | https://github.com/ibaiC/BadSuccessor |
-| n/a | BlueHammer LPE (1) | https://github.com/Nightmare-Eclipse/BlueHammer |
+| n/a | BlueHammer LPE (1) | https://gitlab.com/nightmare-eclipse/BlueHammer |
 | n/a | BlueHammer LPE (2) | https://github.com/0xjustBen/BlueHammer |
 | n/a | Dirty Frag Universal Linux LPE | https://github.com/V4bel/dirtyfrag |
-| n/a | MiniPlasma CVE-2020-17103 partially patched cldflt.sys LPE | https://github.com/Nightmare-Eclipse/MiniPlasma |
+| n/a | MiniPlasma CVE-2020-17103 partially patched cldflt.sys LPE | https://gitlab.com/nightmare-eclipse/MiniPlasma |
 | n/a | NoFilter LPE | https://github.com/deepinstinct/NoFilter |
 | n/a | OfflineSAM LPE | https://github.com/gtworek/PSBits/tree/master/OfflineSAM |
 | n/a | OfflineAddAdmin2 LPE | https://github.com/gtworek/PSBits/tree/master/OfflineSAM/OfflineAddAdmin2 |
