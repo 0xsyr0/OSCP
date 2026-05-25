@@ -471,6 +471,7 @@ Thank you for reading.
 | CVE-2026-31431 | Copy Fail LPE (1) | https://github.com/theori-io/copy-fail-CVE-2026-31431 |
 | CVE-2026-31431 | Copy Fail LPE (2) | https://github.com/painoob/Copy-Fail-Exploit-CVE-2026-31431 |
 | CVE-2026-31635 | DirtyDecrypt / DirtyCBC LPE | https://github.com/v12-security/pocs/tree/main/dirtydecrypt |
+| CVE-2026-41096 | Windows DNS Client RCE | https://github.com/satchfunky/CVE-2026-41096-POC |
 | CVE-2026-42945 | NGINX Rift RCE | https://github.com/DepthFirstDisclosures/Nginx-Rift |
 | CVE-2026-46300 | Fragnesia Universal Linux LPE | https://github.com/v12-security/pocs/blob/main/fragnesia%2FREADME.md |
 
