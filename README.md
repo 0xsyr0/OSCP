@@ -524,6 +524,7 @@ Thank you for reading.
 | --- | --- | --- |
 | n/a | bin-sploits | https://gitlab.com/exploit-database/exploitdb-bin-sploits |
 | n/a | Kernelhub | https://github.com/Ascotbe/Kernelhub |
+| n/a | Next.js v16.2.4 Exploit Collection | https://github.com/dwisiswant0/next-16.2.4-pocs |
 | n/a | Pre-compiled Windows Exploits | https://github.com/abatchy17/WindowsExploits |
 | n/a | Windows Exploits | https://github.com/SecWiki/windows-kernel-exploits |
 
