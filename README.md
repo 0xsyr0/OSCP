@@ -1511,7 +1511,7 @@ stty -a
 stty raw -echo;fg
 Enter
 Enter
-stty rows 37 cols 123
+stty rows 37 cols 123    // stty rows 50 columns 220
 export TERM=xterm-256color
 bash
 ```
