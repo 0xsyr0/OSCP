@@ -92,6 +92,7 @@ Thank you for reading.
 		- [Server-Side Template Injection (SSTI)](#server-side-template-injection-ssti)
 		- [Upload Vulnerabilities](#upload-vulnerabilities)
 		- [wfuzz](#wfuzz)
+		- [WPProbe](#wpprobe)
 		- [WPScan](#wpscan)
 		- [XML External Entity (XXE)](#xml-external-entity-xxe)
 	- [Database Analysis](#database-analysis)
@@ -247,6 +248,7 @@ Thank you for reading.
 | Spose | https://github.com/aancw/spose |
 | Wfuzz | https://github.com/xmendez/wfuzz |
 | WhatWeb | https://github.com/urbanadventurer/WhatWeb |
+| WPProbe | https://github.com/Chocapikk/wpprobe |
 | WPScan | https://github.com/wpscanteam/wpscan |
 
 ### Database Assessment
@@ -2514,6 +2516,13 @@ wfuzz -w /usr/share/wordlists/seclists/Fuzzing/4-digits-0000-9999.txt --hw 31 ht
 
 ```shell
 wfuzz -u 'http://backdoor.htb/wp-content/plugins/ebook-download/filedownload.php?ebookdownloadurl=/proc/FUZZ/cmdline' -z range,900-1000
+```
+
+#### WPProbe
+
+```shell
+wpprobe scan -u https://<RHOST>/
+wpprobe scan -f <FILE>.txt -t 20
 ```
 
 #### WPScan
