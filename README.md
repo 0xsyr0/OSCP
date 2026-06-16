@@ -7798,6 +7798,7 @@ Get-ChildItem . -Force
 GCI -hidden
 type <FILE> | findstr /l <STRING>
 [convert]::ToBase64String((Get-Content -path "<FILE>" -Encoding byte))
+powershell -command "[System.Runtime.InteropServices.RuntimeEnvironment]::GetSystemVersion()"
 ```
 
 ##### Allow Script Execution
