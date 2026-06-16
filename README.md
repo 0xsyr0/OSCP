@@ -5480,11 +5480,13 @@ bloodhound-python -u <USERNAME>@<DOMAIN> -k -no-pass -d <DOMAIN> -dc <RHOST> -ns
 > https://github.com/CravateRouge/bloodyAD/wiki/Access-Control
 
 ```shell
+bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p '<PASSWORD>' get bloodhound                                                         // Get BloodHound dump
 bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> get children 'DC=<DOMAIN>,DC=<DOMAIN>' --type user                       // Get all users of the domain
 bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> get children 'DC=<DOMAIN>,DC=<DOMAIN>' --type computer                   // Get all computers of the domain
 bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> get children 'DC=<DOMAIN>,DC=<DOMAIN>' --type container                  // Get all containers of the domain
 bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> get dnsDump                                                              // Get AD DNS records
 bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> get object Users --attr member                                           // Get group members
+bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> get writable --detail                                                    // Get object permissions
 bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> get object 'DC=<DOMAIN>,DC=<DOMAIN>' --attr msDS-Behavior-Version        // Get AD functional level
 bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> get object 'DC=<DOMAIN>,DC=<DOMAIN>' --attr minPwdLength                 // Get minimum password length policy
 bloodyAD --host <RHOST> -d <DOMAIN> -u <USERNAME> -p <PASSWORD> get object 'DC=<DOMAIN>,DC=<DOMAIN>' --attr ms-DS-MachineAccountQuota    // Read quota for adding computer objects to domain
@@ -8046,6 +8048,7 @@ srvinfo
 
 ```shell
 rusthound-ce -d <DOMAIN> -f <RHOST> -k -c All --zip
+rusthound-ce -u '<USERNAME>' -p '<PASSWORD>' -d <DOMAIN> -f <RHOST> -k -c All --zip
 ```
 
 #### Seatbelt
