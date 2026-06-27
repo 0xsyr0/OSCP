@@ -4652,7 +4652,7 @@ hashcat -m 13100 hashes.kerberoast2 /PATH/TO/WORDLIST/<WORDLIST> -r /usr/share/h
 ```python
 #!/usr/bin/env python3
 
-"""Perform a simple dictionary attack against the output of timeroast.py. necessary because the NTP 'hash' format 
+"""Perform a simple dictionary attack against the output of timeroast.py. Necessary because the NTP 'hash' format 
 unfortunately does not fit into Hashcat or John right now.
 
 Not even remotely optimized, but still useful for cracking legacy default passwords (where the password is the computer 
