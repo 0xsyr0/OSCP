@@ -236,6 +236,7 @@ Thank you for reading.
 
 | Name | URL |
 | --- | --- |
+| Darkmoon | https://github.com/ASCIT31/Dark-Moon |
 | ffuf | https://github.com/ffuf/ffuf |
 | fpmvuln | https://github.com/hannob/fpmvuln |
 | Gobuster | https://github.com/OJ/gobuster |
