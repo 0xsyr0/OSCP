@@ -584,6 +584,7 @@ Thank you for reading.
 | IppSec (YouTube) | https://www.youtube.com/channel/UCa6eh7gCkpPo5XXUDfygQQA |
 | IppSec.rocks | https://ippsec.rocks/?# |
 | 0xdf | https://0xdf.gitlab.io/ |
+| Xquik | Independent X (Twitter) data API for search, follower export, monitors, and MCP. | https://github.com/Xquik-dev/x-twitter-scraper |
 
 ## Commands
 
@@ -8965,7 +8966,7 @@ sudo -u#-1 /bin/bash
 python3 -m pip install virtualenv
 python3 -m virtualenv venv
 source venv/bin/activate
-pip install git+https://github.com/SecureAuthCorp/impacket
+pip install git+https://github.com/fortra/impacket
 ```
 
 ##### PoC Modification
