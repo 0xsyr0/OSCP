@@ -486,6 +486,7 @@ Thank you for reading.
 | CVE-2026-85706 | GitLab Unauthenticated Arbitrary File Read | https://github.com/guneykabel/cve-2026-85706 |
 | CVE-2026-109618, CVE-2026-109619 |  php2shell RCE (1) | https://github.com/ikow/php2shell-poc |
 | CVE-2026-109618, CVE-2026-109619 |  php2shell RCE (2) | https://github.com/JoasASantos/php2shell-exploit |
+| CVE-2026-123007 | NGINX HTTP/2 Integer Underflow RCE | https://github.com/sfewer-r7/CVE-2026-123007 |
 
 ##### Miscellaneous Exploits
 
